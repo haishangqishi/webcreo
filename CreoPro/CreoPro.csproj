@@ -327,8 +327,11 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\gearlogo.png" />
     <Content Include="Content\images\logo-title.png" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo20.png" />
+    <Content Include="Content\images\xiangongye.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
@@ -355,6 +358,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{D2C6AB05-93AB-4B16-9F60-1505E302864C}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{612531E1-B6BD-4723-9132-F9D4266B54BE}</Project>
+      <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{4AB3DF4D-F3E6-436A-A3AB-06D1D6CD6B7F}</Project>

@@ -66,3 +66,5 @@ D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\DBUtility.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\obj\Debug\CreoPro.csprojResolveAssemblyReference.cache
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\obj\Debug\CreoPro.dll
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\obj\Debug\CreoPro.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\Common.dll
+D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\Common.pdb

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Model;
+using Common;
 
 namespace CreoPro.Controllers
 {
@@ -19,7 +20,7 @@ namespace CreoPro.Controllers
         }
 
         /// <summary>
-        /// 演示后台向界面传值
+        /// 登录验证
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -40,12 +41,21 @@ namespace CreoPro.Controllers
                     {
                         if (isRemeber == "true")
                         {
+                            //写入cookie，用于登录判断
                             HttpCookie Username = new HttpCookie("username", username);
                             HttpCookie Password = new HttpCookie("password", password);
                             Response.Cookies.Add(Username);
-                            Response.Cookies.Add(Password);
+                            Response.Cookies.Add(Password); 
                         }
                     }
+                    //写入Session，用于页面间传值
+                    UserInfo userInfo = new UserInfo();
+                    userInfo.UserName = model_mem.userName;
+                    userInfo.UserPwd = model_mem.userPwd;
+                    userInfo.UserRole = (int)model_mem.userRole;
+                    userInfo.CreoSetup = model_mem.creoSetup;
+                    userInfo.CreoWorkSpace = model_mem.creoWorkSpace;
+                    Session["userEntity"] = userInfo;
                     return RedirectToAction("index", "mainForm");
                 }
             }
@@ -53,7 +63,7 @@ namespace CreoPro.Controllers
         }
 
         /// <summary>
-        /// 演示后台获取界面的值
+        /// 登录
         /// </summary>
         /// <returns></returns>
         public ActionResult login()
@@ -67,6 +77,14 @@ namespace CreoPro.Controllers
                 model_mem = bll_mem.GetMemberByName(Username.Value);
                 if (Password.Value == model_mem.userPwd)
                 {
+                    //写入Session，用于页面间传值
+                    UserInfo userInfo = new UserInfo();
+                    userInfo.UserName = model_mem.userName;
+                    userInfo.UserPwd = model_mem.userPwd;
+                    userInfo.UserRole = (int)model_mem.userRole;
+                    userInfo.CreoSetup = model_mem.creoSetup;
+                    userInfo.CreoWorkSpace = model_mem.creoWorkSpace;
+                    Session["userEntity"] = userInfo;
                     return RedirectToAction("index", "mainForm");
                 }
             }
