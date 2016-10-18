@@ -25,7 +25,6 @@ namespace CreoPro.Controllers
         [HttpPost]
         public ActionResult loginValidate()
         {
-
             string username = Request["username"];
             string password = Request["password"];
             string isRemeber = Request["remember"];
