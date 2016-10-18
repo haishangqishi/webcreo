@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The styles -->
+    <link href='../../Content/css/bootstrap.min.css' rel='stylesheet'>
+    <link href="../../Content/css/login.css" rel="stylesheet">
+    <!-- 引用bootstrap时必须引用jquery -->
+    <script src="../../Scripts/jquery.min.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="../../Content/images/favicon.ico">
+</head>
+<body>
+    <div class="ch-container">
+        <div class="row">
+            <div class="row">
+                <div class="col-md-12 center login-header">
+                    <img src="../../Content/images/logo-title.png" alt="齿轮滚刀系统" height="60px" width="600px" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="well col-md-5 center login-box">
+                    <div class="alert alert-info">
+                        Please login with your Username and Password.
+                    </div>
+                    <form class="form-horizontal" action="/Home/loginValidate" method="post" style="border-style: none">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
+                        <input name="username" type="text" class="form-control" placeholder="用户名">
+                    </div>
+                    <div class="clearfix">
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                        <input name="password" type="password" class="form-control" placeholder="密码">
+                    </div>
+                    <div class="clearfix">
+                    </div>
+                    <div class="input-prepend">
+                        <label class="remember" for="remember">
+                            <input type="checkbox" id="remember" name="remember" value="true">
+                            记住密码</label>
+                    </div>
+                    <div class="clearfix">
+                    </div>
+                    <p class="center col-md-5">
+                        <button type="submit" class="btn btn-primary">
+                            登录</button>
+                    </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

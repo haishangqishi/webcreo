@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="creo_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="creo_dataModelStoreContainer">
+          <EntitySet Name="member" EntityType="creo_dataModel.Store.member" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="parameters" EntityType="creo_dataModel.Store.parameters" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_PARAMETE_REFERENCE_MEMBER" Association="creo_dataModel.Store.FK_PARAMETE_REFERENCE_MEMBER">
+            <End Role="member" EntitySet="member" />
+            <End Role="parameters" EntitySet="parameters" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="mem_id" />
+          </Key>
+          <Property Name="mem_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="varchar" MaxLength="100" />
+          <Property Name="userPwd" Type="varchar" MaxLength="100" />
+          <Property Name="userRole" Type="int" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="20" />
+          <Property Name="sex" Type="int" />
+          <Property Name="creoSetup" Type="varchar" MaxLength="200" />
+          <Property Name="creoWorkSpace" Type="varchar" MaxLength="200" />
+          <Property Name="isWork" Type="int" />
+        </EntityType>
+        <EntityType Name="parameters">
+          <Key>
+            <PropertyRef Name="parm_id" />
+          </Key>
+          <Property Name="parm_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="mem_id" Type="int" />
+          <Property Name="moshu" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="deg" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="kongjing" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="L" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="rongxieNum" Type="int" />
+          <Property Name="zhoutaiD" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="zhoutaiL" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="jiancaoW" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="jiancaoH" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="kongdaoD" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="celeng" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="jiancaoR" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="isStandard" Type="int" />
+          <Property Name="serail" Type="int" />
+          <Property Name="type" Type="int" />
+        </EntityType>
+        <Association Name="FK_PARAMETE_REFERENCE_MEMBER">
+          <End Role="member" Type="creo_dataModel.Store.member" Multiplicity="0..1" />
+          <End Role="parameters" Type="creo_dataModel.Store.parameters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="mem_id" />
+            </Principal>
+            <Dependent Role="parameters">
+              <PropertyRef Name="mem_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="creo_dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="creo_dataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="member" EntityType="creo_dataModel.member" />
+          <EntitySet Name="parameters" EntityType="creo_dataModel.parameters" />
+          <AssociationSet Name="FK_PARAMETE_REFERENCE_MEMBER" Association="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER">
+            <End Role="member" EntitySet="member" />
+            <End Role="parameters" EntitySet="parameters" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="mem_id" />
+          </Key>
+          <Property Name="mem_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="userPwd" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="userRole" Type="Int32" />
+          <Property Name="email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="phone" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="sex" Type="Int32" />
+          <Property Name="creoSetup" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="creoWorkSpace" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="isWork" Type="Int32" />
+          <NavigationProperty Name="parameters" Relationship="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" FromRole="member" ToRole="parameters" />
+        </EntityType>
+        <EntityType Name="parameters">
+          <Key>
+            <PropertyRef Name="parm_id" />
+          </Key>
+          <Property Name="parm_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mem_id" Type="Int32" />
+          <Property Name="moshu" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="deg" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="kongjing" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="L" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="rongxieNum" Type="Int32" />
+          <Property Name="zhoutaiD" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="zhoutaiL" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="jiancaoW" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="jiancaoH" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="kongdaoD" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="celeng" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="jiancaoR" Type="Decimal" Precision="6" Scale="3" />
+          <Property Name="isStandard" Type="Int32" />
+          <Property Name="serail" Type="Int32" />
+          <Property Name="type" Type="Int32" />
+          <NavigationProperty Name="member" Relationship="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" FromRole="parameters" ToRole="member" />
+        </EntityType>
+        <Association Name="FK_PARAMETE_REFERENCE_MEMBER">
+          <End Role="member" Type="creo_dataModel.member" Multiplicity="0..1" />
+          <End Role="parameters" Type="creo_dataModel.parameters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="mem_id" />
+            </Principal>
+            <Dependent Role="parameters">
+              <PropertyRef Name="mem_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="creo_dataModelStoreContainer" CdmEntityContainer="creo_dataEntities">
+          <EntitySetMapping Name="member">
+            <EntityTypeMapping TypeName="creo_dataModel.member">
+              <MappingFragment StoreEntitySet="member">
+                <ScalarProperty Name="mem_id" ColumnName="mem_id" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+                <ScalarProperty Name="userRole" ColumnName="userRole" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="creoSetup" ColumnName="creoSetup" />
+                <ScalarProperty Name="creoWorkSpace" ColumnName="creoWorkSpace" />
+                <ScalarProperty Name="isWork" ColumnName="isWork" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="parameters">
+            <EntityTypeMapping TypeName="creo_dataModel.parameters">
+              <MappingFragment StoreEntitySet="parameters">
+                <ScalarProperty Name="parm_id" ColumnName="parm_id" />
+                <ScalarProperty Name="mem_id" ColumnName="mem_id" />
+                <ScalarProperty Name="moshu" ColumnName="moshu" />
+                <ScalarProperty Name="deg" ColumnName="deg" />
+                <ScalarProperty Name="kongjing" ColumnName="kongjing" />
+                <ScalarProperty Name="L" ColumnName="L" />
+                <ScalarProperty Name="rongxieNum" ColumnName="rongxieNum" />
+                <ScalarProperty Name="zhoutaiD" ColumnName="zhoutaiD" />
+                <ScalarProperty Name="zhoutaiL" ColumnName="zhoutaiL" />
+                <ScalarProperty Name="jiancaoW" ColumnName="jiancaoW" />
+                <ScalarProperty Name="jiancaoH" ColumnName="jiancaoH" />
+                <ScalarProperty Name="kongdaoD" ColumnName="kongdaoD" />
+                <ScalarProperty Name="celeng" ColumnName="celeng" />
+                <ScalarProperty Name="jiancaoR" ColumnName="jiancaoR" />
+                <ScalarProperty Name="isStandard" ColumnName="isStandard" />
+                <ScalarProperty Name="serail" ColumnName="serail" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="creoData">
+        <EntityTypeShape EntityType="creo_dataModel.member" Width="1.5" PointX="0.75" PointY="1.75" Height="3.1161507161458331" IsExpanded="true" />
+        <EntityTypeShape EntityType="creo_dataModel.parameters" Width="1.5" PointX="3" PointY="1" Height="4.45328857421875" IsExpanded="true" />
+        <AssociationConnector Association="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.3080753580729167" />
+          <ConnectorPoint PointX="3" PointY="3.3080753580729167" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

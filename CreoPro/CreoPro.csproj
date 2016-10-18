@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CCF19370-5723-4D51-A758-B022BF0EC0B6}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CreoPro</RootNamespace>
+    <AssemblyName>CreoPro</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages" />
+    <Reference Include="System.Web.Helpers" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\mainFormController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bower_components\bootstrap-tour\.gitignore" />
+    <Content Include="bower_components\bootstrap-tour\build\css\bootstrap-tour.css" />
+    <Content Include="bower_components\bootstrap-tour\build\css\bootstrap-tour.min.css" />
+    <Content Include="bower_components\bootstrap-tour\build\js\bootstrap-tour.js" />
+    <Content Include="bower_components\bootstrap-tour\build\js\bootstrap-tour.min.js" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\css\bootstrap-tour.css" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\css\bootstrap-tour.min.css" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\css\index.css" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\img\apple-touch-icon-144-precomposed.png" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\img\favicon.png" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\img\masthead-pattern.png" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\js\bootstrap-tour.js" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\js\bootstrap-tour.min.js" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\js\index.js" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\vendor\bootstrap.css" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\vendor\bootstrap.js" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\vendor\bootstrap.min.css" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\vendor\bootstrap.min.js" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\vendor\html5shiv.js" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\vendor\jquery.js" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\vendor\jquery.smoothscroll.js" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\vendor\jquery.smoothscroll.min.js" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\vendor\md5.js" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\vendor\prism.css" />
+    <Content Include="bower_components\bootstrap-tour\docs\assets\vendor\prism.js" />
+    <Content Include="bower_components\bootstrap-tour\docs\index.html" />
+    <Content Include="bower_components\bootstrap-tour\docs\page.html" />
+    <Content Include="bower_components\bootstrap-tour\index.html" />
+    <Content Include="bower_components\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="bower_components\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="bower_components\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="bower_components\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bower_components\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="bower_components\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="bower_components\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bower_components\bootstrap\Gruntfile.js" />
+    <Content Include="bower_components\bootstrap\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="bower_components\bootstrap\grunt\bs-lessdoc-parser.js" />
+    <Content Include="bower_components\bootstrap\grunt\bs-raw-files-generator.js" />
+    <Content Include="bower_components\bootstrap\js\affix.js" />
+    <Content Include="bower_components\bootstrap\js\alert.js" />
+    <Content Include="bower_components\bootstrap\js\button.js" />
+    <Content Include="bower_components\bootstrap\js\carousel.js" />
+    <Content Include="bower_components\bootstrap\js\collapse.js" />
+    <Content Include="bower_components\bootstrap\js\dropdown.js" />
+    <Content Include="bower_components\bootstrap\js\modal.js" />
+    <Content Include="bower_components\bootstrap\js\popover.js" />
+    <Content Include="bower_components\bootstrap\js\scrollspy.js" />
+    <Content Include="bower_components\bootstrap\js\tab.js" />
+    <Content Include="bower_components\bootstrap\js\tooltip.js" />
+    <Content Include="bower_components\bootstrap\js\transition.js" />
+    <Content Include="bower_components\chosen\chosen-sprite%402x.png" />
+    <Content Include="bower_components\chosen\chosen-sprite.png" />
+    <Content Include="bower_components\chosen\chosen.css" />
+    <Content Include="bower_components\chosen\chosen.jquery.js" />
+    <Content Include="bower_components\chosen\chosen.jquery.min.js" />
+    <Content Include="bower_components\chosen\chosen.min.css" />
+    <Content Include="bower_components\chosen\chosen.proto.js" />
+    <Content Include="bower_components\chosen\chosen.proto.min.js" />
+    <Content Include="bower_components\chosen\docsupport\chosen.png" />
+    <Content Include="bower_components\chosen\docsupport\oss-credit.png" />
+    <Content Include="bower_components\chosen\docsupport\prism.css" />
+    <Content Include="bower_components\chosen\docsupport\prism.js" />
+    <Content Include="bower_components\chosen\docsupport\style.css" />
+    <Content Include="bower_components\chosen\index.html" />
+    <Content Include="bower_components\chosen\index.proto.html" />
+    <Content Include="bower_components\chosen\options.html" />
+    <Content Include="bower_components\colorbox\content\ajax.html" />
+    <Content Include="bower_components\colorbox\content\daisy%402x.jpg" />
+    <Content Include="bower_components\colorbox\content\daisy.jpg" />
+    <Content Include="bower_components\colorbox\content\homer.jpg" />
+    <Content Include="bower_components\colorbox\content\marylou.jpg" />
+    <Content Include="bower_components\colorbox\content\ohoopee1.jpg" />
+    <Content Include="bower_components\colorbox\content\ohoopee2.jpg" />
+    <Content Include="bower_components\colorbox\content\ohoopee3.jpg" />
+    <Content Include="bower_components\colorbox\example1\colorbox.css" />
+    <Content Include="bower_components\colorbox\example1\images\border.png" />
+    <Content Include="bower_components\colorbox\example1\images\controls.png" />
+    <Content Include="bower_components\colorbox\example1\images\loading.gif" />
+    <Content Include="bower_components\colorbox\example1\images\loading_background.png" />
+    <Content Include="bower_components\colorbox\example1\images\overlay.png" />
+    <Content Include="bower_components\colorbox\example1\index.html" />
+    <Content Include="bower_components\colorbox\example2\colorbox.css" />
+    <Content Include="bower_components\colorbox\example2\images\controls.png" />
+    <Content Include="bower_components\colorbox\example2\images\loading.gif" />
+    <Content Include="bower_components\colorbox\example2\index.html" />
+    <Content Include="bower_components\colorbox\example3\colorbox.css" />
+    <Content Include="bower_components\colorbox\example3\images\controls.png" />
+    <Content Include="bower_components\colorbox\example3\images\loading.gif" />
+    <Content Include="bower_components\colorbox\example3\index.html" />
+    <Content Include="bower_components\colorbox\example4\colorbox.css" />
+    <Content Include="bower_components\colorbox\example4\images\border1.png" />
+    <Content Include="bower_components\colorbox\example4\images\border2.png" />
+    <Content Include="bower_components\colorbox\example4\images\loading.gif" />
+    <Content Include="bower_components\colorbox\example4\index.html" />
+    <Content Include="bower_components\colorbox\example5\colorbox.css" />
+    <Content Include="bower_components\colorbox\example5\images\border.png" />
+    <Content Include="bower_components\colorbox\example5\images\controls.png" />
+    <Content Include="bower_components\colorbox\example5\images\loading.gif" />
+    <Content Include="bower_components\colorbox\example5\images\loading_background.png" />
+    <Content Include="bower_components\colorbox\example5\index.html" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-ar.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-bg.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-ca.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-cs.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-da.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-de.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-es.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-et.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-fa.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-fi.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-fr.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-gl.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-he.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-hr.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-hu.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-id.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-it.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-ja.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-kr.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-lv.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-nl.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-no.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-pl.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-pt-br.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-ro.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-ru.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-si.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-sk.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-sv.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-tr.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-uk.js" />
+    <Content Include="bower_components\colorbox\i18n\jquery.colorbox-zh-CN.js" />
+    <Content Include="bower_components\colorbox\jquery.colorbox-min.js" />
+    <Content Include="bower_components\colorbox\jquery.colorbox.js" />
+    <Content Include="bower_components\flot\.gitignore" />
+    <Content Include="bower_components\flot\examples\ajax\index.html" />
+    <Content Include="bower_components\flot\examples\annotating\index.html" />
+    <Content Include="bower_components\flot\examples\axes-interacting\index.html" />
+    <Content Include="bower_components\flot\examples\axes-multiple\index.html" />
+    <Content Include="bower_components\flot\examples\axes-time-zones\date.js" />
+    <Content Include="bower_components\flot\examples\axes-time-zones\index.html" />
+    <Content Include="bower_components\flot\examples\axes-time\index.html" />
+    <Content Include="bower_components\flot\examples\background.png" />
+    <Content Include="bower_components\flot\examples\basic-options\index.html" />
+    <Content Include="bower_components\flot\examples\basic-usage\index.html" />
+    <Content Include="bower_components\flot\examples\canvas\index.html" />
+    <Content Include="bower_components\flot\examples\categories\index.html" />
+    <Content Include="bower_components\flot\examples\examples.css" />
+    <Content Include="bower_components\flot\examples\image\hs-2004-27-a-large-web.jpg" />
+    <Content Include="bower_components\flot\examples\image\index.html" />
+    <Content Include="bower_components\flot\examples\index.html" />
+    <Content Include="bower_components\flot\examples\interacting\index.html" />
+    <Content Include="bower_components\flot\examples\navigate\arrow-down.gif" />
+    <Content Include="bower_components\flot\examples\navigate\arrow-left.gif" />
+    <Content Include="bower_components\flot\examples\navigate\arrow-right.gif" />
+    <Content Include="bower_components\flot\examples\navigate\arrow-up.gif" />
+    <Content Include="bower_components\flot\examples\navigate\index.html" />
+    <Content Include="bower_components\flot\examples\percentiles\index.html" />
+    <Content Include="bower_components\flot\examples\realtime\index.html" />
+    <Content Include="bower_components\flot\examples\resize\index.html" />
+    <Content Include="bower_components\flot\examples\selection\index.html" />
+    <Content Include="bower_components\flot\examples\series-errorbars\index.html" />
+    <Content Include="bower_components\flot\examples\series-pie\index.html" />
+    <Content Include="bower_components\flot\examples\series-toggle\index.html" />
+    <Content Include="bower_components\flot\examples\series-types\index.html" />
+    <Content Include="bower_components\flot\examples\shared\jquery-ui\jquery-ui.min.css" />
+    <Content Include="bower_components\flot\examples\stacking\index.html" />
+    <Content Include="bower_components\flot\examples\symbols\index.html" />
+    <Content Include="bower_components\flot\examples\threshold\index.html" />
+    <Content Include="bower_components\flot\examples\tracking\index.html" />
+    <Content Include="bower_components\flot\examples\visitors\index.html" />
+    <Content Include="bower_components\flot\examples\zooming\index.html" />
+    <Content Include="bower_components\flot\excanvas.js" />
+    <Content Include="bower_components\flot\excanvas.min.js" />
+    <Content Include="bower_components\flot\jquery.colorhelpers.js" />
+    <Content Include="bower_components\flot\jquery.flot.canvas.js" />
+    <Content Include="bower_components\flot\jquery.flot.categories.js" />
+    <Content Include="bower_components\flot\jquery.flot.crosshair.js" />
+    <Content Include="bower_components\flot\jquery.flot.errorbars.js" />
+    <Content Include="bower_components\flot\jquery.flot.fillbetween.js" />
+    <Content Include="bower_components\flot\jquery.flot.image.js" />
+    <Content Include="bower_components\flot\jquery.flot.js" />
+    <Content Include="bower_components\flot\jquery.flot.navigate.js" />
+    <Content Include="bower_components\flot\jquery.flot.pie.js" />
+    <Content Include="bower_components\flot\jquery.flot.resize.js" />
+    <Content Include="bower_components\flot\jquery.flot.selection.js" />
+    <Content Include="bower_components\flot\jquery.flot.stack.js" />
+    <Content Include="bower_components\flot\jquery.flot.symbol.js" />
+    <Content Include="bower_components\flot\jquery.flot.threshold.js" />
+    <Content Include="bower_components\flot\jquery.flot.time.js" />
+    <Content Include="bower_components\flot\jquery.js" />
+    <Content Include="bower_components\flot\LICENSE.txt" />
+    <Content Include="bower_components\flot\fullcalendar\dist\fullcalendar.css" />
+    <Content Include="bower_components\flot\fullcalendar\dist\fullcalendar.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\fullcalendar.min.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\fullcalendar.print.css" />
+    <Content Include="bower_components\flot\fullcalendar\dist\gcal.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang-all.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\ar-ma.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\ar-sa.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\ar.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\bg.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\ca.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\cs.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\da.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\de-at.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\de.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\el.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\en-au.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\en-ca.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\en-gb.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\es.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\fa.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\fi.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\fr-ca.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\fr.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\hi.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\hr.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\hu.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\id.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\is.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\it.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\ja.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\ko.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\lt.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\lv.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\nl.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\pl.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\pt-br.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\pt.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\ro.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\ru.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\sk.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\sl.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\sr-cyrl.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\sr.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\sv.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\th.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\tr.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\uk.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\vi.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\zh-cn.js" />
+    <Content Include="bower_components\flot\fullcalendar\dist\lang\zh-tw.js" />
+    <Content Include="bower_components\flot\fullcalendar\license.txt" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\default1.css" />
+    <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\menutree.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\logo-title.png" />
+    <Content Include="Content\images\logo20.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Views\mainForm\index.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{D2C6AB05-93AB-4B16-9F60-1505E302864C}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{4AB3DF4D-F3E6-436A-A3AB-06D1D6CD6B7F}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlServerDAL\SqlServerDAL.csproj">
+      <Project>{438F10BC-817C-495D-BAB9-8B6BCE04D3E5}</Project>
+      <Name>SqlServerDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bower_components\bootstrap-tour\.bower.json" />
+    <None Include="bower_components\bootstrap-tour\.travis.yml" />
+    <None Include="bower_components\bootstrap-tour\bower.json" />
+    <None Include="bower_components\bootstrap-tour\composer.json" />
+    <None Include="bower_components\bootstrap-tour\docs\assets\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="bower_components\bootstrap-tour\docs\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="bower_components\bootstrap-tour\docs\assets\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="bower_components\bootstrap-tour\docs\index.coffee" />
+    <None Include="bower_components\bootstrap-tour\docs\index.less" />
+    <None Include="bower_components\bootstrap-tour\Gruntfile.coffee" />
+    <None Include="bower_components\bootstrap-tour\LICENSE" />
+    <None Include="bower_components\bootstrap-tour\package.json" />
+    <None Include="bower_components\bootstrap-tour\README.md" />
+    <None Include="bower_components\bootstrap-tour\src\coffee\bootstrap-tour.coffee" />
+    <None Include="bower_components\bootstrap-tour\src\less\bootstrap-tour.less" />
+    <None Include="bower_components\bootstrap-tour\src\spec\bootstrap-tour.spec.coffee" />
+    <None Include="bower_components\bootstrap\.bower.json" />
+    <None Include="bower_components\bootstrap\bower.json" />
+    <None Include="bower_components\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <None Include="bower_components\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="bower_components\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="bower_components\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="bower_components\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="bower_components\bootstrap\grunt\sauce_browsers.yml" />
+    <None Include="bower_components\bootstrap\less\alerts.less" />
+    <None Include="bower_components\bootstrap\less\badges.less" />
+    <None Include="bower_components\bootstrap\less\bootstrap.less" />
+    <None Include="bower_components\bootstrap\less\breadcrumbs.less" />
+    <None Include="bower_components\bootstrap\less\button-groups.less" />
+    <None Include="bower_components\bootstrap\less\buttons.less" />
+    <None Include="bower_components\bootstrap\less\carousel.less" />
+    <None Include="bower_components\bootstrap\less\close.less" />
+    <None Include="bower_components\bootstrap\less\code.less" />
+    <None Include="bower_components\bootstrap\less\component-animations.less" />
+    <None Include="bower_components\bootstrap\less\dropdowns.less" />
+    <None Include="bower_components\bootstrap\less\forms.less" />
+    <None Include="bower_components\bootstrap\less\glyphicons.less" />
+    <None Include="bower_components\bootstrap\less\grid.less" />
+    <None Include="bower_components\bootstrap\less\input-groups.less" />
+    <None Include="bower_components\bootstrap\less\jumbotron.less" />
+    <None Include="bower_components\bootstrap\less\labels.less" />
+    <None Include="bower_components\bootstrap\less\list-group.less" />
+    <None Include="bower_components\bootstrap\less\media.less" />
+    <None Include="bower_components\bootstrap\less\mixins.less" />
+    <None Include="bower_components\bootstrap\less\mixins\alerts.less" />
+    <None Include="bower_components\bootstrap\less\mixins\background-variant.less" />
+    <None Include="bower_components\bootstrap\less\mixins\border-radius.less" />
+    <None Include="bower_components\bootstrap\less\mixins\buttons.less" />
+    <None Include="bower_components\bootstrap\less\mixins\center-block.less" />
+    <None Include="bower_components\bootstrap\less\mixins\clearfix.less" />
+    <None Include="bower_components\bootstrap\less\mixins\forms.less" />
+    <None Include="bower_components\bootstrap\less\mixins\gradients.less" />
+    <None Include="bower_components\bootstrap\less\mixins\grid-framework.less" />
+    <None Include="bower_components\bootstrap\less\mixins\grid.less" />
+    <None Include="bower_components\bootstrap\less\mixins\hide-text.less" />
+    <None Include="bower_components\bootstrap\less\mixins\image.less" />
+    <None Include="bower_components\bootstrap\less\mixins\labels.less" />
+    <None Include="bower_components\bootstrap\less\mixins\list-group.less" />
+    <None Include="bower_components\bootstrap\less\mixins\nav-divider.less" />
+    <None Include="bower_components\bootstrap\less\mixins\nav-vertical-align.less" />
+    <None Include="bower_components\bootstrap\less\mixins\opacity.less" />
+    <None Include="bower_components\bootstrap\less\mixins\pagination.less" />
+    <None Include="bower_components\bootstrap\less\mixins\panels.less" />
+    <None Include="bower_components\bootstrap\less\mixins\progress-bar.less" />
+    <None Include="bower_components\bootstrap\less\mixins\reset-filter.less" />
+    <None Include="bower_components\bootstrap\less\mixins\resize.less" />
+    <None Include="bower_components\bootstrap\less\mixins\responsive-visibility.less" />
+    <None Include="bower_components\bootstrap\less\mixins\size.less" />
+    <None Include="bower_components\bootstrap\less\mixins\tab-focus.less" />
+    <None Include="bower_components\bootstrap\less\mixins\table-row.less" />
+    <None Include="bower_components\bootstrap\less\mixins\text-emphasis.less" />
+    <None Include="bower_components\bootstrap\less\mixins\text-overflow.less" />
+    <None Include="bower_components\bootstrap\less\mixins\vendor-prefixes.less" />
+    <None Include="bower_components\bootstrap\less\modals.less" />
+    <None Include="bower_components\bootstrap\less\navbar.less" />
+    <None Include="bower_components\bootstrap\less\navs.less" />
+    <None Include="bower_components\bootstrap\less\normalize.less" />
+    <None Include="bower_components\bootstrap\less\pager.less" />
+    <None Include="bower_components\bootstrap\less\pagination.less" />
+    <None Include="bower_components\bootstrap\less\panels.less" />
+    <None Include="bower_components\bootstrap\less\popovers.less" />
+    <None Include="bower_components\bootstrap\less\print.less" />
+    <None Include="bower_components\bootstrap\less\progress-bars.less" />
+    <None Include="bower_components\bootstrap\less\responsive-embed.less" />
+    <None Include="bower_components\bootstrap\less\responsive-utilities.less" />
+    <None Include="bower_components\bootstrap\less\scaffolding.less" />
+    <None Include="bower_components\bootstrap\less\tables.less" />
+    <None Include="bower_components\bootstrap\less\theme.less" />
+    <None Include="bower_components\bootstrap\less\thumbnails.less" />
+    <None Include="bower_components\bootstrap\less\tooltip.less" />
+    <None Include="bower_components\bootstrap\less\type.less" />
+    <None Include="bower_components\bootstrap\less\utilities.less" />
+    <None Include="bower_components\bootstrap\less\variables.less" />
+    <None Include="bower_components\bootstrap\less\wells.less" />
+    <None Include="bower_components\bootstrap\LICENSE" />
+    <None Include="bower_components\bootstrap\package.json" />
+    <None Include="bower_components\bootstrap\README.md" />
+    <None Include="bower_components\chosen\.bower.json" />
+    <None Include="bower_components\colorbox\.bower.json" />
+    <None Include="bower_components\colorbox\bower.json" />
+    <None Include="bower_components\colorbox\colorbox.ai" />
+    <None Include="bower_components\colorbox\colorbox.jquery.json" />
+    <None Include="bower_components\colorbox\README.md" />
+    <None Include="bower_components\flot\.bower.json" />
+    <None Include="bower_components\flot\.travis.yml" />
+    <None Include="bower_components\flot\API.md" />
+    <None Include="bower_components\flot\component.json" />
+    <None Include="bower_components\flot\CONTRIBUTING.md" />
+    <None Include="bower_components\flot\examples\ajax\data-eu-gdp-growth-1.json" />
+    <None Include="bower_components\flot\examples\ajax\data-eu-gdp-growth-2.json" />
+    <None Include="bower_components\flot\examples\ajax\data-eu-gdp-growth-3.json" />
+    <None Include="bower_components\flot\examples\ajax\data-eu-gdp-growth-4.json" />
+    <None Include="bower_components\flot\examples\ajax\data-eu-gdp-growth-5.json" />
+    <None Include="bower_components\flot\examples\ajax\data-eu-gdp-growth.json" />
+    <None Include="bower_components\flot\examples\ajax\data-japan-gdp-growth.json" />
+    <None Include="bower_components\flot\examples\ajax\data-usa-gdp-growth.json" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\africa" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\antarctica" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\asia" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\australasia" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\backward" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\etcetera" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\europe" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\factory" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\iso3166.tab" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\leapseconds" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\northamerica" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\pacificnew" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\solar87" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\solar88" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\solar89" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\southamerica" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\systemv" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\yearistype.sh" />
+    <None Include="bower_components\flot\examples\axes-time-zones\tz\zone.tab" />
+    <None Include="bower_components\flot\FAQ.md" />
+    <None Include="bower_components\flot\flot.jquery.json" />
+    <None Include="bower_components\flot\Makefile" />
+    <None Include="bower_components\flot\NEWS.md" />
+    <None Include="bower_components\flot\package.json" />
+    <None Include="bower_components\flot\PLUGINS.md" />
+    <None Include="bower_components\flot\README.md" />
+    <None Include="bower_components\flot\fullcalendar\.bower.json" />
+    <None Include="bower_components\flot\fullcalendar\bower.json" />
+    <None Include="bower_components\flot\fullcalendar\changelog.md" />
+    <None Include="bower_components\flot\fullcalendar\readme.md" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Member\Detail.cshtml" />
+    <Content Include="Views\Home\login.cshtml" />
+    <Content Include="Views\mainForm\index.cshtml" />
+    <Content Include="Views\Home\ViewPage2.cshtml" />
+    <Content Include="Views\mainForm\dashboard.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5957</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

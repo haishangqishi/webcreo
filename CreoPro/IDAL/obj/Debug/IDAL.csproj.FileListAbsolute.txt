@@ -1,0 +1,7 @@
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\IDAL\bin\Debug\IDAL.dll
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\IDAL\bin\Debug\IDAL.pdb
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\IDAL\obj\Debug\IDAL.dll
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\IDAL\obj\Debug\IDAL.pdb
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\IDAL\bin\Debug\Model.dll
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\IDAL\bin\Debug\Model.pdb
