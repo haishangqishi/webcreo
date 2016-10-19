@@ -3,119 +3,26 @@
 }
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>齿轮滚刀系统</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The styles -->
-    <link href='../../Content/css/bootstrap.min.css' rel='stylesheet'>
-    <link href="../../Content/css/menutree.css" rel="stylesheet">
-    <!-- 引用bootstrap时必须引用jquery -->
-    <script src="../../Scripts/jquery.min.js" type="text/javascript"></script>
-    <script src="../../Scripts/bootstrap.min.js" type="text/javascript"></script>
-    <link rel="shortcut icon" href="../../Content/images/favicon.ico">
-    <script type="text/javascript">
-        $(document).ready(function () {
-            //菜单滑动
-            $('.accordion > a').click(function (e) {
-                e.preventDefault();
-                var $ul = $(this).siblings('ul');
-                var $li = $(this).parent();
-                if ($ul.is(':visible')) $li.removeClass('active');
-                else $li.addClass('active');
-                $ul.slideToggle();
-            });
-            //动态显示用户名
-            $.ajax({
-                type: "post",
-                url: "/mainForm/getCurrentUser",
-                data: {},
-                cache: false,
-                dataType: "json",
-                success: function (data) {
-                    console.info(data);
-                }
-            });
-        });
-    </script>
-</head>
+@*head标签在top页面中*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#contentPage').empty(); //jQuery方法一
+        $('#contentPage').html(''); //jQuery方法二
+    });
+</script>
 <body>
     <!-- 工具条 starts -->
-    <div class="navbar navbar-default" role="navigation">
-        <div class="navbar-inner">
-            <a class="navbar-brand" href="index.html" style="padding-top: 4px">
-                <img alt="Logo" src="../../Content/images/logo.png" class="hidden-xs" height="40px"
-                    width="200px" /></a>
-            <!-- user dropdown starts -->
-            <div class="btn-group pull-right">
-                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <i class="glyphicon glyphicon-user" style="padding-right: 5px"></i><span class="hidden-sm hidden-xs">
-                        admin</span> <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">个人信息</a></li>
-                    <li class="divider"></li>
-                    <li><a href="">退出登录</a></li>
-                </ul>
-            </div>
-            <ul class="collapse navbar-collapse nav navbar-nav" style="padding-top: 8px; padding-left: 50px">
-                <li>
-                    <form action="">
-                    <input placeholder="Search" class="search-query form-control col-md-10" name="query"
-                        type="text">
-                    </form>
-                </li>
-            </ul>
-        </div>
-    </div>
+    @RenderPage("top.cshtml")
     <!-- 工具条 ends -->
     <div class="ch-container">
         <div class="row">
             <!-- 左菜单 starts -->
-            <div class="col-sm-2 col-lg-2">
-                <div class="sidebar-nav">
-                    <div>
-                        <ul class="nav nav-pills nav-stacked main-menu">
-                            <li class="nav-header">主菜单</li>
-                            <li class="active"><a href="index.html"><i class="glyphicon glyphicon-home"></i><span>
-                                主页</span></a> </li>
-                            <li class="accordion"><a href="#"><i class="glyphicon glyphicon-plus"></i><span>系统组成
-                            </span></a>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">参数输入</a></li>
-                                    <li><a href="#">模型显示</a></li>
-                                    <li><a href="#">仿真加工</a></li>
-                                    <li><a href="#">生成NC文件</a></li>
-                                    <li><a href="#">铲磨工艺优化</a></li>
-                                </ul>
-                            </li>
-                            <li class="accordion"><a href="#"><i class="glyphicon glyphicon-plus"></i><span>机床管理
-                            </span></a>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">机床类型</a></li>
-                                    <li><a href="#">使用顺序</a></li>
-                                    <li><a href="#">机床参数设置</a></li>
-                                </ul>
-                            </li>
-                            <li class="accordion"><a href="#"><i class="glyphicon glyphicon-plus"></i><span>系统组成
-                            </span></a>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">刀具类型</a></li>
-                                    <li><a href="#">使用顺序</a></li>
-                                    <li><a href="#">刀具参数设置</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            @RenderPage("left.cshtml")
             <!-- 左菜单 ends -->
-            <!-- 内容页 dashboard.cshtml-->
-            <a href="dashboard.cshtml"><span>Charisma</span></a>
-            <div id="content" class="col-lg-10 col-sm-10">
-                <iframe align="center" width="950" height="170" src="index.html" frameborder="no"
-                    border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+            <!-- 内容页 starts-->
+            <div id="contentPage">
             </div>
+            @RenderPage("dashboard.cshtml")
         </div>
         <hr>
         @*<footer class="row">

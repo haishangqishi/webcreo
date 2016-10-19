@@ -7,6 +7,7 @@ using Common;
 using System.Runtime.Serialization.Json;
 using System.IO;
 using System.Web.Script.Serialization;
+using System.Text;
 
 namespace CreoPro.Controllers
 {
@@ -36,12 +37,9 @@ namespace CreoPro.Controllers
                 MemoryStream ms = new MemoryStream();
                 //将json字符串写入内存流中  
                 serializer.WriteObject(ms, userInfo);
-                StreamReader reader = new StreamReader(ms);
-                ms.Position = 0;
-                string strRes = reader.ReadToEnd();
-                reader.Close();
+                string strJson = Encoding.UTF8.GetString(ms.ToArray());
                 ms.Close();
-                return Json(strRes);
+                return Json(strJson);
             }
             return null;
         }

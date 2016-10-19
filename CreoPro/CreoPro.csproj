@@ -535,6 +535,8 @@
     <Content Include="Views\mainForm\index.cshtml" />
     <Content Include="Views\Home\ViewPage2.cshtml" />
     <Content Include="Views\mainForm\dashboard.cshtml" />
+    <Content Include="Views\mainForm\top.cshtml" />
+    <Content Include="Views\mainForm\left.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
