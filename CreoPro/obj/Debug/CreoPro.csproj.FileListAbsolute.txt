@@ -68,3 +68,5 @@ D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\obj\Debug\CreoPro.dll
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\obj\Debug\CreoPro.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\Common.dll
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\Common.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\obj\Debug\Interop.pfcls.dll
+D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\obj\Debug\CreoPro.csproj.ResolveComReference.cache

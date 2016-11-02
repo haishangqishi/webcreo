@@ -9,23 +9,15 @@ namespace CreoPro.Controllers
 {
     public class MemberController : Controller
     {
-        creo_dataEntities db;
-
-        public MemberController() {
-            db = new creo_dataEntities();
-        }
-
-        public ActionResult Index()
+        #region 页面跳转
+        /// <summary>
+        /// 个人资料
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult memDetial()
         {
             return View();
         }
-
-        [HttpPost]
-        public ActionResult Detail()
-        {
-            ViewData["member"] = db.member.ToList();
-            return View();
-        }
-
+        #endregion
     }
 }

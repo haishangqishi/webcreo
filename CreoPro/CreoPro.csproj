@@ -323,7 +323,9 @@
     <Content Include="Content\css\default1.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\memDetial.css" />
     <Content Include="Content\css\menutree.css" />
+    <Content Include="Content\css\paraInput.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\favicon.ico" />
@@ -337,7 +339,10 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\memDetial.js" />
     <Content Include="Scripts\menu.js" />
+    <Content Include="Scripts\paraInput.js" />
+    <Content Include="Views\mainForm\form.html" />
     <Content Include="Views\mainForm\index.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -531,7 +536,7 @@
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Views\Member\Detail.cshtml" />
+    <Content Include="Views\Member\memDetial.cshtml" />
     <Content Include="Views\Home\login.cshtml" />
     <Content Include="Views\mainForm\index.cshtml" />
     <Content Include="Views\mainForm\dashboard.cshtml" />
@@ -547,7 +552,17 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="pfcls">
+      <Guid>{176453F2-6934-4304-8C9D-126D98C1700E}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -565,7 +580,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>5957</DevelopmentServerPort>
+          <DevelopmentServerPort>27796</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

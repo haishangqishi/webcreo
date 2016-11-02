@@ -12,32 +12,39 @@
             <div>
                 <ul class="nav nav-pills nav-stacked main-menu">
                     <li class="nav-header">主菜单</li>
-                    <li class="active"><a href="dashboard.cshtml"><i class="glyphicon glyphicon-home"></i>
+                    <li class="active"><a href="/mainForm/index"><i class="glyphicon glyphicon-home"></i>
                         <span>主页</span></a> </li>
                     <li class="accordion"><a href="#"><i class="glyphicon glyphicon-plus"></i><span>系统组成
                     </span></a>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#" id="paraInput">参数输入</a></li>
-                            <li><a href="#" id="modelShow">模型显示</a></li>
-                            <li><a href="#" id="simuProc">仿真加工</a></li>
-                            <li><a href="#" id="ncfile">生成NC文件</a></li>
-                            <li><a href="#" id="grindProc">铲磨工艺优化</a></li>
+                            <li class="liClick" id="paraInput"><a href="/mainForm/paraInput">参数输入</a></li>
+                            <li class="liClick" id="modelShow"><a href="/mainForm/modelShow">模型显示</a></li>
+                            <li class="liClick"><a href="/mainForm/simuProc">仿真加工</a></li>
+                            <li class="liClick"><a href="/mainForm/ncfile">生成NC文件</a></li>
+                            <li class="liClick"><a href="/mainForm/grindProc">铲磨工艺优化</a></li>
                         </ul>
                     </li>
                     <li class="accordion"><a href="#"><i class="glyphicon glyphicon-plus"></i><span>机床管理
                     </span></a>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">机床类型</a></li>
-                            <li><a href="#">使用顺序</a></li>
-                            <li><a href="#">机床参数设置</a></li>
+                            <li class="liClick"><a href="#">机床类型</a></li>
+                            <li class="liClick"><a href="#">使用顺序</a></li>
+                            <li class="liClick"><a href="#">机床参数设置</a></li>
                         </ul>
                     </li>
                     <li class="accordion"><a href="#"><i class="glyphicon glyphicon-plus"></i><span>刀具管理
                     </span></a>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">刀具类型</a></li>
-                            <li><a href="#">使用顺序</a></li>
-                            <li><a href="#">刀具参数设置</a></li>
+                            <li class="liClick"><a href="#">刀具类型</a></li>
+                            <li class="liClick"><a href="#">使用顺序</a></li>
+                            <li class="liClick"><a href="#">刀具参数设置</a></li>
+                        </ul>
+                    </li>
+                    <li class="accordion"><a href="#"><i class="glyphicon glyphicon-plus"></i><span>基础信息
+                    </span></a>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="liClick"><a href="/Member/memDetial">个人资料</a></li>
+                            <li class="liClick"><a href="#">系统助手</a></li>
                         </ul>
                     </li>
                 </ul>

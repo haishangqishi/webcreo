@@ -23,32 +23,48 @@
         }
     });
 
-    //菜单点击事件
-//    $('#paraInput').click(function () {
-//        var url = "paraInput.cshtml";
-//        $('#contentPage').empty(); //清空div
-//        $('#contentPage').html("@RenderPage('paraInput.cshtml')"); //向div添加对应网页
-//        $('#contentPage').load(url);
-//    });
-//    $('#modelShow').click(function () {
-//        $('#contentPage').empty(); //清空div
-//        $('#contentPage').html("@RenderPage('modelShow.cshtml')"); //向div添加对应网页
-//    });
+//    var lis = $("li.liClick");
+//    var num = 0;
+//    for (var i = 0; i < lis.length; i++) {
+//        (function (Index) {
+//            lis[i].addEventListener('click', function (e) {
+//                setCookie("liSelected", Index);
+//            }, false);
+//        })(i)
+//    }
 
-    //    var arr = $(".menulink");
-    //    var len = arr.length;
-    //    var strUrl = "";
-    //    for (i = 0; i < len; i++) {
-    //        strUrl = arr[i].href;
-    //        strUrl = strUrl.substring(strUrl.lastIndexOf("/") + 1); //url
-    //        arr[i].addEventListener('click', function () { //为菜单添加点击事件
-    //            console.log(i);
-    //            console.log(strUrl);
-    //            $('#contentPage').empty(); //清空div
-    //            $('#contentPage').html("@RenderPage('" + strUrl + "')"); //向div添加对应网页
-    //        });
-    //    }
+//    var arr = new Array("paraInput", "modelShow");
+
+//    var liIndex = getCookie("liSelected");
+//    if (liIndex != null) {
+//        var liID = arr[liIndex];
+//        var $li = $(liID);
+//        $li.addClass('active');
+//    }
 
 
 
 });
+
+//写入cookies
+function setCookie(name, value) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 30 * 60 * 1000); //30分钟
+    document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+}
+//读取cookies
+function getCookie(name) {
+    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+    if (arr = document.cookie.match(reg))
+        return unescape(arr[2]);
+    else
+        return null;
+}
+//删除cookies
+function delCookie(name) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval = getCookie(name);
+    if (cval != null)
+        document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+}

@@ -1,0 +1,20 @@
+﻿
+/*蓝色label*/
+.blue-label
+{
+    color: #2FA4E7; /*color: #337AB7;*/
+}
+
+/*蓝色input框*/
+.has-success .blue-input
+{
+    border-color: #2FA4E7;
+}
+
+.btn-start, .btn-group-lg > .btn
+{
+    padding: 8px 12px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
