@@ -24,28 +24,30 @@
     });
 
     //菜单点击事件
-    $('#paraInput').click(function () {
-        $('#contentPage').empty(); //清空div
-        $('#contentPage').html("@RenderPage('paraInput.cshtml')"); //向div添加对应网页
-    });
-    $('#modelShow').click(function () {
-        $('#contentPage').empty(); //清空div
-        $('#contentPage').html("@RenderPage('modelShow.cshtml')"); //向div添加对应网页
-    });
+//    $('#paraInput').click(function () {
+//        var url = "paraInput.cshtml";
+//        $('#contentPage').empty(); //清空div
+//        $('#contentPage').html("@RenderPage('paraInput.cshtml')"); //向div添加对应网页
+//        $('#contentPage').load(url);
+//    });
+//    $('#modelShow').click(function () {
+//        $('#contentPage').empty(); //清空div
+//        $('#contentPage').html("@RenderPage('modelShow.cshtml')"); //向div添加对应网页
+//    });
 
-//    var arr = $(".menulink");
-//    var len = arr.length;
-//    var strUrl = "";
-//    for (i = 0; i < len; i++) {
-//        strUrl = arr[i].href;
-//        strUrl = strUrl.substring(strUrl.lastIndexOf("/") + 1); //url
-//        arr[i].addEventListener('click', function () { //为菜单添加点击事件
-//            console.log(i);
-//            console.log(strUrl);
-//            $('#contentPage').empty(); //清空div
-//            $('#contentPage').html("@RenderPage('" + strUrl + "')"); //向div添加对应网页
-//        });
-//    }
+    //    var arr = $(".menulink");
+    //    var len = arr.length;
+    //    var strUrl = "";
+    //    for (i = 0; i < len; i++) {
+    //        strUrl = arr[i].href;
+    //        strUrl = strUrl.substring(strUrl.lastIndexOf("/") + 1); //url
+    //        arr[i].addEventListener('click', function () { //为菜单添加点击事件
+    //            console.log(i);
+    //            console.log(strUrl);
+    //            $('#contentPage').empty(); //清空div
+    //            $('#contentPage').html("@RenderPage('" + strUrl + "')"); //向div添加对应网页
+    //        });
+    //    }
 
 
 

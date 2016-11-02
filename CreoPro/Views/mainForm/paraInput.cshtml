@@ -1,44 +1,60 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <title></title>
 </head>
 <body>
-    <div id="content" class="col-lg-10 col-sm-10">
-        <div>
-            <ul class="breadcrumb">
-                <li><a href="#">系统组成</a> </li>
-                <li><a href="#">参数输入</a> </li>
-            </ul>
-        </div>
+    <!-- 工具条 starts -->
+    @RenderPage("top.cshtml")
+    <!-- 工具条 ends -->
+    <div class="ch-container">
         <div class="row">
-            <div class="box col-md-4">
-                <div class="box-inner homepage-box">
-                    <div class="box-header well">
-                        <h2>
-                            <i class="glyphicon glyphicon-th"></i>Tabs</h2>
-                        <div class="box-icon">
-                            <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog">
-                            </i></a><a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up">
-                            </i></a><a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove">
-                            </i></a>
+            <!-- 左菜单 starts -->
+            @RenderPage("left.cshtml")
+            <!-- 左菜单 ends -->
+            <!-- 内容页 starts-->
+            <div id="content" class="col-lg-10 col-sm-10">
+                <div>
+                    <ul class="breadcrumb">
+                        <li><a href="#">系统组成</a> </li>
+                        <li><a href="#">参数输入</a> </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="box col-md-4">
+                        <div class="box-inner homepage-box">
+                            <div class="box-header well">
+                                <h2>
+                                    <i class="glyphicon glyphicon-th"></i>Tabs</h2>
+                                <div class="box-icon">
+                                    <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog">
+                                    </i></a><a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up">
+                                    </i></a><a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove">
+                                    </i></a>
+                                </div>
+                            </div>
+                            <div class="box-content">
+                                <ul class="nav nav-tabs" id="myTab">
+                                    <li class="active"><a href="#info">Info</a></li>
+                                    <li><a href="#custom">Custom</a></li>
+                                    <li><a href="#messages">Messages</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="box-content">
-                        <ul class="nav nav-tabs" id="myTab">
-                            <li class="active"><a href="#info">Info</a></li>
-                            <li><a href="#custom">Custom</a></li>
-                            <li><a href="#messages">Messages</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+        <hr>
+        @*<footer class="row">
+            <p class="col-md-9 col-sm-9 col-xs-12 copyright">
+                &copy; Xi'an Technological University 2016</p>
+            <p class="col-md-3 col-sm-3 col-xs-12 powered-by">
+                Powered by: School of Mechatronic Engineering</p>
+        </footer>*@
     </div>
 </body>
 </html>
