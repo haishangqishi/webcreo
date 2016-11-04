@@ -17,6 +17,5 @@ D:\VSsave\VS2010save\creo\creoPro\creoPro\Model\obj\Debug\Model.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\Model\bin\Debug\Model.dll.config
 D:\VSsave\VS2010save\webcreo\creoPro\Model\bin\Debug\Model.dll
 D:\VSsave\VS2010save\webcreo\creoPro\Model\bin\Debug\Model.pdb
-D:\VSsave\VS2010save\webcreo\creoPro\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 D:\VSsave\VS2010save\webcreo\creoPro\Model\obj\Debug\Model.dll
 D:\VSsave\VS2010save\webcreo\creoPro\Model\obj\Debug\Model.pdb

@@ -2,13 +2,13 @@
 
     //折叠框效果
     $('#mem_aMin').click(function () {
-        var divcss = $('#memMin').attr("style").toString();
+        var divcss = $('#memDiv').attr("style").toString();
         if (divcss.indexOf("block") >= 0) {
-            $('#memMin').css("display", "none");
+            $('#memDiv').slideToggle(500);
             $('#mem_iMin').removeClass("glyphicon-chevron-up");
             $('#mem_iMin').addClass("glyphicon-chevron-down");
         } else {
-            $('#memMin').css("display", "block");
+            $('#memDiv').show(500);
             $('#mem_iMin').removeClass("glyphicon-chevron-down");
             $('#mem_iMin').addClass("glyphicon-chevron-up");
         }
