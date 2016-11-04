@@ -17,16 +17,30 @@
     });
 
     //折叠框效果
-    $('#aMin1').click(function () {
-        var divcss = $('#memMin1').attr("style").toString();
+    $('#para_aMin').click(function () {
+        var divcss = $('#paraMin').attr("style").toString();
         if (divcss.indexOf("block") >= 0) {
-            $('#memMin1').css("display", "none");
-            $('#iMin1').removeClass("glyphicon-chevron-up");
-            $('#iMin1').addClass("glyphicon-chevron-down");
+            $('#paraMin').css("display", "none");
+            $('#para_iMin').removeClass("glyphicon-chevron-up");
+            $('#para_iMin').addClass("glyphicon-chevron-down");
         } else {
-            $('#memMin1').css("display", "block");
-            $('#iMin1').removeClass("glyphicon-chevron-down");
-            $('#iMin1').addClass("glyphicon-chevron-up");
+            $('#paraMin').css("display", "block");
+            $('#para_iMin').removeClass("glyphicon-chevron-down");
+            $('#para_iMin').addClass("glyphicon-chevron-up");
+        }
+    });
+
+    //折叠框效果
+    $('#paralist_aMin').click(function () {
+        var divcss = $('#paralistMin').attr("style").toString();
+        if (divcss.indexOf("block") >= 0) {
+            $('#paralistMin').css("display", "none");
+            $('#paralist_iMin').removeClass("glyphicon-chevron-up");
+            $('#paralist_iMin').addClass("glyphicon-chevron-down");
+        } else {
+            $('#paralistMin').css("display", "block");
+            $('#paralist_iMin').removeClass("glyphicon-chevron-down");
+            $('#paralist_iMin').addClass("glyphicon-chevron-up");
         }
     });
 

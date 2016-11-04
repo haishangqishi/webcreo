@@ -54,6 +54,7 @@ D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\CreoPro.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\BLL.dll
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\Common.dll
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\Model.dll
+D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\Newtonsoft.Json.dll
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\SqlServerDAL.dll
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\IDAL.dll
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\DALFactory.dll
@@ -70,4 +71,3 @@ D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\obj\Debug\Interop.pfcls.dll
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\obj\Debug\CreoPro.csproj.ResolveComReference.cache
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\obj\Debug\CreoPro.dll
 D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\obj\Debug\CreoPro.pdb
-D:\VSsave\VS2010save\webcreo\creoPro\CreoPro\bin\Newtonsoft.Json.dll

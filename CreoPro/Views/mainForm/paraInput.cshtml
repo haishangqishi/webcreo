@@ -23,18 +23,19 @@
                         <li><a href="/mainForm/paraInput">参数输入</a></li>
                     </ul>
                 </div>
+                <!-- 探险入口 starts-->
                 <div class="row">
                     <div class="box col-md-12">
                         <div class="box-inner">
                             <div class="box-header well" data-original-title="">
                                 <h2 class="h-blue">
-                                    <i class="glyphicon glyphicon-edit"></i>参数基地</h2>
+                                    <i class="glyphicon glyphicon-edit"></i>探险入口</h2>
                                 <div class="box-icon">
-                                    <a href="#" id="aMin1" class="btn btn-minimize btn-round btn-default"><i id="iMin1"
+                                    <a href="#" id="para_aMin" class="btn btn-minimize btn-round btn-default"><i id="para_iMin"
                                         class="glyphicon glyphicon-chevron-up"></i></a>
                                 </div>
                             </div>
-                            <div id="memMin1" class="box-content" style="height: 290px; display: block">
+                            <div id="paraMin" class="box-content" style="height: 290px; display: block">
                                 <div class="col-lg-10 col-sm-10">
                                     <div class="form-group has-success col-md-2">
                                         <label class="blue-label" for="mushu">
@@ -108,6 +109,94 @@
                         </div>
                     </div>
                 </div>
+                <!-- 探险入口 ends-->
+                <!-- 参数基地 starts-->
+                 <div class="row">
+                    <div class="box col-md-12">
+                        <div class="box-inner">
+                            <div class="box-header well" data-original-title="">
+                                <h2 class="h-blue">
+                                    <i class="glyphicon glyphicon-edit"></i>参数基地</h2>
+                                <div class="box-icon">
+                                    <a href="#" id="paralist_aMin" class="btn btn-minimize btn-round btn-default"><i id="paralist_iMin"
+                                        class="glyphicon glyphicon-chevron-up"></i></a>
+                                </div>
+                            </div>
+                            <div id="paralistMin" class="box-content" style="height: 290px; display: block">
+                                <div class="col-lg-10 col-sm-10">
+                                    <div class="form-group has-success col-md-2">
+                                        <label class="blue-label" for="mushu">
+                                            模数</label>
+                                        <input type="text" class="form-control blue-input" id="mushu">
+                                    </div>
+                                    <div class="form-group has-success col-md-2">
+                                        <label class="blue-label" for="rongxieNum">
+                                            容屑槽数</label>
+                                        <input type="text" class="form-control blue-input" id="rongxieNum">
+                                    </div>
+                                    <div class="form-group has-success col-md-2">
+                                        <label class="blue-label" for="waijing">
+                                            外径</label>
+                                        <input type="text" class="form-control blue-input" id="waijing">
+                                    </div>
+                                    <div class="form-group has-success col-md-2">
+                                        <label class="blue-label" for="quanchang">
+                                            全长</label>
+                                        <input type="text" class="form-control blue-input" id="quanchang">
+                                    </div>
+                                </div>
+                                <div class="col-lg-10 col-sm-10">
+                                    <div class="form-group has-success col-md-2">
+                                        <label class="blue-label" for="zhoutaiD">
+                                            轴台直径</label>
+                                        <input type="text" class="form-control blue-input" id="zhoutaiD">
+                                    </div>
+                                    <div class="form-group has-success col-md-2">
+                                        <label class="blue-label" for="zhoutaiL">
+                                            轴台长度</label>
+                                        <input type="text" class="form-control blue-input" id="zhoutaiL">
+                                    </div>
+                                    <div class="form-group has-success col-md-2">
+                                        <label class="blue-label" for="neikongD">
+                                            内孔直径</label>
+                                        <input type="text" class="form-control blue-input" id="neikongD">
+                                    </div>
+                                    <div class="form-group has-success col-md-2">
+                                        <label class="blue-label" for="kongdaoD">
+                                            内孔空刀直径</label>
+                                        <input type="text" class="form-control blue-input" id="kongdaoD">
+                                    </div>
+                                </div>
+                                <div class="col-lg-10 col-sm-10">
+                                    <div class="form-group has-success col-md-2">
+                                        <label class="blue-label" for="kongdaoL">
+                                            内孔空刀长度</label>
+                                        <input type="text" class="form-control blue-input" id="kongdaoL">
+                                    </div>
+                                    <div class="form-group has-success col-md-2">
+                                        <label class="blue-label" for="jiancaoW">
+                                            键槽宽度</label>
+                                        <input type="text" class="form-control blue-input" id="jiancaoW">
+                                    </div>
+                                    <div class="form-group has-success col-md-2">
+                                        <label class="blue-label" for="daojiaoL">
+                                            倒角边长</label>
+                                        <input type="text" class="form-control blue-input" id="daojiaoL">
+                                    </div>
+                                </div>
+                                <div class="col-lg-10 col-sm-10">
+                                    <div class="form-group has-success col-md-5">
+                                    </div>
+                                    <button id="startCreo" class="btn btn-primary btn-start">
+                                        启动Creo</button>
+                                    <button id="createModel" class="btn btn-primary btn-start">
+                                        生成模型</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 参数基地 ends-->
             </div>
             <!-- 内容页 ends -->
             <!-- 模态框 starts -->
