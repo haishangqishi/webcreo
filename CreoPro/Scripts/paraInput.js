@@ -9,6 +9,9 @@
             cache: false,
             dataType: "json",
             success: function (data) {
+                console.log(data);
+                $("#msg").text(data);
+                $("#myModal").modal();
             }
         });
     });

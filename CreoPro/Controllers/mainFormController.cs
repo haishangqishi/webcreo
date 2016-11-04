@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using Common;
 using System.Runtime.Serialization.Json;
 using System.IO;
-using System.Web.Script.Serialization;
 using System.Text;
 using pfcls;
 
@@ -76,14 +75,7 @@ namespace CreoPro.Controllers
             if (Session["userEntity"] != null)
             {
                 UserInfo userInfo = Session["userEntity"] as UserInfo;
-                //将对象序列化json  
-                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(UserInfo));
-                //创建存储区为内存流  
-                MemoryStream ms = new MemoryStream();
-                //将json字符串写入内存流中  
-                serializer.WriteObject(ms, userInfo);
-                string strJson = Encoding.UTF8.GetString(ms.ToArray());
-                ms.Close();
+                string strJson = JsonUtils.entityToJsonStr(userInfo);
                 return Json(strJson);
             }
             return null;
@@ -96,7 +88,23 @@ namespace CreoPro.Controllers
         [HttpPost]
         public ActionResult startCreo()
         {
-            runProE("D:\\creo2.0\\Creo 2.0\\Parametric\\bin\\parametric.exe", "D:\\creo2.0Save");
+            UserInfo userInfo = null;
+            if (Session["userEntity"] != null)
+            {
+                userInfo = Session["userEntity"] as UserInfo;
+                string creoSetup = userInfo.CreoSetup;//安装路径
+                string creoWorkSpace = userInfo.CreoWorkSpace;//工作目录
+                if (creoSetup != "" && creoSetup != "")
+                {
+                    //runProE("D:\\creo2.0\\Creo 2.0\\Parametric\\bin\\parametric.exe", "D:\\creo2.0Save");
+                    runProE(creoSetup, creoWorkSpace);
+                    return null;
+                }
+                else
+                {
+                    return Json("Creo安装路径或者Creo工作目录为空！");
+                }
+            }
             return null;
         }
 

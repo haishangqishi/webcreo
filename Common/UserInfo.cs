@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.Serialization;
 
 namespace Common
 {
@@ -11,6 +12,8 @@ namespace Common
         private string userName = "";
         private string userPwd = "";
         private int userRole = 0;
+        private string email = "";
+        private string phone = "";
         private string creoSetup = "";
         private string creoWorkSpace = "";
 
@@ -32,6 +35,18 @@ namespace Common
             set { userRole = value; }
         }
 
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+
+        public string Phone
+        {
+            get { return phone; }
+            set { phone = value; }
+        }
+
         public string CreoSetup
         {
             get { return creoSetup; }
@@ -43,7 +58,6 @@ namespace Common
             get { return creoWorkSpace; }
             set { creoWorkSpace = value; }
         }
-
 
     }
 }

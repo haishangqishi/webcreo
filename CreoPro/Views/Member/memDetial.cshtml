@@ -35,49 +35,55 @@
                                 </div>
                             </div>
                             <div id="memMin" class="box-content" style="height: 360px; display: block">
-                                <form action="" role="form">
+                                <form id="memForm" action="" method="post" role="form">
                                 <div class="col-lg-10 col-sm-10">
                                     <div class="form-group col-md-4">
                                         <label for="txtusername" class="blue-label">
-                                            姓名</label>
-                                        <input type="text" class="form-control blue-input" id="txtusername" placeholder="姓名">
+                                            用户名</label>
+                                        <input type="text" class="form-control blue-input" id="txtusername" name="txtusername"
+                                            placeholder="用户名">
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="txtpwd" class="blue-label">
                                             密码</label>
-                                        <input type="password" class="form-control blue-input" id="txtpwd" placeholder="密码">
+                                        <input type="password" class="form-control blue-input" id="txtpwd" name="txtpwd"
+                                            placeholder="密码">
                                     </div>
                                 </div>
                                 <div class="col-lg-10 col-sm-10">
                                     <div class="form-group col-md-4">
                                         <label for="txtphone" class="blue-label">
                                             电话</label>
-                                        <input type="text" class="form-control blue-input" id="txtphone" placeholder="电话">
+                                        <input type="text" class="form-control blue-input" id="txtphone" name="txtphone"
+                                            placeholder="电话">
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="txtemail" class="blue-label">
                                             邮箱</label>
-                                        <input type="email" class="form-control blue-input" id="txtemail" placeholder="邮箱">
+                                        <input type="email" class="form-control blue-input" id="txtemail" name="txtemail"
+                                            placeholder="邮箱">
                                     </div>
                                 </div>
                                 <div class="col-lg-10 col-sm-10">
                                     <div class="form-group col-md-8">
-                                        <label for="txtphone" class="blue-label">
+                                        <label for="txtcreoSetup" class="blue-label">
                                             Creo安装路径</label>
-                                        <input type="text" class="form-control blue-input" id="txtphone" placeholder="如：D:\creo2.0\Creo 2.0\Parametric\bin\parametric.exe">
+                                        <input type="text" class="form-control blue-input" id="txtcreoSetup" name="txtcreoSetup"
+                                            placeholder="如：D:\creo2.0\Creo 2.0\Parametric\bin\parametric.exe">
                                     </div>
                                 </div>
                                 <div class="col-lg-10 col-sm-10">
                                     <div class="form-group col-md-8">
-                                        <label for="txtphone" class="blue-label">
+                                        <label for="txtcreoWorkSpace" class="blue-label">
                                             Creo工作目录</label>
-                                        <input type="text" class="form-control blue-input" id="txtphone" placeholder="如：D:\creo2.0Save">
+                                        <input type="text" class="form-control blue-input" id="txtcreoWorkSpace" name="txtcreoWorkSpace"
+                                            placeholder="如：D:\creo2.0Save">
                                     </div>
                                 </div>
                                 <div class="col-lg-10 col-sm-10">
                                     <div class="form-group col-md-7">
                                     </div>
-                                    <button type="submit" class="btn btn-primary">
+                                    <button id="saveMem" type="submit" class="btn btn-primary">
                                         保存</button>
                                 </div>
                                 </form>
@@ -86,6 +92,10 @@
                     </div>
                 </div>
             </div>
+            <!-- 内容页 ends -->
+            <!-- 模态框 starts -->
+            @RenderPage("../mainForm/modal.cshtml")
+            <!-- 模态框 ends -->
         </div>
         <hr>
     </div>
