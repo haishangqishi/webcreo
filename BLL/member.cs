@@ -14,7 +14,7 @@ namespace BLL
         public member()
         { }
 
-        int Add(Model.member model)
+        public int Add(Model.member model)
         {
             return dal.Add(model);
         }

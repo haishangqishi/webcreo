@@ -23,27 +23,6 @@
         }
     });
 
-//    var lis = $("li.liClick");
-//    var num = 0;
-//    for (var i = 0; i < lis.length; i++) {
-//        (function (Index) {
-//            lis[i].addEventListener('click', function (e) {
-//                setCookie("liSelected", Index);
-//            }, false);
-//        })(i)
-//    }
-
-//    var arr = new Array("paraInput", "modelShow");
-
-//    var liIndex = getCookie("liSelected");
-//    if (liIndex != null) {
-//        var liID = arr[liIndex];
-//        var $li = $(liID);
-//        $li.addClass('active');
-//    }
-
-
-
 });
 
 //写入cookies

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Model;
 using Common;
+using System.IO;
 
 namespace CreoPro.Controllers
 {
@@ -53,8 +54,12 @@ namespace CreoPro.Controllers
                         //写入Session，用于页面间传值
                         UserInfo userInfo = new UserInfo();
                         userInfo.UserName = model_mem.userName;
+
                         userInfo.UserPwd = model_mem.userPwd;
-                        userInfo.UserRole = (int)model_mem.userRole;
+                        if (model_mem.userRole != null)
+                        {
+                            userInfo.UserRole = (int)model_mem.userRole;
+                        }
                         userInfo.Email = model_mem.email;
                         userInfo.Phone = model_mem.phone;
                         userInfo.CreoSetup = model_mem.creoSetup;
@@ -88,7 +93,10 @@ namespace CreoPro.Controllers
                         UserInfo userInfo = new UserInfo();
                         userInfo.UserName = model_mem.userName;
                         userInfo.UserPwd = model_mem.userPwd;
-                        userInfo.UserRole = (int)model_mem.userRole;
+                        if (model_mem.userRole != null)
+                        {
+                            userInfo.UserRole = (int)model_mem.userRole;
+                        }
                         userInfo.Email = model_mem.email;
                         userInfo.Phone = model_mem.phone;
                         userInfo.CreoSetup = model_mem.creoSetup;
@@ -100,6 +108,31 @@ namespace CreoPro.Controllers
             }
             return View();
         }
+
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult register()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 退出登录
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult loginout()
+        {
+            if (Session["userEntity"] != null)
+            {
+                Session.Remove("userEntity");//清除Session
+                Response.Cookies["username"].Expires = System.DateTime.Now.AddSeconds(-1);//Expires过期时间
+                Response.Cookies["password"].Expires = System.DateTime.Now.AddSeconds(-1);
+            }
+            return RedirectToAction("login");
+        }
+
 
     }
 }

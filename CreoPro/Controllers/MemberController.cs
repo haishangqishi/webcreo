@@ -91,6 +91,104 @@ namespace CreoPro.Controllers
             return Json(flag.ToString());
         }
 
+        /// <summary>
+        /// 添加用户
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult addUser()
+        {
+            //获取前台json
+            StreamReader reader = new StreamReader(Request.InputStream);
+            string jsonStr = reader.ReadToEnd();
+            Dictionary<String, Object> map = JsonUtils.jsonToDictionary(jsonStr);
+
+            string username = map["txtusername"].ToString();
+            string password = map["txtpwd"].ToString();
+            string phone = map["txtphone"].ToString();
+            string email = map["txtemail"].ToString();
+            string creoSetup = map["txtcreoSetup"].ToString();
+            string creoWorkSpace = map["txtcreoWorkSpace"].ToString();
+
+            bll_mem = new BLL.member();
+            model_mem = new member();
+            if (StrUtils.strNotNUll(username))
+            {
+                model_mem.userName = username;
+            }
+            if (StrUtils.strNotNUll(password))
+            {
+                model_mem.userPwd = password;
+            }
+            if (StrUtils.strNotNUll(phone))
+            {
+                model_mem.phone = phone;
+            }
+            if (StrUtils.strNotNUll(email))
+            {
+                model_mem.email = email;
+            }
+            if (StrUtils.strNotNUll(creoSetup))
+            {
+                model_mem.creoSetup = creoSetup;
+            }
+            if (StrUtils.strNotNUll(creoWorkSpace))
+            {
+                model_mem.creoWorkSpace = creoWorkSpace;
+            }
+            bll_mem.Add(model_mem);
+
+            return Json("True");
+        }
+
+        /// <summary>
+        /// 验证用户名是否存在
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult hasUserName()
+        {
+            string username = Request["username"];
+
+            bll_mem = new BLL.member();
+            if (StrUtils.strNotNUll(username))
+            {
+                model_mem = bll_mem.GetMemberByName(username);
+            }
+            if (model_mem == null)
+            {
+                return Json("False");
+            }
+            else
+            {
+                return Json("True");
+            }
+        }
+
+        /// <summary>
+        /// 验证密码是否正确
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult rightPwd()
+        {
+            string username = Request["username"];
+            string password = Request["password"];
+
+            bll_mem = new BLL.member();
+            if (StrUtils.strNotNUll(username))
+            {
+                model_mem = bll_mem.GetMemberByName(username);
+            }
+            if (model_mem != null)
+            {
+                if (password == model_mem.userPwd)
+                {
+                    return Json("True");
+                }
+            }
+            return Json("False");
+        }
 
     }
 }

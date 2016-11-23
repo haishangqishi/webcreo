@@ -23,7 +23,6 @@
         dataType: "json",
         success: function (data) {
             var jsonObj = $.parseJSON(data);
-            console.log(jsonObj.phone);
             $("#txtusername").val(jsonObj.userName);
             $("#txtemail").val(jsonObj.email);
             $("#txtphone").val(jsonObj.phone);
@@ -35,7 +34,6 @@
     //保存用户
     $('#saveMem').click(function () {
         var formData = JSON.stringify($('#memForm').serializeObject());
-        console.log("测试form" + formData);
         $.ajax({
             type: "post",
             url: "/Member/updateUser",

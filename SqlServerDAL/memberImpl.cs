@@ -215,7 +215,7 @@ namespace SqlServerDAL
         public Model.member GetMemberByName(string username) {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select  top 1 mem_id,userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,isWork from member ");
-            strSql.Append(" where userName=@username");
+            strSql.Append(" where userName=@username and isWork=1");
             SqlParameter[] parameters = {
                     new SqlParameter("@username", SqlDbType.VarChar,100)
             };

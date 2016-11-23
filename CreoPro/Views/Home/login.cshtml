@@ -5,13 +5,14 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>齿轮滚刀系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The styles -->
     <link href='../../Content/css/bootstrap.min.css' rel='stylesheet'>
     <link href="../../Content/css/login.css" rel="stylesheet">
     <!-- 引用bootstrap时必须引用jquery -->
     <script src="../../Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/login.js" type="text/javascript"></script>
     <link rel="shortcut icon" href="../../Content/images/favicon.ico">
 </head>
 <body>
@@ -27,18 +28,21 @@
                     <div class="alert alert-info">
                         齿轮滚刀乐园之旅，即刻启程......
                     </div>
-                    <form class="form-horizontal" action="/Home/loginValidate" method="post" style="border-style: none">
+                    <form id="loginForm" class="form-horizontal" action="/Home/loginValidate" method="post"
+                    style="border-style: none">
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
-                        <input name="username" type="text" class="form-control" placeholder="用户名">
+                        <input id="username" name="username" type="text" class="form-control" placeholder="用户名">
                     </div>
+                    <span id="usernameError" class="warn">用户不存在！</span>
                     <div class="clearfix">
                     </div>
                     <br>
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
-                        <input name="password" type="password" class="form-control" placeholder="密码">
+                        <input id="password" name="password" type="password" class="form-control" placeholder="密码">
                     </div>
+                    <span id="pwdError" class="warn">密码错误！</span>
                     <div class="clearfix">
                     </div>
                     <div class="input-prepend">
@@ -48,14 +52,18 @@
                     </div>
                     <div class="clearfix">
                     </div>
-                    <p class="center col-md-5">
-                        <button id="btnlogin" type="submit" class="btn btn-primary">
+                    <p class="center col-md-6">
+                        <a id="btnregister" href="/Home/register" class="btn btn-primary">注册</a>
+                        <button id="btnlogin" type="submit" class="btn btn-primary" disabled="disabled">
                             启程</button>
                     </p>
                     </form>
                 </div>
             </div>
         </div>
+        <!-- 模态框 starts -->
+        @RenderPage("../mainForm/modal.cshtml")
+        <!-- 模态框 ends -->
     </div>
 </body>
 </html>
