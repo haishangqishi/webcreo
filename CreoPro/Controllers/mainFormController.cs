@@ -66,11 +66,25 @@ namespace CreoPro.Controllers
         }
         #endregion
 
+        ///// <summary>
+        ///// 菜单点击跳转
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpPost]
+        //public ActionResult redirectUrl()
+        //{
+        //    string uri = Request["uri"];
+        //    //return View(uri);
+        //    //return View("/Views/mainForm/paraInput.cshtml");
+        //    return Redirect("/mainForm/paraInput"); 
+        //}
+
         /// <summary>
         /// 获取当前用户
         /// </summary>
         /// <returns></returns>
-        public ActionResult getCurrentUser()
+        [HttpPost]
+        public JsonResult getCurrentUser()
         {
             if (Session["userEntity"] != null)
             {

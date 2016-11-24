@@ -65,7 +65,8 @@ namespace CreoPro.Controllers
                         userInfo.CreoSetup = model_mem.creoSetup;
                         userInfo.CreoWorkSpace = model_mem.creoWorkSpace;
                         Session["userEntity"] = userInfo;
-                        return RedirectToAction("index", "mainForm");
+                        return View("/Views/mainForm/index.cshtml");//直接返回视图，不在对应文件夹下需要写全路径
+                        //return RedirectToAction("index", "mainForm");//通过action转过去
                     }
                 }
             }
@@ -102,7 +103,7 @@ namespace CreoPro.Controllers
                         userInfo.CreoSetup = model_mem.creoSetup;
                         userInfo.CreoWorkSpace = model_mem.creoWorkSpace;
                         Session["userEntity"] = userInfo;
-                        return RedirectToAction("index", "mainForm");
+                        return View("/Views/mainForm/index.cshtml");
                     }
                 }
             }
@@ -130,7 +131,7 @@ namespace CreoPro.Controllers
                 Response.Cookies["username"].Expires = System.DateTime.Now.AddSeconds(-1);//Expires过期时间
                 Response.Cookies["password"].Expires = System.DateTime.Now.AddSeconds(-1);
             }
-            return RedirectToAction("login");
+            return View("login");//返回View中对应文件夹下的视图
         }
 
 

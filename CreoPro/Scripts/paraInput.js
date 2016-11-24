@@ -16,7 +16,7 @@
         });
     });
 
-    //折叠框效果
+    //参数输入（折叠框效果）
     $('#para_aMin').click(function () {
         var divcss = $('#paraDiv').attr("style").toString();
         if (divcss.indexOf("block") >= 0) {
@@ -30,7 +30,7 @@
         }
     });
 
-    //折叠框效果
+    //参数列表（折叠框效果）
     $('#paralist_aMin').click(function () {
         var divcss = $('#paralistDiv').attr("style").toString();
         if (divcss.indexOf("block") >= 0) {
@@ -43,5 +43,19 @@
             $('#paralist_iMin').addClass("glyphicon-chevron-up");
         }
     });
+
+    //加载参数列表
+//    $.ajax({
+//        type: "post",
+//        url: "/mainForm/selectParaList",
+//        data: {},
+//        cache: false,
+//        dataType: "json",
+//        success: function (data) {
+//            console.log(data);
+//            $("#msg").text(data);
+//            $("#myModal").modal();
+//        }
+//    });
 
 });

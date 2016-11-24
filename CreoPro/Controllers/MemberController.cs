@@ -33,9 +33,7 @@ namespace CreoPro.Controllers
         [HttpPost]
         public JsonResult updateUser()
         {
-            //获取前台json
-            StreamReader reader = new StreamReader(Request.InputStream);
-            string jsonStr = reader.ReadToEnd();
+            string jsonStr = Request["formData"];
             Dictionary<String, Object> map = JsonUtils.jsonToDictionary(jsonStr);
 
             string username = map["txtusername"].ToString();
@@ -98,9 +96,7 @@ namespace CreoPro.Controllers
         [HttpPost]
         public JsonResult addUser()
         {
-            //获取前台json
-            StreamReader reader = new StreamReader(Request.InputStream);
-            string jsonStr = reader.ReadToEnd();
+            string jsonStr = Request["formData"];
             Dictionary<String, Object> map = JsonUtils.jsonToDictionary(jsonStr);
 
             string username = map["txtusername"].ToString();

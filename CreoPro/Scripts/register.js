@@ -27,7 +27,7 @@
         $.ajax({
             type: "post",
             url: "/Member/addUser",
-            data: formData,
+            data: { formData: formData },
             cache: false,
             dataType: "json",
             success: function (data) {

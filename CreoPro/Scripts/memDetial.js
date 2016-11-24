@@ -37,7 +37,7 @@
         $.ajax({
             type: "post",
             url: "/Member/updateUser",
-            data: formData,
+            data: { formData: formData },
             cache: false,
             dataType: "json",
             success: function (data) {
