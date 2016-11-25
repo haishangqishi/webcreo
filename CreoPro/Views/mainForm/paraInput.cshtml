@@ -5,6 +5,18 @@
 <html>
 <head>
     <title>齿轮滚刀系统</title>
+    <script src="../../Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/pagiation.js" type="text/javascript"></script>
+    <script src="../../Scripts/paraInput.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(".tcdPageCode").createPage({
+            pageCount: 10,
+            current: 1,
+            backFn: function (p) {
+                console.log(p);
+            }
+        });
+    </script>
 </head>
 <body>
     <!-- 工具条 starts -->
@@ -104,6 +116,8 @@
                                         启动Creo</button>
                                     <button id="createModel" class="btn btn-primary btn-start">
                                         生成模型</button>
+                                    <button id="test" class="btn btn-primary btn-start">
+                                        测试</button>
                                 </div>
                             </div>
                         </div>
@@ -147,30 +161,33 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                Muhammad Usman
-                                            </td>
-                                            <td class="center">
-                                                2012/03/01
-                                            </td>
-                                            <td>
-                                                Member
-                                            </td>
-                                            <td>
-                                                Member
-                                            </td>
-                                            <td>
-                                                Member
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-success btn-mid" href="#"><i class="glyphicon glyphicon-zoom-in icon-white i-padd">
-                                                </i>查看</a><a class="btn btn-info btn-mid" href="#"><i class="glyphicon glyphicon-edit icon-white i-padd">
-                                                </i>编辑</a><a class="btn btn-danger btn-mid" href="#"><i class="glyphicon glyphicon-trash icon-white i-padd">
-                                                </i>删除</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
+                                        @foreach (var parm in ViewBag.list)
+                                        { 
+                                            <tr>
+                                                <td class="dyn">
+                                                    @parm.moshu
+                                                </td>
+                                                <td>
+                                                    @parm.rongxieNum
+                                                </td>
+                                                <td class="dyn">
+                                                    @parm.deg
+                                                </td>
+                                                <td class="dyn">
+                                                    @parm.L
+                                                </td>
+                                                <td class="dyn">
+                                                    @parm.kongjing
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-success btn-mid" href="#"><i class="glyphicon glyphicon-zoom-in icon-white i-padd">
+                                                    </i>查看</a><a class="btn btn-info btn-mid" href="#"><i class="glyphicon glyphicon-edit icon-white i-padd">
+                                                    </i>编辑</a><a class="btn btn-danger btn-mid" href="#"><i class="glyphicon glyphicon-trash icon-white i-padd">
+                                                    </i>删除</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                        @*<tr>
                                             <td>
                                                 Abraham
                                             </td>
@@ -192,9 +209,11 @@
                                                 </i>编辑</a><a class="btn btn-danger btn-mid" href="#"><i class="glyphicon glyphicon-trash icon-white i-padd">
                                                 </i>删除</a>
                                             </td>
-                                        </tr>
+                                        </tr>*@
                                     </tbody>
                                 </table>
+                            </div>
+                            <div class="tcdPageCode">
                             </div>
                         </div>
                     </div>
@@ -208,6 +227,5 @@
         <!-- 模态框 ends -->
     </div>
     <hr>
-    </div>
 </body>
 </html>

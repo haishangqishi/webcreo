@@ -12,8 +12,11 @@ namespace SqlServerDAL
     class memberImpl : Imember
     {
         public memberImpl()
-		{}
+        { }
 
+        /// <summary>
+        /// 增加一条数据
+        /// </summary>
         public int Add(Model.member model)
         {
             StringBuilder strSql = new StringBuilder();
@@ -53,6 +56,9 @@ namespace SqlServerDAL
             }
         }
 
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
         public bool Update(Model.member model)
         {
             StringBuilder strSql = new StringBuilder();
@@ -100,6 +106,9 @@ namespace SqlServerDAL
             }
         }
 
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
         public bool Delete(int mem_id)
         {
             StringBuilder strSql = new StringBuilder();
@@ -121,6 +130,9 @@ namespace SqlServerDAL
             }
         }
 
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
         public Model.member GetModel(int mem_id)
         {
             StringBuilder strSql = new StringBuilder();
@@ -143,7 +155,10 @@ namespace SqlServerDAL
             }
         }
 
-        public System.Data.DataSet GetList(string strWhere)
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public DataSet GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select mem_id,userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,isWork ");
@@ -155,13 +170,8 @@ namespace SqlServerDAL
             return DbHelperSQL.Query(strSql.ToString());
         }
 
-        public List<Model.member> GetModelList(string strWhere)
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
-        /// 得到一个对象实体
+        /// row转model
         /// </summary>
         public Model.member DataRowToModel(DataRow row)
         {
@@ -212,7 +222,13 @@ namespace SqlServerDAL
             return model;
         }
 
-        public Model.member GetMemberByName(string username) {
+        /// <summary>
+        /// 根据用户名获取人员
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public Model.member GetMemberByName(string username)
+        {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select  top 1 mem_id,userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,isWork from member ");
             strSql.Append(" where userName=@username and isWork=1");

@@ -5,6 +5,7 @@ using System.Text;
 using System.Runtime.Serialization.Json;
 using System.Web.Script.Serialization;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Common
 {
@@ -47,6 +48,18 @@ namespace Common
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        // 从一个对象信息生成Json串  
+        public static string ObjectToJson(object obj)
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+        }
+
+        // 从一个Json串生成对象信息  
+        public static object JsonToObject(string jsonString, object obj)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject(jsonString, obj.GetType());
         }
 
     }

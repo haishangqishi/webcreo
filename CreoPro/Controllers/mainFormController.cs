@@ -14,6 +14,8 @@ namespace CreoPro.Controllers
     public class mainFormController : Controller
     {
         IpfcAsyncConnection asyncConnection = null;
+        private BLL.parameters bll_parm = null;
+        private Model.parameters model_parm = null;
 
         #region 页面跳转
         /// <summary>
@@ -21,14 +23,6 @@ namespace CreoPro.Controllers
         /// </summary>
         /// <returns></returns>
         public ActionResult index()
-        {
-            return View();
-        }
-        /// <summary>
-        /// 参数输入
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult paraInput()
         {
             return View();
         }
@@ -66,19 +60,6 @@ namespace CreoPro.Controllers
         }
         #endregion
 
-        ///// <summary>
-        ///// 菜单点击跳转
-        ///// </summary>
-        ///// <returns></returns>
-        //[HttpPost]
-        //public ActionResult redirectUrl()
-        //{
-        //    string uri = Request["uri"];
-        //    //return View(uri);
-        //    //return View("/Views/mainForm/paraInput.cshtml");
-        //    return Redirect("/mainForm/paraInput"); 
-        //}
-
         /// <summary>
         /// 获取当前用户
         /// </summary>
@@ -95,6 +76,7 @@ namespace CreoPro.Controllers
             return null;
         }
 
+        #region Creo相关
         /// <summary>
         /// 启动Creo
         /// </summary>
@@ -125,8 +107,8 @@ namespace CreoPro.Controllers
         /// <summary>
         /// 行选项：-i 和 -g 标识使 Pro/ENGINEER 运行在无图形，无交互模式
         /// </summary>
-        /// <param name="exePath">Pro/ENGINEER 执行命令的路径</param>
-        /// <param name="workDir">菜单和消息文件的字符串路径</param>
+        /// <param name="exePath">安装路径</param>
+        /// <param name="workDir">工作目录</param>
         public void runProE(string exePath, string workDir)
         {
             //IpfcAsyncConnection asyncConnection = null;
@@ -168,5 +150,61 @@ namespace CreoPro.Controllers
             }
         }
 
+        /// <summary>
+        /// 测试Creo
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult testCreo()
+        {
+            CCpfcAsyncConnection cAC = null;
+            IpfcBaseSession session;
+            try
+            {
+                cAC = new CCpfcAsyncConnection();
+                asyncConnection = cAC.Connect(DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value);
+                session = asyncConnection.Session as IpfcBaseSession;
+
+                //获取模型项母体
+                IpfcModelItemOwner owner = session.CurrentModel as IpfcModelItemOwner;
+                //获取所有的特征
+                CpfcModelItems items = owner.ListItems(EpfcModelItemType.EpfcITEM_FEATURE);
+
+                string aa = session.GetCurrentDirectory();
+                session.ChangeDirectory("D:\\creo2.0Save");
+                aa = session.GetCurrentDirectory();
+                //string bb = session.GetCurrentWS();
+                IpfcModel ipfcModel = session.GetActiveModel();
+                IpfcModel ipfcModel1 = session.CurrentModel;
+                
+                Istringseq message =new Cstringseq();
+                IpfcSession ipfcSession = asyncConnection.Session;
+                ipfcSession.UIShowMessageDialog("abcde", null);
+                //ipfcSession.UIDisplayFeatureParams(
+                //IpfcSelection selection=
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            return null;
+        }
+        #endregion
+
+        #region 参数输入页面
+        /// <summary>
+        /// 获取参数列表
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult paraInput()
+        {
+            bll_parm = new BLL.parameters();
+            List<Model.parameters> list_parm = bll_parm.GetModelList("");
+            string strJson = JsonUtils.ObjectToJson(list_parm);
+            ViewBag.name = "hello";
+            ViewBag.list = list_parm;
+            return View();
+        }
+        #endregion
     }
 }

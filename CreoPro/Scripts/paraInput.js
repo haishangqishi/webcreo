@@ -16,6 +16,22 @@
         });
     });
 
+    //测试Creo按钮
+    $('#test').click(function () {
+        $.ajax({
+            type: "post",
+            url: "/mainForm/testCreo",
+            data: {},
+            cache: false,
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+//                $("#msg").text(data);
+//                $("#myModal").modal();
+            }
+        });
+    });
+
     //参数输入（折叠框效果）
     $('#para_aMin').click(function () {
         var divcss = $('#paraDiv').attr("style").toString();
@@ -45,16 +61,28 @@
     });
 
     //加载参数列表
-//    $.ajax({
-//        type: "post",
-//        url: "/mainForm/selectParaList",
-//        data: {},
-//        cache: false,
-//        dataType: "json",
-//        success: function (data) {
-//            console.log(data);
-//            $("#msg").text(data);
-//            $("#myModal").modal();
+    $.ajax({
+        type: "post",
+        url: "/mainForm/paraInput",
+        data: {},
+        cache: false,
+        success: function (data) {
+            console.log(data);
+        }
+    });
+
+    //过滤table中数据（去掉）
+    $(".dyn").each(function () {
+        var text = $(this).text();
+        $(this).text(parseFloat(text));
+    });
+
+    //分页工具
+//    $(".tcdPageCode").createPage({
+//        pageCount: 10,
+//        current: 1,
+//        backFn: function (p) {
+//            console.log(p);
 //        }
 //    });
 

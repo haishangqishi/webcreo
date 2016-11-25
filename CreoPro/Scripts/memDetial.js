@@ -22,6 +22,7 @@
         cache: false,
         dataType: "json",
         success: function (data) {
+            console.log("json串11" + data);
             var jsonObj = $.parseJSON(data);
             $("#txtusername").val(jsonObj.userName);
             $("#txtemail").val(jsonObj.email);

@@ -31,3 +31,7 @@
     padding: 0px 2px 0px 0px;
 }
 
+th.center, td.center
+{
+    text-align: center;
+}

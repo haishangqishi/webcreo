@@ -20,13 +20,12 @@
         else {
             $li.addClass('active');
             //记录被点击的ul的id(注意：用class属性获取的时，读取控件时有问题)
-            if (getCookie("ulId") == null) {
+            if (sessionStorage.getItem("ulId") == null) {
                 var mm = $ul.attr('id');
                 sessionStorage.setItem("ulId", $ul.attr('id'));
             }
         }
         $ul.slideToggle();
-
     });
 
     //动态显示用户名

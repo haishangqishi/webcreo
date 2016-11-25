@@ -45,7 +45,7 @@ namespace DALFactory
                     objType = Assembly.Load(AssemblyPath).CreateInstance(classNamespace);
                     DataCache.SetCache(classNamespace, objType);// 写入缓存
                 }
-                catch(System.Exception ex)
+                catch (System.Exception ex)
                 {
                     //string str=ex.Message;// 记录错误日志
                 }
@@ -96,13 +96,12 @@ namespace DALFactory
         /// <summary>
         /// 创建parameters数据层接口。参数信息表
         /// </summary>
-        //public static IDAL.Iparameters Createparameters()
-        //{
-
-        //    string ClassNamespace = AssemblyPath + ".parameters";
-        //    object objType = CreateObject(AssemblyPath, ClassNamespace);
-        //    return (IDAL.Iparameters)objType;
-        //}
+        public static IDAL.Iparameters Createparameters()
+        {
+            string ClassNamespace = AssemblyPath + ".parametersImpl";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (IDAL.Iparameters)objType;
+        }
 
     }
 }
