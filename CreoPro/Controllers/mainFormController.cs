@@ -302,27 +302,51 @@ namespace CreoPro.Controllers
                 //获取所有的特征
                 CpfcModelItems items = owner.ListItems(EpfcModelItemType.EpfcITEM_FEATURE);
 
-                CpfcModelItems it = owner.ListItems(EpfcArgValueType.EpfcARG_V_DOUBLE);
+                IpfcParameter para;
+                IpfcBaseParameter basepara;
+                IpfcParameterOwner paOwner = session.CurrentModel as IpfcParameterOwner;
+                CpfcParameters paras = paOwner.ListParams();
+                IpfcParamValue paValue;
+
+                StringBuilder stb1 = new StringBuilder();
+                StringBuilder stb2 = new StringBuilder();
+                int num = paras.Count;
+                for (int i = 0; i < num; i++)
+                {
+                    para = paras[i];
+                    basepara = (IpfcBaseParameter)paras[i];
+                    if (para != null)
+                    {
+                        stb2.Append(para.GetDriverType() + ",");
+                    }
+                    if (basepara != null)
+                    {
+                        if (i > 1)
+                        {
+                            paValue = basepara.Value;
+                            stb1.Append(paValue.DoubleValue + ",");
+                        }
+                    }
+                }
+
 
                 IpfcModelItem item;
                 int count = items.Count;
+                StringBuilder stb = new StringBuilder();
                 for (int i = 0; i < count; i++)
                 {
                     item = (IpfcModelItem)items[i];
-                }
-
-                IpfcModelItem item2;
-                IpfcBaseParameter paras;
-                int count2 = it.Count;
-                StringBuilder stb = new StringBuilder();
-                for (int i = 0; i < count2; i++)
-                {
-                    item2 = (IpfcModelItem)items[i];
-                    if (item2.GetName() != null)
+                    if (item != null)
                     {
-                        stb.Append(item2.GetName()+",");
+                        if (item.GetName() != null)
+                        {
+                            stb.Append(item.GetName() + ",");
+                        }
                     }
                 }
+
+
+
 
                 //IpfcModel ipfcModel = session.CurrentModel;
                 //IpfcBaseParameter paras=
