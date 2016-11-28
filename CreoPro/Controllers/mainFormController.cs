@@ -130,9 +130,9 @@ namespace CreoPro.Controllers
                 model = session.RetrieveModel(descModel);
                 model.Display();
                 //获取模型项母体
-                IpfcModelItemOwner owner = (IpfcModelItemOwner)model;
-                //获取所有的特征
-                CpfcModelItems items = owner.ListItems(EpfcModelItemType.EpfcITEM_FEATURE);
+                //IpfcModelItemOwner owner = (IpfcModelItemOwner)model;
+                ////获取所有的特征
+                //CpfcModelItems items = owner.ListItems(EpfcModelItemType.EpfcITEM_FEATURE);
             }
             catch (Exception ex)
             {
@@ -165,23 +165,29 @@ namespace CreoPro.Controllers
                 asyncConnection = cAC.Connect(DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value);
                 session = asyncConnection.Session as IpfcBaseSession;
 
-                //获取模型项母体
-                IpfcModelItemOwner owner = session.CurrentModel as IpfcModelItemOwner;
-                //获取所有的特征
-                CpfcModelItems items = owner.ListItems(EpfcModelItemType.EpfcITEM_FEATURE);
+                ////获取模型项母体
+                //IpfcModelItemOwner owner = session.CurrentModel as IpfcModelItemOwner;
+                ////获取所有的特征
+                //CpfcModelItems items = owner.ListItems(EpfcModelItemType.EpfcITEM_FEATURE);
 
-                string aa = session.GetCurrentDirectory();
                 session.ChangeDirectory("D:\\creo2.0Save");
-                aa = session.GetCurrentDirectory();
-                //string bb = session.GetCurrentWS();
-                IpfcModel ipfcModel = session.GetActiveModel();
-                IpfcModel ipfcModel1 = session.CurrentModel;
-                
-                Istringseq message =new Cstringseq();
+                //IpfcModel ipfcModel = session.GetActiveModel();
+                //IpfcModel ipfcModel1 = session.CurrentModel;
+
                 IpfcSession ipfcSession = asyncConnection.Session;
-                ipfcSession.UIShowMessageDialog("abcde", null);
-                //ipfcSession.UIDisplayFeatureParams(
-                //IpfcSelection selection=
+                //ipfcSession.UIShowMessageDialog("abcde", null);//显示消息弹框
+                //printError(ipfcSession, "locationString", "errorString", 1);
+                //writeMsg(session, "locationString", "errorString", 1);
+                //ipfcSession.UIReadIntMessage(0, 3);//从消息窗口读数据(获取弹框中操作)
+
+                //ipfcSession.UIDisplayFeatureParams();
+                //IpfcSelectionOptions opt = null;
+
+                //retrieveModel(session, (int)EpfcModelType.EpfcMDL_PART, "D:\\creo2.0Save");
+                //selectFeatures(session,3);
+                //printMassProperties(session);
+
+                selectParas(session);
             }
             catch (Exception ex)
             {
@@ -189,6 +195,171 @@ namespace CreoPro.Controllers
             }
             return null;
         }
+
+        #region 测试方法
+        /// <summary>
+        /// 写消息到消息窗口（消息位于左下角）
+        /// </summary>
+        /// <param name="ipfcSession"></param>
+        /// <param name="location"></param>
+        /// <param name="err"></param>
+        /// <param name="errorCode"></param>
+        public void printError(IpfcSession ipfcSession, string location, string err, int errorCode)
+        {
+            Istringseq message = null;
+            try
+            {
+                message = new Cstringseq();
+                message.Set(0, err);
+                message.Set(1, errorCode.ToString());
+                message.Set(2, location);
+                ipfcSession.UIDisplayMessage("D:\\mymessage.txt", "USER Error: %0s of code %1s at %2s", message);
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 写消息到内存
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="location"></param>
+        /// <param name="err"></param>
+        /// <param name="errorCode"></param>
+        public void writeMsg(IpfcBaseSession session, string location, string err, int errorCode)
+        {
+            Istringseq message = null;
+            try
+            {
+                message = new Cstringseq();
+                message.Set(0, err);
+                message.Set(1, errorCode.ToString());
+                message.Set(2, location);
+                session.GetMessageContents("D:\\mymessage.txt", "USER Error: %0s of code %1s at %2s", message);
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 模型恢复
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="type"></param>
+        /// <param name="stdPath"></param>
+        public void retrieveModel(IpfcBaseSession session, int type, string stdPath)
+        {
+            IpfcModelDescriptor descModel;
+            IpfcModel model;
+            try
+            {
+                descModel = (new CCpfcModelDescriptor()).Create(type, "chilungundaozx3yz.prt.1", null);
+                model = session.RetrieveModel(descModel);//获取模型，但不显示
+                model.Display();
+                //session.OpenFile(descModel);//模型显示，类似model.Display();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 选择特征
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="max">提醒选择个数</param>
+        public void selectFeatures(IpfcBaseSession session, int max)
+        {
+            CpfcSelections selections;
+            IpfcSelectionOptions selectionOptions;
+            try
+            {
+                selectionOptions = (new CCpfcSelectionOptions()).Create("feature");
+                selectionOptions.MaxNumSels = max;
+                selections = session.Select(selectionOptions, null);
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 获取模型参数
+        /// </summary>
+        /// <param name="session"></param>
+        public void selectParas(IpfcBaseSession session)
+        {
+            try
+            {
+                //获取模型项母体
+                IpfcModelItemOwner owner = session.CurrentModel as IpfcModelItemOwner;
+                //获取所有的特征
+                CpfcModelItems items = owner.ListItems(EpfcModelItemType.EpfcITEM_FEATURE);
+
+                CpfcModelItems it = owner.ListItems(EpfcArgValueType.EpfcARG_V_DOUBLE);
+
+                IpfcModelItem item;
+                int count = items.Count;
+                for (int i = 0; i < count; i++)
+                {
+                    item = (IpfcModelItem)items[i];
+                }
+
+                IpfcModelItem item2;
+                IpfcBaseParameter paras;
+                int count2 = it.Count;
+                StringBuilder stb = new StringBuilder();
+                for (int i = 0; i < count2; i++)
+                {
+                    item2 = (IpfcModelItem)items[i];
+                    if (item2.GetName() != null)
+                    {
+                        stb.Append(item2.GetName()+",");
+                    }
+                }
+
+                //IpfcModel ipfcModel = session.CurrentModel;
+                //IpfcBaseParameter paras=
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 获取模型质量属性(有bug)
+        /// </summary>
+        /// <param name="session"></param>
+        public void printMassProperties(IpfcBaseSession session)
+        {
+            IpfcModel model;
+            //IpfcSolid solid;
+            //IpfcMassProperty solidProperties;
+            CpfcPoint3D gravityCentre = new CpfcPoint3D();
+            try
+            {
+                model = session.CurrentModel;
+                //solid = CType(model, IpfcSolid)
+                //solidProperties = solid.GetMassProperty(Nothing)
+                //gravityCentre = solidProperties.GravityCenter
+                int type = model.Type;
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+        #endregion
+
         #endregion
 
         #region 参数输入页面
