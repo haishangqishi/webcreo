@@ -16,6 +16,22 @@
         });
     });
 
+    //生成模型按钮
+    $('#createModel').click(function () {
+        $.ajax({
+            type: "post",
+            url: "/mainForm/createModel",
+            data: {},
+            cache: false,
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                $("#msg").text(data);
+                $("#myModal").modal();
+            }
+        });
+    });
+
     //测试Creo按钮
     $('#test').click(function () {
         $.ajax({
@@ -26,8 +42,6 @@
             dataType: "json",
             success: function (data) {
                 console.log(data);
-//                $("#msg").text(data);
-//                $("#myModal").modal();
             }
         });
     });

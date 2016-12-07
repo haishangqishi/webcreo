@@ -61,7 +61,7 @@ namespace CreoPro.Controllers
         #endregion
 
         /// <summary>
-        /// 获取当前用户
+        /// 获取当前用户（json格式，前台用）
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -84,10 +84,9 @@ namespace CreoPro.Controllers
         [HttpPost]
         public ActionResult startCreo()
         {
-            UserInfo userInfo = null;
-            if (Session["userEntity"] != null)
+            UserInfo userInfo = getUserInfo();
+            if (userInfo != null)
             {
-                userInfo = Session["userEntity"] as UserInfo;
                 string creoSetup = userInfo.CreoSetup;//安装路径
                 string creoWorkSpace = userInfo.CreoWorkSpace;//工作目录
                 if (creoSetup != "" && creoSetup != "")
@@ -109,7 +108,7 @@ namespace CreoPro.Controllers
         /// </summary>
         /// <param name="exePath">安装路径</param>
         /// <param name="workDir">工作目录</param>
-        public void runProE(string exePath, string workDir)
+        private void runProE(string exePath, string workDir)
         {
             CCpfcAsyncConnection cAC = null;
             IpfcBaseSession session;
@@ -150,6 +149,45 @@ namespace CreoPro.Controllers
                 //    }
                 //}
             }
+        }
+
+        /// <summary>
+        /// 生成模型
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult createModel()
+        {
+            UserInfo userInfo = getUserInfo();
+            if (userInfo != null)
+            {
+                string creoSetup = userInfo.CreoSetup;//安装路径
+                string creoWorkSpace = userInfo.CreoWorkSpace;//工作目录
+                if (creoSetup != "" && creoSetup != "")
+                {
+                    runProE(creoSetup, creoWorkSpace);
+                    return null;
+                }
+                else
+                {
+                    return Json("Creo安装路径或者Creo工作目录为空！");
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// 获取当前用户（后台用）
+        /// </summary>
+        /// <returns></returns>
+        private UserInfo getUserInfo()
+        {
+            UserInfo userInfo = null;
+            if (Session["userEntity"] != null)
+            {
+                userInfo = Session["userEntity"] as UserInfo;
+            }
+            return userInfo;
         }
 
         /// <summary>
