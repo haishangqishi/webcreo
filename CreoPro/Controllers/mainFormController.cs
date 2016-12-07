@@ -92,7 +92,7 @@ namespace CreoPro.Controllers
                 if (creoSetup != "" && creoSetup != "")
                 {
                     //runProE("D:\\creo2.0\\Creo 2.0\\Parametric\\bin\\parametric.exe", "D:\\creo2.0Save");
-                    runProE(creoSetup, creoWorkSpace);
+                    runProE(creoSetup, creoWorkSpace, null);
                     return null;
                 }
                 else
@@ -108,25 +108,52 @@ namespace CreoPro.Controllers
         /// </summary>
         /// <param name="exePath">安装路径</param>
         /// <param name="workDir">工作目录</param>
-        private void runProE(string exePath, string workDir)
+        private void runProE(string exePath, string workDir, Dictionary<string, object> map)
         {
             CCpfcAsyncConnection cAC = null;
             IpfcBaseSession session;
+            IpfcModelDescriptor descModel;
+            IpfcModel model;
+            IpfcSolid solid;
+            IpfcRegenInstructions ins;
+            IpfcDrawing drawing;
+
             try
             {
                 cAC = new CCpfcAsyncConnection();
                 //asyncConnection = cAC.Start(exePath + " -g:no_graphics -i:rpc_input", ".");
                 asyncConnection = cAC.Start(exePath, ".");
-                session = asyncConnection.Session as IpfcBaseSession;
-                // 设置工作目录
-                session.ChangeDirectory(workDir);
-                // C#进程调用和其它将进行的其它进程
-                IpfcModelDescriptor descModel;
-                IpfcModel model;
-                // 载入工作目录下的 "chilungundaozzx_xiu.prt" 文件
-                descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundaozzx_xiu.prt", null);
-                model = session.RetrieveModel(descModel);
-                model.Display();
+                session = asyncConnection.Session as IpfcBaseSession;//获取session(会话)
+                session.ChangeDirectory(workDir);// 设置工作目录
+                descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundaozzx_xiu.prt", null);//获取工作目录下的零件模型描述
+                model = session.RetrieveModel(descModel);//零件模型
+
+                Dictionary<string, double> map1 = selectFamTab(model);
+
+                //模型更新
+                if (map != null)
+                {
+                    Dictionary<string, double> mapGoal = new Dictionary<string, double>();
+                    string value;
+                    foreach (KeyValuePair<string, object> kvp in map)
+                    {
+                        value = kvp.Value.ToString();
+                        if (StrUtils.strIsNumber(value))
+                        {
+                            mapGoal.Add(kvp.Key, Double.Parse(value));
+                        }
+                    }
+                    updateFamTab(model, mapGoal);
+                }
+                solid = (IpfcSolid)model;
+                //ins = (IpfcRegenInstructions)new CCpfcRegenInstructions();//有问题
+                ins = (new CCpfcRegenInstructions()).Create(null, null, null);//有问题
+                solid.Regenerate(ins.UpdateInstances);
+
+                Dictionary<string, double> map2 = selectFamTab(model);
+
+                model.Display();//模型显示
+                //session.CurrentWindow.Activate();//激活当前窗体  
             }
             catch (Exception ex)
             {
@@ -158,6 +185,9 @@ namespace CreoPro.Controllers
         [HttpPost]
         public ActionResult createModel()
         {
+            string jsonStr = Request["paras"];
+            Dictionary<string, object> map = JsonUtils.jsonToDictionary(jsonStr);
+
             UserInfo userInfo = getUserInfo();
             if (userInfo != null)
             {
@@ -165,7 +195,7 @@ namespace CreoPro.Controllers
                 string creoWorkSpace = userInfo.CreoWorkSpace;//工作目录
                 if (creoSetup != "" && creoSetup != "")
                 {
-                    runProE(creoSetup, creoWorkSpace);
+                    runProE(creoSetup, creoWorkSpace, map);
                     return null;
                 }
                 else
@@ -199,12 +229,15 @@ namespace CreoPro.Controllers
         {
             CCpfcAsyncConnection cAC = null;
             IpfcBaseSession session;
+            IpfcModel model;
+
             try
             {
                 cAC = new CCpfcAsyncConnection();
                 asyncConnection = cAC.Connect(DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value);
                 session = asyncConnection.Session as IpfcBaseSession;
                 session.ChangeDirectory("D:\\creo2.0Save");
+                model = session.CurrentModel;
 
                 //ipfcSession.UIShowMessageDialog("abcde", null);//显示消息弹框
                 //printError(ipfcSession, "locationString", "errorString", 1);
@@ -219,7 +252,7 @@ namespace CreoPro.Controllers
                 //printMassProperties(session);
 
                 //selectParas(session);
-                Dictionary<string, double> map = selectFamTab(session);
+                Dictionary<string, double> map = selectFamTab(model);
             }
             catch (Exception ex)
             {
@@ -243,7 +276,7 @@ namespace CreoPro.Controllers
         /// <param name="location"></param>
         /// <param name="err"></param>
         /// <param name="errorCode"></param>
-        public void printError(IpfcSession ipfcSession, string location, string err, int errorCode)
+        private void printError(IpfcSession ipfcSession, string location, string err, int errorCode)
         {
             Istringseq message;
             try
@@ -267,7 +300,7 @@ namespace CreoPro.Controllers
         /// <param name="location"></param>
         /// <param name="err"></param>
         /// <param name="errorCode"></param>
-        public void writeMsg(IpfcBaseSession session, string location, string err, int errorCode)
+        private void writeMsg(IpfcBaseSession session, string location, string err, int errorCode)
         {
             Istringseq message = null;
             try
@@ -290,7 +323,7 @@ namespace CreoPro.Controllers
         /// <param name="session"></param>
         /// <param name="type"></param>
         /// <param name="stdPath"></param>
-        public void retrieveModel(IpfcBaseSession session, int type, string stdPath)
+        private void retrieveModel(IpfcBaseSession session, int type, string stdPath)
         {
             IpfcModelDescriptor descModel;
             IpfcModel model;
@@ -312,7 +345,7 @@ namespace CreoPro.Controllers
         /// </summary>
         /// <param name="session"></param>
         /// <param name="max">提醒选择个数</param>
-        public void selectFeatures(IpfcBaseSession session, int max)
+        private void selectFeatures(IpfcBaseSession session, int max)
         {
             CpfcSelections selections;
             IpfcSelectionOptions selectionOptions;
@@ -332,7 +365,7 @@ namespace CreoPro.Controllers
         /// 获取模型所有参数
         /// </summary>
         /// <param name="session"></param>
-        public void selectParas(IpfcBaseSession session)
+        private void selectParas(IpfcBaseSession session)
         {
             try
             {
@@ -366,7 +399,7 @@ namespace CreoPro.Controllers
         /// 获取模型特征
         /// </summary>
         /// <param name="session"></param>
-        public void selectFeature(IpfcBaseSession session)
+        private void selectFeature(IpfcBaseSession session)
         {
             try
             {
@@ -397,23 +430,22 @@ namespace CreoPro.Controllers
         }
 
         /// <summary>
-        /// 获取模型质量属性(有bug)
+        /// 获取模型质量属性
         /// </summary>
         /// <param name="session"></param>
-        public void printMassProperties(IpfcBaseSession session)
+        private void printMassProperties(IpfcBaseSession session)
         {
             IpfcModel model;
-            //IpfcSolid solid;
-            //IpfcMassProperty solidProperties;
+            IpfcSolid solid;
+            IpfcMassProperty solidProperties;
             CpfcPoint3D gravityCentre = new CpfcPoint3D();
             try
             {
                 model = session.CurrentModel;
-                //solid = CType(model, IpfcSolid)
-                //solidProperties = solid.GetMassProperty(Nothing)
-                //gravityCentre = solidProperties.GravityCenter
+                solid = (IpfcSolid)model;
+                solidProperties = solid.GetMassProperty(null);
+                gravityCentre = solidProperties.GravityCenter;
                 int type = model.Type;
-
             }
             catch (Exception ex)
             {
@@ -426,7 +458,7 @@ namespace CreoPro.Controllers
         /// </summary>
         /// <param name="session"></param>
         /// <returns></returns>
-        public Dictionary<string, double> selectFamTab(IpfcBaseSession session)
+        private Dictionary<string, double> selectFamTab(IpfcModel model)
         {
             Dictionary<string, double> map = new Dictionary<string, double>();
 
@@ -438,14 +470,14 @@ namespace CreoPro.Controllers
 
             try
             {
-                famtab = (IpfcFamilyMember)session.CurrentModel;
-                paOwner = (IpfcParameterOwner)session.CurrentModel;
+                famtab = (IpfcFamilyMember)model;
+                paOwner = (IpfcParameterOwner)model;
                 facols = famtab.ListColumns();
                 string paraName;
                 double paraValue;
-                for (int j = 0; j < facols.Count; j++)
+                for (int i = 0; i < facols.Count; i++)
                 {
-                    facol = facols[j];
+                    facol = facols[i];
                     paraName = facol.Symbol;
                     para = paOwner.GetParam(paraName);
                     paraValue = para.GetScaledValue().DoubleValue;
@@ -457,6 +489,36 @@ namespace CreoPro.Controllers
                 ex.ToString();
             }
             return map;
+        }
+
+        /// <summary>
+        /// 更新模型参数
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="map"></param>
+        private void updateFamTab(IpfcModel model, Dictionary<string, double> map)
+        {
+            IpfcParameterOwner paOwner;
+            IpfcParameter para;
+            IpfcParamValue paraValue;
+            IpfcUnit unit;
+
+            try
+            {
+                paOwner = (IpfcParameterOwner)model;
+
+                foreach (KeyValuePair<string, double> kvp in map)
+                {
+                    para = paOwner.GetParam(kvp.Key);
+                    paraValue = (new CMpfcModelItem()).CreateDoubleParamValue(kvp.Value);
+                    unit = para.Units;
+                    para.SetScaledValue(paraValue, unit);
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
         }
 
         #endregion

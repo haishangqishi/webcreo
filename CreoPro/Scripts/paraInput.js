@@ -18,16 +18,17 @@
 
     //生成模型按钮
     $('#createModel').click(function () {
+        var paras = JSON.stringify($('#paraForm').serializeObject());
         $.ajax({
             type: "post",
             url: "/mainForm/createModel",
-            data: {},
+            data: { paras: paras },
             cache: false,
             dataType: "json",
             success: function (data) {
                 console.log(data);
-                $("#msg").text(data);
-                $("#myModal").modal();
+                //$("#msg").text(data);
+                //$("#myModal").modal();
             }
         });
     });
@@ -92,12 +93,12 @@
     });
 
     //分页工具
-//    $(".tcdPageCode").createPage({
-//        pageCount: 10,
-//        current: 1,
-//        backFn: function (p) {
-//            console.log(p);
-//        }
-//    });
+    //    $(".tcdPageCode").createPage({
+    //        pageCount: 10,
+    //        current: 1,
+    //        backFn: function (p) {
+    //            console.log(p);
+    //        }
+    //    });
 
 });

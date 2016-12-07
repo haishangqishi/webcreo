@@ -97,7 +97,7 @@ namespace CreoPro.Controllers
         public JsonResult addUser()
         {
             string jsonStr = Request["formData"];
-            Dictionary<String, Object> map = JsonUtils.jsonToDictionary(jsonStr);
+            Dictionary<string, object> map = JsonUtils.jsonToDictionary(jsonStr);
 
             string username = map["txtusername"].ToString();
             string password = map["txtpwd"].ToString();

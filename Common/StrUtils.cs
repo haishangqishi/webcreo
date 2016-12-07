@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Common
 {
@@ -21,5 +22,25 @@ namespace Common
             }
             return flag;
         }
+
+        /// <summary>
+        /// 判断字符串是否为数字或小数
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool strIsNumber(string str)
+        {
+            bool flag = false;
+            if (strNotNUll(str))
+            {
+                Regex rex = new Regex(@"^(-|\+)?\d+(\.\d+)?$");//数字或小数
+                if (rex.IsMatch(str))
+                {
+                    flag = true;
+                }
+            }
+            return flag;
+        }
+
     }
 }
