@@ -125,8 +125,8 @@ namespace CreoPro.Controllers
                 // C#进程调用和其它将进行的其它进程
                 IpfcModelDescriptor descModel;
                 IpfcModel model;
-                // 载入工作目录下的 "chilungundaozx3yz.prt.1" 文件
-                descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundaozx3yz.prt.1", null);
+                // 载入工作目录下的 "chilungundaozzx.prt.1" 文件
+                descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundaozzx.prt.1", null);
                 model = session.RetrieveModel(descModel);
                 model.Display();
                 //获取模型项母体
@@ -187,7 +187,8 @@ namespace CreoPro.Controllers
                 //selectFeatures(session,3);
                 //printMassProperties(session);
 
-                selectParas(session);
+                //selectParas(session);
+                selectFamTab(session);
             }
             catch (Exception ex)
             {
@@ -307,6 +308,7 @@ namespace CreoPro.Controllers
                 IpfcParameterOwner paOwner = session.CurrentModel as IpfcParameterOwner;
                 CpfcParameters paras = paOwner.ListParams();
                 IpfcParamValue paValue;
+                IpfcParamValue paValue2;
 
                 StringBuilder stb1 = new StringBuilder();
                 StringBuilder stb2 = new StringBuilder();
@@ -317,7 +319,11 @@ namespace CreoPro.Controllers
                     basepara = (IpfcBaseParameter)paras[i];
                     if (para != null)
                     {
-                        stb2.Append(para.GetDriverType() + ",");
+                        if (i > 1)
+                        {
+                            paValue2 = para.GetScaledValue();
+                            stb2.Append(paValue2.DoubleValue + ",");//参数列表
+                        }
                     }
                     if (basepara != null)
                     {
@@ -329,6 +335,25 @@ namespace CreoPro.Controllers
                     }
                 }
 
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 获取模型特征
+        /// </summary>
+        /// <param name="session"></param>
+        public void selectFeature(IpfcBaseSession session)
+        {
+            try
+            {
+                //获取模型项母体
+                IpfcModelItemOwner owner = session.CurrentModel as IpfcModelItemOwner;
+                //获取所有的特征
+                CpfcModelItems items = owner.ListItems(EpfcModelItemType.EpfcITEM_FEATURE);
 
                 IpfcModelItem item;
                 int count = items.Count;
@@ -344,12 +369,6 @@ namespace CreoPro.Controllers
                         }
                     }
                 }
-
-
-
-
-                //IpfcModel ipfcModel = session.CurrentModel;
-                //IpfcBaseParameter paras=
             }
             catch (Exception ex)
             {
@@ -380,6 +399,45 @@ namespace CreoPro.Controllers
             {
                 ex.ToString();
             }
+        }
+
+        public void selectFamTab(IpfcBaseSession session)
+        {
+            //IpfcFamilyMember famtab=
+
+            IpfcModel model = session.CurrentModel;
+            IpfcSolid solid = (IpfcSolid)model;
+            IpfcFeatures holeFeatures;
+            IpfcFeature holeFeature;
+            IpfcModelItems dimensions;
+            IpfcDimension dimension;
+            IpfcFamColDimension dimensionColumn;
+
+            try
+            {
+                holeFeatures = solid.ListFeaturesByType(true, EpfcFeatureType.EpfcFEATTYPE_HOLE);
+                for (int i = 0; i < holeFeatures.Count; i++)
+                {
+                    holeFeature = holeFeatures[i];
+                    //dimensions = holeFeature.ListSubtems(EpfcModelItemType.EpfcITEM_DIMENSION);
+                    ////dimensions=holeFeature.l
+                    //for (int j = 0; j < dimensions.Count; j++)
+                    //{
+                    //    dimension = (IpfcDimension)dimensions[j];     
+                    //    //dimensionColumn = solid.CreateDimensionColumn(dimension);
+                    //    //solid.AddColumn(dimensionColumn, null);
+                    //    //dimensionColumn=solid
+                    //}
+
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+
+          
+
         }
 
         #endregion
