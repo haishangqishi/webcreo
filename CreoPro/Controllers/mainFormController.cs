@@ -111,7 +111,6 @@ namespace CreoPro.Controllers
         /// <param name="workDir">工作目录</param>
         public void runProE(string exePath, string workDir)
         {
-            //IpfcAsyncConnection asyncConnection = null;
             CCpfcAsyncConnection cAC = null;
             IpfcBaseSession session;
             try
@@ -125,18 +124,21 @@ namespace CreoPro.Controllers
                 // C#进程调用和其它将进行的其它进程
                 IpfcModelDescriptor descModel;
                 IpfcModel model;
-                // 载入工作目录下的 "chilungundaozzx.prt.1" 文件
-                descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundaozzx.prt.1", null);
+                // 载入工作目录下的 "chilungundaozzx_xiu.prt" 文件
+                descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundaozzx_xiu.prt", null);
                 model = session.RetrieveModel(descModel);
                 model.Display();
-                //获取模型项母体
-                //IpfcModelItemOwner owner = (IpfcModelItemOwner)model;
-                ////获取所有的特征
-                //CpfcModelItems items = owner.ListItems(EpfcModelItemType.EpfcITEM_FEATURE);
             }
             catch (Exception ex)
             {
                 ex.ToString();
+                if (asyncConnection != null)
+                {
+                    if (asyncConnection.IsRunning())
+                    {
+                        asyncConnection.End();
+                    }
+                }
             }
             finally  // 当完成，结束 Pro/ENGINEER 会话
             {
@@ -164,17 +166,8 @@ namespace CreoPro.Controllers
                 cAC = new CCpfcAsyncConnection();
                 asyncConnection = cAC.Connect(DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value);
                 session = asyncConnection.Session as IpfcBaseSession;
-
-                ////获取模型项母体
-                //IpfcModelItemOwner owner = session.CurrentModel as IpfcModelItemOwner;
-                ////获取所有的特征
-                //CpfcModelItems items = owner.ListItems(EpfcModelItemType.EpfcITEM_FEATURE);
-
                 session.ChangeDirectory("D:\\creo2.0Save");
-                //IpfcModel ipfcModel = session.GetActiveModel();
-                //IpfcModel ipfcModel1 = session.CurrentModel;
 
-                IpfcSession ipfcSession = asyncConnection.Session;
                 //ipfcSession.UIShowMessageDialog("abcde", null);//显示消息弹框
                 //printError(ipfcSession, "locationString", "errorString", 1);
                 //writeMsg(session, "locationString", "errorString", 1);
@@ -188,11 +181,18 @@ namespace CreoPro.Controllers
                 //printMassProperties(session);
 
                 //selectParas(session);
-                selectFamTab(session);
+                Dictionary<string, double> map = selectFamTab(session);
             }
             catch (Exception ex)
             {
                 ex.ToString();
+                if (asyncConnection != null)
+                {
+                    if (asyncConnection.IsRunning())
+                    {
+                        asyncConnection.End();
+                    }
+                }
             }
             return null;
         }
@@ -207,7 +207,7 @@ namespace CreoPro.Controllers
         /// <param name="errorCode"></param>
         public void printError(IpfcSession ipfcSession, string location, string err, int errorCode)
         {
-            Istringseq message = null;
+            Istringseq message;
             try
             {
                 message = new Cstringseq();
@@ -291,50 +291,32 @@ namespace CreoPro.Controllers
         }
 
         /// <summary>
-        /// 获取模型参数
+        /// 获取模型所有参数
         /// </summary>
         /// <param name="session"></param>
         public void selectParas(IpfcBaseSession session)
         {
             try
             {
-                //获取模型项母体
-                IpfcModelItemOwner owner = session.CurrentModel as IpfcModelItemOwner;
-                //获取所有的特征
-                CpfcModelItems items = owner.ListItems(EpfcModelItemType.EpfcITEM_FEATURE);
-
-                IpfcParameter para;
-                IpfcBaseParameter basepara;
                 IpfcParameterOwner paOwner = session.CurrentModel as IpfcParameterOwner;
                 CpfcParameters paras = paOwner.ListParams();
+                IpfcParameter para;
                 IpfcParamValue paValue;
-                IpfcParamValue paValue2;
 
-                StringBuilder stb1 = new StringBuilder();
-                StringBuilder stb2 = new StringBuilder();
+                StringBuilder stb = new StringBuilder();
                 int num = paras.Count;
                 for (int i = 0; i < num; i++)
                 {
                     para = paras[i];
-                    basepara = (IpfcBaseParameter)paras[i];
                     if (para != null)
                     {
                         if (i > 1)
                         {
-                            paValue2 = para.GetScaledValue();
-                            stb2.Append(paValue2.DoubleValue + ",");//参数列表
-                        }
-                    }
-                    if (basepara != null)
-                    {
-                        if (i > 1)
-                        {
-                            paValue = basepara.Value;
-                            stb1.Append(paValue.DoubleValue + ",");
+                            paValue = para.GetScaledValue();
+                            stb.Append(paValue.DoubleValue + ",");//参数列表
                         }
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -401,43 +383,42 @@ namespace CreoPro.Controllers
             }
         }
 
-        public void selectFamTab(IpfcBaseSession session)
+        /// <summary>
+        /// 获取族表中参数，放到map中<名称,值>
+        /// </summary>
+        /// <param name="session"></param>
+        /// <returns></returns>
+        public Dictionary<string, double> selectFamTab(IpfcBaseSession session)
         {
-            //IpfcFamilyMember famtab=
+            Dictionary<string, double> map = new Dictionary<string, double>();
 
-            IpfcModel model = session.CurrentModel;
-            IpfcSolid solid = (IpfcSolid)model;
-            IpfcFeatures holeFeatures;
-            IpfcFeature holeFeature;
-            IpfcModelItems dimensions;
-            IpfcDimension dimension;
-            IpfcFamColDimension dimensionColumn;
+            IpfcParameterOwner paOwner;
+            IpfcFamilyMember famtab;
+            CpfcFamilyTableColumns facols;
+            IpfcFamilyTableColumn facol;
+            IpfcParameter para;
 
             try
             {
-                holeFeatures = solid.ListFeaturesByType(true, EpfcFeatureType.EpfcFEATTYPE_HOLE);
-                for (int i = 0; i < holeFeatures.Count; i++)
+                famtab = (IpfcFamilyMember)session.CurrentModel;
+                paOwner = (IpfcParameterOwner)session.CurrentModel;
+                facols = famtab.ListColumns();
+                string paraName;
+                double paraValue;
+                for (int j = 0; j < facols.Count; j++)
                 {
-                    holeFeature = holeFeatures[i];
-                    //dimensions = holeFeature.ListSubtems(EpfcModelItemType.EpfcITEM_DIMENSION);
-                    ////dimensions=holeFeature.l
-                    //for (int j = 0; j < dimensions.Count; j++)
-                    //{
-                    //    dimension = (IpfcDimension)dimensions[j];     
-                    //    //dimensionColumn = solid.CreateDimensionColumn(dimension);
-                    //    //solid.AddColumn(dimensionColumn, null);
-                    //    //dimensionColumn=solid
-                    //}
-
+                    facol = facols[j];
+                    paraName = facol.Symbol;
+                    para = paOwner.GetParam(paraName);
+                    paraValue = para.GetScaledValue().DoubleValue;
+                    map.Add(paraName, paraValue);
                 }
             }
             catch (Exception ex)
             {
                 ex.ToString();
             }
-
-          
-
+            return map;
         }
 
         #endregion
