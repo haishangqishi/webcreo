@@ -145,12 +145,13 @@ namespace CreoPro.Controllers
                     }
                     updateFamTab(model, mapGoal);
                 }
-                solid = (IpfcSolid)model;
-                //ins = (IpfcRegenInstructions)new CCpfcRegenInstructions();//有问题
-                ins = (new CCpfcRegenInstructions()).Create(null, null, null);//有问题
-                solid.Regenerate(ins.UpdateInstances);
-
                 Dictionary<string, double> map2 = selectFamTab(model);
+
+                solid = (IpfcSolid)model;
+ 
+                ins = (new CCpfcRegenInstructions()).Create(true, null, null);//有问题
+                //ins.UpdateInstances = true;
+                solid.Regenerate(ins);
 
                 model.Display();//模型显示
                 //session.CurrentWindow.Activate();//激活当前窗体  
@@ -252,7 +253,8 @@ namespace CreoPro.Controllers
                 //printMassProperties(session);
 
                 //selectParas(session);
-                Dictionary<string, double> map = selectFamTab(model);
+                //Dictionary<string, double> map = selectFamTab(model);
+                //session.CreatePart("12345");
             }
             catch (Exception ex)
             {
@@ -519,6 +521,11 @@ namespace CreoPro.Controllers
             {
                 ex.ToString();
             }
+        }
+
+        private void createPart(IpfcBaseSession session)
+        {
+            session.CreatePart("12345");
         }
 
         #endregion
