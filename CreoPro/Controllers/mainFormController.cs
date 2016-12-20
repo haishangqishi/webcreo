@@ -153,16 +153,9 @@ namespace CreoPro.Controllers
                 if (model.Type == (int)EpfcModelType.EpfcMDL_PART)
                 {
                     solid = (IpfcSolid)paOwner;
-                    //IpfcFeatures subComponents = solid.ListFeaturesByType(true, EpfcFeatureType.EpfcFEATTYPE_COMPONENT);
-                    //int aa= subComponents.Count;
-                    //IpfcFeature feat = subComponents[0];
 
-                    //ins = (new CCpfcRegenInstructions()).Create(true, null, null);
                     ins = (new CCpfcRegenInstructions()).Create(true, null, null);
                     ins.UpdateInstances = true;
-
-                    CpfcFeatureOperations opt = new CpfcFeatureOperations();
-                    //solid.ExecuteFeatureOps(
 
                     solid.Regenerate(ins);//报错
                     model = (IpfcModel)paOwner;
