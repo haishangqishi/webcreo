@@ -120,6 +120,7 @@ namespace CreoPro.Controllers
 
             try
             {
+                setConfig(exePath);//设置配置文件
                 cAC = new CCpfcAsyncConnection();
                 //asyncConnection = cAC.Start(exePath + " -g:no_graphics -i:rpc_input", ".");
                 asyncConnection = cAC.Start(exePath, ".");
@@ -127,11 +128,8 @@ namespace CreoPro.Controllers
                 session.ChangeDirectory(workDir);// 设置工作目录
                 descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundaozzx_xiu.prt", null);//获取工作目录下的零件模型描述
                 model = session.RetrieveModel(descModel);//零件模型
-
                 paOwner = (IpfcParameterOwner)model;
-
-                Dictionary<string, double> map1 = selectFamTab(paOwner);
-                map = selectFamTab1();
+                map = selectFamTab1();//测试数据
 
                 //模型更新
                 if (map != null)
@@ -148,21 +146,16 @@ namespace CreoPro.Controllers
                     }
                     updateFamTab(paOwner, mapGoal);
                 }
-                Dictionary<string, double> map2 = selectFamTab(paOwner);
 
                 if (model.Type == (int)EpfcModelType.EpfcMDL_PART)
                 {
-                    solid = (IpfcSolid)paOwner;
-
+                    solid = (IpfcSolid)model;
                     ins = (new CCpfcRegenInstructions()).Create(true, null, null);
                     ins.UpdateInstances = true;
-
-                    solid.Regenerate(ins);//报错
-                    model = (IpfcModel)paOwner;
+                    solid.Regenerate(ins);
                 }
 
-                model.Display();//模型显示
-                //session.CurrentWindow.Activate();//激活当前窗体  
+                model.Display();//模型显示  
             }
             catch (Exception ex)
             {
@@ -230,6 +223,39 @@ namespace CreoPro.Controllers
         }
 
         /// <summary>
+        /// 修改Creo配置文件（设置模型重生为解决方式）
+        /// </summary>
+        /// <param name="creoSetup"></param>
+        private void setConfig(string exePath)
+        {
+            int index = exePath.IndexOf("Parametric");
+            string path = exePath.Substring(0, index) + "Common Files\\M080\\text\\config.pro";
+
+            try
+            {
+                StreamReader reader = new StreamReader(path, Encoding.Default);
+                String text = reader.ReadToEnd();
+                if (text.IndexOf("regen_failure_handling") > -1)
+                {
+                    if (text.IndexOf("regen_failure_handling no_resolve_mode") > -1)
+                    {
+                        text.Replace("no_resolve_mode", "resolve_mode");
+                    }
+                }
+                else
+                {
+                    text += " regen_failure_handling resolve_mode";
+                }
+                reader.Close();
+                System.IO.File.WriteAllText(path, text, Encoding.Default);
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+        /// <summary>
         /// 测试Creo
         /// </summary>
         /// <returns></returns>
@@ -239,9 +265,6 @@ namespace CreoPro.Controllers
             CCpfcAsyncConnection cAC = null;
             IpfcBaseSession session;
             IpfcModel model;
-            IpfcSolid solid;
-            IpfcRegenInstructions ins;
-            IpfcParameterOwner paOwner;
 
             try
             {
@@ -265,50 +288,6 @@ namespace CreoPro.Controllers
 
                 //selectParas(session);
                 //Dictionary<string, double> map = selectFamTab(model);
-
-                paOwner = (IpfcParameterOwner)model;
-                Dictionary<string, double> map1 = selectFamTab(paOwner);
-                Dictionary<string, object> map = selectFamTab1();
-
-                ins = (new CCpfcRegenInstructions()).Create(true, null, null);
-                ins.RefreshModelTree = true;
-                //ins.UpdateInstances = true;
-                solid = (IpfcSolid)paOwner;
-                solid.Regenerate(ins);
-                model = (IpfcModel)paOwner;
-
-                model.Display();//模型显示
-
-                ////模型更新
-                //if (map != null)
-                //{
-                //    Dictionary<string, double> mapGoal = new Dictionary<string, double>();
-                //    string value;
-                //    foreach (KeyValuePair<string, object> kvp in map)
-                //    {
-                //        value = kvp.Value.ToString();
-                //        if (StrUtils.strIsNumber(value))
-                //        {
-                //            mapGoal.Add(kvp.Key, Double.Parse(value));
-                //        }
-                //    }
-                //    updateFamTab(paOwner, mapGoal);
-                //}
-                //Dictionary<string, double> map2 = selectFamTab(paOwner);
-
-                //if (model.Type == (int)EpfcModelType.EpfcMDL_PART)
-                //{
-                //    solid = (IpfcSolid)paOwner;
-                //    //ins = (new CCpfcRegenInstructions()).Create(true, null, null);//有问题
-                //    ins = (new CCpfcRegenInstructions()).Create(true, null, null);
-                //    //ins.RefreshModelTree = true;
-                //    //ins.UpdateInstances = true;
-
-                //    solid.Regenerate(ins);
-                //    model = (IpfcModel)paOwner;
-                //}
-
-                //model.Display();//模型显示
             }
             catch (Exception ex)
             {
@@ -518,7 +497,6 @@ namespace CreoPro.Controllers
         {
             Dictionary<string, double> map = new Dictionary<string, double>();
 
-            //IpfcParameterOwner paOwner;
             IpfcFamilyMember famtab;
             CpfcFamilyTableColumns facols;
             IpfcFamilyTableColumn facol;
@@ -527,7 +505,6 @@ namespace CreoPro.Controllers
             try
             {
                 famtab = (IpfcFamilyMember)paOwner;
-                //paOwner = (IpfcParameterOwner)model;
                 facols = famtab.ListColumns();
                 string paraName;
                 double paraValue;
@@ -554,14 +531,11 @@ namespace CreoPro.Controllers
         /// <param name="map"></param>
         private void updateFamTab(IpfcParameterOwner paOwner, Dictionary<string, double> map)
         {
-            //IpfcParameterOwner paOwner;
             IpfcBaseParameter para;
             IpfcParamValue paraValue;
 
             try
             {
-                //paOwner = (IpfcParameterOwner)model;
-
                 foreach (KeyValuePair<string, double> kvp in map)
                 {
                     para = (IpfcBaseParameter)paOwner.GetParam(kvp.Key);
@@ -573,11 +547,6 @@ namespace CreoPro.Controllers
             {
                 ex.ToString();
             }
-        }
-
-        private void createPart(IpfcBaseSession session)
-        {
-            session.CreatePart("12345");
         }
 
         /// <summary>

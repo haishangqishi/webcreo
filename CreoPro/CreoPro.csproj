@@ -324,7 +324,8 @@
     <Content Include="bower_components\flot\fullcalendar\license.txt" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
-    <Content Include="Content\css\default1.css" />
+    <Content Include="Content\css\fileinput.css" />
+    <Content Include="Content\css\fileinput.min.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\memDetial.css" />
@@ -334,6 +335,8 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\gearlogo.png" />
+    <Content Include="Content\images\loading-sm.gif" />
+    <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\logo-title.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo20.png" />
@@ -342,6 +345,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\fileinput.js" />
+    <Content Include="Scripts\fileinput.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\login.js" />
     <Content Include="Scripts\memDetial.js" />
@@ -349,6 +354,7 @@
     <Content Include="Scripts\pagiation.js" />
     <Content Include="Scripts\paraInput.js" />
     <Content Include="Scripts\register.js" />
+    <Content Include="Scripts\zh.js" />
     <Content Include="Views\mainForm\form.html" />
     <Content Include="Views\mainForm\index.html" />
     <Content Include="Views\mainForm\table.html" />
