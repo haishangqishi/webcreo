@@ -92,6 +92,17 @@
         $(this).text(parseFloat(text));
     });
 
+    //Regenerate the Pro/ENGINEER model.
+    function WlModelRegenerate() {
+        if (!pfcIsWindows())
+            netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+        var ret = document.pwl.pwlMdlRegenerate(document.main.ModelNameExt.value);
+        if (!ret.Status) {
+            alert("pwlMdlRegenerate failed (" + ret.ErrorCode + ")");
+            return;
+        }
+    }
+
     //分页工具
     //    $(".tcdPageCode").createPage({
     //        pageCount: 10,
