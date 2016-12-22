@@ -5,11 +5,8 @@
 <html>
 <head>
     <title>齿轮滚刀系统</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='../../Content/css/fileinput.css' rel='stylesheet'>
-    <!-- 引用bootstrap时必须引用jquery -->
-    <script src="../../Scripts/fileinput.js" type="text/javascript"></script>
-    <script src="../../Scripts/zh.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/memDetial.js" type="text/javascript"></script>
 </head>
 <body>
     <!-- 工具条 starts -->
@@ -73,16 +70,12 @@
                                     <div class="form-group col-md-8" title="如：D:\creo2.0\Creo 2.0\Parametric\bin\parametric.exe">
                                         <label for="txtcreoSetup" class="blue-label">
                                             Creo安装路径</label>
-                                        <div class="btn btn-primary btn-file">
-                                            <i class="glyphicon glyphicon-folder-open"></i>选择文件
-                                            <input type="file" class="file" id="txtcreoSetup" name="txtcreoSetup">
-                                        </div>
-                                        @*<input type="text" class="form-control blue-input" id="txtcreoSetup" name="txtcreoSetup"
-                                            placeholder="如：D:\creo2.0\Creo 2.0\Parametric\bin\parametric.exe">*@
+                                        <input type="text" class="form-control blue-input" id="txtcreoSetup" name="txtcreoSetup"
+                                            placeholder="如：D:\creo2.0\Creo 2.0\Parametric\bin\parametric.exe">
                                     </div>
                                 </div>
                                 <div class="col-lg-10 col-sm-10">
-                                    <div class="form-group col-md-8">
+                                    <div class="form-group col-md-8" title="D:\creo2.0Save">
                                         <label for="txtcreoWorkSpace" class="blue-label">
                                             Creo工作目录</label>
                                         <input type="text" class="form-control blue-input" id="txtcreoWorkSpace" name="txtcreoWorkSpace"

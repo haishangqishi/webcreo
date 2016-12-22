@@ -129,7 +129,7 @@ namespace CreoPro.Controllers
                 descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundaozzx_xiu.prt", null);//获取工作目录下的零件模型描述
                 model = session.RetrieveModel(descModel);//零件模型
                 paOwner = (IpfcParameterOwner)model;
-                map = selectFamTab1();//测试数据
+                //map = selectFamTab1();//测试数据
 
                 //模型更新
                 if (map != null)

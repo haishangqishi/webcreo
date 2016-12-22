@@ -131,16 +131,3 @@ p.right
     color: red;
 }
 
-/*文件选择框*/
-.file-loading
-{
-    top: 0;
-    right: 0;
-    width: 25px;
-    height: 25px;
-    font-size: 999px;
-    text-align: right;
-    color: #fff;
-    background: transparent url('../images/loading.gif') top left no-repeat;
-    border: none;
-}
