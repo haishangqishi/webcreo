@@ -46,6 +46,8 @@
     <Property Name="serail" Type="Int32" />
     <Property Name="type" Type="Int32" />
     <NavigationProperty Name="member" Relationship="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" FromRole="parameters" ToRole="member" />
+    <Property Type="Int32" Name="isDelete" Nullable="false" />
+    <Property Type="Decimal" Name="kongdaoL" Precision="6" Scale="3" />
   </EntityType>
   <Association Name="FK_PARAMETE_REFERENCE_MEMBER">
     <End Role="member" Type="creo_dataModel.member" Multiplicity="0..1" />

@@ -39,11 +39,13 @@
     <Property Name="jiancaoW" Type="decimal" Precision="6" Scale="3" />
     <Property Name="jiancaoH" Type="decimal" Precision="6" Scale="3" />
     <Property Name="kongdaoD" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="kongdaoL" Type="decimal" Precision="6" Scale="3" />
     <Property Name="celeng" Type="decimal" Precision="6" Scale="3" />
     <Property Name="jiancaoR" Type="decimal" Precision="6" Scale="3" />
     <Property Name="isStandard" Type="int" />
     <Property Name="serail" Type="int" />
     <Property Name="type" Type="int" />
+    <Property Name="isDelete" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_PARAMETE_REFERENCE_MEMBER">
     <End Role="member" Type="creo_dataModel.Store.member" Multiplicity="0..1" />

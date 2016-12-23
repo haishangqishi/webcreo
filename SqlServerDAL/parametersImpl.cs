@@ -21,9 +21,9 @@ namespace SqlServerDAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into parameters(");
-            strSql.Append("mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,celeng,jiancaoR,isStandard,serail,type)");
+            strSql.Append("mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,kongdaoL,celeng,jiancaoR,isStandard,serail,type,isDelete)");
             strSql.Append(" values (");
-            strSql.Append("@mem_id,@moshu,@deg,@kongjing,@L,@rongxieNum,@zhoutaiD,@zhoutaiL,@jiancaoW,@jiancaoH,@kongdaoD,@celeng,@jiancaoR,@isStandard,@serail,@type)");
+            strSql.Append("@mem_id,@moshu,@deg,@kongjing,@L,@rongxieNum,@zhoutaiD,@zhoutaiL,@jiancaoW,@jiancaoH,@kongdaoD,@kongdaoL,@celeng,@jiancaoR,@isStandard,@serail,@type,@isDelete)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
 					new SqlParameter("@mem_id", SqlDbType.Int,4),
@@ -37,11 +37,13 @@ namespace SqlServerDAL
 					new SqlParameter("@jiancaoW", SqlDbType.Decimal,5),
 					new SqlParameter("@jiancaoH", SqlDbType.Decimal,5),
 					new SqlParameter("@kongdaoD", SqlDbType.Decimal,5),
+					new SqlParameter("@kongdaoL", SqlDbType.Decimal,5),
 					new SqlParameter("@celeng", SqlDbType.Decimal,5),
 					new SqlParameter("@jiancaoR", SqlDbType.Decimal,5),
 					new SqlParameter("@isStandard", SqlDbType.Int,4),
 					new SqlParameter("@serail", SqlDbType.Int,4),
-					new SqlParameter("@type", SqlDbType.Int,4)};
+					new SqlParameter("@type", SqlDbType.Int,4),
+					new SqlParameter("@isDelete", SqlDbType.Int,4)};
             parameters[0].Value = model.mem_id;
             parameters[1].Value = model.moshu;
             parameters[2].Value = model.deg;
@@ -53,11 +55,13 @@ namespace SqlServerDAL
             parameters[8].Value = model.jiancaoW;
             parameters[9].Value = model.jiancaoH;
             parameters[10].Value = model.kongdaoD;
-            parameters[11].Value = model.celeng;
-            parameters[12].Value = model.jiancaoR;
-            parameters[13].Value = model.isStandard;
-            parameters[14].Value = model.serail;
-            parameters[15].Value = model.type;
+            parameters[11].Value = model.kongdaoL;
+            parameters[12].Value = model.celeng;
+            parameters[13].Value = model.jiancaoR;
+            parameters[14].Value = model.isStandard;
+            parameters[15].Value = model.serail;
+            parameters[16].Value = model.type;
+            parameters[17].Value = model.isDelete;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -87,11 +91,13 @@ namespace SqlServerDAL
             strSql.Append("jiancaoW=@jiancaoW,");
             strSql.Append("jiancaoH=@jiancaoH,");
             strSql.Append("kongdaoD=@kongdaoD,");
+            strSql.Append("kongdaoL=@kongdaoL,");
             strSql.Append("celeng=@celeng,");
             strSql.Append("jiancaoR=@jiancaoR,");
             strSql.Append("isStandard=@isStandard,");
             strSql.Append("serail=@serail,");
-            strSql.Append("type=@type");
+            strSql.Append("type=@type,");
+            strSql.Append("isDelete=@isDelete");
             strSql.Append(" where parm_id=@parm_id");
             SqlParameter[] parameters = {
 					new SqlParameter("@mem_id", SqlDbType.Int,4),
@@ -105,11 +111,13 @@ namespace SqlServerDAL
 					new SqlParameter("@jiancaoW", SqlDbType.Decimal,5),
 					new SqlParameter("@jiancaoH", SqlDbType.Decimal,5),
 					new SqlParameter("@kongdaoD", SqlDbType.Decimal,5),
+					new SqlParameter("@kongdaoL", SqlDbType.Decimal,5),
 					new SqlParameter("@celeng", SqlDbType.Decimal,5),
 					new SqlParameter("@jiancaoR", SqlDbType.Decimal,5),
 					new SqlParameter("@isStandard", SqlDbType.Int,4),
 					new SqlParameter("@serail", SqlDbType.Int,4),
 					new SqlParameter("@type", SqlDbType.Int,4),
+					new SqlParameter("@isDelete", SqlDbType.Int,4),
 					new SqlParameter("@parm_id", SqlDbType.Int,4)};
             parameters[0].Value = model.mem_id;
             parameters[1].Value = model.moshu;
@@ -122,12 +130,14 @@ namespace SqlServerDAL
             parameters[8].Value = model.jiancaoW;
             parameters[9].Value = model.jiancaoH;
             parameters[10].Value = model.kongdaoD;
-            parameters[11].Value = model.celeng;
-            parameters[12].Value = model.jiancaoR;
-            parameters[13].Value = model.isStandard;
-            parameters[14].Value = model.serail;
-            parameters[15].Value = model.type;
-            parameters[16].Value = model.parm_id;
+            parameters[11].Value = model.kongdaoL;
+            parameters[12].Value = model.celeng;
+            parameters[13].Value = model.jiancaoR;
+            parameters[14].Value = model.isStandard;
+            parameters[15].Value = model.serail;
+            parameters[16].Value = model.type;
+            parameters[17].Value = model.isDelete;
+            parameters[18].Value = model.parm_id;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -145,9 +155,8 @@ namespace SqlServerDAL
         /// </summary>
         public bool Delete(int parm_id)
         {
-
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("delete from parameters ");
+            strSql.Append("update parameters set isDelete=1");
             strSql.Append(" where parm_id=@parm_id");
             SqlParameter[] parameters = {
 					new SqlParameter("@parm_id", SqlDbType.Int,4)
@@ -170,10 +179,9 @@ namespace SqlServerDAL
         /// </summary>
         public Model.parameters GetModel(int parm_id)
         {
-
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 parm_id,mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,celeng,jiancaoR,isStandard,serail,type from parameters ");
-            strSql.Append(" where parm_id=@parm_id");
+            strSql.Append("select top 1 parm_id,mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,kongdaoL,celeng,jiancaoR,isStandard,serail,type,isDelete from parameters ");
+            strSql.Append(" where parm_id=@parm_id and isDelete=0");
             SqlParameter[] parameters = {
 					new SqlParameter("@parm_id", SqlDbType.Int,4)
 			};
@@ -194,16 +202,35 @@ namespace SqlServerDAL
         /// <summary>
         /// 获得数据列表
         /// </summary>
-        public DataSet GetList(string strWhere)
+        public DataSet GetList(Dictionary<string, object> map, int pageIndex, out int total)
         {
-            StringBuilder strSql = new StringBuilder();
-            strSql.Append("select parm_id,mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,celeng,jiancaoR,isStandard,serail,type ");
-            strSql.Append(" FROM parameters ");
-            if (strWhere.Trim() != "")
+            List<string> sqlList = new List<string>();
+
+            int pageSize = 10;
+            int mem_id = 0;
+            if (map != null)
             {
-                strSql.Append(" where " + strWhere);
+                if (map.ContainsKey("pageSize") && map["pageSize"].ToString() != "")
+                {
+                    pageSize = Convert.ToInt32(map["pageSize"].ToString());
+                }
+                if (map.ContainsKey("mem_id") && map["mem_id"].ToString() != "")
+                {
+                    mem_id = Convert.ToInt32(map["mem_id"].ToString());
+                }
             }
-            return DbHelperSQL.Query(strSql.ToString());
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select parm_id,mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,kongdaoL,celeng,jiancaoR,isStandard,serail,type,isDelete from ");
+            strSql.Append(" (select top " + pageSize + " ROW_NUMBER() OVER (ORDER BY parm_id ASC) AS RowNumber,* FROM parameters where isDelete=0 and mem_id=" + mem_id + getSql(map) + " ) as tmp ");
+            strSql.Append(" WHERE RowNumber > " + pageSize * (pageIndex - 1) + getSql(map));
+            sqlList.Add(strSql.ToString());
+
+            StringBuilder strSql1 = new StringBuilder();
+            strSql1.Append("select count(*) ");
+            strSql1.Append(" FROM parameters where isDelete=0 and mem_id=" + mem_id + getSql(map));
+            sqlList.Add(strSql1.ToString());
+
+            return DbHelperSQL.ExecuteSqlTran_page(sqlList, out total);
         }
 
         /// <summary>
@@ -262,6 +289,10 @@ namespace SqlServerDAL
                 {
                     model.kongdaoD = decimal.Parse(row["kongdaoD"].ToString());
                 }
+                if (row["kongdaoL"] != null && row["kongdaoL"].ToString() != "")
+                {
+                    model.kongdaoL = decimal.Parse(row["kongdaoL"].ToString());
+                }
                 if (row["celeng"] != null && row["celeng"].ToString() != "")
                 {
                     model.celeng = decimal.Parse(row["celeng"].ToString());
@@ -282,8 +313,38 @@ namespace SqlServerDAL
                 {
                     model.type = int.Parse(row["type"].ToString());
                 }
+                if (row["isDelete"] != null && row["isDelete"].ToString() != "")
+                {
+                    model.isDelete = int.Parse(row["isDelete"].ToString());
+                }
             }
             return model;
+        }
+
+        /// <summary>
+        /// 条件sql
+        /// </summary>
+        /// <param name="map"></param>
+        /// <returns></returns>
+        private string getSql(Dictionary<string, object> map)
+        {
+            StringBuilder strSql = new StringBuilder();
+            if (map != null)
+            {
+                if (map.ContainsKey("moshu") && map["moshu"].ToString() != "")
+                {
+                    strSql.Append(" and moshu=" + Convert.ToDecimal(map["moshu"].ToString()));
+                }
+                if (map.ContainsKey("rongxieNum") && map["rongxieNum"].ToString() != "")
+                {
+                    strSql.Append(" and rongxieNum=" + Convert.ToDecimal(map["rongxieNum"].ToString()));
+                }
+                if (map.ContainsKey("deg") && map["deg"].ToString() != "")
+                {
+                    strSql.Append(" and deg=" + Convert.ToDecimal(map["deg"].ToString()));
+                }
+            }
+            return strSql.ToString();
         }
 
     }

@@ -10,22 +10,19 @@
     $('.accordion > a').click(function (e) {
         e.preventDefault();
         var $ul = $(this).siblings('ul');
-        var $li = $(this).parent();
+        var $li = $(this).parent(); //ul的父li
         if ($ul.is(':visible')) {
             $li.removeClass('active');
-            if (sessionStorage.getItem("ulId") != null) {
-                sessionStorage.removeItem("ulId");
-            }
         }
         else {
             $li.addClass('active');
-            //记录被点击的ul的id(注意：用class属性获取的时，读取控件时有问题)
-            if (sessionStorage.getItem("ulId") == null) {
-                var mm = $ul.attr('id');
-                sessionStorage.setItem("ulId", $ul.attr('id'));
-            }
         }
         $ul.slideToggle();
+    });
+
+    $('.liClick').click(function (e) {
+        var $ul = $(this).parent(); //li的父ul
+        sessionStorage.setItem("ulId", $ul.attr('id'));
     });
 
     //动态显示用户名

@@ -350,7 +350,6 @@
     <Content Include="Scripts\pagiation.js" />
     <Content Include="Scripts\paraInput.js" />
     <Content Include="Scripts\register.js" />
-    <Content Include="Views\mainForm\form.html" />
     <Content Include="Views\mainForm\index.html" />
     <Content Include="Views\mainForm\table.html" />
     <Content Include="Web.config">
@@ -558,6 +557,7 @@
     <Content Include="Views\mainForm\grindProc.cshtml" />
     <Content Include="Views\mainForm\modal.cshtml" />
     <Content Include="Views\Home\register.cshtml" />
+    <None Include="files\chilungundaozzx_xiu.prt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

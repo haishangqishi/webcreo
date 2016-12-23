@@ -55,23 +55,13 @@ namespace BLL
         }
 
         /// <summary>
-        /// 获得数据列表
-        /// </summary>
-        /// <param name="strWhere"></param>
-        /// <returns></returns>
-        public DataSet GetList(string strWhere)
-        {
-            return dal.GetList(strWhere);
-        }
-
-        /// <summary>
         /// 获取参数List
         /// </summary>
         /// <param name="strWhere"></param>
         /// <returns></returns>
-        public List<Model.parameters> GetModelList(string strWhere)
+        public List<Model.parameters> GetModelList(Dictionary<string, object> map, int pageIndex, out int total)
         {
-            DataSet ds = dal.GetList(strWhere);
+            DataSet ds = dal.GetList(map, pageIndex, out total);
             return DataTableToList(ds.Tables[0]);
         }
 

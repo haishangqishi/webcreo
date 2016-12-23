@@ -444,10 +444,12 @@ namespace Model
         /// 创建新的 parameters 对象。
         /// </summary>
         /// <param name="parm_id">parm_id 属性的初始值。</param>
-        public static parameters Createparameters(global::System.Int32 parm_id)
+        /// <param name="isDelete">isDelete 属性的初始值。</param>
+        public static parameters Createparameters(global::System.Int32 parm_id, global::System.Int32 isDelete)
         {
             parameters parameters = new parameters();
             parameters.parm_id = parm_id;
+            parameters.isDelete = isDelete;
             return parameters;
         }
 
@@ -865,6 +867,54 @@ namespace Model
         private Nullable<global::System.Int32> _type;
         partial void OntypeChanging(Nullable<global::System.Int32> value);
         partial void OntypeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 isDelete
+        {
+            get
+            {
+                return _isDelete;
+            }
+            set
+            {
+                OnisDeleteChanging(value);
+                ReportPropertyChanging("isDelete");
+                _isDelete = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("isDelete");
+                OnisDeleteChanged();
+            }
+        }
+        private global::System.Int32 _isDelete;
+        partial void OnisDeleteChanging(global::System.Int32 value);
+        partial void OnisDeleteChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> kongdaoL
+        {
+            get
+            {
+                return _kongdaoL;
+            }
+            set
+            {
+                OnkongdaoLChanging(value);
+                ReportPropertyChanging("kongdaoL");
+                _kongdaoL = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("kongdaoL");
+                OnkongdaoLChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _kongdaoL;
+        partial void OnkongdaoLChanging(Nullable<global::System.Decimal> value);
+        partial void OnkongdaoLChanged();
 
         #endregion
 

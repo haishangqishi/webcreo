@@ -82,17 +82,17 @@ namespace CreoPro.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult startCreo()
+        public JsonResult startCreo()
         {
             UserInfo userInfo = getUserInfo();
             if (userInfo != null)
             {
                 string creoSetup = userInfo.CreoSetup;//安装路径
-                string creoWorkSpace = userInfo.CreoWorkSpace;//工作目录
+                string creoWorkSpace = Server.MapPath("/") + "files";//工作目录
                 if (creoSetup != "" && creoSetup != "")
                 {
                     //runProE("D:\\creo2.0\\Creo 2.0\\Parametric\\bin\\parametric.exe", "D:\\creo2.0Save");
-                    runProE(creoSetup, creoWorkSpace, null);
+                    //runProE(creoSetup, creoWorkSpace, null);
                     return null;
                 }
                 else
@@ -132,9 +132,10 @@ namespace CreoPro.Controllers
                 //map = selectFamTab1();//测试数据
 
                 //模型更新
+                Dictionary<string, double> mapGoal = null;
                 if (map != null)
                 {
-                    Dictionary<string, double> mapGoal = new Dictionary<string, double>();
+                    mapGoal = new Dictionary<string, double>();
                     string value;
                     foreach (KeyValuePair<string, object> kvp in map)
                     {
@@ -155,7 +156,8 @@ namespace CreoPro.Controllers
                     solid.Regenerate(ins);
                 }
 
-                model.Display();//模型显示  
+                model.Display();//模型显示
+                addData(mapGoal);//写入数据库
             }
             catch (Exception ex)
             {
@@ -185,7 +187,7 @@ namespace CreoPro.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult createModel()
+        public JsonResult createModel()
         {
             string jsonStr = Request["paras"];
             Dictionary<string, object> map = JsonUtils.jsonToDictionary(jsonStr);
@@ -194,11 +196,11 @@ namespace CreoPro.Controllers
             if (userInfo != null)
             {
                 string creoSetup = userInfo.CreoSetup;//安装路径
-                string creoWorkSpace = userInfo.CreoWorkSpace;//工作目录
+                string creoWorkSpace = Server.MapPath("/") + "files";//工作目录
                 if (creoSetup != "" && creoSetup != "")
                 {
                     runProE(creoSetup, creoWorkSpace, map);
-                    return null;
+                    return Json("success");
                 }
                 else
                 {
@@ -252,6 +254,76 @@ namespace CreoPro.Controllers
             catch (Exception ex)
             {
                 ex.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 写入数据库
+        /// </summary>
+        /// <param name="map"></param>
+        private void addData(Dictionary<string, double> map)
+        {
+            UserInfo userInfo = getUserInfo();
+            int mem_id = 0;
+            if (userInfo != null)
+            {
+                mem_id = userInfo.mem_id;
+            }
+
+            bll_parm = new BLL.parameters();
+            model_parm = new Model.parameters();
+            model_parm.mem_id = mem_id;
+            if (map != null)
+            {
+                string key;
+                double value;
+                foreach (KeyValuePair<string, double> kvp in map)
+                {
+                    key = kvp.Key;
+                    value = kvp.Value;
+                    switch (key)
+                    {
+                        case "MN":
+                            model_parm.moshu = Convert.ToDecimal(value);
+                            break;
+                        case "ZG":
+                            model_parm.rongxieNum = Convert.ToInt32(value);
+                            break;
+                        case "DEG":
+                            model_parm.deg = Convert.ToDecimal(value);
+                            break;
+                        case "L":
+                            model_parm.L = Convert.ToDecimal(value);
+                            break;
+                        case "DL":
+                            model_parm.zhoutaiD = Convert.ToDecimal(value);
+                            break;
+                        case "D":
+                            model_parm.kongjing = Convert.ToDecimal(value);
+                            break;
+                        case "DLO":
+                            model_parm.kongdaoD = Convert.ToDecimal(value);
+                            break;
+                        case "L1":
+                            model_parm.kongdaoL = Convert.ToDecimal(value);
+                            break;
+                        case "T1":
+                            model_parm.jiancaoH = Convert.ToDecimal(value);
+                            break;
+                        case "A":
+                            model_parm.zhoutaiL = Convert.ToDecimal(value);
+                            break;
+                        case "B":
+                            model_parm.jiancaoW = Convert.ToDecimal(value);
+                            break;
+                        case "C":
+                            model_parm.celeng = Convert.ToDecimal(value);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                bll_parm.Add(model_parm);
             }
         }
 
@@ -580,18 +652,58 @@ namespace CreoPro.Controllers
 
         #region 参数输入页面
         /// <summary>
-        /// 获取参数列表
+        /// 加载页面，同时加载参数列表
         /// </summary>
         /// <returns></returns>
         public ActionResult paraInput()
         {
+            int pageIndex = 1;
+            int totalRow = 0;
+            UserInfo userInfo = getUserInfo();
+            Dictionary<string, object> map = new Dictionary<string, object>();
+            if (userInfo != null)
+            {
+                map.Add("mem_id", userInfo.mem_id);
+            }
+
             bll_parm = new BLL.parameters();
-            List<Model.parameters> list_parm = bll_parm.GetModelList("");
+            List<Model.parameters> list_parm = bll_parm.GetModelList(map, pageIndex, out totalRow);
             string strJson = JsonUtils.ObjectToJson(list_parm);
-            ViewBag.name = "hello";
             ViewBag.list = list_parm;
             return View();
         }
+
+        /// <summary>
+        /// 获取参数列表
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult paraList()
+        {
+            string jsonStr = Request["formData"];
+            int pageIndex = 1;
+            int totalRow = 0;
+            UserInfo userInfo = getUserInfo();
+            Dictionary<string, object> map = new Dictionary<string, object>();
+            if (StrUtils.strNotNUll(jsonStr))
+            {
+                map = JsonUtils.jsonToDictionary(jsonStr);
+            }
+            if (Request["pageIndex"] != null)
+            {
+                pageIndex = Convert.ToInt32(Request["pageIndex"].ToString());
+            }
+            if (userInfo != null)
+            {
+                map.Add("mem_id", userInfo.mem_id);
+            }
+
+            bll_parm = new BLL.parameters();
+            List<Model.parameters> list_parm = bll_parm.GetModelList(map, pageIndex, out totalRow);
+            string strJson = JsonUtils.ObjectToJson(list_parm);
+            ViewBag.list = list_parm;
+            return Json(strJson);
+        }
         #endregion
+
     }
 }

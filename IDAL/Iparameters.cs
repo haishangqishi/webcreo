@@ -39,9 +39,10 @@ namespace IDAL
         /// <summary>
         /// 获得数据列表
         /// </summary>
-        /// <param name="strWhere"></param>
+        /// <param name="map"></param>
+        /// <param name="pager"></param>
         /// <returns></returns>
-        DataSet GetList(string strWhere);
+        DataSet GetList(Dictionary<string, object> map, int pageIndex, out int total);
 
         /// <summary>
         /// row转model

@@ -1,5 +1,8 @@
 ﻿$(document).ready(function () {
 
+    //默认加载参数列表
+    //getParaList();
+
     //启动Creo按钮
     $('#startCreo').click(function () {
         $.ajax({
@@ -25,10 +28,15 @@
             data: { paras: paras },
             cache: false,
             dataType: "json",
+            beforeSend: function () {
+                $('#createModel').attr("disabled", "disabled");
+                $("#loadingModal").modal('show');
+            },
             success: function (data) {
-                console.log(data);
-                //$("#msg").text(data);
-                //$("#myModal").modal();
+                if (data == "success") {
+                    $('#createModel').removeAttr("disabled");
+                    $("#loadingModal").modal('hide');
+                }
             }
         });
     });
@@ -75,17 +83,6 @@
         }
     });
 
-    //加载参数列表
-    $.ajax({
-        type: "post",
-        url: "/mainForm/paraInput",
-        data: {},
-        cache: false,
-        success: function (data) {
-            console.log(data);
-        }
-    });
-
     //过滤table中数据（去掉）
     $(".dyn").each(function () {
         var text = $(this).text();
@@ -100,5 +97,29 @@
     //            console.log(p);
     //        }
     //    });
+
+    //查询
+    $('#selFilter').click(function () {
+        //获取页码。。。。
+
+        getParaList();
+    });
+
+    //加载参数列表
+    function getParaList(page) {
+        var formData = JSON.stringify($('#paraSelectForm').serializeObject());
+        console.log("测试下拉选择：" + formData);
+        $.ajax({
+            type: "post",
+            url: "/mainForm/paraList",
+            data: { "formData": formData },
+            //data: { "formData": formData, "pageIndex": pageIndex },
+            cache: false,
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    }
 
 });

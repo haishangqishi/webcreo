@@ -51,7 +51,7 @@
                 $("#myModal").modal();
             }
         });
-        return false;
+        //return false;
     });
 
 });

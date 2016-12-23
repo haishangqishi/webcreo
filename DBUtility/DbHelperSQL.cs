@@ -1006,5 +1006,52 @@ namespace DBUtility
         }
         #endregion
 
+        #region 新增 
+        /// <summary>
+        /// 执行多条SQL语句，实现数据库事务，返回总条数。
+        /// </summary>
+        /// <param name="SQLStringList">多条SQL语句</param>		
+        public static DataSet ExecuteSqlTran_page(List<String> SQLStringList, out int total)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                SqlTransaction tx = conn.BeginTransaction();
+                cmd.Transaction = tx;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                try
+                {
+                    int count = 0;
+                    DataSet ds = new DataSet();
+                    string strsql = SQLStringList[0];
+                    if (strsql.Trim().Length > 1)
+                    {
+                        cmd.CommandText = strsql;
+                        adapter.SelectCommand = cmd;
+                        adapter.Fill(ds, "ds");
+                    }
+                    strsql = SQLStringList[1];
+                    if (strsql.Trim().Length > 1)
+                    {
+                        cmd.CommandText = strsql;
+                        count = (int)cmd.ExecuteScalar();
+                    }
+                    total = count;
+                    tx.Commit();
+                    return ds;
+                }
+                catch
+                {
+                    tx.Rollback();
+                    total = 0;
+                    return null;
+                }
+            }
+        }
+
+        #endregion
+
     }
 }

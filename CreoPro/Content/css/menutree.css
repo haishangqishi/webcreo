@@ -152,4 +152,24 @@ ul.main-menu li:not(.nav-header)
 
 /* 左菜单 ends */
 
+/* 导航栏 */
+.mybreadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 10px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+.mybreadcrumb > li {
+  display: inline-block;
+}
+.mybreadcrumb > li + li:before {
+  padding: 0 5px;
+  color: #ccc;
+  content: "/\00a0";
+}
+.mybreadcrumb > .active {
+  color: #777;
+}
+
 /* 主显示区 ends */

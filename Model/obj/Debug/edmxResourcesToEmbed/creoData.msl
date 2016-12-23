@@ -20,6 +20,8 @@
     <EntitySetMapping Name="parameters">
       <EntityTypeMapping TypeName="creo_dataModel.parameters">
         <MappingFragment StoreEntitySet="parameters">
+          <ScalarProperty Name="kongdaoL" ColumnName="kongdaoL" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
           <ScalarProperty Name="parm_id" ColumnName="parm_id" />
           <ScalarProperty Name="mem_id" ColumnName="mem_id" />
           <ScalarProperty Name="moshu" ColumnName="moshu" />

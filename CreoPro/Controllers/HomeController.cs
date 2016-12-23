@@ -47,26 +47,16 @@ namespace CreoPro.Controllers
                                 //写入cookie，用于登录判断
                                 HttpCookie Username = new HttpCookie("username", username);
                                 HttpCookie Password = new HttpCookie("password", password);
+                                Username.Expires = System.DateTime.Now.AddMinutes(30);
+                                Password.Expires = System.DateTime.Now.AddMinutes(30);
                                 Response.Cookies.Add(Username);
                                 Response.Cookies.Add(Password);
                             }
                         }
                         //写入Session，用于页面间传值
-                        UserInfo userInfo = new UserInfo();
-                        userInfo.UserName = model_mem.userName;
-
-                        userInfo.UserPwd = model_mem.userPwd;
-                        if (model_mem.userRole != null)
-                        {
-                            userInfo.UserRole = (int)model_mem.userRole;
-                        }
-                        userInfo.Email = model_mem.email;
-                        userInfo.Phone = model_mem.phone;
-                        userInfo.CreoSetup = model_mem.creoSetup;
-                        userInfo.CreoWorkSpace = model_mem.creoWorkSpace;
+                        UserInfo userInfo = setUserInfo(model_mem);
                         Session["userEntity"] = userInfo;
                         return View("/Views/mainForm/index.cshtml");//直接返回视图，不在对应文件夹下需要写全路径
-                        //return RedirectToAction("index", "mainForm");//通过action转过去
                     }
                 }
             }
@@ -91,17 +81,7 @@ namespace CreoPro.Controllers
                     if (Password.Value == model_mem.userPwd)
                     {
                         //写入Session，用于页面间传值
-                        UserInfo userInfo = new UserInfo();
-                        userInfo.UserName = model_mem.userName;
-                        userInfo.UserPwd = model_mem.userPwd;
-                        if (model_mem.userRole != null)
-                        {
-                            userInfo.UserRole = (int)model_mem.userRole;
-                        }
-                        userInfo.Email = model_mem.email;
-                        userInfo.Phone = model_mem.phone;
-                        userInfo.CreoSetup = model_mem.creoSetup;
-                        userInfo.CreoWorkSpace = model_mem.creoWorkSpace;
+                        UserInfo userInfo = setUserInfo(model_mem);
                         Session["userEntity"] = userInfo;
                         return View("/Views/mainForm/index.cshtml");
                     }
@@ -132,6 +112,29 @@ namespace CreoPro.Controllers
                 Response.Cookies["password"].Expires = System.DateTime.Now.AddSeconds(-1);
             }
             return View("login");//返回View中对应文件夹下的视图
+        }
+
+        /// <summary>
+        /// 将Model赋给实体
+        /// </summary>
+        /// <param name="model_mem"></param>
+        /// <returns></returns>
+        private UserInfo setUserInfo(Model.member model_mem)
+        {
+            UserInfo userInfo = new UserInfo();
+            userInfo.mem_id = model_mem.mem_id;
+            userInfo.UserName = model_mem.userName;
+            userInfo.UserPwd = model_mem.userPwd;
+            if (model_mem.userRole != null)
+            {
+                userInfo.UserRole = (int)model_mem.userRole;
+            }
+            userInfo.Email = model_mem.email;
+            userInfo.Phone = model_mem.phone;
+            userInfo.CreoSetup = model_mem.creoSetup;
+            userInfo.CreoWorkSpace = model_mem.creoWorkSpace;
+
+            return userInfo;
         }
 
 

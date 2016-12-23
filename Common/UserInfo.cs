@@ -10,6 +10,7 @@ namespace Common
     [Serializable]
     public class UserInfo
     {
+        private int memId;
         private string userName = "";
         private string userPwd = "";
         private int userRole = 0;
@@ -17,6 +18,12 @@ namespace Common
         private string phone = "";
         private string creoSetup = "";
         private string creoWorkSpace = "";
+
+        public int mem_id
+        {
+            get { return memId; }
+            set { memId = value; }
+        }
 
         public string UserName
         {
