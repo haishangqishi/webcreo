@@ -444,11 +444,13 @@ namespace Model
         /// 创建新的 parameters 对象。
         /// </summary>
         /// <param name="parm_id">parm_id 属性的初始值。</param>
+        /// <param name="isStandard">isStandard 属性的初始值。</param>
         /// <param name="isDelete">isDelete 属性的初始值。</param>
-        public static parameters Createparameters(global::System.Int32 parm_id, global::System.Int32 isDelete)
+        public static parameters Createparameters(global::System.Int32 parm_id, global::System.Int32 isStandard, global::System.Int32 isDelete)
         {
             parameters parameters = new parameters();
             parameters.parm_id = parm_id;
+            parameters.isStandard = isStandard;
             parameters.isDelete = isDelete;
             return parameters;
         }
@@ -799,9 +801,9 @@ namespace Model
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> isStandard
+        public global::System.Int32 isStandard
         {
             get
             {
@@ -816,8 +818,8 @@ namespace Model
                 OnisStandardChanged();
             }
         }
-        private Nullable<global::System.Int32> _isStandard;
-        partial void OnisStandardChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _isStandard;
+        partial void OnisStandardChanging(global::System.Int32 value);
         partial void OnisStandardChanged();
     
         /// <summary>

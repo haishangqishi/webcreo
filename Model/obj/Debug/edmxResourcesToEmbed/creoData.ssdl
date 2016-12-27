@@ -42,7 +42,7 @@
     <Property Name="kongdaoL" Type="decimal" Precision="6" Scale="3" />
     <Property Name="celeng" Type="decimal" Precision="6" Scale="3" />
     <Property Name="jiancaoR" Type="decimal" Precision="6" Scale="3" />
-    <Property Name="isStandard" Type="int" />
+    <Property Name="isStandard" Type="int" Nullable="false" />
     <Property Name="serail" Type="int" />
     <Property Name="type" Type="int" />
     <Property Name="isDelete" Type="int" Nullable="false" />

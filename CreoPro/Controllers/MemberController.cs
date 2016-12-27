@@ -41,7 +41,6 @@ namespace CreoPro.Controllers
             string phone = map["txtphone"].ToString();
             string email = map["txtemail"].ToString();
             string creoSetup = map["txtcreoSetup"].ToString();
-            string creoWorkSpace = map["txtcreoWorkSpace"].ToString();
 
             UserInfo userInfo = null;
             if (Session["userEntity"] != null)
@@ -77,11 +76,6 @@ namespace CreoPro.Controllers
                 model_mem.creoSetup = creoSetup;
                 userInfo.CreoSetup = creoSetup;
             }
-            if (StrUtils.strNotNUll(creoWorkSpace))
-            {
-                model_mem.creoWorkSpace = creoWorkSpace;
-                userInfo.CreoWorkSpace = creoWorkSpace;
-            }
             bool flag = bll_mem.Update(model_mem);
 
             //保存后重置session
@@ -104,7 +98,6 @@ namespace CreoPro.Controllers
             string phone = map["txtphone"].ToString();
             string email = map["txtemail"].ToString();
             string creoSetup = map["txtcreoSetup"].ToString();
-            string creoWorkSpace = map["txtcreoWorkSpace"].ToString();
 
             bll_mem = new BLL.member();
             model_mem = new member();
@@ -127,10 +120,6 @@ namespace CreoPro.Controllers
             if (StrUtils.strNotNUll(creoSetup))
             {
                 model_mem.creoSetup = creoSetup;
-            }
-            if (StrUtils.strNotNUll(creoWorkSpace))
-            {
-                model_mem.creoWorkSpace = creoWorkSpace;
             }
             bll_mem.Add(model_mem);
 

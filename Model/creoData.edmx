@@ -47,7 +47,7 @@
           <Property Name="kongdaoL" Type="decimal" Precision="6" Scale="3" />
           <Property Name="celeng" Type="decimal" Precision="6" Scale="3" />
           <Property Name="jiancaoR" Type="decimal" Precision="6" Scale="3" />
-          <Property Name="isStandard" Type="int" />
+          <Property Name="isStandard" Type="int" Nullable="false" />
           <Property Name="serail" Type="int" />
           <Property Name="type" Type="int" />
           <Property Name="isDelete" Type="int" Nullable="false" />
@@ -110,7 +110,7 @@
           <Property Name="kongdaoD" Type="Decimal" Precision="6" Scale="3" />
           <Property Name="celeng" Type="Decimal" Precision="6" Scale="3" />
           <Property Name="jiancaoR" Type="Decimal" Precision="6" Scale="3" />
-          <Property Name="isStandard" Type="Int32" />
+          <Property Name="isStandard" Type="Int32" Nullable="false" />
           <Property Name="serail" Type="Int32" />
           <Property Name="type" Type="Int32" />
           <NavigationProperty Name="member" Relationship="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" FromRole="parameters" ToRole="member" />

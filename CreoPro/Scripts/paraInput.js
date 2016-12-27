@@ -1,8 +1,5 @@
 ﻿$(document).ready(function () {
 
-    //默认加载参数列表
-    //getParaList();
-
     //启动Creo按钮
     $('#startCreo').click(function () {
         $.ajax({

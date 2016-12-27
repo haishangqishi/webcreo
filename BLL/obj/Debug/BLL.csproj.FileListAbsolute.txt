@@ -42,3 +42,14 @@ D:\VSsave\VS2010save\webcreo\creoPro\BLL\bin\Debug\Model.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 D:\VSsave\VS2010save\webcreo\creoPro\BLL\obj\Debug\BLL.dll
 D:\VSsave\VS2010save\webcreo\creoPro\BLL\obj\Debug\BLL.pdb
+F:\webcreo\creoPro\BLL\bin\Debug\BLL.dll
+F:\webcreo\creoPro\BLL\bin\Debug\BLL.pdb
+F:\webcreo\creoPro\BLL\bin\Debug\DALFactory.dll
+F:\webcreo\creoPro\BLL\bin\Debug\IDAL.dll
+F:\webcreo\creoPro\BLL\bin\Debug\Model.dll
+F:\webcreo\creoPro\BLL\bin\Debug\DALFactory.pdb
+F:\webcreo\creoPro\BLL\bin\Debug\IDAL.pdb
+F:\webcreo\creoPro\BLL\bin\Debug\Model.pdb
+F:\webcreo\creoPro\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+F:\webcreo\creoPro\BLL\obj\Debug\BLL.dll
+F:\webcreo\creoPro\BLL\obj\Debug\BLL.pdb

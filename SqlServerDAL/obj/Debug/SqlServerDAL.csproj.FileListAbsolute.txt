@@ -42,3 +42,14 @@ D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\bin\Debug\Model.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.csprojResolveAssemblyReference.cache
 D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.dll
 D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.pdb
+F:\webcreo\creoPro\SqlServerDAL\bin\Debug\SqlServerDAL.dll
+F:\webcreo\creoPro\SqlServerDAL\bin\Debug\SqlServerDAL.pdb
+F:\webcreo\creoPro\SqlServerDAL\bin\Debug\DBUtility.dll
+F:\webcreo\creoPro\SqlServerDAL\bin\Debug\IDAL.dll
+F:\webcreo\creoPro\SqlServerDAL\bin\Debug\Model.dll
+F:\webcreo\creoPro\SqlServerDAL\bin\Debug\DBUtility.pdb
+F:\webcreo\creoPro\SqlServerDAL\bin\Debug\IDAL.pdb
+F:\webcreo\creoPro\SqlServerDAL\bin\Debug\Model.pdb
+F:\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.csprojResolveAssemblyReference.cache
+F:\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.dll
+F:\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.pdb

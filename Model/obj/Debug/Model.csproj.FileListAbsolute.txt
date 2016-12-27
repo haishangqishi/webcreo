@@ -19,3 +19,8 @@ D:\VSsave\VS2010save\webcreo\creoPro\Model\bin\Debug\Model.dll
 D:\VSsave\VS2010save\webcreo\creoPro\Model\bin\Debug\Model.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\Model\obj\Debug\Model.dll
 D:\VSsave\VS2010save\webcreo\creoPro\Model\obj\Debug\Model.pdb
+F:\webcreo\creoPro\Model\bin\Debug\Model.dll.config
+F:\webcreo\creoPro\Model\bin\Debug\Model.dll
+F:\webcreo\creoPro\Model\bin\Debug\Model.pdb
+F:\webcreo\creoPro\Model\obj\Debug\Model.dll
+F:\webcreo\creoPro\Model\obj\Debug\Model.pdb
