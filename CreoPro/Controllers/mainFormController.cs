@@ -652,7 +652,7 @@ namespace CreoPro.Controllers
 
         #region 参数输入页面
         /// <summary>
-        /// 加载页面，同时加载参数列表
+        /// 初始加载页面，同时加载参数列表
         /// </summary>
         /// <returns></returns>
         public ActionResult paraInput()
@@ -682,6 +682,7 @@ namespace CreoPro.Controllers
             string jsonStr = Request["formData"];
             int pageIndex = 1;
             int totalRow = 0;
+            int pageSize = 10;
             UserInfo userInfo = getUserInfo();
             Dictionary<string, object> map = new Dictionary<string, object>();
             if (StrUtils.strNotNUll(jsonStr))
@@ -696,12 +697,21 @@ namespace CreoPro.Controllers
             {
                 map.Add("mem_id", userInfo.mem_id);
             }
+            if (map.ContainsKey("pageSize") && map["pageSize"].ToString() != "")
+            {
+                pageSize = Convert.ToInt32(map["pageSize"].ToString());
+                map.Remove("pageSize");
+            }
 
             bll_parm = new BLL.parameters();
             List<Model.parameters> list_parm = bll_parm.GetModelList(map, pageIndex, out totalRow);
             string strJson = JsonUtils.ObjectToJson(list_parm);
-            ViewBag.list = list_parm;
-            return Json(strJson);
+
+            Pager pager = new Pager();
+            pager.setPage(pageIndex);// 指定页码
+            pager.setTotalRow(totalRow);
+
+            return Json(new { list = strJson, totalPage = pager.getTotalPage() });
         }
         #endregion
 

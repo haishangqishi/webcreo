@@ -87,23 +87,23 @@
     });
 
     //分页工具
-    //    $(".tcdPageCode").createPage({
-    //        pageCount: 10,
-    //        current: 1,
-    //        backFn: function (p) {
-    //            console.log(p);
-    //        }
-    //    });
+    function pagiation(totalPage, pageIndex) {
+        $(".tcdPageCode").createPage({
+            pageCount: totalPage,
+            current: pageIndex,
+            backFn: function (p) {
+                getParaList(p);
+            }
+        });
+    }
 
     //查询
     $('#selFilter').click(function () {
-        //获取页码。。。。
-
-        getParaList();
+        getParaList(1);
     });
 
     //加载参数列表
-    function getParaList(page) {
+    function getParaList(pageIndex) {
         var formData = JSON.stringify($('#paraSelectForm').serializeObject());
         console.log("测试下拉选择：" + formData);
         $.ajax({
@@ -115,8 +115,36 @@
             dataType: "json",
             success: function (data) {
                 console.log(data);
+                var jsonObj = $.parseJSON(data.list);
+                createTable(jsonObj);
+                pagiation(data.totalPage, pageIndex);
             }
         });
+    }
+
+    //动态创建table的tbody
+    function createTable(data) {
+        $("#listbody").html("");
+        var tbody = "";
+        var len = data.length;
+        for (var i = 0; i < len; i++) {
+            tbody = tbody + "<tr class='ta-tr'>"
+                        + "<td class='dyn'>" + data[i].moshu + "</td>"
+                        + "<td>" + data[i].rongxieNum + "</td>"
+                        + "<td class='dyn'>" + data[i].deg + "</td>"
+                        + "<td class='dyn'>" + data[i].L + "</td>"
+                        + "<td class='dyn'>" + data[i].kongjing + "</td>"
+                        + "<td><a class='btn btn-success btn-mid' href='#'><i class='glyphicon glyphicon-zoom-in icon-white i-padd'></i>查看</a>"
+                        + "<a class='btn btn-danger btn-mid' href='#'><i class='glyphicon glyphicon-trash icon-white i-padd'></i>删除</a></td>"
+                        + "</tr>";
+        }
+        if (len == 0) {
+            tbody = tbody + "<tr style='text-align: center'>"
+                + "<td colspan='6'><font color='#cd0a0a'>" + 暂无记录 + "</font></td>"
+                + "</tr>";
+        }
+        //添加到div中  
+        $("#listbody").html(tbody);
     }
 
 });
