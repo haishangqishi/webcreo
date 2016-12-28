@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>齿轮滚刀系统</title>
+</head>
+<body>
+    <!-- 工具条 starts -->
+    @RenderPage("top.cshtml")
+    <!-- 工具条 ends -->
+    <div class="ch-container">
+        <div class="row">
+            <!-- 左菜单 starts -->
+            @RenderPage("left.cshtml")
+            <!-- 左菜单 ends -->
+            <!-- 内容页 starts-->
+            <div id="contentPage">
+                @RenderPage("dashboard.cshtml")
+            </div>
+        </div>
+        <hr>
+        @*<footer class="row">
+            <p class="col-md-9 col-sm-9 col-xs-12 copyright">
+                &copy; Xi'an Technological University 2016</p>
+            <p class="col-md-3 col-sm-3 col-xs-12 powered-by">
+                Powered by: School of Mechatronic Engineering</p>
+        </footer>*@
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\BLL\bin\Debug\BLL.dll
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\BLL\bin\Debug\BLL.pdb
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\BLL\obj\Debug\BLL.dll
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\BLL\obj\Debug\BLL.pdb
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\BLL\bin\Debug\Model.dll
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\BLL\bin\Debug\Model.pdb

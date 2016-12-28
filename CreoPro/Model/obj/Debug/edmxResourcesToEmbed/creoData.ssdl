@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="creo_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="creo_dataModelStoreContainer">
+    <EntitySet Name="member" EntityType="creo_dataModel.Store.member" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="parameters" EntityType="creo_dataModel.Store.parameters" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_PARAMETE_REFERENCE_MEMBER" Association="creo_dataModel.Store.FK_PARAMETE_REFERENCE_MEMBER">
+      <End Role="member" EntitySet="member" />
+      <End Role="parameters" EntitySet="parameters" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="member">
+    <Key>
+      <PropertyRef Name="mem_id" />
+    </Key>
+    <Property Name="mem_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="varchar" MaxLength="100" />
+    <Property Name="userPwd" Type="varchar" MaxLength="100" />
+    <Property Name="userRole" Type="int" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="phone" Type="varchar" MaxLength="20" />
+    <Property Name="sex" Type="int" />
+    <Property Name="creoSetup" Type="varchar" MaxLength="200" />
+    <Property Name="creoWorkSpace" Type="varchar" MaxLength="200" />
+    <Property Name="isWork" Type="int" />
+  </EntityType>
+  <EntityType Name="parameters">
+    <Key>
+      <PropertyRef Name="parm_id" />
+    </Key>
+    <Property Name="parm_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="mem_id" Type="int" />
+    <Property Name="moshu" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="deg" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="kongjing" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="L" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="rongxieNum" Type="int" />
+    <Property Name="zhoutaiD" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="zhoutaiL" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="jiancaoW" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="jiancaoH" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="kongdaoD" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="celeng" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="jiancaoR" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="isStandard" Type="int" />
+    <Property Name="serail" Type="int" />
+    <Property Name="type" Type="int" />
+  </EntityType>
+  <Association Name="FK_PARAMETE_REFERENCE_MEMBER">
+    <End Role="member" Type="creo_dataModel.Store.member" Multiplicity="0..1" />
+    <End Role="parameters" Type="creo_dataModel.Store.parameters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="member">
+        <PropertyRef Name="mem_id" />
+      </Principal>
+      <Dependent Role="parameters">
+        <PropertyRef Name="mem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

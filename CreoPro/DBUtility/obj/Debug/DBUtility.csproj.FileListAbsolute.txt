@@ -1,0 +1,4 @@
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\DBUtility\bin\Debug\DBUtility.dll
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\DBUtility\bin\Debug\DBUtility.pdb
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\DBUtility\obj\Debug\DBUtility.dll
+D:\VSsave\VS2010save\creo\creoPro\CreoPro\DBUtility\obj\Debug\DBUtility.pdb
