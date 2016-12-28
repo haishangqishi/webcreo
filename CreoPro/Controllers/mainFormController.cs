@@ -652,7 +652,11 @@ namespace CreoPro.Controllers
 
         #region 参数输入页面
         /// <summary>
+<<<<<<< HEAD
+        /// 初始加载页面，同时加载参数列表
+=======
         /// 加载页面，同时加载参数列表
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
         /// </summary>
         /// <returns></returns>
         public ActionResult paraInput()
@@ -682,6 +686,10 @@ namespace CreoPro.Controllers
             string jsonStr = Request["formData"];
             int pageIndex = 1;
             int totalRow = 0;
+<<<<<<< HEAD
+            int pageSize = 10;
+=======
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
             UserInfo userInfo = getUserInfo();
             Dictionary<string, object> map = new Dictionary<string, object>();
             if (StrUtils.strNotNUll(jsonStr))
@@ -696,12 +704,29 @@ namespace CreoPro.Controllers
             {
                 map.Add("mem_id", userInfo.mem_id);
             }
+<<<<<<< HEAD
+            if (map.ContainsKey("pageSize") && map["pageSize"].ToString() != "")
+            {
+                pageSize = Convert.ToInt32(map["pageSize"].ToString());
+                map.Remove("pageSize");
+            }
+=======
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
 
             bll_parm = new BLL.parameters();
             List<Model.parameters> list_parm = bll_parm.GetModelList(map, pageIndex, out totalRow);
             string strJson = JsonUtils.ObjectToJson(list_parm);
+<<<<<<< HEAD
+
+            Pager pager = new Pager();
+            pager.setPage(pageIndex);// 指定页码
+            pager.setTotalRow(totalRow);
+
+            return Json(new { list = strJson, totalPage = pager.getTotalPage() });
+=======
             ViewBag.list = list_parm;
             return Json(strJson);
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
         }
         #endregion
 

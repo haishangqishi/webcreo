@@ -43,3 +43,15 @@ F:\webcreo\creoPro\DALFactory\bin\Debug\Model.pdb
 F:\webcreo\creoPro\DALFactory\obj\Debug\DALFactory.csprojResolveAssemblyReference.cache
 F:\webcreo\creoPro\DALFactory\obj\Debug\DALFactory.dll
 F:\webcreo\creoPro\DALFactory\obj\Debug\DALFactory.pdb
+<<<<<<< HEAD
+D:\VSsave\VS2010save\creoPro\DALFactory\bin\Debug\DALFactory.dll
+D:\VSsave\VS2010save\creoPro\DALFactory\bin\Debug\DALFactory.pdb
+D:\VSsave\VS2010save\creoPro\DALFactory\bin\Debug\IDAL.dll
+D:\VSsave\VS2010save\creoPro\DALFactory\bin\Debug\Model.dll
+D:\VSsave\VS2010save\creoPro\DALFactory\bin\Debug\IDAL.pdb
+D:\VSsave\VS2010save\creoPro\DALFactory\bin\Debug\Model.pdb
+D:\VSsave\VS2010save\creoPro\DALFactory\obj\Debug\DALFactory.csprojResolveAssemblyReference.cache
+D:\VSsave\VS2010save\creoPro\DALFactory\obj\Debug\DALFactory.dll
+D:\VSsave\VS2010save\creoPro\DALFactory\obj\Debug\DALFactory.pdb
+=======
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a

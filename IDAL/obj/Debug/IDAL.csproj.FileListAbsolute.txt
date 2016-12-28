@@ -33,3 +33,13 @@ F:\webcreo\creoPro\IDAL\bin\Debug\Model.pdb
 F:\webcreo\creoPro\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
 F:\webcreo\creoPro\IDAL\obj\Debug\IDAL.dll
 F:\webcreo\creoPro\IDAL\obj\Debug\IDAL.pdb
+<<<<<<< HEAD
+D:\VSsave\VS2010save\creoPro\IDAL\bin\Debug\IDAL.dll
+D:\VSsave\VS2010save\creoPro\IDAL\bin\Debug\IDAL.pdb
+D:\VSsave\VS2010save\creoPro\IDAL\bin\Debug\Model.dll
+D:\VSsave\VS2010save\creoPro\IDAL\bin\Debug\Model.pdb
+D:\VSsave\VS2010save\creoPro\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
+D:\VSsave\VS2010save\creoPro\IDAL\obj\Debug\IDAL.dll
+D:\VSsave\VS2010save\creoPro\IDAL\obj\Debug\IDAL.pdb
+=======
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a

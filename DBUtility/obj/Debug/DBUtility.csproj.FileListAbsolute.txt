@@ -18,3 +18,10 @@ F:\webcreo\creoPro\DBUtility\bin\Debug\DBUtility.dll
 F:\webcreo\creoPro\DBUtility\bin\Debug\DBUtility.pdb
 F:\webcreo\creoPro\DBUtility\obj\Debug\DBUtility.dll
 F:\webcreo\creoPro\DBUtility\obj\Debug\DBUtility.pdb
+<<<<<<< HEAD
+D:\VSsave\VS2010save\creoPro\DBUtility\bin\Debug\DBUtility.dll
+D:\VSsave\VS2010save\creoPro\DBUtility\bin\Debug\DBUtility.pdb
+D:\VSsave\VS2010save\creoPro\DBUtility\obj\Debug\DBUtility.dll
+D:\VSsave\VS2010save\creoPro\DBUtility\obj\Debug\DBUtility.pdb
+=======
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a

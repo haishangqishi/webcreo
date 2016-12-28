@@ -328,6 +328,10 @@
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\memDetial.css" />
     <Content Include="Content\css\menutree.css" />
+<<<<<<< HEAD
+    <Content Include="Content\css\pagiation.css" />
+=======
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
     <Content Include="Content\css\paraInput.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -558,6 +562,10 @@
     <Content Include="Views\mainForm\modal.cshtml" />
     <Content Include="Views\Home\register.cshtml" />
     <None Include="files\chilungundaozzx_xiu.prt" />
+<<<<<<< HEAD
+    <Content Include="Views\mainForm\test.cshtml" />
+=======
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
