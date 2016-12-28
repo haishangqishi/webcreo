@@ -1,5 +1,8 @@
 ﻿$(document).ready(function () {
 
+    //初始化页面时，加载列表（包含分页）
+    getParaList(null, 1, true);
+
     //启动Creo按钮
     $('#startCreo').click(function () {
         $.ajax({
@@ -92,32 +95,33 @@
             pageCount: totalPage,
             current: pageIndex,
             backFn: function (p) {
-                getParaList(p);
+                var formData = JSON.stringify($('#paraSelectForm').serializeObject());
+                getParaList(formData, p, false);
             }
         });
     }
 
     //查询
     $('#selFilter').click(function () {
-        getParaList(1);
+        var formData = JSON.stringify($('#paraSelectForm').serializeObject());
+        getParaList(formData, 1, false);
     });
 
     //加载参数列表
-    function getParaList(pageIndex) {
-        var formData = JSON.stringify($('#paraSelectForm').serializeObject());
+    function getParaList(formData, pageIndex, flag) {
         console.log("测试下拉选择：" + formData);
         $.ajax({
             type: "post",
             url: "/mainForm/paraList",
-            data: { "formData": formData },
-            //data: { "formData": formData, "pageIndex": pageIndex },
+            data: { "formData": formData, "pageIndex": pageIndex },
             cache: false,
             dataType: "json",
             success: function (data) {
-                console.log(data);
                 var jsonObj = $.parseJSON(data.list);
                 createTable(jsonObj);
-                pagiation(data.totalPage, pageIndex);
+                if (flag == true) {
+                    pagiation(data.totalPage, pageIndex);
+                }
             }
         });
     }

@@ -353,7 +353,6 @@
     <Content Include="Scripts\register.js" />
     <Content Include="Views\mainForm\index.html" />
     <Content Include="Views\mainForm\table.html" />
-    <Content Include="Views\mainForm\test1.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -560,7 +559,6 @@
     <Content Include="Views\mainForm\modal.cshtml" />
     <Content Include="Views\Home\register.cshtml" />
     <None Include="files\chilungundaozzx_xiu.prt" />
-    <Content Include="Views\mainForm\test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
