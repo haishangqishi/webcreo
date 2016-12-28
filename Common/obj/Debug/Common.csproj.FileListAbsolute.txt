@@ -7,3 +7,4 @@ F:\webcreo\creoPro\Common\bin\Debug\Common.dll
 F:\webcreo\creoPro\Common\bin\Debug\Common.pdb
 F:\webcreo\creoPro\Common\obj\Debug\Common.dll
 F:\webcreo\creoPro\Common\obj\Debug\Common.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
