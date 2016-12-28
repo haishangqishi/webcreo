@@ -8,6 +8,18 @@
     <script src="../../Scripts/jquery.min.js" type="text/javascript"></script>
     <script src="../../Scripts/pagiation.js" type="text/javascript"></script>
     <script src="../../Scripts/paraInput.js" type="text/javascript"></script>
+<<<<<<< HEAD
+=======
+    <script type="text/javascript">
+        $(".tcdPageCode").createPage({
+            pageCount: 10,
+            current: 1,
+            backFn: function (p) {
+                console.log(p);
+            }
+        });
+    </script>
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
 </head>
 <body>
     <!-- 工具条 starts -->
@@ -136,7 +148,11 @@
                                             </th>
                                         </tr>
                                     </thead>
+<<<<<<< HEAD
                                     <tbody id="listbody">
+=======
+                                    <tbody>
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
                                         @foreach (var parm in ViewBag.list)
                                         { 
                                             <tr class="ta-tr">
@@ -157,7 +173,12 @@
                                                 </td>
                                                 <td>
                                                     <a class="btn btn-success btn-mid" href="#"><i class="glyphicon glyphicon-zoom-in icon-white i-padd">
+<<<<<<< HEAD
                                                     </i>查看</a><a class="btn btn-danger btn-mid" href="#"><i class="glyphicon glyphicon-trash icon-white i-padd">
+=======
+                                                    </i>查看</a><a class="btn btn-info btn-mid" href="#"><i class="glyphicon glyphicon-edit icon-white i-padd">
+                                                    </i>编辑</a><a class="btn btn-danger btn-mid" href="#"><i class="glyphicon glyphicon-trash icon-white i-padd">
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
                                                     </i>删除</a>
                                                 </td>
                                             </tr>
@@ -166,7 +187,11 @@
                                 </table>
                             </div>
                             <div class="tcdPageCode">
+<<<<<<< HEAD
                                 页码</div>
+=======
+                            </div>
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
                         </div>
                     </div>
                 </div>

@@ -87,6 +87,7 @@
     });
 
     //分页工具
+<<<<<<< HEAD
     function pagiation(totalPage, pageIndex) {
         $(".tcdPageCode").createPage({
             pageCount: totalPage,
@@ -104,6 +105,25 @@
 
     //加载参数列表
     function getParaList(pageIndex) {
+=======
+    //    $(".tcdPageCode").createPage({
+    //        pageCount: 10,
+    //        current: 1,
+    //        backFn: function (p) {
+    //            console.log(p);
+    //        }
+    //    });
+
+    //查询
+    $('#selFilter').click(function () {
+        //获取页码。。。。
+
+        getParaList();
+    });
+
+    //加载参数列表
+    function getParaList(page) {
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
         var formData = JSON.stringify($('#paraSelectForm').serializeObject());
         console.log("测试下拉选择：" + formData);
         $.ajax({
@@ -115,13 +135,17 @@
             dataType: "json",
             success: function (data) {
                 console.log(data);
+<<<<<<< HEAD
                 var jsonObj = $.parseJSON(data.list);
                 createTable(jsonObj);
                 pagiation(data.totalPage, pageIndex);
+=======
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
             }
         });
     }
 
+<<<<<<< HEAD
     //动态创建table的tbody
     function createTable(data) {
         $("#listbody").html("");
@@ -147,4 +171,6 @@
         $("#listbody").html(tbody);
     }
 
+=======
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
 });

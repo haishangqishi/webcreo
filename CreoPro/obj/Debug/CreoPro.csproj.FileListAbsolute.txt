@@ -92,6 +92,7 @@ F:\webcreo\creoPro\CreoPro\bin\DALFactory.pdb
 F:\webcreo\creoPro\CreoPro\bin\DBUtility.pdb
 F:\webcreo\creoPro\CreoPro\obj\Debug\CreoPro.dll
 F:\webcreo\creoPro\CreoPro\obj\Debug\CreoPro.pdb
+<<<<<<< HEAD
 D:\VSsave\VS2010save\creoPro\CreoPro\bin\CreoPro.dll
 D:\VSsave\VS2010save\creoPro\CreoPro\bin\CreoPro.pdb
 D:\VSsave\VS2010save\creoPro\CreoPro\bin\BLL.dll
@@ -114,3 +115,5 @@ D:\VSsave\VS2010save\creoPro\CreoPro\obj\Debug\Interop.pfcls.dll
 D:\VSsave\VS2010save\creoPro\CreoPro\obj\Debug\CreoPro.csproj.ResolveComReference.cache
 D:\VSsave\VS2010save\creoPro\CreoPro\obj\Debug\CreoPro.dll
 D:\VSsave\VS2010save\creoPro\CreoPro\obj\Debug\CreoPro.pdb
+=======
+>>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
