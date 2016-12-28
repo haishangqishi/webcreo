@@ -345,6 +345,7 @@ namespace CreoPro.Controllers
             CCpfcAsyncConnection cAC = null;
             IpfcBaseSession session;
             IpfcModel model;
+            IpfcModelDescriptor descModel;
 
             try
             {
@@ -352,6 +353,7 @@ namespace CreoPro.Controllers
                 asyncConnection = cAC.Connect(DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value);
                 session = asyncConnection.Session as IpfcBaseSession;
                 session.ChangeDirectory("D:\\creo2.0Save");
+                descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundaozzx_xiu.prt", null);//获取工作目录下的零件模型描述
                 model = session.CurrentModel;
 
                 //ipfcSession.UIShowMessageDialog("abcde", null);//显示消息弹框
@@ -368,6 +370,8 @@ namespace CreoPro.Controllers
 
                 //selectParas(session);
                 //Dictionary<string, double> map = selectFamTab(model);
+
+                exportModel(model, session, descModel);
             }
             catch (Exception ex)
             {
@@ -652,6 +656,42 @@ namespace CreoPro.Controllers
             map.Add("C", 1.0);
 
             return map;
+        }
+
+        /// <summary>
+        /// 导出.prt文件
+        /// </summary>
+        /// <param name="model"></param>
+        private void exportModel(IpfcModel model, IpfcBaseSession session, IpfcModelDescriptor descModel)
+        {
+            IpfcExportInstructions exIns = null;
+            try
+            {
+                //exIns = (IpfcExportInstructions)(new CCpfcProductViewExportInstructions()).Create();
+                //exIns = (IpfcExportInstructions)(new CCpfcNEUTRALFileExportInstructions()).Create();
+
+                //model.Backup(null);
+                //model.Rename("123", null);
+                //model.Save();
+                //model.Export("123.prt", exIns);
+
+                //Cstringseq seq = new Cstringseq();
+                //session.ExportFromCurrentWS(seq, "D:\\creo2.0Save\\test", 1);
+
+                //IpfcRasterImageExportInstructions img = (IpfcRasterImageExportInstructions)new CpfcRasterImageExportInstructions();
+                //img.ImageHeight = 30;
+                //img.ImageWidth = 30;
+                //session.ExportCurrentRasterImage("pic.jpg", img);
+
+                session.CopyFileFromWS("D:\\creo2.0Save\\chilungundaozzx_xiu.prt", "D:\\creo2.0Save\\test");
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+
+
+            //ins = (new CCpfcRegenInstructions()).Create(true, null, null);
         }
 
         #endregion
