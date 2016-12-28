@@ -74,9 +74,5 @@ namespace Common
         {
             return this.totalPage;
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> b9e05b3865c4eba4ae14bde5112e988130c2833a
     }
 }
