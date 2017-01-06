@@ -667,13 +667,14 @@ namespace CreoPro.Controllers
             IpfcExportInstructions exIns = null;
             try
             {
-                //exIns = (IpfcExportInstructions)(new CCpfcProductViewExportInstructions()).Create();
+                exIns = (IpfcExportInstructions)(new CCpfcProductViewExportInstructions()).Create();
                 //exIns = (IpfcExportInstructions)(new CCpfcNEUTRALFileExportInstructions()).Create();
 
                 //model.Backup(null);
                 //model.Rename("123", null);
                 //model.Save();
-                //model.Export("123.prt", exIns);
+
+                model.Export("123", exIns);
 
                 //Cstringseq seq = new Cstringseq();
                 //session.ExportFromCurrentWS(seq, "D:\\creo2.0Save\\test", 1);
@@ -683,15 +684,12 @@ namespace CreoPro.Controllers
                 //img.ImageWidth = 30;
                 //session.ExportCurrentRasterImage("pic.jpg", img);
 
-                session.CopyFileFromWS("D:\\creo2.0Save\\chilungundaozzx_xiu.prt", "D:\\creo2.0Save\\test");
+                //session.CopyFileFromWS("D:\\creo2.0Save\\chilungundaozzx.prt.1", "D:\\creo2.0Save\\test");
             }
             catch (Exception ex)
             {
                 ex.ToString();
             }
-
-
-            //ins = (new CCpfcRegenInstructions()).Create(true, null, null);
         }
 
         #endregion
