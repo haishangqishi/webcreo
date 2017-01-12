@@ -70,6 +70,7 @@
     <Compile Include="Controllers\MachineController.cs" />
     <Compile Include="Controllers\mainFormController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\ToolController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -334,6 +335,8 @@
     <Content Include="Content\css\paraInput.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\chanmoMachine.png" />
+    <Content Include="Content\images\chanmoTool.png" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\gearlogo.png" />
     <Content Include="Content\images\loading-sm.gif" />
@@ -354,6 +357,7 @@
     <Content Include="Scripts\pagiation.js" />
     <Content Include="Scripts\paraInput.js" />
     <Content Include="Scripts\register.js" />
+    <Content Include="Scripts\toolType.js" />
     <Content Include="Views\mainForm\index.html" />
     <Content Include="Views\mainForm\table.html" />
     <Content Include="Web.config">

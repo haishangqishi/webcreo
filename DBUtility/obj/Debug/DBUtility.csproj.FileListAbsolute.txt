@@ -18,4 +18,3 @@ D:\VSsave\VS2010save\webcreo\creoPro\DBUtility\bin\Debug\DBUtility.dll
 D:\VSsave\VS2010save\webcreo\creoPro\DBUtility\bin\Debug\DBUtility.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\DBUtility\obj\Debug\DBUtility.dll
 D:\VSsave\VS2010save\webcreo\creoPro\DBUtility\obj\Debug\DBUtility.pdb
-D:\VSsave\VS2010save\webcreo\creoPro\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
