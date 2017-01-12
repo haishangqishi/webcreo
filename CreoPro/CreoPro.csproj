@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MachineController.cs" />
     <Compile Include="Controllers\mainFormController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Global.asax.cs">
@@ -325,6 +326,7 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\machineSet.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\memDetial.css" />
     <Content Include="Content\css\menutree.css" />
@@ -346,6 +348,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\login.js" />
+    <Content Include="Scripts\machineType.js" />
     <Content Include="Scripts\memDetial.js" />
     <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\pagiation.js" />
@@ -559,6 +562,10 @@
     <Content Include="Views\mainForm\modal.cshtml" />
     <Content Include="Views\Home\register.cshtml" />
     <None Include="files\chilungundaozzx_xiu.prt" />
+    <Content Include="Views\Machine\machineType.cshtml" />
+    <Content Include="Views\Machine\machineSet.cshtml" />
+    <Content Include="Views\Tool\toolType.cshtml" />
+    <Content Include="Views\Tool\toolSet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

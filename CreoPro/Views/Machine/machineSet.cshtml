@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>machineSet</title>
+</head>
+<body>
+    <!-- 工具条 starts -->
+    @RenderPage("../mainForm/top.cshtml")
+    <!-- 工具条 ends -->
+    <div class="ch-container">
+        <div class="row">
+            <!-- 左菜单 starts -->
+            @RenderPage("../mainForm/left.cshtml")
+            <!-- 左菜单 ends -->
+            <!-- 内容页 starts-->
+            <div id="content" class="col-lg-10 col-sm-10">
+                <div>
+                    <ul class="mybreadcrumb">
+                        <li><a href="#">机床管理</a></li>
+                        <li><a href="/Machine/machineSet">机床参数设置</a></li>
+                    </ul>
+                </div>
+                <!-- 工艺、机床列表 starts-->
+                <div class="row">
+                    <div class="box col-md-4">
+                        <div class="box-inner">
+                            <div class="box-header well" data-original-title="">
+                                <h2>
+                                    <i class="glyphicon glyphicon-paperclip"></i>机床名片</h2>
+                                <div class="box-icon">
+                                    <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up">
+                                    </i></a>
+                                </div>
+                            </div>
+                            <div class="box-content">
+                                <div class="box-content">
+                                    <ul class="dashboard-list">
+                                        <li><a href="#">
+                                            <img class="dashboard-avatar" alt="Usman" src="http://www.gravatar.com/avatar/f0ea51fa1e4fae92608d8affee12f67b.png?s=50"></a>
+                                            <strong>机床名称</strong> <a href="#">Usman </a>
+                                            <br>
+                                            <strong>Since:</strong> 17/05/2014<br>
+                                            <strong>Status:</strong> <span class="label-success label label-default">Approved</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 工艺、机床列表 ends-->
+            </div>
+        </div>
+        <!-- 内容页 ends -->
+        <!-- 模态框 starts -->
+        @RenderPage("../mainForm/modal.cshtml")
+        <!-- 模态框 ends -->
+    </div>
+    <hr>
+</body>
+</html>
