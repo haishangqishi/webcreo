@@ -100,7 +100,7 @@ namespace CreoPro.Controllers
                 if (creoSetup != "" && creoSetup != "")
                 {
                     //runProE("D:\\creo2.0\\Creo 2.0\\Parametric\\bin\\parametric.exe", "D:\\creo2.0Save");
-                    //runProE(creoSetup, creoWorkSpace, null);
+                    runProE(creoSetup, creoWorkSpace, null, true);
                     return null;
                 }
                 else
@@ -112,11 +112,13 @@ namespace CreoPro.Controllers
         }
 
         /// <summary>
-        /// 行选项：-i 和 -g 标识使 Pro/ENGINEER 运行在无图形，无交互模式
+        /// 生成模型并显示
         /// </summary>
         /// <param name="exePath">安装路径</param>
         /// <param name="workDir">工作目录</param>
-        private void runProE(string exePath, string workDir, Dictionary<string, object> map)
+        /// <param name="map">模型参数</param>
+        /// <param name="flag">重生标志:true-新开Creo，false-不另打开Creo，继续重生</param>
+        private void runProE(string exePath, string workDir, Dictionary<string, object> map, bool flag)
         {
             CCpfcAsyncConnection cAC = null;
             IpfcBaseSession session;
@@ -130,8 +132,14 @@ namespace CreoPro.Controllers
             {
                 setConfig(exePath);//设置配置文件
                 cAC = new CCpfcAsyncConnection();
-                //asyncConnection = cAC.Start(exePath + " -g:no_graphics -i:rpc_input", ".");
-                asyncConnection = cAC.Start(exePath, ".");
+                if (flag)
+                {
+                    asyncConnection = cAC.Start(exePath, ".");
+                }
+                else
+                {
+                    asyncConnection = cAC.Connect(DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value);
+                }
                 session = asyncConnection.Session as IpfcBaseSession;//获取session(会话)
                 session.ChangeDirectory(workDir);// 设置工作目录
                 descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundaozzx_xiu.prt", null);//获取工作目录下的零件模型描述
@@ -198,6 +206,7 @@ namespace CreoPro.Controllers
         public JsonResult createModel()
         {
             string jsonStr = Request["paras"];
+            bool regeflag = Convert.ToBoolean(Request["regeflag"]);
             Dictionary<string, object> map = JsonUtils.jsonToDictionary(jsonStr);
 
             UserInfo userInfo = getUserInfo();
@@ -207,7 +216,7 @@ namespace CreoPro.Controllers
                 string creoWorkSpace = Server.MapPath("/") + "files";//工作目录
                 if (creoSetup != "" && creoSetup != "")
                 {
-                    runProE(creoSetup, creoWorkSpace, map);
+                    runProE(creoSetup, creoWorkSpace, map, regeflag);
                     return Json("success");
                 }
                 else
@@ -336,7 +345,7 @@ namespace CreoPro.Controllers
         }
 
         /// <summary>
-        /// 测试Creo
+        /// 测试
         /// </summary>
         /// <returns></returns>
         [HttpPost]

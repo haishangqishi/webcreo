@@ -25,7 +25,7 @@
         $.ajax({
             type: "post",
             url: "/mainForm/createModel",
-            data: { paras: paras },
+            data: { paras: paras, regeflag: true },
             cache: false,
             dataType: "json",
             beforeSend: function () {
@@ -41,16 +41,24 @@
         });
     });
 
-    //测试Creo按钮
-    $('#test').click(function () {
+    //重生模型
+    $('#regeModel').click(function () {
+        var paras = JSON.stringify($('#paraForm').serializeObject());
         $.ajax({
             type: "post",
-            url: "/mainForm/testCreo",
-            data: {},
+            url: "/mainForm/createModel",
+            data: { paras: paras,regeflag:false },
             cache: false,
             dataType: "json",
+            beforeSend: function () {
+                $('#createModel').attr("disabled", "disabled");
+                $("#loadingModal").modal('show');
+            },
             success: function (data) {
-                console.log(data);
+                if (data == "success") {
+                    $('#createModel').removeAttr("disabled");
+                    $("#loadingModal").modal('hide');
+                }
             }
         });
     });

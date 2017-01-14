@@ -326,6 +326,7 @@
     <Content Include="bower_components\flot\fullcalendar\license.txt" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\index.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\machineSet.css" />
     <Content Include="Content\css\main.css" />
@@ -344,6 +345,18 @@
     <Content Include="Content\images\logo-title.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo20.png" />
+    <Content Include="Content\images\sec-bg_03.jpg" />
+    <Content Include="Content\images\sec4-icon-1.png" />
+    <Content Include="Content\images\sec4-icon-10.png" />
+    <Content Include="Content\images\sec4-icon-2.png" />
+    <Content Include="Content\images\sec4-icon-3.png" />
+    <Content Include="Content\images\sec4-icon-4.png" />
+    <Content Include="Content\images\sec4-icon-5.png" />
+    <Content Include="Content\images\sec4-icon-6.png" />
+    <Content Include="Content\images\sec4-icon-7.png" />
+    <Content Include="Content\images\sec4-icon-8.png" />
+    <Content Include="Content\images\sec4-icon-9.png" />
+    <Content Include="Content\images\sec4-img.png" />
     <Content Include="Content\images\xiangongye.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -354,6 +367,7 @@
     <Content Include="Scripts\machineType.js" />
     <Content Include="Scripts\memDetial.js" />
     <Content Include="Scripts\menu.js" />
+    <Content Include="Scripts\move.js" />
     <Content Include="Scripts\pagiation.js" />
     <Content Include="Scripts\paraInput.js" />
     <Content Include="Scripts\register.js" />
