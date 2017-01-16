@@ -11,3 +11,63 @@
     border-radius: 5%;
 }
 
+.col
+{
+    float: left;
+    margin: 0px 20px 0px 10px;
+}
+
+#resume-content
+{
+    padding: 5px 20px 20px 20px;
+    font-size: .9em;
+    color: #3C3C3C;
+    background: #f1f1f1;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YxZjFmMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ5JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMWYxZjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(left,  #f1f1f1 0%, #ffffff 49%, #ffffff 51%, #f1f1f1 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f1f1f1), color-stop(49%,#ffffff), color-stop(51%,#ffffff), color-stop(100%,#f1f1f1));
+    background: -webkit-linear-gradient(left,  #f1f1f1 0%,#ffffff 49%,#ffffff 51%,#f1f1f1 100%);
+    background: -o-linear-gradient(left,  #f1f1f1 0%,#ffffff 49%,#ffffff 51%,#f1f1f1 100%);
+    background: -ms-linear-gradient(left,  #f1f1f1 0%,#ffffff 49%,#ffffff 51%,#f1f1f1 100%);
+    background: linear-gradient(to right,  #f1f1f1 0%,#ffffff 49%,#ffffff 51%,#f1f1f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#f1f1f1',GradientType=1 );
+}
+
+.title
+{
+    border-bottom-color: #CDCDCD;
+    border-bottom-style: double;
+    border-bottom-width: 3px;
+    margin-bottom: 10px;
+}
+
+.title h1, .title h2, .title h3, .title h4, .title h5, .title h6, .title p
+{
+    border-bottom-style: solid !important;
+    border-bottom-width: 5px !important;
+    display: inline-block !important;
+    margin-bottom: -4px !important;
+    margin-left: 0 !important;
+    margin-right: 15px !important;
+    padding: 0 10px 10px 0 !important;
+}
+
+.title.display-table p
+{
+    width: 100px;
+}
+
+.title.display-table span
+{
+    margin-left: 15px;
+}
+
+.description
+{
+    font-size: .9em;
+}
+
+.display-table
+{
+    display: table;
+}
