@@ -1,13 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="creo_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="creo_dataModelStoreContainer">
+    <EntitySet Name="machineDetail" EntityType="creo_dataModel.Store.machineDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="machines" EntityType="creo_dataModel.Store.machines" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="member" EntityType="creo_dataModel.Store.member" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="parameters" EntityType="creo_dataModel.Store.parameters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="toolDetail" EntityType="creo_dataModel.Store.toolDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tools" EntityType="creo_dataModel.Store.tools" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_MACHINED_REFERENCE_MACHINES" Association="creo_dataModel.Store.FK_MACHINED_REFERENCE_MACHINES">
+      <End Role="machines" EntitySet="machines" />
+      <End Role="machineDetail" EntitySet="machineDetail" />
+    </AssociationSet>
     <AssociationSet Name="FK_PARAMETE_REFERENCE_MEMBER" Association="creo_dataModel.Store.FK_PARAMETE_REFERENCE_MEMBER">
       <End Role="member" EntitySet="member" />
       <End Role="parameters" EntitySet="parameters" />
     </AssociationSet>
+    <AssociationSet Name="FK_TOOLDETA_REFERENCE_TOOLS" Association="creo_dataModel.Store.FK_TOOLDETA_REFERENCE_TOOLS">
+      <End Role="tools" EntitySet="tools" />
+      <End Role="toolDetail" EntitySet="toolDetail" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="machineDetail">
+    <Key>
+      <PropertyRef Name="madeId" />
+    </Key>
+    <Property Name="madeId" Type="int" Nullable="false" />
+    <Property Name="machId" Type="int" />
+    <Property Name="machPara" Type="varchar" MaxLength="40" />
+    <Property Name="machParaValue" Type="varchar" MaxLength="40" />
+    <Property Name="isDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="machines">
+    <Key>
+      <PropertyRef Name="machId" />
+    </Key>
+    <Property Name="machId" Type="int" Nullable="false" />
+    <Property Name="machName" Type="varchar" MaxLength="30" />
+    <Property Name="isDelete" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="member">
     <Key>
       <PropertyRef Name="mem_id" />
@@ -42,11 +72,41 @@
     <Property Name="kongdaoL" Type="decimal" Precision="6" Scale="3" />
     <Property Name="celeng" Type="decimal" Precision="6" Scale="3" />
     <Property Name="jiancaoR" Type="decimal" Precision="6" Scale="3" />
-    <Property Name="isStandard" Type="int" Nullable="false" />
+    <Property Name="isStandard" Type="int" />
     <Property Name="serail" Type="int" />
     <Property Name="type" Type="int" />
     <Property Name="isDelete" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="toolDetail">
+    <Key>
+      <PropertyRef Name="todeId" />
+    </Key>
+    <Property Name="todeId" Type="int" Nullable="false" />
+    <Property Name="toolId" Type="int" />
+    <Property Name="toolPara" Type="varchar" MaxLength="40" />
+    <Property Name="toolParaValue" Type="varchar" MaxLength="40" />
+    <Property Name="isDelete" Type="int" />
+  </EntityType>
+  <EntityType Name="tools">
+    <Key>
+      <PropertyRef Name="toolId" />
+    </Key>
+    <Property Name="toolId" Type="int" Nullable="false" />
+    <Property Name="toolName" Type="varchar" MaxLength="30" />
+    <Property Name="isDelete" Type="int" />
+  </EntityType>
+  <Association Name="FK_MACHINED_REFERENCE_MACHINES">
+    <End Role="machines" Type="creo_dataModel.Store.machines" Multiplicity="0..1" />
+    <End Role="machineDetail" Type="creo_dataModel.Store.machineDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="machines">
+        <PropertyRef Name="machId" />
+      </Principal>
+      <Dependent Role="machineDetail">
+        <PropertyRef Name="machId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PARAMETE_REFERENCE_MEMBER">
     <End Role="member" Type="creo_dataModel.Store.member" Multiplicity="0..1" />
     <End Role="parameters" Type="creo_dataModel.Store.parameters" Multiplicity="*" />
@@ -56,6 +116,18 @@
       </Principal>
       <Dependent Role="parameters">
         <PropertyRef Name="mem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TOOLDETA_REFERENCE_TOOLS">
+    <End Role="tools" Type="creo_dataModel.Store.tools" Multiplicity="0..1" />
+    <End Role="toolDetail" Type="creo_dataModel.Store.toolDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tools">
+        <PropertyRef Name="toolId" />
+      </Principal>
+      <Dependent Role="toolDetail">
+        <PropertyRef Name="toolId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

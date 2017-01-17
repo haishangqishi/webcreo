@@ -42,5 +42,45 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="machineDetail">
+      <EntityTypeMapping TypeName="creo_dataModel.machineDetail">
+        <MappingFragment StoreEntitySet="machineDetail">
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="machParaValue" ColumnName="machParaValue" />
+          <ScalarProperty Name="machPara" ColumnName="machPara" />
+          <ScalarProperty Name="machId" ColumnName="machId" />
+          <ScalarProperty Name="madeId" ColumnName="madeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="machines">
+      <EntityTypeMapping TypeName="creo_dataModel.machines">
+        <MappingFragment StoreEntitySet="machines">
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="machName" ColumnName="machName" />
+          <ScalarProperty Name="machId" ColumnName="machId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="toolDetail">
+      <EntityTypeMapping TypeName="creo_dataModel.toolDetail">
+        <MappingFragment StoreEntitySet="toolDetail">
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="toolParaValue" ColumnName="toolParaValue" />
+          <ScalarProperty Name="toolPara" ColumnName="toolPara" />
+          <ScalarProperty Name="toolId" ColumnName="toolId" />
+          <ScalarProperty Name="todeId" ColumnName="todeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tools">
+      <EntityTypeMapping TypeName="creo_dataModel.tools">
+        <MappingFragment StoreEntitySet="tools">
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="toolName" ColumnName="toolName" />
+          <ScalarProperty Name="toolId" ColumnName="toolId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

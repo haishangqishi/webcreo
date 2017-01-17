@@ -103,5 +103,25 @@ namespace DALFactory
             return (IDAL.Iparameters)objType;
         }
 
+        /// <summary>
+        /// 创建machines数据层接口。机床表
+        /// </summary>
+        public static IDAL.Imachines Createmachines()
+        {
+            string ClassNamespace = AssemblyPath + ".machinesImpl";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (IDAL.Imachines)objType;
+        }
+
+        /// <summary>
+        /// 创建machineDetail数据层接口。机床详细参数表
+        /// </summary>
+        public static IDAL.ImachineDetail CreatemachineDetail()
+        {
+            string ClassNamespace = AssemblyPath + ".machineDetailImpl";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (IDAL.ImachineDetail)objType;
+        }
+
     }
 }

@@ -11,6 +11,7 @@
     border-radius: 5%;
 }
 
+/*****卡片内容 start*******/
 .col
 {
     float: left;
@@ -71,3 +72,41 @@
 {
     display: table;
 }
+/*****卡片内容 end*******/
+
+/*****图片容器 start*******/
+.img
+{
+    -webkit-transform: scale(0.85);
+    -webkit-transform-origin: 80% 27%; /* Safari 和 Chrome */
+    -moz-transform: scale(0.85);
+    -moz-transform-origin: 80% 27%; /* Firefox */
+    -o-transform: scale(0.85);
+    -o-transform-origin: 80% 27%; /* Opera */
+    float: left;
+    margin-left: -50px;
+    margin-right: -10px;
+    margin-top: -15px;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+}
+
+.img img
+{
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5%;
+}
+
+.img:hover
+{
+    -webkit-transform: scale(1.07);
+    -webkit-box-shadow: 0px 0px 30px #ccc;
+    -moz-transform: scale(1.1);
+    -moz-box-shadow: 0px 0px 30px #ccc;
+    -o-transform: scale(1.1);
+    -o-box-shadow: 0px 0px 30px #ccc;
+}
+
+/*****图片容器 end*******/

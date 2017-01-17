@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImachineDetail.cs" />
+    <Compile Include="Imachines.cs" />
     <Compile Include="Imember.cs" />
     <Compile Include="Iparameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

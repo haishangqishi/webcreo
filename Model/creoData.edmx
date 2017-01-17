@@ -6,13 +6,43 @@
     <edmx:StorageModels>
     <Schema Namespace="creo_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="creo_dataModelStoreContainer">
+          <EntitySet Name="machineDetail" EntityType="creo_dataModel.Store.machineDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="machines" EntityType="creo_dataModel.Store.machines" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="member" EntityType="creo_dataModel.Store.member" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="parameters" EntityType="creo_dataModel.Store.parameters" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="toolDetail" EntityType="creo_dataModel.Store.toolDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tools" EntityType="creo_dataModel.Store.tools" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_MACHINED_REFERENCE_MACHINES" Association="creo_dataModel.Store.FK_MACHINED_REFERENCE_MACHINES">
+            <End Role="machines" EntitySet="machines" />
+            <End Role="machineDetail" EntitySet="machineDetail" />
+          </AssociationSet>
           <AssociationSet Name="FK_PARAMETE_REFERENCE_MEMBER" Association="creo_dataModel.Store.FK_PARAMETE_REFERENCE_MEMBER">
             <End Role="member" EntitySet="member" />
             <End Role="parameters" EntitySet="parameters" />
           </AssociationSet>
+          <AssociationSet Name="FK_TOOLDETA_REFERENCE_TOOLS" Association="creo_dataModel.Store.FK_TOOLDETA_REFERENCE_TOOLS">
+            <End Role="tools" EntitySet="tools" />
+            <End Role="toolDetail" EntitySet="toolDetail" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="machineDetail">
+          <Key>
+            <PropertyRef Name="madeId" />
+          </Key>
+          <Property Name="madeId" Type="int" Nullable="false" />
+          <Property Name="machId" Type="int" />
+          <Property Name="machPara" Type="varchar" MaxLength="40" />
+          <Property Name="machParaValue" Type="varchar" MaxLength="40" />
+          <Property Name="isDelete" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="machines">
+          <Key>
+            <PropertyRef Name="machId" />
+          </Key>
+          <Property Name="machId" Type="int" Nullable="false" />
+          <Property Name="machName" Type="varchar" MaxLength="30" />
+          <Property Name="isDelete" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="member">
           <Key>
             <PropertyRef Name="mem_id" />
@@ -47,11 +77,41 @@
           <Property Name="kongdaoL" Type="decimal" Precision="6" Scale="3" />
           <Property Name="celeng" Type="decimal" Precision="6" Scale="3" />
           <Property Name="jiancaoR" Type="decimal" Precision="6" Scale="3" />
-          <Property Name="isStandard" Type="int" Nullable="false" />
+          <Property Name="isStandard" Type="int" />
           <Property Name="serail" Type="int" />
           <Property Name="type" Type="int" />
           <Property Name="isDelete" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="toolDetail">
+          <Key>
+            <PropertyRef Name="todeId" />
+          </Key>
+          <Property Name="todeId" Type="int" Nullable="false" />
+          <Property Name="toolId" Type="int" />
+          <Property Name="toolPara" Type="varchar" MaxLength="40" />
+          <Property Name="toolParaValue" Type="varchar" MaxLength="40" />
+          <Property Name="isDelete" Type="int" />
+        </EntityType>
+        <EntityType Name="tools">
+          <Key>
+            <PropertyRef Name="toolId" />
+          </Key>
+          <Property Name="toolId" Type="int" Nullable="false" />
+          <Property Name="toolName" Type="varchar" MaxLength="30" />
+          <Property Name="isDelete" Type="int" />
+        </EntityType>
+        <Association Name="FK_MACHINED_REFERENCE_MACHINES">
+          <End Role="machines" Type="creo_dataModel.Store.machines" Multiplicity="0..1" />
+          <End Role="machineDetail" Type="creo_dataModel.Store.machineDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="machines">
+              <PropertyRef Name="machId" />
+            </Principal>
+            <Dependent Role="machineDetail">
+              <PropertyRef Name="machId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PARAMETE_REFERENCE_MEMBER">
           <End Role="member" Type="creo_dataModel.Store.member" Multiplicity="0..1" />
           <End Role="parameters" Type="creo_dataModel.Store.parameters" Multiplicity="*" />
@@ -61,6 +121,18 @@
             </Principal>
             <Dependent Role="parameters">
               <PropertyRef Name="mem_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TOOLDETA_REFERENCE_TOOLS">
+          <End Role="tools" Type="creo_dataModel.Store.tools" Multiplicity="0..1" />
+          <End Role="toolDetail" Type="creo_dataModel.Store.toolDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tools">
+              <PropertyRef Name="toolId" />
+            </Principal>
+            <Dependent Role="toolDetail">
+              <PropertyRef Name="toolId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -74,6 +146,18 @@
           <AssociationSet Name="FK_PARAMETE_REFERENCE_MEMBER" Association="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER">
             <End Role="member" EntitySet="member" />
             <End Role="parameters" EntitySet="parameters" />
+          </AssociationSet>
+          <EntitySet Name="machineDetail" EntityType="creo_dataModel.machineDetail" />
+          <EntitySet Name="machines" EntityType="creo_dataModel.machines" />
+          <EntitySet Name="toolDetail" EntityType="creo_dataModel.toolDetail" />
+          <EntitySet Name="tools" EntityType="creo_dataModel.tools" />
+          <AssociationSet Name="FK_MACHINED_REFERENCE_MACHINES" Association="creo_dataModel.FK_MACHINED_REFERENCE_MACHINES">
+            <End Role="machines" EntitySet="machines" />
+            <End Role="machineDetail" EntitySet="machineDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TOOLDETA_REFERENCE_TOOLS" Association="creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS">
+            <End Role="tools" EntitySet="tools" />
+            <End Role="toolDetail" EntitySet="toolDetail" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="member">
@@ -129,6 +213,70 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="machineDetail">
+          <Key>
+            <PropertyRef Name="madeId" />
+          </Key>
+          <Property Type="Int32" Name="madeId" Nullable="false" />
+          <Property Type="Int32" Name="machId" />
+          <Property Type="String" Name="machPara" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="machParaValue" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="isDelete" Nullable="false" />
+          <NavigationProperty Name="machines" Relationship="creo_dataModel.FK_MACHINED_REFERENCE_MACHINES" FromRole="machineDetail" ToRole="machines" />
+        </EntityType>
+        <EntityType Name="machines">
+          <Key>
+            <PropertyRef Name="machId" />
+          </Key>
+          <Property Type="Int32" Name="machId" Nullable="false" />
+          <Property Type="String" Name="machName" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="isDelete" Nullable="false" />
+          <NavigationProperty Name="machineDetail" Relationship="creo_dataModel.FK_MACHINED_REFERENCE_MACHINES" FromRole="machines" ToRole="machineDetail" />
+        </EntityType>
+        <EntityType Name="toolDetail">
+          <Key>
+            <PropertyRef Name="todeId" />
+          </Key>
+          <Property Type="Int32" Name="todeId" Nullable="false" />
+          <Property Type="Int32" Name="toolId" />
+          <Property Type="String" Name="toolPara" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="toolParaValue" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="isDelete" />
+          <NavigationProperty Name="tools" Relationship="creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS" FromRole="toolDetail" ToRole="tools" />
+        </EntityType>
+        <EntityType Name="tools">
+          <Key>
+            <PropertyRef Name="toolId" />
+          </Key>
+          <Property Type="Int32" Name="toolId" Nullable="false" />
+          <Property Type="String" Name="toolName" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="isDelete" />
+          <NavigationProperty Name="toolDetail" Relationship="creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS" FromRole="tools" ToRole="toolDetail" />
+        </EntityType>
+        <Association Name="FK_MACHINED_REFERENCE_MACHINES">
+          <End Type="creo_dataModel.machines" Role="machines" Multiplicity="0..1" />
+          <End Type="creo_dataModel.machineDetail" Role="machineDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="machines">
+              <PropertyRef Name="machId" />
+            </Principal>
+            <Dependent Role="machineDetail">
+              <PropertyRef Name="machId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TOOLDETA_REFERENCE_TOOLS">
+          <End Type="creo_dataModel.tools" Role="tools" Multiplicity="0..1" />
+          <End Type="creo_dataModel.toolDetail" Role="toolDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tools">
+              <PropertyRef Name="toolId" />
+            </Principal>
+            <Dependent Role="toolDetail">
+              <PropertyRef Name="toolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -176,6 +324,46 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="machineDetail">
+            <EntityTypeMapping TypeName="creo_dataModel.machineDetail">
+              <MappingFragment StoreEntitySet="machineDetail">
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="machParaValue" ColumnName="machParaValue" />
+                <ScalarProperty Name="machPara" ColumnName="machPara" />
+                <ScalarProperty Name="machId" ColumnName="machId" />
+                <ScalarProperty Name="madeId" ColumnName="madeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="machines">
+            <EntityTypeMapping TypeName="creo_dataModel.machines">
+              <MappingFragment StoreEntitySet="machines">
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="machName" ColumnName="machName" />
+                <ScalarProperty Name="machId" ColumnName="machId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="toolDetail">
+            <EntityTypeMapping TypeName="creo_dataModel.toolDetail">
+              <MappingFragment StoreEntitySet="toolDetail">
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="toolParaValue" ColumnName="toolParaValue" />
+                <ScalarProperty Name="toolPara" ColumnName="toolPara" />
+                <ScalarProperty Name="toolId" ColumnName="toolId" />
+                <ScalarProperty Name="todeId" ColumnName="todeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tools">
+            <EntityTypeMapping TypeName="creo_dataModel.tools">
+              <MappingFragment StoreEntitySet="tools">
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="toolName" ColumnName="toolName" />
+                <ScalarProperty Name="toolId" ColumnName="toolId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -202,6 +390,18 @@
         <AssociationConnector Association="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="3.3080753580729167" />
           <ConnectorPoint PointX="3" PointY="3.3080753580729167" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="creo_dataModel.machineDetail" Width="1.5" PointX="7.625" PointY="4.875" Height="2.1610522460937496" />
+        <EntityTypeShape EntityType="creo_dataModel.machines" Width="1.5" PointX="5.375" PointY="5.125" Height="1.7790128580729157" />
+        <EntityTypeShape EntityType="creo_dataModel.toolDetail" Width="1.5" PointX="7.625" PointY="0.875" Height="2.1610522460937496" />
+        <EntityTypeShape EntityType="creo_dataModel.tools" Width="1.5" PointX="5.375" PointY="1.125" Height="1.7790128580729165" />
+        <AssociationConnector Association="creo_dataModel.FK_MACHINED_REFERENCE_MACHINES" >
+          <ConnectorPoint PointX="6.875" PointY="6.0145064290364578" />
+          <ConnectorPoint PointX="7.625" PointY="6.0145064290364578" />
+        </AssociationConnector>
+        <AssociationConnector Association="creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS" >
+          <ConnectorPoint PointX="6.875" PointY="2.0145064290364583" />
+          <ConnectorPoint PointX="7.625" PointY="2.0145064290364583" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

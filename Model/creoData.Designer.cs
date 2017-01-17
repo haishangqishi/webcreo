@@ -20,6 +20,8 @@ using System.Xml.Serialization;
 #region EDM 关系源元数据
 
 [assembly: EdmRelationshipAttribute("creo_dataModel", "FK_PARAMETE_REFERENCE_MEMBER", "member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Model.member), "parameters", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.parameters), true)]
+[assembly: EdmRelationshipAttribute("creo_dataModel", "FK_MACHINED_REFERENCE_MACHINES", "machines", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Model.machines), "machineDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.machineDetail), true)]
+[assembly: EdmRelationshipAttribute("creo_dataModel", "FK_TOOLDETA_REFERENCE_TOOLS", "tools", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Model.tools), "toolDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.toolDetail), true)]
 
 #endregion
 
@@ -102,6 +104,70 @@ namespace Model
             }
         }
         private ObjectSet<parameters> _parameters;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<machineDetail> machineDetail
+        {
+            get
+            {
+                if ((_machineDetail == null))
+                {
+                    _machineDetail = base.CreateObjectSet<machineDetail>("machineDetail");
+                }
+                return _machineDetail;
+            }
+        }
+        private ObjectSet<machineDetail> _machineDetail;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<machines> machines
+        {
+            get
+            {
+                if ((_machines == null))
+                {
+                    _machines = base.CreateObjectSet<machines>("machines");
+                }
+                return _machines;
+            }
+        }
+        private ObjectSet<machines> _machines;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<toolDetail> toolDetail
+        {
+            get
+            {
+                if ((_toolDetail == null))
+                {
+                    _toolDetail = base.CreateObjectSet<toolDetail>("toolDetail");
+                }
+                return _toolDetail;
+            }
+        }
+        private ObjectSet<toolDetail> _toolDetail;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<tools> tools
+        {
+            get
+            {
+                if ((_tools == null))
+                {
+                    _tools = base.CreateObjectSet<tools>("tools");
+                }
+                return _tools;
+            }
+        }
+        private ObjectSet<tools> _tools;
 
         #endregion
 
@@ -122,6 +188,38 @@ namespace Model
         {
             base.AddObject("parameters", parameters);
         }
+    
+        /// <summary>
+        /// 用于向 machineDetail EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTomachineDetail(machineDetail machineDetail)
+        {
+            base.AddObject("machineDetail", machineDetail);
+        }
+    
+        /// <summary>
+        /// 用于向 machines EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTomachines(machines machines)
+        {
+            base.AddObject("machines", machines);
+        }
+    
+        /// <summary>
+        /// 用于向 toolDetail EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotoolDetail(toolDetail toolDetail)
+        {
+            base.AddObject("toolDetail", toolDetail);
+        }
+    
+        /// <summary>
+        /// 用于向 tools EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotools(tools tools)
+        {
+            base.AddObject("tools", tools);
+        }
 
         #endregion
 
@@ -130,6 +228,336 @@ namespace Model
     #endregion
 
     #region 实体
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="creo_dataModel", Name="machineDetail")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class machineDetail : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 machineDetail 对象。
+        /// </summary>
+        /// <param name="madeId">madeId 属性的初始值。</param>
+        /// <param name="isDelete">isDelete 属性的初始值。</param>
+        public static machineDetail CreatemachineDetail(global::System.Int32 madeId, global::System.Int32 isDelete)
+        {
+            machineDetail machineDetail = new machineDetail();
+            machineDetail.madeId = madeId;
+            machineDetail.isDelete = isDelete;
+            return machineDetail;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 madeId
+        {
+            get
+            {
+                return _madeId;
+            }
+            set
+            {
+                if (_madeId != value)
+                {
+                    OnmadeIdChanging(value);
+                    ReportPropertyChanging("madeId");
+                    _madeId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("madeId");
+                    OnmadeIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _madeId;
+        partial void OnmadeIdChanging(global::System.Int32 value);
+        partial void OnmadeIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> machId
+        {
+            get
+            {
+                return _machId;
+            }
+            set
+            {
+                OnmachIdChanging(value);
+                ReportPropertyChanging("machId");
+                _machId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("machId");
+                OnmachIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _machId;
+        partial void OnmachIdChanging(Nullable<global::System.Int32> value);
+        partial void OnmachIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String machPara
+        {
+            get
+            {
+                return _machPara;
+            }
+            set
+            {
+                OnmachParaChanging(value);
+                ReportPropertyChanging("machPara");
+                _machPara = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("machPara");
+                OnmachParaChanged();
+            }
+        }
+        private global::System.String _machPara;
+        partial void OnmachParaChanging(global::System.String value);
+        partial void OnmachParaChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String machParaValue
+        {
+            get
+            {
+                return _machParaValue;
+            }
+            set
+            {
+                OnmachParaValueChanging(value);
+                ReportPropertyChanging("machParaValue");
+                _machParaValue = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("machParaValue");
+                OnmachParaValueChanged();
+            }
+        }
+        private global::System.String _machParaValue;
+        partial void OnmachParaValueChanging(global::System.String value);
+        partial void OnmachParaValueChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 isDelete
+        {
+            get
+            {
+                return _isDelete;
+            }
+            set
+            {
+                OnisDeleteChanging(value);
+                ReportPropertyChanging("isDelete");
+                _isDelete = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("isDelete");
+                OnisDeleteChanged();
+            }
+        }
+        private global::System.Int32 _isDelete;
+        partial void OnisDeleteChanging(global::System.Int32 value);
+        partial void OnisDeleteChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("creo_dataModel", "FK_MACHINED_REFERENCE_MACHINES", "machines")]
+        public machines machines
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<machines>("creo_dataModel.FK_MACHINED_REFERENCE_MACHINES", "machines").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<machines>("creo_dataModel.FK_MACHINED_REFERENCE_MACHINES", "machines").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<machines> machinesReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<machines>("creo_dataModel.FK_MACHINED_REFERENCE_MACHINES", "machines");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<machines>("creo_dataModel.FK_MACHINED_REFERENCE_MACHINES", "machines", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="creo_dataModel", Name="machines")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class machines : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 machines 对象。
+        /// </summary>
+        /// <param name="machId">machId 属性的初始值。</param>
+        /// <param name="isDelete">isDelete 属性的初始值。</param>
+        public static machines Createmachines(global::System.Int32 machId, global::System.Int32 isDelete)
+        {
+            machines machines = new machines();
+            machines.machId = machId;
+            machines.isDelete = isDelete;
+            return machines;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 machId
+        {
+            get
+            {
+                return _machId;
+            }
+            set
+            {
+                if (_machId != value)
+                {
+                    OnmachIdChanging(value);
+                    ReportPropertyChanging("machId");
+                    _machId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("machId");
+                    OnmachIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _machId;
+        partial void OnmachIdChanging(global::System.Int32 value);
+        partial void OnmachIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String machName
+        {
+            get
+            {
+                return _machName;
+            }
+            set
+            {
+                OnmachNameChanging(value);
+                ReportPropertyChanging("machName");
+                _machName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("machName");
+                OnmachNameChanged();
+            }
+        }
+        private global::System.String _machName;
+        partial void OnmachNameChanging(global::System.String value);
+        partial void OnmachNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 isDelete
+        {
+            get
+            {
+                return _isDelete;
+            }
+            set
+            {
+                OnisDeleteChanging(value);
+                ReportPropertyChanging("isDelete");
+                _isDelete = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("isDelete");
+                OnisDeleteChanged();
+            }
+        }
+        private global::System.Int32 _isDelete;
+        partial void OnisDeleteChanging(global::System.Int32 value);
+        partial void OnisDeleteChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("creo_dataModel", "FK_MACHINED_REFERENCE_MACHINES", "machineDetail")]
+        public EntityCollection<machineDetail> machineDetail
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<machineDetail>("creo_dataModel.FK_MACHINED_REFERENCE_MACHINES", "machineDetail");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<machineDetail>("creo_dataModel.FK_MACHINED_REFERENCE_MACHINES", "machineDetail", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
     
     /// <summary>
     /// 没有元数据文档可用。
@@ -957,6 +1385,332 @@ namespace Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<member>("creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER", "member", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="creo_dataModel", Name="toolDetail")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class toolDetail : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 toolDetail 对象。
+        /// </summary>
+        /// <param name="todeId">todeId 属性的初始值。</param>
+        public static toolDetail CreatetoolDetail(global::System.Int32 todeId)
+        {
+            toolDetail toolDetail = new toolDetail();
+            toolDetail.todeId = todeId;
+            return toolDetail;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 todeId
+        {
+            get
+            {
+                return _todeId;
+            }
+            set
+            {
+                if (_todeId != value)
+                {
+                    OntodeIdChanging(value);
+                    ReportPropertyChanging("todeId");
+                    _todeId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("todeId");
+                    OntodeIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _todeId;
+        partial void OntodeIdChanging(global::System.Int32 value);
+        partial void OntodeIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> toolId
+        {
+            get
+            {
+                return _toolId;
+            }
+            set
+            {
+                OntoolIdChanging(value);
+                ReportPropertyChanging("toolId");
+                _toolId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("toolId");
+                OntoolIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _toolId;
+        partial void OntoolIdChanging(Nullable<global::System.Int32> value);
+        partial void OntoolIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String toolPara
+        {
+            get
+            {
+                return _toolPara;
+            }
+            set
+            {
+                OntoolParaChanging(value);
+                ReportPropertyChanging("toolPara");
+                _toolPara = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("toolPara");
+                OntoolParaChanged();
+            }
+        }
+        private global::System.String _toolPara;
+        partial void OntoolParaChanging(global::System.String value);
+        partial void OntoolParaChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String toolParaValue
+        {
+            get
+            {
+                return _toolParaValue;
+            }
+            set
+            {
+                OntoolParaValueChanging(value);
+                ReportPropertyChanging("toolParaValue");
+                _toolParaValue = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("toolParaValue");
+                OntoolParaValueChanged();
+            }
+        }
+        private global::System.String _toolParaValue;
+        partial void OntoolParaValueChanging(global::System.String value);
+        partial void OntoolParaValueChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> isDelete
+        {
+            get
+            {
+                return _isDelete;
+            }
+            set
+            {
+                OnisDeleteChanging(value);
+                ReportPropertyChanging("isDelete");
+                _isDelete = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("isDelete");
+                OnisDeleteChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _isDelete;
+        partial void OnisDeleteChanging(Nullable<global::System.Int32> value);
+        partial void OnisDeleteChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("creo_dataModel", "FK_TOOLDETA_REFERENCE_TOOLS", "tools")]
+        public tools tools
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tools>("creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS", "tools").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tools>("creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS", "tools").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tools> toolsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tools>("creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS", "tools");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tools>("creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS", "tools", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="creo_dataModel", Name="tools")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tools : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 tools 对象。
+        /// </summary>
+        /// <param name="toolId">toolId 属性的初始值。</param>
+        public static tools Createtools(global::System.Int32 toolId)
+        {
+            tools tools = new tools();
+            tools.toolId = toolId;
+            return tools;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 toolId
+        {
+            get
+            {
+                return _toolId;
+            }
+            set
+            {
+                if (_toolId != value)
+                {
+                    OntoolIdChanging(value);
+                    ReportPropertyChanging("toolId");
+                    _toolId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("toolId");
+                    OntoolIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _toolId;
+        partial void OntoolIdChanging(global::System.Int32 value);
+        partial void OntoolIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String toolName
+        {
+            get
+            {
+                return _toolName;
+            }
+            set
+            {
+                OntoolNameChanging(value);
+                ReportPropertyChanging("toolName");
+                _toolName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("toolName");
+                OntoolNameChanged();
+            }
+        }
+        private global::System.String _toolName;
+        partial void OntoolNameChanging(global::System.String value);
+        partial void OntoolNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> isDelete
+        {
+            get
+            {
+                return _isDelete;
+            }
+            set
+            {
+                OnisDeleteChanging(value);
+                ReportPropertyChanging("isDelete");
+                _isDelete = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("isDelete");
+                OnisDeleteChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _isDelete;
+        partial void OnisDeleteChanging(Nullable<global::System.Int32> value);
+        partial void OnisDeleteChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("creo_dataModel", "FK_TOOLDETA_REFERENCE_TOOLS", "toolDetail")]
+        public EntityCollection<toolDetail> toolDetail
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<toolDetail>("creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS", "toolDetail");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<toolDetail>("creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS", "toolDetail", value);
                 }
             }
         }
