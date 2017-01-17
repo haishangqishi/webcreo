@@ -53,3 +53,6 @@ D:\VSsave\VS2010save\webcreo\creoPro\BLL\bin\Debug\Model.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 D:\VSsave\VS2010save\webcreo\creoPro\BLL\obj\Debug\BLL.dll
 D:\VSsave\VS2010save\webcreo\creoPro\BLL\obj\Debug\BLL.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\BLL\bin\Debug\Common.dll
+D:\VSsave\VS2010save\webcreo\creoPro\BLL\bin\Debug\Newtonsoft.Json.dll
+D:\VSsave\VS2010save\webcreo\creoPro\BLL\bin\Debug\Common.pdb

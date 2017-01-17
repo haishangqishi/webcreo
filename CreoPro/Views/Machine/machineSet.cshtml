@@ -41,7 +41,22 @@
                                         <img alt="机床" src="../../Content/images/chanmoMachine.png">
                                     </div>
                                     <div id="resume-content">
-                                        <div class="col">
+                                        @{var num = ViewBag.num;
+                                          if (num == 1)
+                                          {
+                                            <div class="col">
+                                                foreach (var machine in ViewBag.list1) {
+                                                <div class="title display-table">
+                                                    <p>
+                                                    </p>
+                                                    <span class="pull-right">数控铲磨床</span>
+                                                </div>
+                                                }
+                                            </div>
+                                          }
+                                          
+                                        }
+                                        @*<div class="col">
                                             <div class="title display-table">
                                                 <p>
                                                     机床名称</p>
@@ -129,7 +144,7 @@
                                                     机床重量</p>
                                                 <span class="pull-right">约5T</span>
                                             </div>
-                                        </div>
+                                        </div>*@
                                     </div>
                                 </div>
                             </div>

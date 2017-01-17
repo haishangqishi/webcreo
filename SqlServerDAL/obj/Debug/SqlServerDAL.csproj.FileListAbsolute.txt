@@ -53,3 +53,6 @@ D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\bin\Debug\Model.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.csprojResolveAssemblyReference.cache
 D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.dll
 D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\bin\Debug\Common.dll
+D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\bin\Debug\Newtonsoft.Json.dll
+D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\bin\Debug\Common.pdb

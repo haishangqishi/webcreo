@@ -43,3 +43,6 @@ D:\VSsave\VS2010save\webcreo\creoPro\DALFactory\bin\Debug\Model.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\DALFactory\obj\Debug\DALFactory.csprojResolveAssemblyReference.cache
 D:\VSsave\VS2010save\webcreo\creoPro\DALFactory\obj\Debug\DALFactory.dll
 D:\VSsave\VS2010save\webcreo\creoPro\DALFactory\obj\Debug\DALFactory.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\DALFactory\bin\Debug\Common.dll
+D:\VSsave\VS2010save\webcreo\creoPro\DALFactory\bin\Debug\Newtonsoft.Json.dll
+D:\VSsave\VS2010save\webcreo\creoPro\DALFactory\bin\Debug\Common.pdb

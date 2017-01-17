@@ -50,5 +50,19 @@ namespace IDAL
         /// <returns></returns>
         Model.process DataRowToModel(DataRow row);
 
+        /// <summary>
+        /// 获得工艺-机床列表
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        DataSet GetProcMachList(string strWhere);
+
+        /// <summary>
+        /// row转model
+        /// </summary>
+        /// <param name="row"></param>
+        /// <returns></returns>
+        Common.Process ProcMachRowToModel(DataRow row);
+
     }
 }

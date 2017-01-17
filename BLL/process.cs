@@ -85,5 +85,36 @@ namespace BLL
             return modelList;
         }
 
+        /// <summary>
+        /// 获得工艺-机床列表
+        /// </summary>
+        public List<Common.Process> GetProcMachList(string strWhere)
+        {
+            DataSet ds = dal.GetProcMachList(strWhere);
+            return ProcMachToList(ds.Tables[0]);
+        }
+
+        /// <summary>
+        /// DataTable转List
+        /// </summary>
+        public List<Common.Process> ProcMachToList(DataTable dt)
+        {
+            List<Common.Process> modelList = new List<Common.Process>();
+            int rowsCount = dt.Rows.Count;
+            if (rowsCount > 0)
+            {
+                Common.Process model;
+                for (int n = 0; n < rowsCount; n++)
+                {
+                    model = dal.ProcMachRowToModel(dt.Rows[n]);
+                    if (model != null)
+                    {
+                        modelList.Add(model);
+                    }
+                }
+            }
+            return modelList;
+        }
+
     }
 }

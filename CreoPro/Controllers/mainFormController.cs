@@ -188,13 +188,6 @@ namespace CreoPro.Controllers
             }
             finally  // 当完成，结束 Pro/ENGINEER 会话
             {
-                //if (asyncConnection != null)
-                //{
-                //    if (asyncConnection.IsRunning())
-                //    {
-                //        asyncConnection.End();
-                //    }
-                //}
             }
         }
 

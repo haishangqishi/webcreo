@@ -137,10 +137,10 @@ namespace SqlServerDAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select procId,machId,toolId,procName,isDelete ");
-            strSql.Append(" FROM process ");
+            strSql.Append(" FROM process where isDelete=0");
             if (strWhere.Trim() != "")
             {
-                strSql.Append(" where " + strWhere);
+                strSql.Append(" and " + strWhere);
             }
             return DbHelperSQL.Query(strSql.ToString());
         }
@@ -172,6 +172,55 @@ namespace SqlServerDAL
                 if (row["isDelete"] != null && row["isDelete"].ToString() != "")
                 {
                     model.isDelete = int.Parse(row["isDelete"].ToString());
+                }
+            }
+            return model;
+        }
+
+        /// <summary>
+        /// 获得工艺-机床列表
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        public DataSet GetProcMachList(string strWhere)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select p.procId,p.machId,p.toolId,p.procName,m.machName from process p");
+            strSql.Append(" left join machines m on m.machId=p.machId where p.isDelete=0");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" and " + strWhere);
+            }
+            return DbHelperSQL.Query(strSql.ToString());
+        }
+
+        /// <summary>
+        /// row转model
+        /// </summary>
+        public Common.Process ProcMachRowToModel(DataRow row)
+        {
+            Common.Process model = new Common.Process();
+            if (row != null)
+            {
+                if (row["procId"] != null && row["procId"].ToString() != "")
+                {
+                    model.procId = int.Parse(row["procId"].ToString());
+                }
+                if (row["machId"] != null && row["machId"].ToString() != "")
+                {
+                    model.machId = int.Parse(row["machId"].ToString());
+                }
+                if (row["toolId"] != null && row["toolId"].ToString() != "")
+                {
+                    model.toolId = int.Parse(row["toolId"].ToString());
+                }
+                if (row["procName"] != null)
+                {
+                    model.procName = row["procName"].ToString();
+                }
+                if (row["machName"] != null)
+                {
+                    model.machName = row["machName"].ToString();
                 }
             }
             return model;

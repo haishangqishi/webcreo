@@ -50,5 +50,19 @@ namespace IDAL
         /// <returns></returns>
         Model.machines DataRowToModel(DataRow row);
 
+        /// <summary>
+        /// 获得机床-机床详细列表
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        DataSet GetMachDetaList(string strWhere);
+
+        /// <summary>
+        /// row转model
+        /// </summary>
+        /// <param name="row"></param>
+        /// <returns></returns>
+        Common.MachineDetail MachDetaRowToModel(DataRow row);
+
     }
 }

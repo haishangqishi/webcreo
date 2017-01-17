@@ -37,7 +37,7 @@
                                         id="machList_iMin" class="glyphicon glyphicon-chevron-up"></i></a>
                                 </div>
                             </div>
-                            <div id="machListDiv" style="height: 310px; display: block">
+                            <div id="machListDiv" style="height: 330px; display: block">
                                 <div class="box-content">
                                     <form id="machSelectForm" action="" method="post" role="form">
                                     <label class="blue-label-se">
@@ -56,7 +56,21 @@
                                             </tr>
                                         </thead>
                                         <tbody id="machListBody">
-                                            <tr>
+                                            @foreach (var procMach in ViewBag.list)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @procMach.procName
+                                                    </td>
+                                                    <td>
+                                                        <a href="" class="td-mach">@procMach.machName</a>
+                                                        <form action="/Machine/getMachineSet" method="post" class="hi-form">
+                                                        <input type="text" class="hidden" value="@procMach.machId" />
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            }
+                                            @*<tr>
                                                 <td>
                                                     粗车外圆
                                                 </td>
@@ -127,7 +141,7 @@
                                                 <td>
                                                     <a href="/Machine/machineSet" class="">数控铲磨床</a>
                                                 </td>
-                                            </tr>
+                                            </tr>*@
                                         </tbody>
                                     </table>
                                 </div>

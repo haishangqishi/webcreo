@@ -52,6 +52,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{612531E1-B6BD-4723-9132-F9D4266B54BE}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DALFactory\DALFactory.csproj">
       <Project>{26CAA761-4A7F-4F08-BB38-44BDD0158F93}</Project>
       <Name>DALFactory</Name>

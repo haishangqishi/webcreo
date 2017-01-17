@@ -160,5 +160,48 @@ namespace SqlServerDAL
             return model;
         }
 
+        /// <summary>
+        /// 获得机床-机床详细列表
+        /// </summary>
+        public DataSet GetMachDetaList(string strWhere)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select md.madeId,m.machName,md.machPara,md.machParaValue from machines m");
+            strSql.Append(" left join machineDetail md on md.machId=m.machId where isDelete=0");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" and " + strWhere);
+            }
+            return DbHelperSQL.Query(strSql.ToString());
+        }
+
+        /// <summary>
+        /// row转model
+        /// </summary>
+        public Common.MachineDetail MachDetaRowToModel(DataRow row)
+        {
+            Common.MachineDetail model = new Common.MachineDetail();
+            if (row != null)
+            {
+                if (row["madeId"] != null && row["madeId"].ToString() != "")
+                {
+                    model.madeId = int.Parse(row["madeId"].ToString());
+                }
+                if (row["machName"] != null)
+                {
+                    model.machName = row["machName"].ToString();
+                }
+                if (row["machPara"] != null)
+                {
+                    model.machPara = row["machPara"].ToString();
+                }
+                if (row["machParaValue"] != null)
+                {
+                    model.machParaValue = row["machParaValue"].ToString();
+                }
+            }
+            return model;
+        }
+
     }
 }

@@ -85,5 +85,37 @@ namespace BLL
             return modelList;
         }
 
+        /// <summary>
+        /// 获得机床-机床详细列表
+        /// </summary>
+        public List<Common.MachineDetail> GetMachDetaList(string strWhere)
+        {
+            DataSet ds = dal.GetMachDetaList(strWhere);
+            return MachDetaToList(ds.Tables[0]);
+        }
+
+
+        /// <summary>
+        /// DataTable转List
+        /// </summary>
+        public List<Common.MachineDetail> MachDetaToList(DataTable dt)
+        {
+            List<Common.MachineDetail> modelList = new List<Common.MachineDetail>();
+            int rowsCount = dt.Rows.Count;
+            if (rowsCount > 0)
+            {
+                Common.MachineDetail model;
+                for (int n = 0; n < rowsCount; n++)
+                {
+                    model = dal.MachDetaRowToModel(dt.Rows[n]);
+                    if (model != null)
+                    {
+                        modelList.Add(model);
+                    }
+                }
+            }
+            return modelList;
+        }
+
     }
 }

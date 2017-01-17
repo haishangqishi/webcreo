@@ -33,3 +33,6 @@ D:\VSsave\VS2010save\webcreo\creoPro\IDAL\bin\Debug\Model.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
 D:\VSsave\VS2010save\webcreo\creoPro\IDAL\obj\Debug\IDAL.dll
 D:\VSsave\VS2010save\webcreo\creoPro\IDAL\obj\Debug\IDAL.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\IDAL\bin\Debug\Common.dll
+D:\VSsave\VS2010save\webcreo\creoPro\IDAL\bin\Debug\Newtonsoft.Json.dll
+D:\VSsave\VS2010save\webcreo\creoPro\IDAL\bin\Debug\Common.pdb

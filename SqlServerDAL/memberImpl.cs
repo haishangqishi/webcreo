@@ -112,7 +112,7 @@ namespace SqlServerDAL
         public bool Delete(int mem_id)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("delete from member ");
+            strSql.Append("update member set isWork=0");
             strSql.Append(" where mem_id=@mem_id");
             SqlParameter[] parameters = {
                     new SqlParameter("@mem_id", SqlDbType.Int,4)
@@ -136,8 +136,8 @@ namespace SqlServerDAL
         public Model.member GetModel(int mem_id)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 mem_id,userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,isWork from member ");
-            strSql.Append(" where mem_id=@mem_id");
+            strSql.Append("select top 1 mem_id,userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,isWork from member ");
+            strSql.Append(" where mem_id=@mem_id and isWork=1");
             SqlParameter[] parameters = {
                     new SqlParameter("@mem_id", SqlDbType.Int,4)
             };
@@ -162,10 +162,10 @@ namespace SqlServerDAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select mem_id,userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,isWork ");
-            strSql.Append(" FROM member ");
+            strSql.Append(" FROM member where isWork=1");
             if (strWhere.Trim() != "")
             {
-                strSql.Append(" where " + strWhere);
+                strSql.Append(" and " + strWhere);
             }
             return DbHelperSQL.Query(strSql.ToString());
         }
