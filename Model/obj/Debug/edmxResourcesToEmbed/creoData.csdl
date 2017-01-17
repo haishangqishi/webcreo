@@ -1,14 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="creo_dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="creo_dataEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="member" EntityType="creo_dataModel.member" />
-    <EntitySet Name="parameters" EntityType="creo_dataModel.parameters" />
-    <AssociationSet Name="FK_PARAMETE_REFERENCE_MEMBER" Association="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER">
-      <End Role="member" EntitySet="member" />
-      <End Role="parameters" EntitySet="parameters" />
-    </AssociationSet>
     <EntitySet Name="machineDetail" EntityType="creo_dataModel.machineDetail" />
     <EntitySet Name="machines" EntityType="creo_dataModel.machines" />
+    <EntitySet Name="process" EntityType="creo_dataModel.process" />
     <EntitySet Name="toolDetail" EntityType="creo_dataModel.toolDetail" />
     <EntitySet Name="tools" EntityType="creo_dataModel.tools" />
     <AssociationSet Name="FK_MACHINED_REFERENCE_MACHINES" Association="creo_dataModel.FK_MACHINED_REFERENCE_MACHINES">
@@ -19,65 +14,18 @@
       <End Role="tools" EntitySet="tools" />
       <End Role="toolDetail" EntitySet="toolDetail" />
     </AssociationSet>
+    <EntitySet Name="member" EntityType="creo_dataModel.member" />
+    <EntitySet Name="parameters" EntityType="creo_dataModel.parameters" />
+    <AssociationSet Name="FK_PARAMETE_REFERENCE_MEMBER" Association="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER">
+      <End Role="member" EntitySet="member" />
+      <End Role="parameters" EntitySet="parameters" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="member">
-    <Key>
-      <PropertyRef Name="mem_id" />
-    </Key>
-    <Property Name="mem_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="userName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="userPwd" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="userRole" Type="Int32" />
-    <Property Name="email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="phone" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-    <Property Name="sex" Type="Int32" />
-    <Property Name="creoSetup" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-    <Property Name="creoWorkSpace" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-    <Property Name="isWork" Type="Int32" />
-    <NavigationProperty Name="parameters" Relationship="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" FromRole="member" ToRole="parameters" />
-  </EntityType>
-  <EntityType Name="parameters">
-    <Key>
-      <PropertyRef Name="parm_id" />
-    </Key>
-    <Property Name="parm_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="mem_id" Type="Int32" />
-    <Property Name="moshu" Type="Decimal" Precision="6" Scale="3" />
-    <Property Name="deg" Type="Decimal" Precision="6" Scale="3" />
-    <Property Name="kongjing" Type="Decimal" Precision="6" Scale="3" />
-    <Property Name="L" Type="Decimal" Precision="6" Scale="3" />
-    <Property Name="rongxieNum" Type="Int32" />
-    <Property Name="zhoutaiD" Type="Decimal" Precision="6" Scale="3" />
-    <Property Name="zhoutaiL" Type="Decimal" Precision="6" Scale="3" />
-    <Property Name="jiancaoW" Type="Decimal" Precision="6" Scale="3" />
-    <Property Name="jiancaoH" Type="Decimal" Precision="6" Scale="3" />
-    <Property Name="kongdaoD" Type="Decimal" Precision="6" Scale="3" />
-    <Property Name="celeng" Type="Decimal" Precision="6" Scale="3" />
-    <Property Name="jiancaoR" Type="Decimal" Precision="6" Scale="3" />
-    <Property Name="isStandard" Type="Int32" Nullable="false" />
-    <Property Name="serail" Type="Int32" />
-    <Property Name="type" Type="Int32" />
-    <NavigationProperty Name="member" Relationship="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" FromRole="parameters" ToRole="member" />
-    <Property Type="Int32" Name="isDelete" Nullable="false" />
-    <Property Type="Decimal" Name="kongdaoL" Precision="6" Scale="3" />
-  </EntityType>
-  <Association Name="FK_PARAMETE_REFERENCE_MEMBER">
-    <End Role="member" Type="creo_dataModel.member" Multiplicity="0..1" />
-    <End Role="parameters" Type="creo_dataModel.parameters" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="member">
-        <PropertyRef Name="mem_id" />
-      </Principal>
-      <Dependent Role="parameters">
-        <PropertyRef Name="mem_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="machineDetail">
     <Key>
       <PropertyRef Name="madeId" />
     </Key>
-    <Property Type="Int32" Name="madeId" Nullable="false" />
+    <Property Type="Int32" Name="madeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Int32" Name="machId" />
     <Property Type="String" Name="machPara" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="machParaValue" MaxLength="40" FixedLength="false" Unicode="false" />
@@ -88,29 +36,39 @@
     <Key>
       <PropertyRef Name="machId" />
     </Key>
-    <Property Type="Int32" Name="machId" Nullable="false" />
+    <Property Type="Int32" Name="machId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="String" Name="machName" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Type="Int32" Name="isDelete" Nullable="false" />
     <NavigationProperty Name="machineDetail" Relationship="creo_dataModel.FK_MACHINED_REFERENCE_MACHINES" FromRole="machines" ToRole="machineDetail" />
+  </EntityType>
+  <EntityType Name="process">
+    <Key>
+      <PropertyRef Name="procId" />
+    </Key>
+    <Property Type="Int32" Name="procId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="machId" />
+    <Property Type="Int32" Name="toolId" />
+    <Property Type="String" Name="procName" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="isDelete" Nullable="false" />
   </EntityType>
   <EntityType Name="toolDetail">
     <Key>
       <PropertyRef Name="todeId" />
     </Key>
-    <Property Type="Int32" Name="todeId" Nullable="false" />
+    <Property Type="Int32" Name="todeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Int32" Name="toolId" />
     <Property Type="String" Name="toolPara" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="toolParaValue" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Type="Int32" Name="isDelete" />
+    <Property Type="Int32" Name="isDelete" Nullable="false" />
     <NavigationProperty Name="tools" Relationship="creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS" FromRole="toolDetail" ToRole="tools" />
   </EntityType>
   <EntityType Name="tools">
     <Key>
       <PropertyRef Name="toolId" />
     </Key>
-    <Property Type="Int32" Name="toolId" Nullable="false" />
+    <Property Type="Int32" Name="toolId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="String" Name="toolName" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Type="Int32" Name="isDelete" />
+    <Property Type="Int32" Name="isDelete" Nullable="false" />
     <NavigationProperty Name="toolDetail" Relationship="creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS" FromRole="tools" ToRole="toolDetail" />
   </EntityType>
   <Association Name="FK_MACHINED_REFERENCE_MACHINES">
@@ -134,6 +92,59 @@
       </Principal>
       <Dependent Role="toolDetail">
         <PropertyRef Name="toolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="member">
+    <Key>
+      <PropertyRef Name="mem_id" />
+    </Key>
+    <Property Type="Int32" Name="mem_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="userName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="userPwd" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="userRole" />
+    <Property Type="String" Name="email" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="phone" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="sex" />
+    <Property Type="String" Name="creoSetup" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="creoWorkSpace" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="isWork" Nullable="false" />
+    <NavigationProperty Name="parameters" Relationship="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" FromRole="member" ToRole="parameters" />
+  </EntityType>
+  <EntityType Name="parameters">
+    <Key>
+      <PropertyRef Name="parm_id" />
+    </Key>
+    <Property Type="Int32" Name="parm_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="mem_id" />
+    <Property Type="Decimal" Name="moshu" Precision="6" Scale="3" />
+    <Property Type="Decimal" Name="deg" Precision="6" Scale="3" />
+    <Property Type="Decimal" Name="kongjing" Precision="6" Scale="3" />
+    <Property Type="Decimal" Name="L" Precision="6" Scale="3" />
+    <Property Type="Int32" Name="rongxieNum" />
+    <Property Type="Decimal" Name="zhoutaiD" Precision="6" Scale="3" />
+    <Property Type="Decimal" Name="zhoutaiL" Precision="6" Scale="3" />
+    <Property Type="Decimal" Name="jiancaoW" Precision="6" Scale="3" />
+    <Property Type="Decimal" Name="jiancaoH" Precision="6" Scale="3" />
+    <Property Type="Decimal" Name="kongdaoD" Precision="6" Scale="3" />
+    <Property Type="Decimal" Name="celeng" Precision="6" Scale="3" />
+    <Property Type="Decimal" Name="jiancaoR" Precision="6" Scale="3" />
+    <Property Type="Int32" Name="isStandard" Nullable="false" />
+    <Property Type="Int32" Name="serail" />
+    <Property Type="Int32" Name="type" />
+    <Property Type="Decimal" Name="kongdaoL" Precision="6" Scale="3" />
+    <Property Type="Int32" Name="isDelete" Nullable="false" />
+    <NavigationProperty Name="member" Relationship="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" FromRole="parameters" ToRole="member" />
+  </EntityType>
+  <Association Name="FK_PARAMETE_REFERENCE_MEMBER">
+    <End Type="creo_dataModel.member" Role="member" Multiplicity="0..1" />
+    <End Type="creo_dataModel.parameters" Role="parameters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="member">
+        <PropertyRef Name="mem_id" />
+      </Principal>
+      <Dependent Role="parameters">
+        <PropertyRef Name="mem_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

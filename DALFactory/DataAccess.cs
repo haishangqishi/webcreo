@@ -123,5 +123,15 @@ namespace DALFactory
             return (IDAL.ImachineDetail)objType;
         }
 
+        /// <summary>
+        /// 创建process数据层接口。工艺表
+        /// </summary>
+        public static IDAL.Iprocess Createprocess()
+        {
+            string ClassNamespace = AssemblyPath + ".processImpl";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (IDAL.Iprocess)objType;
+        }
+
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="machines.cs" />
     <Compile Include="member.cs" />
     <Compile Include="parameters.cs" />
+    <Compile Include="process.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

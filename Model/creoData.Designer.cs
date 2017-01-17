@@ -19,9 +19,9 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM 关系源元数据
 
-[assembly: EdmRelationshipAttribute("creo_dataModel", "FK_PARAMETE_REFERENCE_MEMBER", "member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Model.member), "parameters", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.parameters), true)]
 [assembly: EdmRelationshipAttribute("creo_dataModel", "FK_MACHINED_REFERENCE_MACHINES", "machines", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Model.machines), "machineDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.machineDetail), true)]
 [assembly: EdmRelationshipAttribute("creo_dataModel", "FK_TOOLDETA_REFERENCE_TOOLS", "tools", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Model.tools), "toolDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.toolDetail), true)]
+[assembly: EdmRelationshipAttribute("creo_dataModel", "FK_PARAMETE_REFERENCE_MEMBER", "member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Model.member), "parameters", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.parameters), true)]
 
 #endregion
 
@@ -76,38 +76,6 @@ namespace Model
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        public ObjectSet<member> member
-        {
-            get
-            {
-                if ((_member == null))
-                {
-                    _member = base.CreateObjectSet<member>("member");
-                }
-                return _member;
-            }
-        }
-        private ObjectSet<member> _member;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        public ObjectSet<parameters> parameters
-        {
-            get
-            {
-                if ((_parameters == null))
-                {
-                    _parameters = base.CreateObjectSet<parameters>("parameters");
-                }
-                return _parameters;
-            }
-        }
-        private ObjectSet<parameters> _parameters;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
         public ObjectSet<machineDetail> machineDetail
         {
             get
@@ -140,6 +108,22 @@ namespace Model
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
+        public ObjectSet<process> process
+        {
+            get
+            {
+                if ((_process == null))
+                {
+                    _process = base.CreateObjectSet<process>("process");
+                }
+                return _process;
+            }
+        }
+        private ObjectSet<process> _process;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
         public ObjectSet<toolDetail> toolDetail
         {
             get
@@ -168,26 +152,42 @@ namespace Model
             }
         }
         private ObjectSet<tools> _tools;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<member> member
+        {
+            get
+            {
+                if ((_member == null))
+                {
+                    _member = base.CreateObjectSet<member>("member");
+                }
+                return _member;
+            }
+        }
+        private ObjectSet<member> _member;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<parameters> parameters
+        {
+            get
+            {
+                if ((_parameters == null))
+                {
+                    _parameters = base.CreateObjectSet<parameters>("parameters");
+                }
+                return _parameters;
+            }
+        }
+        private ObjectSet<parameters> _parameters;
 
         #endregion
 
         #region AddTo 方法
-    
-        /// <summary>
-        /// 用于向 member EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddTomember(member member)
-        {
-            base.AddObject("member", member);
-        }
-    
-        /// <summary>
-        /// 用于向 parameters EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddToparameters(parameters parameters)
-        {
-            base.AddObject("parameters", parameters);
-        }
     
         /// <summary>
         /// 用于向 machineDetail EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
@@ -206,6 +206,14 @@ namespace Model
         }
     
         /// <summary>
+        /// 用于向 process EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToprocess(process process)
+        {
+            base.AddObject("process", process);
+        }
+    
+        /// <summary>
         /// 用于向 toolDetail EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
         public void AddTotoolDetail(toolDetail toolDetail)
@@ -219,6 +227,22 @@ namespace Model
         public void AddTotools(tools tools)
         {
             base.AddObject("tools", tools);
+        }
+    
+        /// <summary>
+        /// 用于向 member EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTomember(member member)
+        {
+            base.AddObject("member", member);
+        }
+    
+        /// <summary>
+        /// 用于向 parameters EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToparameters(parameters parameters)
+        {
+            base.AddObject("parameters", parameters);
         }
 
         #endregion
@@ -573,10 +597,12 @@ namespace Model
         /// 创建新的 member 对象。
         /// </summary>
         /// <param name="mem_id">mem_id 属性的初始值。</param>
-        public static member Createmember(global::System.Int32 mem_id)
+        /// <param name="isWork">isWork 属性的初始值。</param>
+        public static member Createmember(global::System.Int32 mem_id, global::System.Int32 isWork)
         {
             member member = new member();
             member.mem_id = mem_id;
+            member.isWork = isWork;
             return member;
         }
 
@@ -806,9 +832,9 @@ namespace Model
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> isWork
+        public global::System.Int32 isWork
         {
             get
             {
@@ -823,8 +849,8 @@ namespace Model
                 OnisWorkChanged();
             }
         }
-        private Nullable<global::System.Int32> _isWork;
-        partial void OnisWorkChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _isWork;
+        partial void OnisWorkChanging(global::System.Int32 value);
         partial void OnisWorkChanged();
 
         #endregion
@@ -1301,30 +1327,6 @@ namespace Model
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 isDelete
-        {
-            get
-            {
-                return _isDelete;
-            }
-            set
-            {
-                OnisDeleteChanging(value);
-                ReportPropertyChanging("isDelete");
-                _isDelete = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("isDelete");
-                OnisDeleteChanged();
-            }
-        }
-        private global::System.Int32 _isDelete;
-        partial void OnisDeleteChanging(global::System.Int32 value);
-        partial void OnisDeleteChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> kongdaoL
@@ -1345,6 +1347,30 @@ namespace Model
         private Nullable<global::System.Decimal> _kongdaoL;
         partial void OnkongdaoLChanging(Nullable<global::System.Decimal> value);
         partial void OnkongdaoLChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 isDelete
+        {
+            get
+            {
+                return _isDelete;
+            }
+            set
+            {
+                OnisDeleteChanging(value);
+                ReportPropertyChanging("isDelete");
+                _isDelete = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("isDelete");
+                OnisDeleteChanged();
+            }
+        }
+        private global::System.Int32 _isDelete;
+        partial void OnisDeleteChanging(global::System.Int32 value);
+        partial void OnisDeleteChanged();
 
         #endregion
 
@@ -1396,6 +1422,161 @@ namespace Model
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="creo_dataModel", Name="process")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class process : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 process 对象。
+        /// </summary>
+        /// <param name="procId">procId 属性的初始值。</param>
+        /// <param name="isDelete">isDelete 属性的初始值。</param>
+        public static process Createprocess(global::System.Int32 procId, global::System.Int32 isDelete)
+        {
+            process process = new process();
+            process.procId = procId;
+            process.isDelete = isDelete;
+            return process;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 procId
+        {
+            get
+            {
+                return _procId;
+            }
+            set
+            {
+                if (_procId != value)
+                {
+                    OnprocIdChanging(value);
+                    ReportPropertyChanging("procId");
+                    _procId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("procId");
+                    OnprocIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _procId;
+        partial void OnprocIdChanging(global::System.Int32 value);
+        partial void OnprocIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> machId
+        {
+            get
+            {
+                return _machId;
+            }
+            set
+            {
+                OnmachIdChanging(value);
+                ReportPropertyChanging("machId");
+                _machId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("machId");
+                OnmachIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _machId;
+        partial void OnmachIdChanging(Nullable<global::System.Int32> value);
+        partial void OnmachIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> toolId
+        {
+            get
+            {
+                return _toolId;
+            }
+            set
+            {
+                OntoolIdChanging(value);
+                ReportPropertyChanging("toolId");
+                _toolId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("toolId");
+                OntoolIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _toolId;
+        partial void OntoolIdChanging(Nullable<global::System.Int32> value);
+        partial void OntoolIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String procName
+        {
+            get
+            {
+                return _procName;
+            }
+            set
+            {
+                OnprocNameChanging(value);
+                ReportPropertyChanging("procName");
+                _procName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("procName");
+                OnprocNameChanged();
+            }
+        }
+        private global::System.String _procName;
+        partial void OnprocNameChanging(global::System.String value);
+        partial void OnprocNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 isDelete
+        {
+            get
+            {
+                return _isDelete;
+            }
+            set
+            {
+                OnisDeleteChanging(value);
+                ReportPropertyChanging("isDelete");
+                _isDelete = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("isDelete");
+                OnisDeleteChanged();
+            }
+        }
+        private global::System.Int32 _isDelete;
+        partial void OnisDeleteChanging(global::System.Int32 value);
+        partial void OnisDeleteChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="creo_dataModel", Name="toolDetail")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1407,10 +1588,12 @@ namespace Model
         /// 创建新的 toolDetail 对象。
         /// </summary>
         /// <param name="todeId">todeId 属性的初始值。</param>
-        public static toolDetail CreatetoolDetail(global::System.Int32 todeId)
+        /// <param name="isDelete">isDelete 属性的初始值。</param>
+        public static toolDetail CreatetoolDetail(global::System.Int32 todeId, global::System.Int32 isDelete)
         {
             toolDetail toolDetail = new toolDetail();
             toolDetail.todeId = todeId;
+            toolDetail.isDelete = isDelete;
             return toolDetail;
         }
 
@@ -1520,9 +1703,9 @@ namespace Model
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> isDelete
+        public global::System.Int32 isDelete
         {
             get
             {
@@ -1537,8 +1720,8 @@ namespace Model
                 OnisDeleteChanged();
             }
         }
-        private Nullable<global::System.Int32> _isDelete;
-        partial void OnisDeleteChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _isDelete;
+        partial void OnisDeleteChanging(global::System.Int32 value);
         partial void OnisDeleteChanged();
 
         #endregion
@@ -1602,10 +1785,12 @@ namespace Model
         /// 创建新的 tools 对象。
         /// </summary>
         /// <param name="toolId">toolId 属性的初始值。</param>
-        public static tools Createtools(global::System.Int32 toolId)
+        /// <param name="isDelete">isDelete 属性的初始值。</param>
+        public static tools Createtools(global::System.Int32 toolId, global::System.Int32 isDelete)
         {
             tools tools = new tools();
             tools.toolId = toolId;
+            tools.isDelete = isDelete;
             return tools;
         }
 
@@ -1667,9 +1852,9 @@ namespace Model
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> isDelete
+        public global::System.Int32 isDelete
         {
             get
             {
@@ -1684,8 +1869,8 @@ namespace Model
                 OnisDeleteChanged();
             }
         }
-        private Nullable<global::System.Int32> _isDelete;
-        partial void OnisDeleteChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _isDelete;
+        partial void OnisDeleteChanging(global::System.Int32 value);
         partial void OnisDeleteChanged();
 
         #endregion

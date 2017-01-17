@@ -364,6 +364,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\login.js" />
+    <Content Include="Scripts\machineSet.js" />
     <Content Include="Scripts\machineType.js" />
     <Content Include="Scripts\memDetial.js" />
     <Content Include="Scripts\menu.js" />

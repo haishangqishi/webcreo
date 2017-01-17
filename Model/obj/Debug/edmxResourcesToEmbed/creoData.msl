@@ -1,47 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="creo_dataModelStoreContainer" CdmEntityContainer="creo_dataEntities">
-    <EntitySetMapping Name="member">
-      <EntityTypeMapping TypeName="creo_dataModel.member">
-        <MappingFragment StoreEntitySet="member">
-          <ScalarProperty Name="mem_id" ColumnName="mem_id" />
-          <ScalarProperty Name="userName" ColumnName="userName" />
-          <ScalarProperty Name="userPwd" ColumnName="userPwd" />
-          <ScalarProperty Name="userRole" ColumnName="userRole" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="phone" ColumnName="phone" />
-          <ScalarProperty Name="sex" ColumnName="sex" />
-          <ScalarProperty Name="creoSetup" ColumnName="creoSetup" />
-          <ScalarProperty Name="creoWorkSpace" ColumnName="creoWorkSpace" />
-          <ScalarProperty Name="isWork" ColumnName="isWork" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="parameters">
-      <EntityTypeMapping TypeName="creo_dataModel.parameters">
-        <MappingFragment StoreEntitySet="parameters">
-          <ScalarProperty Name="kongdaoL" ColumnName="kongdaoL" />
-          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
-          <ScalarProperty Name="parm_id" ColumnName="parm_id" />
-          <ScalarProperty Name="mem_id" ColumnName="mem_id" />
-          <ScalarProperty Name="moshu" ColumnName="moshu" />
-          <ScalarProperty Name="deg" ColumnName="deg" />
-          <ScalarProperty Name="kongjing" ColumnName="kongjing" />
-          <ScalarProperty Name="L" ColumnName="L" />
-          <ScalarProperty Name="rongxieNum" ColumnName="rongxieNum" />
-          <ScalarProperty Name="zhoutaiD" ColumnName="zhoutaiD" />
-          <ScalarProperty Name="zhoutaiL" ColumnName="zhoutaiL" />
-          <ScalarProperty Name="jiancaoW" ColumnName="jiancaoW" />
-          <ScalarProperty Name="jiancaoH" ColumnName="jiancaoH" />
-          <ScalarProperty Name="kongdaoD" ColumnName="kongdaoD" />
-          <ScalarProperty Name="celeng" ColumnName="celeng" />
-          <ScalarProperty Name="jiancaoR" ColumnName="jiancaoR" />
-          <ScalarProperty Name="isStandard" ColumnName="isStandard" />
-          <ScalarProperty Name="serail" ColumnName="serail" />
-          <ScalarProperty Name="type" ColumnName="type" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="machineDetail">
       <EntityTypeMapping TypeName="creo_dataModel.machineDetail">
         <MappingFragment StoreEntitySet="machineDetail">
@@ -62,6 +21,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="process">
+      <EntityTypeMapping TypeName="creo_dataModel.process">
+        <MappingFragment StoreEntitySet="process">
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="procName" ColumnName="procName" />
+          <ScalarProperty Name="toolId" ColumnName="toolId" />
+          <ScalarProperty Name="machId" ColumnName="machId" />
+          <ScalarProperty Name="procId" ColumnName="procId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="toolDetail">
       <EntityTypeMapping TypeName="creo_dataModel.toolDetail">
         <MappingFragment StoreEntitySet="toolDetail">
@@ -79,6 +49,47 @@
           <ScalarProperty Name="isDelete" ColumnName="isDelete" />
           <ScalarProperty Name="toolName" ColumnName="toolName" />
           <ScalarProperty Name="toolId" ColumnName="toolId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="member">
+      <EntityTypeMapping TypeName="creo_dataModel.member">
+        <MappingFragment StoreEntitySet="member">
+          <ScalarProperty Name="isWork" ColumnName="isWork" />
+          <ScalarProperty Name="creoWorkSpace" ColumnName="creoWorkSpace" />
+          <ScalarProperty Name="creoSetup" ColumnName="creoSetup" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="userRole" ColumnName="userRole" />
+          <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="mem_id" ColumnName="mem_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parameters">
+      <EntityTypeMapping TypeName="creo_dataModel.parameters">
+        <MappingFragment StoreEntitySet="parameters">
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="kongdaoL" ColumnName="kongdaoL" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="serail" ColumnName="serail" />
+          <ScalarProperty Name="isStandard" ColumnName="isStandard" />
+          <ScalarProperty Name="jiancaoR" ColumnName="jiancaoR" />
+          <ScalarProperty Name="celeng" ColumnName="celeng" />
+          <ScalarProperty Name="kongdaoD" ColumnName="kongdaoD" />
+          <ScalarProperty Name="jiancaoH" ColumnName="jiancaoH" />
+          <ScalarProperty Name="jiancaoW" ColumnName="jiancaoW" />
+          <ScalarProperty Name="zhoutaiL" ColumnName="zhoutaiL" />
+          <ScalarProperty Name="zhoutaiD" ColumnName="zhoutaiD" />
+          <ScalarProperty Name="rongxieNum" ColumnName="rongxieNum" />
+          <ScalarProperty Name="L" ColumnName="L" />
+          <ScalarProperty Name="kongjing" ColumnName="kongjing" />
+          <ScalarProperty Name="deg" ColumnName="deg" />
+          <ScalarProperty Name="moshu" ColumnName="moshu" />
+          <ScalarProperty Name="mem_id" ColumnName="mem_id" />
+          <ScalarProperty Name="parm_id" ColumnName="parm_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

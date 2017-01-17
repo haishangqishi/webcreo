@@ -5,6 +5,7 @@
     <EntitySet Name="machines" EntityType="creo_dataModel.Store.machines" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="member" EntityType="creo_dataModel.Store.member" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="parameters" EntityType="creo_dataModel.Store.parameters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="process" EntityType="creo_dataModel.Store.process" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="toolDetail" EntityType="creo_dataModel.Store.toolDetail" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tools" EntityType="creo_dataModel.Store.tools" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_MACHINED_REFERENCE_MACHINES" Association="creo_dataModel.Store.FK_MACHINED_REFERENCE_MACHINES">
@@ -24,7 +25,7 @@
     <Key>
       <PropertyRef Name="madeId" />
     </Key>
-    <Property Name="madeId" Type="int" Nullable="false" />
+    <Property Name="madeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="machId" Type="int" />
     <Property Name="machPara" Type="varchar" MaxLength="40" />
     <Property Name="machParaValue" Type="varchar" MaxLength="40" />
@@ -34,7 +35,7 @@
     <Key>
       <PropertyRef Name="machId" />
     </Key>
-    <Property Name="machId" Type="int" Nullable="false" />
+    <Property Name="machId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="machName" Type="varchar" MaxLength="30" />
     <Property Name="isDelete" Type="int" Nullable="false" />
   </EntityType>
@@ -51,7 +52,7 @@
     <Property Name="sex" Type="int" />
     <Property Name="creoSetup" Type="varchar" MaxLength="200" />
     <Property Name="creoWorkSpace" Type="varchar" MaxLength="200" />
-    <Property Name="isWork" Type="int" />
+    <Property Name="isWork" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="parameters">
     <Key>
@@ -69,31 +70,41 @@
     <Property Name="jiancaoW" Type="decimal" Precision="6" Scale="3" />
     <Property Name="jiancaoH" Type="decimal" Precision="6" Scale="3" />
     <Property Name="kongdaoD" Type="decimal" Precision="6" Scale="3" />
-    <Property Name="kongdaoL" Type="decimal" Precision="6" Scale="3" />
     <Property Name="celeng" Type="decimal" Precision="6" Scale="3" />
     <Property Name="jiancaoR" Type="decimal" Precision="6" Scale="3" />
-    <Property Name="isStandard" Type="int" />
+    <Property Name="isStandard" Type="int" Nullable="false" />
     <Property Name="serail" Type="int" />
     <Property Name="type" Type="int" />
+    <Property Name="kongdaoL" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="isDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="process">
+    <Key>
+      <PropertyRef Name="procId" />
+    </Key>
+    <Property Name="procId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="machId" Type="int" />
+    <Property Name="toolId" Type="int" />
+    <Property Name="procName" Type="varchar" MaxLength="30" />
     <Property Name="isDelete" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="toolDetail">
     <Key>
       <PropertyRef Name="todeId" />
     </Key>
-    <Property Name="todeId" Type="int" Nullable="false" />
+    <Property Name="todeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="toolId" Type="int" />
     <Property Name="toolPara" Type="varchar" MaxLength="40" />
     <Property Name="toolParaValue" Type="varchar" MaxLength="40" />
-    <Property Name="isDelete" Type="int" />
+    <Property Name="isDelete" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="tools">
     <Key>
       <PropertyRef Name="toolId" />
     </Key>
-    <Property Name="toolId" Type="int" Nullable="false" />
+    <Property Name="toolId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="toolName" Type="varchar" MaxLength="30" />
-    <Property Name="isDelete" Type="int" />
+    <Property Name="isDelete" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_MACHINED_REFERENCE_MACHINES">
     <End Role="machines" Type="creo_dataModel.Store.machines" Multiplicity="0..1" />
