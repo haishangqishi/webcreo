@@ -63,9 +63,10 @@
                                                         @procMach.procName
                                                     </td>
                                                     <td>
-                                                        <a href="" class="td-mach">@procMach.machName</a>
                                                         <form action="/Machine/getMachineSet" method="post" class="hi-form">
-                                                        <input type="text" class="hidden" value="@procMach.machId" />
+                                                        <a href="" class="td-mach">@procMach.machName</a>
+                                                        <input name="txtMachName" type="text" class="hidden" value="@procMach.machName" />
+                                                        <input name="txtMachId" type="text" class="hidden" value="@procMach.machId" />
                                                         </form>
                                                     </td>
                                                 </tr>

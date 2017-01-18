@@ -33,7 +33,7 @@
           <Property Name="madeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="machId" Type="int" />
           <Property Name="machPara" Type="varchar" MaxLength="40" />
-          <Property Name="machParaValue" Type="varchar" MaxLength="40" />
+          <Property Name="machParaValue" Type="varchar" MaxLength="60" />
           <Property Name="isDelete" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="machines">

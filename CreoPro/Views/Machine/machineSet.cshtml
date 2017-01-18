@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>machineSet</title>
+    <title>机床参数设置</title>
 </head>
 <body>
     <!-- 工具条 starts -->
@@ -35,27 +35,38 @@
                                     </i></a>
                                 </div>
                             </div>
-                            <div class="box-content" style="height: 420px; display: block">
+                            <div class="box-content" style="height: 476px; display: block">
                                 <div class="box-content">
                                     <div class="img" id="img-1" style="float: right">
                                         <img alt="机床" src="../../Content/images/chanmoMachine.png">
                                     </div>
-                                    <div id="resume-content">
-                                        @{var num = ViewBag.num;
-                                          if (num == 1)
-                                          {
-                                            <div class="col">
-                                                foreach (var machine in ViewBag.list1) {
-                                                <div class="title display-table">
-                                                    <p>
-                                                    </p>
-                                                    <span class="pull-right">数控铲磨床</span>
-                                                </div>
-                                                }
+                                    <div class="resume-content">
+                                        <div class="col">
+                                            <div class="title display-table">
+                                                <p>
+                                                    机床名称
+                                                </p>
+                                                <span class="pull-right">@ViewBag.machName</span>
                                             </div>
-                                          }
-                                          
-                                        }
+                                            @foreach (var machine in ViewBag.list1)
+                                            {
+                                                <div class="title display-table">
+                                                    <p>@machine.machPara
+                                                    </p>
+                                                    <span class="pull-right">@machine.machParaValue</span>
+                                                </div>
+                                            }
+                                        </div>
+                                        <div class="col">
+                                            @foreach (var machine in ViewBag.list2)
+                                            {
+                                                <div class="title display-table">
+                                                    <p>@machine.machPara
+                                                    </p>
+                                                    <span class="pull-right">@machine.machParaValue</span>
+                                                </div>
+                                            }
+                                        </div>
                                         @*<div class="col">
                                             <div class="title display-table">
                                                 <p>
@@ -103,7 +114,7 @@
                                                 <span class="pull-right">600mm</span>
                                             </div>
                                         </div>
-                                        <div class="">
+                                        <div  class="col">
                                             <div class="title display-table">
                                                 <p>
                                                     被加工工件模数</p>

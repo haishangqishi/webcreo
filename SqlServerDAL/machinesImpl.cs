@@ -167,7 +167,7 @@ namespace SqlServerDAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select md.madeId,m.machName,md.machPara,md.machParaValue from machines m");
-            strSql.Append(" left join machineDetail md on md.machId=m.machId where isDelete=0");
+            strSql.Append(" left join machineDetail md on md.machId=m.machId where m.isDelete=0 and md.isDelete=0");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" and " + strWhere);

@@ -41,27 +41,37 @@ namespace CreoPro.Controllers
         [HttpPost]
         public ActionResult getMachineSet()
         {
-            int machId = Convert.ToInt32(Request["machId"]);
-            BLL.machines bll_mach = new BLL.machines();
-            List<Common.MachineDetail> list = bll_mach.GetMachDetaList("m.machId=" + machId);
+            int machId = Convert.ToInt32(Request["txtMachId"]);
+            ViewBag.machName = Request["txtMachName"];
+
+            BLL.machineDetail bll_md = new BLL.machineDetail();
+            List<Model.machineDetail> list = bll_md.GetModelList("machId=" + machId);
             int count = list.Count;
-            List<Common.MachineDetail> sublist = new List<Common.MachineDetail>();
-            if (count <= 9)
+            List<Model.machineDetail> sublist1 = new List<Model.machineDetail>();
+            List<Model.machineDetail> sublist2 = new List<Model.machineDetail>();
+            if (count > 0)
             {
-                ViewBag.list1 = list;
-                ViewBag.num = 1;
-            }
-            else
-            {
-                for (int i = 0; i < 9; i++)
+                if (count <= 10)
                 {
-                    sublist.Add(list[i]);
-                    list.RemoveAt(i);
+                    sublist1 = list;
                 }
-                ViewBag.list1 = sublist;
-                ViewBag.list2 = list;
-                ViewBag.num = 2;
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        if (i < 10)
+                        {
+                            sublist1.Add(list[i]);
+                        }
+                        else
+                        {
+                            sublist2.Add(list[i]);
+                        }
+                    }
+                }
             }
+            ViewBag.list1 = sublist1;
+            ViewBag.list2 = sublist2;
             return View("machineSet");
         }
 

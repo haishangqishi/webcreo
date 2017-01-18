@@ -28,7 +28,7 @@ namespace SqlServerDAL
 					new SqlParameter("@madeId", SqlDbType.Int,4),
 					new SqlParameter("@machId", SqlDbType.Int,4),
 					new SqlParameter("@machPara", SqlDbType.VarChar,40),
-					new SqlParameter("@machParaValue", SqlDbType.VarChar,40),
+					new SqlParameter("@machParaValue", SqlDbType.VarChar,60),
 					new SqlParameter("@isDelete", SqlDbType.Int,4)};
             parameters[0].Value = model.madeId;
             parameters[1].Value = model.machId;
@@ -62,7 +62,7 @@ namespace SqlServerDAL
             SqlParameter[] parameters = {
 					new SqlParameter("@machId", SqlDbType.Int,4),
 					new SqlParameter("@machPara", SqlDbType.VarChar,40),
-					new SqlParameter("@machParaValue", SqlDbType.VarChar,40),
+					new SqlParameter("@machParaValue", SqlDbType.VarChar,60),
 					new SqlParameter("@isDelete", SqlDbType.Int,4),
 					new SqlParameter("@madeId", SqlDbType.Int,4)};
             parameters[0].Value = model.machId;
