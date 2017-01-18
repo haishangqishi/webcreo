@@ -37,6 +37,7 @@
     </Key>
     <Property Name="machId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="machName" Type="varchar" MaxLength="30" />
+    <Property Name="picName" Type="varchar" MaxLength="30" />
     <Property Name="isDelete" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="member">

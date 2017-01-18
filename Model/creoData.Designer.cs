@@ -551,6 +551,30 @@ namespace Model
         private global::System.Int32 _isDelete;
         partial void OnisDeleteChanging(global::System.Int32 value);
         partial void OnisDeleteChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String picName
+        {
+            get
+            {
+                return _picName;
+            }
+            set
+            {
+                OnpicNameChanging(value);
+                ReportPropertyChanging("picName");
+                _picName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("picName");
+                OnpicNameChanged();
+            }
+        }
+        private global::System.String _picName;
+        partial void OnpicNameChanging(global::System.String value);
+        partial void OnpicNameChanged();
 
         #endregion
 

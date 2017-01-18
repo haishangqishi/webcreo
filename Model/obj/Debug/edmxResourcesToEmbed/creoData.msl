@@ -15,6 +15,7 @@
     <EntitySetMapping Name="machines">
       <EntityTypeMapping TypeName="creo_dataModel.machines">
         <MappingFragment StoreEntitySet="machines">
+          <ScalarProperty Name="picName" ColumnName="picName" />
           <ScalarProperty Name="isDelete" ColumnName="isDelete" />
           <ScalarProperty Name="machName" ColumnName="machName" />
           <ScalarProperty Name="machId" ColumnName="machId" />

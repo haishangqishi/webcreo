@@ -21,15 +21,16 @@ namespace SqlServerDAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into machines(");
-            strSql.Append("machId,machName,isDelete)");
+            strSql.Append("machName,picName,isDelete)");
             strSql.Append(" values (");
-            strSql.Append("@machId,@machName,@isDelete)");
+            strSql.Append("@machName,@picName,@isDelete)");
+            strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
-					new SqlParameter("@machId", SqlDbType.Int,4),
 					new SqlParameter("@machName", SqlDbType.VarChar,30),
+					new SqlParameter("@picName", SqlDbType.VarChar,30),
 					new SqlParameter("@isDelete", SqlDbType.Int,4)};
-            parameters[0].Value = model.machId;
-            parameters[1].Value = model.machName;
+            parameters[0].Value = model.machName;
+            parameters[1].Value = model.picName;
             parameters[2].Value = model.isDelete;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
@@ -51,15 +52,18 @@ namespace SqlServerDAL
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update machines set ");
             strSql.Append("machName=@machName,");
+            strSql.Append("picName=@picName,");
             strSql.Append("isDelete=@isDelete");
-            strSql.Append(" where machId=@machId ");
+            strSql.Append(" where machId=@machId");
             SqlParameter[] parameters = {
 					new SqlParameter("@machName", SqlDbType.VarChar,30),
+					new SqlParameter("@picName", SqlDbType.VarChar,30),
 					new SqlParameter("@isDelete", SqlDbType.Int,4),
 					new SqlParameter("@machId", SqlDbType.Int,4)};
             parameters[0].Value = model.machName;
-            parameters[1].Value = model.isDelete;
-            parameters[2].Value = model.machId;
+            parameters[1].Value = model.picName;
+            parameters[2].Value = model.isDelete;
+            parameters[3].Value = model.machId;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -102,7 +106,7 @@ namespace SqlServerDAL
         public Model.machines GetModel(int machId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 machId,machName,isDelete from machines ");
+            strSql.Append("select top 1 machId,machName,picName,isDelete from machines ");
             strSql.Append(" where machId=@machId and isDelete=0");
             SqlParameter[] parameters = {
 					new SqlParameter("@machId", SqlDbType.Int,4)
@@ -127,7 +131,7 @@ namespace SqlServerDAL
         public DataSet GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select machId,machName,isDelete ");
+            strSql.Append("select machId,machName,picName,isDelete ");
             strSql.Append(" FROM machines where isDelete=0");
             if (strWhere.Trim() != "")
             {
@@ -152,6 +156,10 @@ namespace SqlServerDAL
                 {
                     model.machName = row["machName"].ToString();
                 }
+                if (row["picName"] != null)
+                {
+                    model.picName = row["picName"].ToString();
+                }
                 if (row["isDelete"] != null && row["isDelete"].ToString() != "")
                 {
                     model.isDelete = int.Parse(row["isDelete"].ToString());
@@ -166,7 +174,7 @@ namespace SqlServerDAL
         public DataSet GetMachDetaList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select md.madeId,m.machName,md.machPara,md.machParaValue from machines m");
+            strSql.Append("select md.madeId,m.machName,m.picName,md.machPara,md.machParaValue from machines m");
             strSql.Append(" left join machineDetail md on md.machId=m.machId where m.isDelete=0 and md.isDelete=0");
             if (strWhere.Trim() != "")
             {
@@ -190,6 +198,10 @@ namespace SqlServerDAL
                 if (row["machName"] != null)
                 {
                     model.machName = row["machName"].ToString();
+                }
+                if (row["picName"] != null)
+                {
+                    model.picName = row["picName"].ToString();
                 }
                 if (row["machPara"] != null)
                 {

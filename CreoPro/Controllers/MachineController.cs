@@ -44,13 +44,15 @@ namespace CreoPro.Controllers
             int machId = Convert.ToInt32(Request["txtMachId"]);
             ViewBag.machName = Request["txtMachName"];
 
-            BLL.machineDetail bll_md = new BLL.machineDetail();
-            List<Model.machineDetail> list = bll_md.GetModelList("machId=" + machId);
+            BLL.machines bll_mach = new BLL.machines();
+            List<Common.MachineDetail> list = bll_mach.GetMachDetaList("m.machId=" + machId);
             int count = list.Count;
-            List<Model.machineDetail> sublist1 = new List<Model.machineDetail>();
-            List<Model.machineDetail> sublist2 = new List<Model.machineDetail>();
+            List<Common.MachineDetail> sublist1 = new List<Common.MachineDetail>();
+            List<Common.MachineDetail> sublist2 = new List<Common.MachineDetail>();
+            string picName = "";
             if (count > 0)
             {
+                picName = list[0].picName;
                 if (count <= 10)
                 {
                     sublist1 = list;
@@ -72,6 +74,7 @@ namespace CreoPro.Controllers
             }
             ViewBag.list1 = sublist1;
             ViewBag.list2 = sublist2;
+            ViewBag.picPath = "../../Content/images/" + picName;
             return View("machineSet");
         }
 

@@ -42,6 +42,7 @@
           </Key>
           <Property Name="machId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="machName" Type="varchar" MaxLength="30" />
+          <Property Name="picName" Type="varchar" MaxLength="30" />
           <Property Name="isDelete" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="member">
@@ -191,6 +192,7 @@
           <Property Type="String" Name="machName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="isDelete" Nullable="false" />
           <NavigationProperty Name="machineDetail" Relationship="creo_dataModel.FK_MACHINED_REFERENCE_MACHINES" FromRole="machines" ToRole="machineDetail" />
+          <Property Type="String" Name="picName" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="process">
           <Key>
@@ -319,6 +321,7 @@
           <EntitySetMapping Name="machines">
             <EntityTypeMapping TypeName="creo_dataModel.machines">
               <MappingFragment StoreEntitySet="machines">
+                <ScalarProperty Name="picName" ColumnName="picName" />
                 <ScalarProperty Name="isDelete" ColumnName="isDelete" />
                 <ScalarProperty Name="machName" ColumnName="machName" />
                 <ScalarProperty Name="machId" ColumnName="machId" />

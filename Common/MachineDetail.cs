@@ -12,6 +12,7 @@ namespace Common
         private string _machname;
         private string _machpara;
         private string _machparavalue;
+        private string _picname;
 
         /// <summary>
         /// 机床详细表ID
@@ -44,6 +45,14 @@ namespace Common
         {
             set { _machparavalue = value; }
             get { return _machparavalue; }
+        }
+        /// <summary>
+        /// 图片名称
+        /// </summary>
+        public string picName
+        {
+            set { _picname = value; }
+            get { return _picname; }
         }
 
     }
