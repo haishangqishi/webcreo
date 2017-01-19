@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Common;
 
 namespace CreoPro.Controllers
 {
@@ -42,7 +43,8 @@ namespace CreoPro.Controllers
         public ActionResult getMachineSet()
         {
             int machId = Convert.ToInt32(Request["txtMachId"]);
-            ViewBag.machName = Request["txtMachName"];
+            string machName = Request["txtMachName"];
+            ViewBag.machName = machName;
 
             BLL.machines bll_mach = new BLL.machines();
             List<Common.MachineDetail> list = bll_mach.GetMachDetaList("m.machId=" + machId);
@@ -50,10 +52,15 @@ namespace CreoPro.Controllers
             List<Common.MachineDetail> sublist1 = new List<Common.MachineDetail>();
             List<Common.MachineDetail> sublist2 = new List<Common.MachineDetail>();
             string picName = "";
+            int colNum = 10;//自定义列数
+            if (StrUtils.strNotNUll(machName) && machName == "Z3063x18摇臂钻床")
+            {
+                colNum = 9;
+            }
             if (count > 0)
             {
                 picName = list[0].picName;
-                if (count <= 10)
+                if (count <= colNum)
                 {
                     sublist1 = list;
                 }
@@ -61,7 +68,7 @@ namespace CreoPro.Controllers
                 {
                     for (int i = 0; i < count; i++)
                     {
-                        if (i < 10)
+                        if (i < colNum)
                         {
                             sublist1.Add(list[i]);
                         }

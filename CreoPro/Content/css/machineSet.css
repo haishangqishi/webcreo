@@ -14,14 +14,15 @@
 /*****卡片内容 start*******/
 .col
 {
+    width: 34%;
     float: left;
-    padding: 5px 5px 5px 0px;
-    margin: 0px 20px 0px 0px;
+    padding: 0px 5px 5px 0px;
+    margin: 0px 0px 0px 0px;
 }
 
 .resume-content
 {
-    padding: 5px 20px 42% 20px;
+    padding: 5px 20px 41% 20px;
     font-size: .9em;
     color: #3C3C3C;
     background: #f1f1f1;
@@ -64,6 +65,7 @@
 {
     margin-left: 2px;
     padding: 3px 0px 3px 0px;
+    white-space: nowrap; /*文本不换行，这样超出一行的部分被截取，显示... */
 }
 
 .description
@@ -81,11 +83,11 @@
 .img
 {
     -webkit-transform: scale(0.85);
-    -webkit-transform-origin: 80% 27%; /* Safari 和 Chrome */
+    -webkit-transform-origin: 80% 2%; /* Safari 和 Chrome */
     -moz-transform: scale(0.85);
-    -moz-transform-origin: 80% 27%; /* Firefox */
+    -moz-transform-origin: 80% 2%; /* Firefox */
     -o-transform: scale(0.85);
-    -o-transform-origin: 80% 27%; /* Opera */
+    -o-transform-origin: 80% 2%; /* Opera */
     float: left;
     margin-left: -50px;
     margin-right: -10px;
@@ -115,3 +117,9 @@
 }
 
 /*****图片容器 end*******/
+
+.box-content1
+{
+    padding: 5px 5px 5px 5px;
+}
+

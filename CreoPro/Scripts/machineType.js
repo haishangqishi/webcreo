@@ -17,7 +17,6 @@
     //点击机床链接，跳转页面
     $('.td-mach').click(function () {
         $(this).parent().submit();
-        //$('.hi-form').submit();
         return false;
     });
 

@@ -5,6 +5,8 @@
 <html>
 <head>
     <title>机床参数设置</title>
+    <script src="../../Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/machineSet.js" type="text/javascript"></script>
 </head>
 <body>
     <!-- 工具条 starts -->
@@ -31,12 +33,12 @@
                                 <h2 class="h-blue">
                                     <i class="glyphicon glyphicon-paperclip"></i>机床名片</h2>
                                 <div class="box-icon">
-                                    <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up">
+                                    <a href="#" id="mdList_aMin" class="btn btn-minimize btn-round btn-default"><i  id="mdList_iMin" class="glyphicon glyphicon-chevron-up">
                                     </i></a>
                                 </div>
                             </div>
-                            <div class="box-content" style="height: 476px; display: block">
-                                <div class="box-content">
+                            <div id="mdListDiv" class="box-content" style="display: block">
+                                <div class="box-content1">
                                     <div class="img" style="float: right">
                                         <img alt="机床" src="@ViewBag.picPath">
                                     </div>
@@ -48,23 +50,31 @@
                                                 </p>
                                                 <span class="pull-right">@ViewBag.machName</span>
                                             </div>
-                                            @foreach (var machine in ViewBag.list1)
-                                            {
+                                            @{if (ViewBag.list1 != null)
+                                              {
+                                                  foreach (var machine in ViewBag.list1)
+                                                  {
                                                 <div class="title display-table">
                                                     <p>@machine.machPara
                                                     </p>
-                                                    <span class="pull-right">@machine.machParaValue</span>
+                                                    <span class="pull-right sp-br">@machine.machParaValue</span>
                                                 </div>
+                                                  }
+                                              }
                                             }
                                         </div>
                                         <div class="col">
-                                            @foreach (var machine in ViewBag.list2)
-                                            {
+                                            @{if (ViewBag.list2 != null)
+                                              {
+                                                  foreach (var machine in ViewBag.list2)
+                                                  {
                                                 <div class="title display-table">
                                                     <p>@machine.machPara
                                                     </p>
-                                                    <span class="pull-right">@machine.machParaValue</span>
+                                                    <span class="pull-right sp-br">@machine.machParaValue</span>
                                                 </div>
+                                                  }
+                                              }
                                             }
                                         </div>
                                         @*<div class="col">
