@@ -14,4 +14,10 @@
         }
     });
 
+    //点击刀具链接，跳转页面
+    $('.td-tool').click(function () {
+        $(this).parent().submit();
+        return false;
+    });
+
 });

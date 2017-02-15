@@ -133,5 +133,25 @@ namespace DALFactory
             return (IDAL.Iprocess)objType;
         }
 
+        /// <summary>
+        /// 创建tools数据层接口。刀具表
+        /// </summary>
+        public static IDAL.Itools Createtools()
+        {
+            string ClassNamespace = AssemblyPath + ".toolsImpl";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (IDAL.Itools)objType;
+        }
+
+        /// <summary>
+        /// 创建toolDetail数据层接口。刀具详细参数表
+        /// </summary>
+        public static IDAL.ItoolDetail CreatetoolDetail()
+        {
+            string ClassNamespace = AssemblyPath + ".toolDetailImpl";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (IDAL.ItoolDetail)objType;
+        }
+
     }
 }

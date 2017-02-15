@@ -85,7 +85,5 @@ namespace BLL
             return modelList;
         }
 
-
-
     }
 }

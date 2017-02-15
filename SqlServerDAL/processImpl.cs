@@ -185,7 +185,7 @@ namespace SqlServerDAL
         public DataSet GetProcMachList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select p.procId,p.machId,p.toolId,p.procName,m.machName from process p");
+            strSql.Append("select p.procId,p.machId,p.procName,m.machName from process p");
             strSql.Append(" left join machines m on m.machId=p.machId where p.isDelete=0");
             if (strWhere.Trim() != "")
             {
@@ -210,6 +210,47 @@ namespace SqlServerDAL
                 {
                     model.machId = int.Parse(row["machId"].ToString());
                 }
+                if (row["procName"] != null)
+                {
+                    model.procName = row["procName"].ToString();
+                }
+                if (row["machName"] != null)
+                {
+                    model.machName = row["machName"].ToString();
+                }
+            }
+            return model;
+        }
+
+        /// <summary>
+        /// 获得工艺-刀具列表
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        public DataSet GetProcToolList(string strWhere)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select p.procId,p.toolId,p.procName,t.toolName from process p");
+            strSql.Append(" left join tools t on t.toolId=p.toolId where p.isDelete=0");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" and " + strWhere);
+            }
+            return DbHelperSQL.Query(strSql.ToString());
+        }
+
+        /// <summary>
+        /// row转model
+        /// </summary>
+        public Common.Process ProcToolRowToModel(DataRow row)
+        {
+            Common.Process model = new Common.Process();
+            if (row != null)
+            {
+                if (row["procId"] != null && row["procId"].ToString() != "")
+                {
+                    model.procId = int.Parse(row["procId"].ToString());
+                }
                 if (row["toolId"] != null && row["toolId"].ToString() != "")
                 {
                     model.toolId = int.Parse(row["toolId"].ToString());
@@ -218,9 +259,9 @@ namespace SqlServerDAL
                 {
                     model.procName = row["procName"].ToString();
                 }
-                if (row["machName"] != null)
+                if (row["toolName"] != null)
                 {
-                    model.machName = row["machName"].ToString();
+                    model.toolName = row["toolName"].ToString();
                 }
             }
             return model;

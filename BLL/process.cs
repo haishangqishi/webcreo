@@ -116,5 +116,36 @@ namespace BLL
             return modelList;
         }
 
+        /// <summary>
+        /// 获得工艺-刀具列表
+        /// </summary>
+        public List<Common.Process> GetProcToolList(string strWhere)
+        {
+            DataSet ds = dal.GetProcToolList(strWhere);
+            return ProcToolToList(ds.Tables[0]);
+        }
+
+        /// <summary>
+        /// DataTable转List
+        /// </summary>
+        public List<Common.Process> ProcToolToList(DataTable dt)
+        {
+            List<Common.Process> modelList = new List<Common.Process>();
+            int rowsCount = dt.Rows.Count;
+            if (rowsCount > 0)
+            {
+                Common.Process model;
+                for (int n = 0; n < rowsCount; n++)
+                {
+                    model = dal.ProcToolRowToModel(dt.Rows[n]);
+                    if (model != null)
+                    {
+                        modelList.Add(model);
+                    }
+                }
+            }
+            return modelList;
+        }
+
     }
 }

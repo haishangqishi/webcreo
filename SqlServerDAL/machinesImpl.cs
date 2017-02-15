@@ -85,7 +85,7 @@ namespace SqlServerDAL
             strSql.Append("update machines set isDelete=1");
             strSql.Append(" where machId=@machId");
             SqlParameter[] parameters = {
-					new SqlParameter("@madeId", SqlDbType.Int,4)
+					new SqlParameter("@machId", SqlDbType.Int,4)
 			};
             parameters[0].Value = machId;
 
@@ -175,7 +175,7 @@ namespace SqlServerDAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select md.madeId,m.machName,m.picName,md.machPara,md.machParaValue from machines m");
-            strSql.Append(" left join machineDetail md on md.machId=m.machId where m.isDelete=0 and md.isDelete=0");
+            strSql.Append(" left join machineDetail md on md.machId=m.machId where m.isDelete=0 and (md.isDelete=0 or md.isDelete is null)");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" and " + strWhere);

@@ -71,6 +71,7 @@
     <Property Type="String" Name="toolName" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Type="Int32" Name="isDelete" Nullable="false" />
     <NavigationProperty Name="toolDetail" Relationship="creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS" FromRole="tools" ToRole="toolDetail" />
+    <Property Type="String" Name="picName" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_MACHINED_REFERENCE_MACHINES">
     <End Type="creo_dataModel.machines" Role="machines" Multiplicity="0..1" />

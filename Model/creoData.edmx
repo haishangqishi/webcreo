@@ -110,6 +110,7 @@
           </Key>
           <Property Name="toolId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="toolName" Type="varchar" MaxLength="30" />
+          <Property Name="picName" Type="varchar" MaxLength="30" />
           <Property Name="isDelete" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_MACHINED_REFERENCE_MACHINES">
@@ -223,6 +224,7 @@
           <Property Type="String" Name="toolName" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="isDelete" Nullable="false" />
           <NavigationProperty Name="toolDetail" Relationship="creo_dataModel.FK_TOOLDETA_REFERENCE_TOOLS" FromRole="tools" ToRole="toolDetail" />
+          <Property Type="String" Name="picName" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_MACHINED_REFERENCE_MACHINES">
           <End Type="creo_dataModel.machines" Role="machines" Multiplicity="0..1" />
@@ -353,6 +355,7 @@
           <EntitySetMapping Name="tools">
             <EntityTypeMapping TypeName="creo_dataModel.tools">
               <MappingFragment StoreEntitySet="tools">
+                <ScalarProperty Name="picName" ColumnName="picName" />
                 <ScalarProperty Name="isDelete" ColumnName="isDelete" />
                 <ScalarProperty Name="toolName" ColumnName="toolName" />
                 <ScalarProperty Name="toolId" ColumnName="toolId" />

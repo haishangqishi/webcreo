@@ -336,12 +336,16 @@
     <Content Include="Content\css\pagiation.css" />
     <Content Include="Content\css\paraInput.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\toolSet.css" />
+    <Content Include="Content\css\toolType.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\B5020.png" />
     <Content Include="Content\images\CA6140.png" />
+    <Content Include="Content\images\caoxi.png" />
     <Content Include="Content\images\chachi.png" />
     <Content Include="Content\images\chanchi.png" />
     <Content Include="Content\images\chanmoMachine.png" />
+    <Content Include="Content\images\chanmoshalun.png" />
     <Content Include="Content\images\CW8925A.png" />
     <Content Include="Content\images\diexingshalun.png" />
     <Content Include="Content\images\favicon.ico" />
@@ -386,6 +390,7 @@
     <Content Include="Scripts\pagiation.js" />
     <Content Include="Scripts\paraInput.js" />
     <Content Include="Scripts\register.js" />
+    <Content Include="Scripts\toolSet.js" />
     <Content Include="Scripts\toolType.js" />
     <Content Include="Views\mainForm\index.html" />
     <Content Include="Views\mainForm\table.html" />

@@ -9,7 +9,7 @@ using DBUtility;
 
 namespace SqlServerDAL
 {
-    class machineDetailImpl : ImachineDetail
+    public class machineDetailImpl : ImachineDetail
     {
         public machineDetailImpl()
         { }

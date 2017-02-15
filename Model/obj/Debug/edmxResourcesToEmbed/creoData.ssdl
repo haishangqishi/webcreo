@@ -105,6 +105,7 @@
     </Key>
     <Property Name="toolId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="toolName" Type="varchar" MaxLength="30" />
+    <Property Name="picName" Type="varchar" MaxLength="30" />
     <Property Name="isDelete" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_MACHINED_REFERENCE_MACHINES">

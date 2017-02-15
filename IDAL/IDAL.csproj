@@ -46,6 +46,8 @@
     <Compile Include="Imember.cs" />
     <Compile Include="Iparameters.cs" />
     <Compile Include="Iprocess.cs" />
+    <Compile Include="ItoolDetail.cs" />
+    <Compile Include="Itools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

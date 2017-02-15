@@ -25,7 +25,7 @@
                         <li><a href="/Tool/toolType">刀具类型</a></li>
                     </ul>
                 </div>
-                <!-- 工艺、机床列表 starts-->
+                <!-- 工艺、刀具列表 starts-->
                 <div class="row">
                     <div class="box col-md-12">
                         <div class="box-inner">
@@ -37,7 +37,7 @@
                                         id="toolList_iMin" class="glyphicon glyphicon-chevron-up"></i></a>
                                 </div>
                             </div>
-                            <div id="toolListDiv" style="height: 280px; display: block">
+                            <div id="toolListDiv" style="display: block">
                                 <div class="box-content">
                                     <table class="table table-striped table-bordered responsive">
                                         <thead>
@@ -50,79 +50,22 @@
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody id="machListBody">
-                                            <tr>
-                                                <td>
-                                                    粗车外圆
-                                                </td>
-                                                <td>
-                                                    <a href="/Tool/toolSet" class="">车刀</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    钻内孔
-                                                </td>
-                                                <td>
-                                                    <a href="/Tool/toolSet" class="">钻头</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    精车外圆
-                                                </td>
-                                                <td>
-                                                    <a href="/Tool/toolSet" class="">车刀</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    插键槽
-                                                </td>
-                                                <td>
-                                                    <a href="/Tool/toolSet" class="">插齿刀</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    铣容屑槽
-                                                </td>
-                                                <td>
-                                                    <a href="/Tool/toolSet" class="">铣刀</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    铲齿
-                                                </td>
-                                                <td>
-                                                    <a href="/Tool/toolSet" class="">成形车刀</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    磨内孔
-                                                </td>
-                                                <td>
-                                                    <a href="/Tool/toolSet" class="">砂轮</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    磨两端面
-                                                </td>
-                                                <td>
-                                                    <a href="/Tool/toolSet" class="">砂轮</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    铲磨
-                                                </td>
-                                                <td>
-                                                    <a href="/Tool/toolSet" class="">盘型砂轮</a>
-                                                </td>
-                                            </tr>
+                                        <tbody id="toolListBody">
+                                            @foreach (var procTool in ViewBag.list)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @procTool.procName
+                                                    </td>
+                                                    <td>
+                                                        <form action="/Tool/getToolSet" method="post" class="hi-form">
+                                                        <a href="" class="td-tool">@procTool.toolName</a>
+                                                        <input name="txtToolName" type="text" class="hidden" value="@procTool.toolName" />
+                                                        <input name="txtToolId" type="text" class="hidden" value="@procTool.toolId" />
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            }
                                         </tbody>
                                     </table>
                                 </div>
@@ -130,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- 工艺、机床列表 ends-->
+                <!-- 工艺、刀具列表 ends-->
             </div>
         </div>
         <!-- 内容页 ends -->

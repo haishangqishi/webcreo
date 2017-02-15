@@ -47,6 +47,7 @@
     <EntitySetMapping Name="tools">
       <EntityTypeMapping TypeName="creo_dataModel.tools">
         <MappingFragment StoreEntitySet="tools">
+          <ScalarProperty Name="picName" ColumnName="picName" />
           <ScalarProperty Name="isDelete" ColumnName="isDelete" />
           <ScalarProperty Name="toolName" ColumnName="toolName" />
           <ScalarProperty Name="toolId" ColumnName="toolId" />

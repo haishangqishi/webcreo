@@ -64,5 +64,19 @@ namespace IDAL
         /// <returns></returns>
         Common.Process ProcMachRowToModel(DataRow row);
 
+        /// <summary>
+        /// 获得工艺-刀具列表
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        DataSet GetProcToolList(string strWhere);
+
+        /// <summary>
+        /// row转model
+        /// </summary>
+        /// <param name="row"></param>
+        /// <returns></returns>
+        Common.Process ProcToolRowToModel(DataRow row);
+
     }
 }
