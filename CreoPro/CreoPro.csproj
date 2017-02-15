@@ -339,9 +339,11 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\B5020.png" />
     <Content Include="Content\images\CA6140.png" />
+    <Content Include="Content\images\chachi.png" />
+    <Content Include="Content\images\chanchi.png" />
     <Content Include="Content\images\chanmoMachine.png" />
-    <Content Include="Content\images\chanmoTool.png" />
     <Content Include="Content\images\CW8925A.png" />
+    <Content Include="Content\images\diexingshalun.png" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\gearlogo.png" />
     <Content Include="Content\images\loading-sm.gif" />
@@ -351,6 +353,7 @@
     <Content Include="Content\images\logo20.png" />
     <Content Include="Content\images\M2110.png" />
     <Content Include="Content\images\MA6025.png" />
+    <Content Include="Content\images\mahuazuan.png" />
     <Content Include="Content\images\sec-bg_03.jpg" />
     <Content Include="Content\images\sec4-icon-1.png" />
     <Content Include="Content\images\sec4-icon-10.png" />
@@ -363,7 +366,10 @@
     <Content Include="Content\images\sec4-icon-8.png" />
     <Content Include="Content\images\sec4-icon-9.png" />
     <Content Include="Content\images\sec4-img.png" />
+    <Content Include="Content\images\shalun.png" />
+    <Content Include="Content\images\waiyuan.png" />
     <Content Include="Content\images\X62W.png" />
+    <Content Include="Content\images\xi.png" />
     <Content Include="Content\images\xiangongye.png" />
     <Content Include="Content\images\Z3063.png" />
     <Content Include="Global.asax" />
