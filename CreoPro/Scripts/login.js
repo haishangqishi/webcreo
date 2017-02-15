@@ -44,4 +44,31 @@
         });
     });
 
+    //Enter键操作
+    $(document).keydown(function (e) {
+        if (e.which == 13) {
+            $("#password").blur(); //失去焦点(不可缺)
+            loginIn();
+        }
+    });
+
+    function loginIn() {
+        $.ajax({
+            type: "post",
+            url: "/Member/rightPwd",
+            data: { username: $("#username").val(),
+                password: $("#password").val()
+            },
+            cache: false,
+            dataType: "json",
+            success: function (massage) {
+                if (massage == "True") {
+                    $('#loginForm').submit();
+                } else {
+                    return false;
+                }
+            }
+        });
+    };
+
 });

@@ -57,6 +57,7 @@ namespace CreoPro.Controllers
                         UserInfo userInfo = setUserInfo(model_mem);
                         Session["userEntity"] = userInfo;
                         return View("/Views/mainForm/index.cshtml");//直接返回视图，不在对应文件夹下需要写全路径
+                        //return RedirectToAction("../mainForm/index");//跳转到不同Controller下action
                     }
                 }
             }
