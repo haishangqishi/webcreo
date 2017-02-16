@@ -131,6 +131,16 @@
         });
     }
 
+    //分页工具(只负责页码，不查数据)
+    function pagiation_sel(totalPage, pageIndex) {
+        $(".tcdPageCode").createPage({
+            pageCount: totalPage,
+            current: pageIndex,
+            backFn: function (p) {
+            }
+        });
+    }
+
     //查询
     $('#selFilter').click(function () {
         var formData = JSON.stringify($('#paraSelectForm').serializeObject());
@@ -151,6 +161,8 @@
                 createTable(jsonObj);
                 if (flag == true) {
                     pagiation(data.totalPage, pageIndex);
+                } else {
+                    pagiation_sel(data.totalPage, pageIndex);
                 }
             }
         });
@@ -170,13 +182,14 @@
                 + "<td class='dyn'>" + data[i].deg + "</td>"
                 + "<td class='dyn'>" + data[i].L + "</td>"
                 + "<td class='dyn'>" + data[i].kongjing + "</td>"
-                + "<td><a class='btn btn-success btn-mid' href='#'><i class='glyphicon glyphicon-zoom-in icon-white i-padd'></i>详细</a>"
-                + "<a class='btn btn-danger btn-mid' href='#'><i class='glyphicon glyphicon-trash icon-white i-padd'></i>删除</a></td>"
+            //+ "<td><a class='btn btn-success btn-mid' href='#'><i class='glyphicon glyphicon-zoom-in icon-white i-padd'></i>详细</a>"
+                + "<td>"
+                + "<a class='btn btn-danger btn-mid btn-del' href='#'><i class='glyphicon glyphicon-trash icon-white i-padd'></i>删除</a></td>"
                 + "</tr>";
         }
         if (len == 0) {
             tbody = tbody + "<tr style='text-align: center'>"
-                + "<td colspan='6'><font color='#cd0a0a'>" + 暂无记录 + "</font></td>"
+                + "<td colspan='6'><font color='#cd0a0a'>暂无记录</font></td>"
                 + "</tr>";
         }
         //添加到div中  
@@ -184,7 +197,7 @@
     }
 
     //快速选型
-    $('#listbody').delegate($(':radio'), 'click', function () {
+    $(document).on('click', '.td-para', function () {
         $('.td-para').removeAttr("bgcolor"); //去掉提醒色
         open_para();
         var paraId = $("#listbody input[name='ra_Para']:checked").val();
@@ -227,5 +240,36 @@
         $('#jiancaoH').val(); //键槽高度
         $('#daojiaoL').val(); //倒角边长
     }
+
+    //删除参数，弹出确认删除对话框
+    $(document).on('click', '.btn-del', function () {
+        var $tr = $(this).parent().parent();
+        var paraId = $tr.children('.td-para').children(':radio').val(); //参数ID
+        $('#delHidValue').val(paraId);
+        $('#delcfmModel').modal();
+    });
+
+    //确认删除参数
+    $('#cfmDelPara').click(function () {
+        var paraId = $('#delHidValue').val();
+        $.ajax({
+            type: "post",
+            url: "/mainForm/delPara",
+            data: { paraId: paraId },
+            cache: false,
+            dataType: "json",
+            success: function (data) {
+                var massage = data;
+                if (massage == "True") {
+                    $('#msg').text("删除成功！");
+                    getParaList(null, 1, true); //刷新界面
+                } else {
+                    $('#msg').text("删除失败！");
+                }
+                $('#delcfmModel').modal('hide');
+                $('#myModal').modal();
+            }
+        });
+    });
 
 });

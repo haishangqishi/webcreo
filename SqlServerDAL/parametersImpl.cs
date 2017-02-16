@@ -219,15 +219,17 @@ namespace SqlServerDAL
                     mem_id = Convert.ToInt32(map["mem_id"].ToString());
                 }
             }
+            string sqlLimit = getSql(map);
+
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select top " + pageSize + " parm_id,mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,kongdaoL,celeng,jiancaoR,isStandard,serail,type,isDelete from ");
-            strSql.Append(" (select ROW_NUMBER() OVER (ORDER BY parm_id ASC) AS RowNumber,* FROM parameters where isDelete=0 and mem_id=" + mem_id + getSql(map) + " ) as tmp ");
-            strSql.Append(" WHERE RowNumber > " + pageSize * (pageIndex - 1) + getSql(map));
+            strSql.Append(" (select ROW_NUMBER() OVER (ORDER BY parm_id ASC) AS RowNumber,* FROM parameters where isDelete=0 and mem_id=" + mem_id + sqlLimit + " ) as tmp ");
+            strSql.Append(" WHERE RowNumber > " + pageSize * (pageIndex - 1) + sqlLimit);
             sqlList.Add(strSql.ToString());
 
             StringBuilder strSql1 = new StringBuilder();
             strSql1.Append("select count(*) ");
-            strSql1.Append(" FROM parameters where isDelete=0 and mem_id=" + mem_id + getSql(map));
+            strSql1.Append(" FROM parameters where isDelete=0 and mem_id=" + mem_id + sqlLimit);
             sqlList.Add(strSql1.ToString());
 
             return DbHelperSQL.ExecuteSqlTran_page(sqlList, out total);

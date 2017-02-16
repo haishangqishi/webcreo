@@ -757,5 +757,18 @@ namespace CreoPro.Controllers
         }
         #endregion
 
+        #region 参数列表
+        public JsonResult delPara()
+        {
+            int paraId = Convert.ToInt32(Request["paraId"]);
+            bll_parm = new BLL.parameters();
+            bool flag = bll_parm.Delete(paraId);
+            if (flag)
+            {
+                return Json("True");
+            }
+            return Json("False");
+        }
+        #endregion
     }
 }
