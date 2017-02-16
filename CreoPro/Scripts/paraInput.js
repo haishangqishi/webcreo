@@ -47,7 +47,7 @@
         $.ajax({
             type: "post",
             url: "/mainForm/createModel",
-            data: { paras: paras,regeflag:false },
+            data: { paras: paras, regeflag: false },
             cache: false,
             dataType: "json",
             beforeSend: function () {
@@ -141,12 +141,13 @@
         var len = data.length;
         for (var i = 0; i < len; i++) {
             tbody = tbody + "<tr class='ta-tr'>"
+            + "<td><input type='radio' name='ra_Para' id='ra_" + data[i].parm_id + "' value=" + data[i].parm_id + "/></td>"
                         + "<td class='dyn'>" + data[i].moshu + "</td>"
                         + "<td>" + data[i].rongxieNum + "</td>"
                         + "<td class='dyn'>" + data[i].deg + "</td>"
                         + "<td class='dyn'>" + data[i].L + "</td>"
                         + "<td class='dyn'>" + data[i].kongjing + "</td>"
-                        + "<td><a class='btn btn-success btn-mid' href='#'><i class='glyphicon glyphicon-zoom-in icon-white i-padd'></i>查看</a>"
+                        + "<td><a class='btn btn-success btn-mid' href='#'><i class='glyphicon glyphicon-zoom-in icon-white i-padd'></i>详细</a>"
                         + "<a class='btn btn-danger btn-mid' href='#'><i class='glyphicon glyphicon-trash icon-white i-padd'></i>删除</a></td>"
                         + "</tr>";
         }
@@ -158,5 +159,15 @@
         //添加到div中  
         $("#listbody").html(tbody);
     }
+
+    //快速选型
+    $(function () {
+        $("#listbody input[name='ra_Para']:checked").click(function () {
+            var paraId1 = $("#listbody input[name='ra_Para']:checked").val();
+            var paraId = $(this).val();
+            console.log(paraId);
+        });
+    })
+
 
 });

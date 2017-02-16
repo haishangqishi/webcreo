@@ -119,6 +119,9 @@
                                         <thead>
                                             <tr>
                                                 <th>
+                                                    选型
+                                                </th>
+                                                <th>
                                                     模数
                                                 </th>
                                                 <th>
@@ -142,6 +145,8 @@
                                             @* @foreach (var parm in ViewBag.list)
                                         { 
                                             <tr class="ta-tr">
+                                            <td><input type='radio' name='ra_@parm.parm_id'/>
+                                                </td>
                                                 <td class="dyn">
                                                     @parm.moshu
                                                 </td>
@@ -159,7 +164,7 @@
                                                 </td>
                                                 <td>
                                                     <a class="btn btn-success btn-mid" href="#"><i class="glyphicon glyphicon-zoom-in icon-white i-padd">
-                                                    </i>查看</a><a class="btn btn-danger btn-mid" href="#"><i class="glyphicon glyphicon-trash icon-white i-padd">
+                                                    </i>详细</a><a class="btn btn-danger btn-mid" href="#"><i class="glyphicon glyphicon-trash icon-white i-padd">
                                                     </i>删除</a>
                                                 </td>
                                             </tr>
