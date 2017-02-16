@@ -113,7 +113,8 @@ th.center, td.center
     line-height: 20px;
 }
 
-.table {
+.table
+{
     width: 100%;
     max-width: 100%;
     margin-bottom: 6px;
@@ -161,4 +162,9 @@ tr.ta-tr
 {
     padding: 3px 6px 3px 6px;
     margin: 5px 2px 2px 2px;
+}
+
+.td-hid
+{
+    display: none;
 }
