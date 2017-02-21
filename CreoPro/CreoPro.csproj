@@ -336,10 +336,14 @@
     <Content Include="Content\css\pagiation.css" />
     <Content Include="Content\css\paraInput.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\modelShow.css" />
     <Content Include="Content\css\toolSet.css" />
     <Content Include="Content\css\toolType.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\arrows.png" />
     <Content Include="Content\images\B5020.png" />
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\browser.png" />
     <Content Include="Content\images\CA6140.png" />
     <Content Include="Content\images\caoxi.png" />
     <Content Include="Content\images\chachi.png" />
@@ -347,7 +351,6 @@
     <Content Include="Content\images\chanmoMachine.png" />
     <Content Include="Content\images\chanmoshalun.png" />
     <Content Include="Content\images\CW8925A.png" />
-    <Content Include="Content\images\diexingshalun.png" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\gearlogo.png" />
     <Content Include="Content\images\loading-sm.gif" />
@@ -355,6 +358,21 @@
     <Content Include="Content\images\logo-title.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo20.png" />
+    <Content Include="Content\images\m1d25\m1d25-1-1_1.png" />
+    <Content Include="Content\images\m1d25\m1d25-1-1_2.png" />
+    <Content Include="Content\images\m1d25\m1d25-1-1_3.png" />
+    <Content Include="Content\images\m1d25\m1d25-1-1_4.png" />
+    <Content Include="Content\images\m1d25\m1d25-1-1_5.png" />
+    <Content Include="Content\images\m1d5\m1d5-1-1_1.png" />
+    <Content Include="Content\images\m1d5\m1d5-1-1_2.png" />
+    <Content Include="Content\images\m1d5\m1d5-1-1_3.png" />
+    <Content Include="Content\images\m1d5\m1d5-1-1_4.png" />
+    <Content Include="Content\images\m1d5\m1d5-1-1_5.png" />
+    <Content Include="Content\images\m1\m1-1-1_1.png" />
+    <Content Include="Content\images\m1\m1-1-1_2.png" />
+    <Content Include="Content\images\m1\m1-1-1_3.png" />
+    <Content Include="Content\images\m1\m1-1-1_4.png" />
+    <Content Include="Content\images\m1\m1-1-1_5.png" />
     <Content Include="Content\images\M2110.png" />
     <Content Include="Content\images\MA6025.png" />
     <Content Include="Content\images\mahuazuan.png" />
@@ -373,7 +391,6 @@
     <Content Include="Content\images\shalun.png" />
     <Content Include="Content\images\waiyuan.png" />
     <Content Include="Content\images\X62W.png" />
-    <Content Include="Content\images\xi.png" />
     <Content Include="Content\images\xiangongye.png" />
     <Content Include="Content\images\Z3063.png" />
     <Content Include="Global.asax" />
@@ -386,6 +403,7 @@
     <Content Include="Scripts\machineType.js" />
     <Content Include="Scripts\memDetial.js" />
     <Content Include="Scripts\menu.js" />
+    <Content Include="Scripts\modelShow.js" />
     <Content Include="Scripts\move.js" />
     <Content Include="Scripts\pagiation.js" />
     <Content Include="Scripts\paraInput.js" />
@@ -393,7 +411,7 @@
     <Content Include="Scripts\toolSet.js" />
     <Content Include="Scripts\toolType.js" />
     <Content Include="Views\mainForm\index.html" />
-    <Content Include="Views\mainForm\table.html" />
+    <Content Include="Views\mainForm\muban.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

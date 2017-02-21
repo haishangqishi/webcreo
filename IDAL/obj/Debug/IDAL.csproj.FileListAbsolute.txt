@@ -26,6 +26,16 @@ F:\webcreo\creoPro\IDAL\bin\Debug\Model.pdb
 F:\webcreo\creoPro\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
 F:\webcreo\creoPro\IDAL\obj\Debug\IDAL.dll
 F:\webcreo\creoPro\IDAL\obj\Debug\IDAL.pdb
+F:\毕业论文\webcreo\creoPro\IDAL\bin\Debug\IDAL.dll
+F:\毕业论文\webcreo\creoPro\IDAL\bin\Debug\IDAL.pdb
+F:\毕业论文\webcreo\creoPro\IDAL\bin\Debug\Common.dll
+F:\毕业论文\webcreo\creoPro\IDAL\bin\Debug\Model.dll
+F:\毕业论文\webcreo\creoPro\IDAL\bin\Debug\Newtonsoft.Json.dll
+F:\毕业论文\webcreo\creoPro\IDAL\bin\Debug\Common.pdb
+F:\毕业论文\webcreo\creoPro\IDAL\bin\Debug\Model.pdb
+F:\毕业论文\webcreo\creoPro\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
+F:\毕业论文\webcreo\creoPro\IDAL\obj\Debug\IDAL.dll
+F:\毕业论文\webcreo\creoPro\IDAL\obj\Debug\IDAL.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\IDAL\bin\Debug\IDAL.dll
 D:\VSsave\VS2010save\webcreo\creoPro\IDAL\bin\Debug\IDAL.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\IDAL\bin\Debug\Common.dll
