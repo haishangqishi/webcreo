@@ -58,6 +58,12 @@ th.center, td.center
     line-height: 20px;
 }
 
+input.check-sm-se
+{
+    float: left;
+    margin: 3px 5px 3px 5px;
+}
+
 .blue-label-se
 {
     float: left;
@@ -167,4 +173,14 @@ tr.ta-tr
 .td-hid
 {
     display: none;
+}
+
+.div-hid
+{
+    display: none;
+}
+
+.div-show
+{
+    display: block;
 }

@@ -331,6 +331,7 @@ namespace SqlServerDAL
         private string getSql(Dictionary<string, object> map)
         {
             StringBuilder strSql = new StringBuilder();
+            int flag = 1;//是否标准
             if (map != null)
             {
                 if (map.ContainsKey("moshu") && map["moshu"].ToString() != "")
@@ -345,9 +346,49 @@ namespace SqlServerDAL
                 {
                     strSql.Append(" and deg=" + Convert.ToDecimal(map["deg"].ToString()));
                 }
+                if (!map.ContainsKey("isStandard"))
+                {
+                    if (map.ContainsKey("serail") || map.ContainsKey("type"))
+                    {
+                        flag = 0;
+                    }
+                }
+                else
+                {
+                    if (map.ContainsKey("serail") && map["serail"].ToString() != "")
+                    {
+                        string serail = map["serail"].ToString();
+                        if (serail == "0")
+                        {
+                            strSql.Append(" and serail in(1,2)");
+                        }
+                        else
+                        {
+                            strSql.Append(" and serail=" + serail);
+                        }
+                    }
+                    if (map.ContainsKey("type") && map["type"].ToString() != "")
+                    {
+                        string type = map["type"].ToString();
+                        if (type == "0")
+                        {
+                            strSql.Append(" and type in(1,2)");
+                        }
+                        else
+                        {
+                            strSql.Append(" and type=" + type);
+                        }
+                    }
+                }
+                strSql.Append(" and isStandard=" + flag);
             }
             return strSql.ToString();
         }
 
     }
 }
+
+
+
+
+

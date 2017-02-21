@@ -107,11 +107,28 @@
                                             <option value="20">20</option>
                                         </select>
                                     <label class="blue-label-se">
+                                        标准</label><input id="isStandard" name="isStandard" type="checkbox" checked="checked"
+                                            class="check-sm-se" />
+                                    <label class="blue-label-se">
                                         模数</label><input id="MN_select" name="moshu" type="text" class="input-sm-se" />
                                     <label class="blue-label-se">
                                         容屑槽数</label><input id="ZG_select" name="rongxieNum" type="text" class="input-sm-se" />
                                     <label class="blue-label-se">
                                         外径</label><input id="DEG_select" name="deg" type="text" class="input-sm-se" />
+                                    <div id="standDiv" class="">
+                                        <label class="blue-label-se">
+                                            系列</label><select class="sel-sm-moshu" name="serail" id="sel_serail">
+                                                <option value="0" selected="selected">全部</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                            </select>
+                                        <label class="blue-label-se">
+                                            类型</label><select class="sel-sm-moshu" name="type" id="sel_type">
+                                                <option value="0" selected="selected">全部</option>
+                                                <option value="1">I 型</option>
+                                                <option value="2">Ⅱ型</option>
+                                            </select>
+                                    </div>
                                     <input id="selFilter" type="button" class="button-sm-se btn-primary" value="查询" />
                                     </form>
                                     <!-- 可查看零件，重生是另存零件 -->

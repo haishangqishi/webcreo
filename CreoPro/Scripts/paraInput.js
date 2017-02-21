@@ -170,11 +170,21 @@
 
     //动态创建table的tbody
     function createTable(data) {
+        $("#listthead").html("");
         $("#listbody").html("");
+        var isStand = $('#isStandard').is(':checked'); //是否标准
+        var thead = "";
         var tbody = "";
+
+        if (isStand) {
+            thead += "<tr><th>选型</th><th>模数</th><th>容屑槽数</th><th>外径</th><th>全长</th><th>内孔直径</th><th>系列</th><th>类型</th></tr>";
+        } else {
+            thead += "<tr><th>选型</th><th>模数</th><th>容屑槽数</th><th>外径</th><th>全长</th><th>内孔直径</th><th>操作</th></tr>";
+        }
         var len = data.length;
         for (var i = 0; i < len; i++) {
-            tbody = tbody + "<tr class='ta-tr'>"
+            if (isStand) {
+                tbody = tbody + "<tr class='ta-tr'>"
                 + "<td class='td-hid'><input type='text' value='" + JSON.stringify(data[i]) + "'/></td>"
                 + "<td class='td-para'><input type='radio' name='ra_Para' value='" + data[i].parm_id + "'/></td>"
                 + "<td class='dyn'>" + data[i].moshu + "</td>"
@@ -182,10 +192,21 @@
                 + "<td class='dyn'>" + data[i].deg + "</td>"
                 + "<td class='dyn'>" + data[i].L + "</td>"
                 + "<td class='dyn'>" + data[i].kongjing + "</td>"
-            //+ "<td><a class='btn btn-success btn-mid' href='#'><i class='glyphicon glyphicon-zoom-in icon-white i-padd'></i>详细</a>"
-                + "<td>"
-                + "<a class='btn btn-danger btn-mid btn-del' href='#'><i class='glyphicon glyphicon-trash icon-white i-padd'></i>删除</a></td>"
+                + "<td class='dyn'>" + data[i].serail + "</td>"
+                + "<td class='dyn'>" + data[i].type + "</td>"
                 + "</tr>";
+            } else {
+                tbody = tbody + "<tr class='ta-tr'>"
+                + "<td class='td-hid'><input type='text' value='" + JSON.stringify(data[i]) + "'/></td>"
+                + "<td class='td-para'><input type='radio' name='ra_Para' value='" + data[i].parm_id + "'/></td>"
+                + "<td class='dyn'>" + data[i].moshu + "</td>"
+                + "<td>" + data[i].rongxieNum + "</td>"
+                + "<td class='dyn'>" + data[i].deg + "</td>"
+                + "<td class='dyn'>" + data[i].L + "</td>"
+                + "<td class='dyn'>" + data[i].kongjing + "</td>"
+                + "<td><a class='btn btn-danger btn-mid btn-del' href='#'><i class='glyphicon glyphicon-trash icon-white i-padd'></i>删除</a></td>"
+                + "</tr>";
+            }
         }
         if (len == 0) {
             tbody = tbody + "<tr style='text-align: center'>"
@@ -193,6 +214,7 @@
                 + "</tr>";
         }
         //添加到div中  
+        $("#listthead").html(thead);
         $("#listbody").html(tbody);
     }
 
@@ -270,6 +292,16 @@
                 $('#myModal').modal();
             }
         });
+    });
+
+    //是否标准 触发事件
+    $(document).on('change', '#isStandard', function () {
+        var isStand = $('#isStandard').is(':checked'); //是否标准
+        if (isStand) {
+            $('#standDiv').removeClass("div-hid");
+        } else {
+            $('#standDiv').addClass("div-hid");
+        }
     });
 
 });
