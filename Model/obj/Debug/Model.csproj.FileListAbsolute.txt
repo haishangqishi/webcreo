@@ -30,3 +30,10 @@ D:\VSsave\VS2010save\webcreo\creoPro\Model\bin\Debug\Model.dll
 D:\VSsave\VS2010save\webcreo\creoPro\Model\bin\Debug\Model.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\Model\obj\Debug\Model.dll
 D:\VSsave\VS2010save\webcreo\creoPro\Model\obj\Debug\Model.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\Model\bin\Debug\Model.dll.config
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\Model\bin\Debug\Model.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\Model\bin\Debug\Model.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\Model\obj\Debug\Model.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\Model\obj\Debug\Model.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache

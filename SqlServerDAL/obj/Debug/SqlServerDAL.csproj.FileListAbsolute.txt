@@ -70,3 +70,17 @@ D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\bin\Debug\Model.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.csprojResolveAssemblyReference.cache
 D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.dll
 D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\bin\Debug\SqlServerDAL.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\bin\Debug\SqlServerDAL.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\bin\Debug\Common.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\bin\Debug\DBUtility.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\bin\Debug\IDAL.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\bin\Debug\Model.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\bin\Debug\Common.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\bin\Debug\DBUtility.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\bin\Debug\IDAL.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\bin\Debug\Model.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.pdb

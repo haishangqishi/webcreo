@@ -46,3 +46,13 @@ D:\VSsave\VS2010save\webcreo\creoPro\IDAL\bin\Debug\Model.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
 D:\VSsave\VS2010save\webcreo\creoPro\IDAL\obj\Debug\IDAL.dll
 D:\VSsave\VS2010save\webcreo\creoPro\IDAL\obj\Debug\IDAL.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\bin\Debug\IDAL.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\bin\Debug\IDAL.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\bin\Debug\Common.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\bin\Debug\Model.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\bin\Debug\Common.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\bin\Debug\Model.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\obj\Debug\IDAL.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\obj\Debug\IDAL.pdb

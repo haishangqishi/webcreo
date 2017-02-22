@@ -22,3 +22,8 @@ D:\VSsave\VS2010save\webcreo\creoPro\DBUtility\bin\Debug\DBUtility.dll
 D:\VSsave\VS2010save\webcreo\creoPro\DBUtility\bin\Debug\DBUtility.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\DBUtility\obj\Debug\DBUtility.dll
 D:\VSsave\VS2010save\webcreo\creoPro\DBUtility\obj\Debug\DBUtility.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\DBUtility\bin\Debug\DBUtility.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\DBUtility\bin\Debug\DBUtility.pdb
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\DBUtility\obj\Debug\DBUtility.dll
+C:\Users\Administrator\Desktop\备份\webcreo\creoPro\DBUtility\obj\Debug\DBUtility.pdb

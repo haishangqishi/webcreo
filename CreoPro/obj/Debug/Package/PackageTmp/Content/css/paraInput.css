@@ -1,0 +1,186 @@
+﻿
+/*蓝色label*/
+.blue-label
+{
+    color: #2FA4E7;
+}
+
+/*蓝色input框*/
+.has-success .blue-input
+{
+    border-color: #2FA4E7;
+}
+
+.btn-start, .btn-group-lg > .btn
+{
+    padding: 8px 12px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+
+.btn-mid
+{
+    font-size: 10px;
+    padding: 0px 2px 0px 2px; /*内边距：上、右、下、左*/
+    margin: 0px 2px 0px 2px; /*外边距：上、右、下、左*/
+}
+
+.i-padd
+{
+    padding: 0px 2px 0px 0px;
+}
+
+th.center, td.center
+{
+    text-align: center;
+}
+
+.my-col-md-5
+{
+    float: left;
+    width: 57.33333333%;
+}
+
+/*筛选框*/
+.input-sm-se
+{
+    float: left;
+    width: 5%;
+    height: 20px;
+    padding: 6px 6px;
+    margin: 0px 5px 0px 5px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    border-color: #2FA4E7;
+    line-height: 20px;
+}
+
+input.check-sm-se
+{
+    float: left;
+    margin: 3px 5px 3px 5px;
+}
+
+.blue-label-se
+{
+    float: left;
+    color: #2FA4E7;
+}
+
+.button-sm-se
+{
+    float: left;
+    width: 5%;
+    height: 22px;
+    color: #2FA4E7;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 0px 1px 0px 1px;
+    margin-left: 100px;
+}
+
+.form-control
+{
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-color: #2FA4E7;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.sel-sm
+{
+    float: left;
+    width: 5%;
+    height: 20px;
+    font-size: 12px;
+    padding: 0px 2px;
+    margin: 0px 5px 0px 5px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    border-color: #2FA4E7;
+    line-height: 20px;
+}
+
+.table
+{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 6px;
+}
+
+.table > thead > tr > th
+{
+    padding: 2px;
+}
+
+.table > tbody > tr > td
+{
+    padding: 2px;
+}
+
+tr.ta-tr
+{
+    font-size: 12px;
+}
+
+.blue-label-pa
+{
+    float: left;
+    width: 9%;
+    margin: 5px 2px 5px 2px;
+    color: #2FA4E7;
+}
+
+.input-sm-pa
+{
+    float: left;
+    width: 8%;
+    height: 20px;
+    padding: 6px 6px;
+    margin: 5px 18px 5px 2px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    border-color: #2FA4E7;
+    line-height: 20px;
+}
+
+.btn-create
+{
+    padding: 3px 6px 3px 6px;
+    margin: 5px 2px 2px 2px;
+}
+
+.td-hid
+{
+    display: none;
+}
+
+.div-hid
+{
+    display: none;
+}
+
+.div-show
+{
+    display: block;
+}
