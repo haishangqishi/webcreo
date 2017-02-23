@@ -223,7 +223,7 @@ namespace SqlServerDAL
 
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select top " + pageSize + " parm_id,mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,kongdaoL,celeng,jiancaoR,isStandard,serail,type,isDelete from ");
-            strSql.Append(" (select ROW_NUMBER() OVER (ORDER BY parm_id ASC) AS RowNumber,* FROM parameters where isDelete=0 and mem_id=" + mem_id + sqlLimit + " ) as tmp ");
+            strSql.Append(" (select ROW_NUMBER() OVER (ORDER BY parm_id ASC) AS RowNumber,* FROM parameters where isDelete=0 and (mem_id=1 or mem_id=" + mem_id + ") " + sqlLimit + " ) as tmp ");
             strSql.Append(" WHERE RowNumber > " + pageSize * (pageIndex - 1) + sqlLimit);
             sqlList.Add(strSql.ToString());
 

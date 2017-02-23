@@ -173,7 +173,11 @@ namespace CreoPro.Controllers
                 }
 
                 model.Display();//模型显示
-                addData(mapGoal);//写入数据库
+                UserInfo userInfo = getUserInfo();
+                if (userInfo.UserName != "admin")//admin管理员只负责维护标准模型
+                {
+                    addData(mapGoal);//写入数据库
+                }
             }
             catch (Exception ex)
             {
