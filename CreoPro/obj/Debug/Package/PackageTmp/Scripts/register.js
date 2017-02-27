@@ -34,8 +34,8 @@
                 var massage = data;
                 if (massage == "True") {
                     $('#msg').text("注册成功！");
-                } else {
-                    $('#msg').text("注册错误！");
+                } else if (massage == "False") {
+                    $('#msg').text("用户已存在，请更换账号！");
                 }
                 $("#myModal").modal();
             }

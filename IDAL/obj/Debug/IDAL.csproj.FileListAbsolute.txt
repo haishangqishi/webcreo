@@ -56,3 +56,13 @@ C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\bin\Debug\Model.pdb
 C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\obj\Debug\IDAL.dll
 C:\Users\Administrator\Desktop\备份\webcreo\creoPro\IDAL\obj\Debug\IDAL.pdb
+F:\毕业论文\终期报告\webcreo\creoPro\IDAL\bin\Debug\IDAL.dll
+F:\毕业论文\终期报告\webcreo\creoPro\IDAL\bin\Debug\IDAL.pdb
+F:\毕业论文\终期报告\webcreo\creoPro\IDAL\bin\Debug\Common.dll
+F:\毕业论文\终期报告\webcreo\creoPro\IDAL\bin\Debug\Model.dll
+F:\毕业论文\终期报告\webcreo\creoPro\IDAL\bin\Debug\Newtonsoft.Json.dll
+F:\毕业论文\终期报告\webcreo\creoPro\IDAL\bin\Debug\Common.pdb
+F:\毕业论文\终期报告\webcreo\creoPro\IDAL\bin\Debug\Model.pdb
+F:\毕业论文\终期报告\webcreo\creoPro\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
+F:\毕业论文\终期报告\webcreo\creoPro\IDAL\obj\Debug\IDAL.dll
+F:\毕业论文\终期报告\webcreo\creoPro\IDAL\obj\Debug\IDAL.pdb

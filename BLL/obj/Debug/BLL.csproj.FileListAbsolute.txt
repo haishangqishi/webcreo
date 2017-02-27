@@ -84,3 +84,17 @@ C:\Users\Administrator\Desktop\备份\webcreo\creoPro\BLL\bin\Debug\Model.pdb
 C:\Users\Administrator\Desktop\备份\webcreo\creoPro\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\备份\webcreo\creoPro\BLL\obj\Debug\BLL.dll
 C:\Users\Administrator\Desktop\备份\webcreo\creoPro\BLL\obj\Debug\BLL.pdb
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\bin\Debug\BLL.dll
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\bin\Debug\BLL.pdb
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\bin\Debug\Common.dll
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\bin\Debug\DALFactory.dll
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\bin\Debug\IDAL.dll
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\bin\Debug\Model.dll
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\bin\Debug\Newtonsoft.Json.dll
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\bin\Debug\Common.pdb
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\bin\Debug\DALFactory.pdb
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\bin\Debug\IDAL.pdb
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\bin\Debug\Model.pdb
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\obj\Debug\BLL.dll
+F:\毕业论文\终期报告\webcreo\creoPro\BLL\obj\Debug\BLL.pdb
