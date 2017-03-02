@@ -83,14 +83,13 @@
                 flag = "是";
             }
             tbody = tbody + "<tr class='ta-tr'>"
-                + "<td class='td-hid'><input type='text' value='" + data[i].parm_id + "'/></td>"
+                + "<td class='td-para'><input type='radio' name='ra_Para' value='" + data[i].parm_id + "'/></td>"
                 + "<td class='dyn'>" + data[i].moshu + "</td>"
                 + "<td>" + data[i].rongxieNum + "</td>"
                 + "<td class='dyn'>" + data[i].deg + "</td>"
                 + "<td class='dyn'>" + data[i].L + "</td>"
                 + "<td class='dyn'>" + data[i].kongjing + "</td>"
                 + "<td class='dyn'>" + flag + "</td>"
-                + "<td><a class='btn btn-success btn-mid' href='#'><i class='glyphicon glyphicon-zoom-in icon-white i-padd'></i>生成</a></td>"
                 + "</tr>";
         }
         if (len == 0) {
@@ -101,5 +100,11 @@
         //添加到div中  
         $("#ncbody").html(tbody);
     }
+
+    //选型
+    $(document).on('click', '.td-para', function () {
+        var paraId = $("#ncbody input[name='ra_Para']:checked").val();
+        $('#paraId').val(paraId);
+    });
 
 });

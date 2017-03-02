@@ -184,3 +184,20 @@ tr.ta-tr
 {
     display: block;
 }
+
+.input-hid
+{
+    display: none;
+}
+
+.button-sm-file
+{
+    float: left;
+    width: 7.8%;
+    height: 22px;
+    color: #2FA4E7;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 0px 1px 0px 1px;
+    margin-left: 100px;
+}

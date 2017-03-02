@@ -425,6 +425,7 @@
     <Content Include="Views\mainForm\grindProc.cshtml" />
     <Content Include="Views\mainForm\modal.cshtml" />
     <Content Include="Views\Home\register.cshtml" />
+    <None Include="files\gundao.nc" />
     <None Include="files\chilungundaozzx_xiu.prt" />
     <Content Include="Views\Machine\machineType.cshtml" />
     <Content Include="Views\Machine\machineSet.cshtml" />

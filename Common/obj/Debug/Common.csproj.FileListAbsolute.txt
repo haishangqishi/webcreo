@@ -22,3 +22,4 @@ F:\毕业论文\终期报告\webcreo\creoPro\Common\bin\Debug\Common.dll
 F:\毕业论文\终期报告\webcreo\creoPro\Common\bin\Debug\Common.pdb
 F:\毕业论文\终期报告\webcreo\creoPro\Common\obj\Debug\Common.dll
 F:\毕业论文\终期报告\webcreo\creoPro\Common\obj\Debug\Common.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
