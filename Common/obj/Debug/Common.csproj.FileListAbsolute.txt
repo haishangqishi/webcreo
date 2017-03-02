@@ -12,7 +12,6 @@ D:\VSsave\VS2010save\webcreo\creoPro\Common\bin\Debug\Common.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\Common\bin\Debug\Newtonsoft.Json.dll
 D:\VSsave\VS2010save\webcreo\creoPro\Common\obj\Debug\Common.dll
 D:\VSsave\VS2010save\webcreo\creoPro\Common\obj\Debug\Common.pdb
-D:\VSsave\VS2010save\webcreo\creoPro\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\备份\webcreo\creoPro\Common\bin\Debug\Common.dll
 C:\Users\Administrator\Desktop\备份\webcreo\creoPro\Common\bin\Debug\Common.pdb
 C:\Users\Administrator\Desktop\备份\webcreo\creoPro\Common\bin\Debug\Newtonsoft.Json.dll

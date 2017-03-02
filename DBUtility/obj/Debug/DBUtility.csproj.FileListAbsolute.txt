@@ -31,4 +31,3 @@ F:\毕业论文\终期报告\webcreo\creoPro\DBUtility\bin\Debug\DBUtility.dll
 F:\毕业论文\终期报告\webcreo\creoPro\DBUtility\bin\Debug\DBUtility.pdb
 F:\毕业论文\终期报告\webcreo\creoPro\DBUtility\obj\Debug\DBUtility.dll
 F:\毕业论文\终期报告\webcreo\creoPro\DBUtility\obj\Debug\DBUtility.pdb
-D:\VSsave\VS2010save\webcreo\creoPro\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
