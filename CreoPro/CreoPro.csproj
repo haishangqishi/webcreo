@@ -88,6 +88,7 @@
     <Content Include="Content\css\menutree.css" />
     <Content Include="Content\css\pagiation.css" />
     <Content Include="Content\css\paraInput.css" />
+    <Content Include="Content\css\simuProc.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\modelShow.css" />
     <Content Include="Content\css\toolSet.css" />
@@ -106,6 +107,10 @@
     <Content Include="Content\images\CW8925A.png" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\gearlogo.png" />
+    <Content Include="Content\images\grind\z=67.6下刀点比较结果.png" />
+    <Content Include="Content\images\grind\z=69比较过程.png" />
+    <Content Include="Content\images\grind\z=67.6比较过程.png" />
+    <Content Include="Content\images\grind\z=69下刀点比较结果.png" />
     <Content Include="Content\images\loading-sm.gif" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\logo-title.png" />
@@ -347,6 +352,8 @@
     <Content Include="Content\images\sec4-icon-9.png" />
     <Content Include="Content\images\sec4-img.png" />
     <Content Include="Content\images\shalun.png" />
+    <Content Include="Content\images\simu\下刀点z=67.6.png" />
+    <Content Include="Content\images\simu\下刀点z=69.png" />
     <Content Include="Content\images\waiyuan.png" />
     <Content Include="Content\images\X62W.png" />
     <Content Include="Content\images\xiangongye.png" />
@@ -355,6 +362,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\grindProc.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\login.js" />
     <Content Include="Scripts\machineSet.js" />
@@ -367,6 +375,7 @@
     <Content Include="Scripts\pagiation.js" />
     <Content Include="Scripts\paraInput.js" />
     <Content Include="Scripts\register.js" />
+    <Content Include="Scripts\simuProc.js" />
     <Content Include="Scripts\toolSet.js" />
     <Content Include="Scripts\toolType.js" />
     <Content Include="Web.config">
