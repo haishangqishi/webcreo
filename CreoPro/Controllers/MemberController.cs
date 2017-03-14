@@ -94,13 +94,20 @@ namespace CreoPro.Controllers
             Dictionary<string, object> map = JsonUtils.jsonToDictionary(jsonStr);
 
             string username = map["txtusername"].ToString();
+            bll_mem = new BLL.member();
+            model_mem = new member();
+            model_mem = bll_mem.GetMemberByName(username);
+            if (model_mem != null)//用户已存在
+            {
+                return Json("False");
+            }
+
             string password = map["txtpwd"].ToString();
             string phone = map["txtphone"].ToString();
             string email = map["txtemail"].ToString();
             string creoSetup = map["txtcreoSetup"].ToString();
 
-            bll_mem = new BLL.member();
-            model_mem = new member();
+            model_mem = new member();//重新实例化
             if (StrUtils.strNotNUll(username))
             {
                 model_mem.userName = username;
@@ -121,6 +128,7 @@ namespace CreoPro.Controllers
             {
                 model_mem.creoSetup = creoSetup;
             }
+            model_mem.isWork = 1;
             bll_mem.Add(model_mem);
 
             return Json("True");

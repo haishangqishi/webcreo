@@ -4,39 +4,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>齿轮滚刀系统</title>
+    <title>铲磨工艺优化</title>
 </head>
 <body>
-    <div id="content" class="col-lg-10 col-sm-10">
-        <div>
-            <ul class="breadcrumb">
-                <li><a href="#">系统组成</a></li>
-                <li><a href="#">铲磨工艺优化</a></li>
-            </ul>
-        </div>
+    <!-- 工具条 starts -->
+    @RenderPage("../mainForm/top.cshtml")
+    <!-- 工具条 ends -->
+    <div class="ch-container">
         <div class="row">
-            <div class="box col-md-4">
-                <div class="box-inner homepage-box">
-                    <div class="box-header well">
-                        <h2>
-                            <i class="glyphicon glyphicon-th"></i>Tabs</h2>
-                        <div class="box-icon">
-                            <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog">
-                            </i></a><a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up">
-                            </i></a><a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove">
-                            </i></a>
+            <!-- 左菜单 starts -->
+            @RenderPage("../mainForm/left.cshtml")
+            <!-- 左菜单 ends -->
+            <!-- 内容页 starts-->
+            <div id="content" class="col-lg-10 col-sm-10">
+                <div>
+                    <ul class="mybreadcrumb">
+                        <li><a href="#">系统组成</a></li>
+                        <li><a href="/mainForm/grindProc">铲磨工艺优化</a></li>
+                    </ul>
+                </div>
+                <!-- 零件相册 starts-->
+                <div class="row">
+                    <div class="box col-md-12">
+                        <div class="box-inner">
+                            <div class="box-header well" data-original-title="">
+                                <h2 class="h-blue">
+                                    <i class="glyphicon glyphicon-edit"></i>铲磨优化</h2>
+                                <div class="box-icon">
+                                    <a href="#" id="grind_aMin" class="btn btn-minimize btn-round btn-default"><i id="grind_iMin"
+                                        class="glyphicon glyphicon-chevron-up"></i></a>
+                                </div>
+                            </div>
+                            <div id="grindDiv" style="display: block">
+                                <div class="box-content">
+                                    <div class="box-north">
+                                        <form id="grindForm" action="" method="post">
+                                        <label class="blue-label-se">
+                                            系列</label><select class="sel-sm" name="serail" id="sel_serail_grind">
+                                                <option value="1" selected="selected">1</option>
+                                                <option value="2">2</option>
+                                            </select>
+                                        <label class="blue-label-se">
+                                            类型</label><select class="sel-sm" name="type" id="sel_type_grind">
+                                                <option value="1" selected="selected">I 型</option>
+                                                <option value="2">Ⅱ型</option>
+                                            </select>
+                                        <label class="blue-label-se">
+                                            模数</label><select class="sel-sm-moshu" name="moshu" id="sel_moshu_grind">
+                                                <option value="1" selected="selected">1</option>
+                                                <option value="1.25">1.25</option>
+                                                <option value="1.5">1.5</option>
+                                                <option value="2">2</option>
+                                                <option value="2.5">2.5</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="8">8</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        <input id="selPrt_grind" type="button" class="button-sm-se btn-primary" value="优化" />
+                                        </form>
+                                    </div>
+                                    <div class="div-center">
+                                        <div class="div-img img">
+                                            <img alt="原始模型" src="../../Content/images/grind/z=67.6比较过程.png">
+                                            <img alt="优化模型" src="../../Content/images/grind/z=67.6下刀点比较结果.png">
+                                            @*<img alt="铲磨优化" src="@ViewBag.picPath">*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="box-content">
-                        <ul class="nav nav-tabs" id="myTab">
-                            <li class="active"><a href="#info">Info</a></li>
-                            <li><a href="#custom">Custom</a></li>
-                            <li><a href="#messages">Messages</a></li>
-                        </ul>
-                    </div>
                 </div>
+                <!-- 零件相册 ends-->
             </div>
+            <!-- 内容页 ends -->
         </div>
+        <!-- 模态框 starts -->
+        @RenderPage("../mainForm/modal.cshtml")
+        <!-- 模态框 ends -->
     </div>
+    <hr>
 </body>
 </html>

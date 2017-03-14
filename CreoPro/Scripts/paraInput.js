@@ -131,6 +131,16 @@
         });
     }
 
+    //分页工具(只负责页码，不查数据)
+    function pagiation_sel(totalPage, pageIndex) {
+        $(".tcdPageCode").createPage({
+            pageCount: totalPage,
+            current: pageIndex,
+            backFn: function (p) {
+            }
+        });
+    }
+
     //查询
     $('#selFilter').click(function () {
         var formData = JSON.stringify($('#paraSelectForm').serializeObject());
@@ -151,6 +161,8 @@
                 createTable(jsonObj);
                 if (flag == true) {
                     pagiation(data.totalPage, pageIndex);
+                } else {
+                    pagiation_sel(data.totalPage, pageIndex);
                 }
             }
         });
@@ -158,11 +170,21 @@
 
     //动态创建table的tbody
     function createTable(data) {
+        $("#listthead").html("");
         $("#listbody").html("");
+        var isStand = $('#isStandard').is(':checked'); //是否标准
+        var thead = "";
         var tbody = "";
+
+        if (isStand) {
+            thead += "<tr><th>选型</th><th>模数</th><th>容屑槽数</th><th>外径</th><th>全长</th><th>内孔直径</th><th>系列</th><th>类型</th></tr>";
+        } else {
+            thead += "<tr><th>选型</th><th>模数</th><th>容屑槽数</th><th>外径</th><th>全长</th><th>内孔直径</th><th>操作</th></tr>";
+        }
         var len = data.length;
         for (var i = 0; i < len; i++) {
-            tbody = tbody + "<tr class='ta-tr'>"
+            if (isStand) {
+                tbody = tbody + "<tr class='ta-tr'>"
                 + "<td class='td-hid'><input type='text' value='" + JSON.stringify(data[i]) + "'/></td>"
                 + "<td class='td-para'><input type='radio' name='ra_Para' value='" + data[i].parm_id + "'/></td>"
                 + "<td class='dyn'>" + data[i].moshu + "</td>"
@@ -170,21 +192,34 @@
                 + "<td class='dyn'>" + data[i].deg + "</td>"
                 + "<td class='dyn'>" + data[i].L + "</td>"
                 + "<td class='dyn'>" + data[i].kongjing + "</td>"
-                + "<td><a class='btn btn-success btn-mid' href='#'><i class='glyphicon glyphicon-zoom-in icon-white i-padd'></i>详细</a>"
-                + "<a class='btn btn-danger btn-mid' href='#'><i class='glyphicon glyphicon-trash icon-white i-padd'></i>删除</a></td>"
+                + "<td class='dyn'>" + data[i].serail + "</td>"
+                + "<td class='dyn'>" + data[i].type + "</td>"
                 + "</tr>";
+            } else {
+                tbody = tbody + "<tr class='ta-tr'>"
+                + "<td class='td-hid'><input type='text' value='" + JSON.stringify(data[i]) + "'/></td>"
+                + "<td class='td-para'><input type='radio' name='ra_Para' value='" + data[i].parm_id + "'/></td>"
+                + "<td class='dyn'>" + data[i].moshu + "</td>"
+                + "<td>" + data[i].rongxieNum + "</td>"
+                + "<td class='dyn'>" + data[i].deg + "</td>"
+                + "<td class='dyn'>" + data[i].L + "</td>"
+                + "<td class='dyn'>" + data[i].kongjing + "</td>"
+                + "<td><a class='btn btn-danger btn-mid btn-del' href='#'><i class='glyphicon glyphicon-trash icon-white i-padd'></i>删除</a></td>"
+                + "</tr>";
+            }
         }
         if (len == 0) {
             tbody = tbody + "<tr style='text-align: center'>"
-                + "<td colspan='6'><font color='#cd0a0a'>" + 暂无记录 + "</font></td>"
+                + "<td colspan='6'><font color='#cd0a0a'>暂无记录</font></td>"
                 + "</tr>";
         }
         //添加到div中  
+        $("#listthead").html(thead);
         $("#listbody").html(tbody);
     }
 
     //快速选型
-    $('#listbody').delegate($(':radio'), 'click', function () {
+    $(document).on('click', '.td-para', function () {
         $('.td-para').removeAttr("bgcolor"); //去掉提醒色
         open_para();
         var paraId = $("#listbody input[name='ra_Para']:checked").val();
@@ -227,5 +262,46 @@
         $('#jiancaoH').val(); //键槽高度
         $('#daojiaoL').val(); //倒角边长
     }
+
+    //删除参数，弹出确认删除对话框
+    $(document).on('click', '.btn-del', function () {
+        var $tr = $(this).parent().parent();
+        var paraId = $tr.children('.td-para').children(':radio').val(); //参数ID
+        $('#delHidValue').val(paraId);
+        $('#delcfmModel').modal();
+    });
+
+    //确认删除参数
+    $('#cfmDelPara').click(function () {
+        var paraId = $('#delHidValue').val();
+        $.ajax({
+            type: "post",
+            url: "/mainForm/delPara",
+            data: { paraId: paraId },
+            cache: false,
+            dataType: "json",
+            success: function (data) {
+                var massage = data;
+                if (massage == "True") {
+                    $('#msg').text("删除成功！");
+                    getParaList(null, 1, true); //刷新界面
+                } else {
+                    $('#msg').text("删除失败！");
+                }
+                $('#delcfmModel').modal('hide');
+                $('#myModal').modal();
+            }
+        });
+    });
+
+    //是否标准 触发事件
+    $(document).on('change', '#isStandard', function () {
+        var isStand = $('#isStandard').is(':checked'); //是否标准
+        if (isStand) {
+            $('#standDiv').removeClass("div-hid");
+        } else {
+            $('#standDiv').addClass("div-hid");
+        }
+    });
 
 });

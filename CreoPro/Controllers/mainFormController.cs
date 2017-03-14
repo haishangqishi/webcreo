@@ -173,7 +173,11 @@ namespace CreoPro.Controllers
                 }
 
                 model.Display();//模型显示
-                addData(mapGoal);//写入数据库
+                UserInfo userInfo = getUserInfo();
+                if (userInfo.UserName != "admin")//admin管理员只负责维护标准模型
+                {
+                    addData(mapGoal);//写入数据库
+                }
             }
             catch (Exception ex)
             {
@@ -700,28 +704,6 @@ namespace CreoPro.Controllers
 
         #region 参数输入页面
         /// <summary>
-        /// 初始加载页面，同时加载参数列表
-        /// </summary>
-        /// <returns></returns>
-        //public ActionResult paraInput()
-        //{
-        //    int pageIndex = 1;
-        //    int totalRow = 0;
-        //    UserInfo userInfo = getUserInfo();
-        //    Dictionary<string, object> map = new Dictionary<string, object>();
-        //    if (userInfo != null)
-        //    {
-        //        map.Add("mem_id", userInfo.mem_id);
-        //    }
-
-        //    bll_parm = new BLL.parameters();
-        //    List<Model.parameters> list_parm = bll_parm.GetModelList(map, pageIndex, out totalRow);
-        //    string strJson = JsonUtils.ObjectToJson(list_parm);
-        //    ViewBag.list = list_parm;
-        //    return View();
-        //}
-
-        /// <summary>
         /// 获取参数列表
         /// </summary>
         /// <returns></returns>
@@ -754,6 +736,31 @@ namespace CreoPro.Controllers
             pager.setTotalRow(totalRow);
 
             return Json(new { list = strJson, totalPage = pager.getTotalPage() });
+        }
+        #endregion
+
+        #region 参数列表
+        public JsonResult delPara()
+        {
+            int paraId = Convert.ToInt32(Request["paraId"]);
+            bll_parm = new BLL.parameters();
+            bool flag = bll_parm.Delete(paraId);
+            if (flag)
+            {
+                return Json("True");
+            }
+            return Json("False");
+        }
+        #endregion
+
+        #region 生成NC文件
+        public FileStreamResult generateFile()
+        {
+            string paraId = Request["paraId"];
+
+            string path = Server.MapPath("/") + "files\\gundao.nc";
+            string fileName = "gundao.nc";
+            return File(new FileStream(path, FileMode.Open), "text/plain", fileName);
         }
         #endregion
 
