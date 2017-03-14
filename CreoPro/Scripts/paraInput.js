@@ -237,6 +237,7 @@
         $('#rongxieNum').val(jsonObj['rongxieNum']); //容屑槽数
         $('#waijing').val(jsonObj['deg']); //外径
         $('#quanchang').val(jsonObj['L']); //全长
+        $('#qianjiao').val(jsonObj['GAMA0']); //前角
         $('#zhoutaiD').val(jsonObj['zhoutaiD']); //轴台直径
         $('#zhoutaiL').val(jsonObj['zhoutaiL']); //轴台长度
         $('#neikongD').val(jsonObj['kongjing']); //内孔直径
@@ -245,6 +246,8 @@
         $('#jiancaoW').val(jsonObj['jiancaoW']); //键槽宽度
         $('#jiancaoH').val(jsonObj['jiancaoH']); //键槽高度
         $('#daojiaoL').val(jsonObj['celeng']); //倒角边长
+        $('#dingrenAngle').val(jsonObj['AE']); //顶刃后角
+        $('#cerenAngle').val(jsonObj['AC']); //侧刃后角
     }
 
     //清空输入框值
@@ -253,6 +256,7 @@
         $('#rongxieNum').val(); //容屑槽数
         $('#waijing').val(); //外径
         $('#quanchang').val(); //全长
+        $('#qianjiao').val(); //前角
         $('#zhoutaiD').val(); //轴台直径
         $('#zhoutaiL').val(); //轴台长度
         $('#neikongD').val(); //内孔直径
@@ -261,6 +265,8 @@
         $('#jiancaoW').val(); //键槽宽度
         $('#jiancaoH').val(); //键槽高度
         $('#daojiaoL').val(); //倒角边长
+        $('#dingrenAngle').val(); //顶刃后角
+        $('#cerenAngle').val(); //侧刃后角
     }
 
     //删除参数，弹出确认删除对话框

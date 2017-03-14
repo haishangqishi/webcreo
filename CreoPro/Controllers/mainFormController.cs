@@ -142,7 +142,7 @@ namespace CreoPro.Controllers
                 }
                 session = asyncConnection.Session as IpfcBaseSession;//获取session(会话)
                 session.ChangeDirectory(workDir);// 设置工作目录
-                descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundaozzx_xiu.prt", null);//获取工作目录下的零件模型描述
+                descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundao.prt", null);//获取工作目录下的零件模型描述
                 model = session.RetrieveModel(descModel);//零件模型
                 paOwner = (IpfcParameterOwner)model;
                 //map = selectFamTab1();//测试数据
@@ -309,6 +309,9 @@ namespace CreoPro.Controllers
                         case "L":
                             model_parm.L = Convert.ToDecimal(value);
                             break;
+                        case "GAMA0":
+                            model_parm.qianjiao = Convert.ToDecimal(value);
+                            break;
                         case "DL":
                             model_parm.zhoutaiD = Convert.ToDecimal(value);
                             break;
@@ -332,6 +335,12 @@ namespace CreoPro.Controllers
                             break;
                         case "C":
                             model_parm.celeng = Convert.ToDecimal(value);
+                            break;
+                        case "AE":
+                            model_parm.dingrenAngle = Convert.ToDecimal(value);
+                            break;
+                        case "AC":
+                            model_parm.cerenAngle = Convert.ToDecimal(value);
                             break;
                         default:
                             break;
@@ -359,7 +368,7 @@ namespace CreoPro.Controllers
                 asyncConnection = cAC.Connect(DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value);
                 session = asyncConnection.Session as IpfcBaseSession;
                 session.ChangeDirectory("D:\\creo2.0Save");
-                descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundaozzx_xiu.prt", null);//获取工作目录下的零件模型描述
+                descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundao.prt", null);//获取工作目录下的零件模型描述
                 model = session.CurrentModel;
 
                 //ipfcSession.UIShowMessageDialog("abcde", null);//显示消息弹框

@@ -137,6 +137,9 @@
     <Property Type="Decimal" Name="kongdaoL" Precision="6" Scale="3" />
     <Property Type="Int32" Name="isDelete" Nullable="false" />
     <NavigationProperty Name="member" Relationship="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" FromRole="parameters" ToRole="member" />
+    <Property Type="Decimal" Name="qianjiao" Precision="6" Scale="3" />
+    <Property Type="Decimal" Name="dingrenAngle" Precision="6" Scale="3" />
+    <Property Type="Decimal" Name="cerenAngle" Precision="6" Scale="3" />
   </EntityType>
   <Association Name="FK_PARAMETE_REFERENCE_MEMBER">
     <End Type="creo_dataModel.member" Role="member" Multiplicity="0..1" />

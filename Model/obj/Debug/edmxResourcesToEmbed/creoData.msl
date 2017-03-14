@@ -73,6 +73,9 @@
     <EntitySetMapping Name="parameters">
       <EntityTypeMapping TypeName="creo_dataModel.parameters">
         <MappingFragment StoreEntitySet="parameters">
+          <ScalarProperty Name="cerenAngle" ColumnName="cerenAngle" />
+          <ScalarProperty Name="dingrenAngle" ColumnName="dingrenAngle" />
+          <ScalarProperty Name="qianjiao" ColumnName="qianjiao" />
           <ScalarProperty Name="isDelete" ColumnName="isDelete" />
           <ScalarProperty Name="kongdaoL" ColumnName="kongdaoL" />
           <ScalarProperty Name="type" ColumnName="type" />

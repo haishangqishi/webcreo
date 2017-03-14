@@ -82,6 +82,9 @@
           <Property Name="serail" Type="int" />
           <Property Name="type" Type="int" />
           <Property Name="kongdaoL" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="qianjiao" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="dingrenAngle" Type="decimal" Precision="6" Scale="3" />
+          <Property Name="cerenAngle" Type="decimal" Precision="6" Scale="3" />
           <Property Name="isDelete" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="process">
@@ -290,6 +293,9 @@
           <Property Type="Decimal" Name="kongdaoL" Precision="6" Scale="3" />
           <Property Type="Int32" Name="isDelete" Nullable="false" />
           <NavigationProperty Name="member" Relationship="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" FromRole="parameters" ToRole="member" />
+          <Property Type="Decimal" Name="qianjiao" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="dingrenAngle" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="cerenAngle" Precision="6" Scale="3" />
         </EntityType>
         <Association Name="FK_PARAMETE_REFERENCE_MEMBER">
           <End Type="creo_dataModel.member" Role="member" Multiplicity="0..1" />
@@ -381,6 +387,9 @@
           <EntitySetMapping Name="parameters">
             <EntityTypeMapping TypeName="creo_dataModel.parameters">
               <MappingFragment StoreEntitySet="parameters">
+                <ScalarProperty Name="cerenAngle" ColumnName="cerenAngle" />
+                <ScalarProperty Name="dingrenAngle" ColumnName="dingrenAngle" />
+                <ScalarProperty Name="qianjiao" ColumnName="qianjiao" />
                 <ScalarProperty Name="isDelete" ColumnName="isDelete" />
                 <ScalarProperty Name="kongdaoL" ColumnName="kongdaoL" />
                 <ScalarProperty Name="type" ColumnName="type" />

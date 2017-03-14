@@ -77,6 +77,9 @@
     <Property Name="serail" Type="int" />
     <Property Name="type" Type="int" />
     <Property Name="kongdaoL" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="qianjiao" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="dingrenAngle" Type="decimal" Precision="6" Scale="3" />
+    <Property Name="cerenAngle" Type="decimal" Precision="6" Scale="3" />
     <Property Name="isDelete" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="process">

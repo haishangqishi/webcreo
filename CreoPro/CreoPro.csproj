@@ -227,7 +227,7 @@
     <Content Include="Content\images\m3d5\m3d5-2-2_3.png" />
     <Content Include="Content\images\m3d5\m3d5-2-2_4.png" />
     <Content Include="Content\images\m3d5\m3d5-2-2_5.png" />
-    <Content Include="Content\images\m3d75\m3d72-2-1_1.png" />
+    <Content Include="Content\images\m3d75\m3d75-2-1_1.png" />
     <Content Include="Content\images\m3d75\m3d75-2-1_2.png" />
     <Content Include="Content\images\m3d75\m3d75-2-1_3.png" />
     <Content Include="Content\images\m3d75\m3d75-2-1_4.png" />
@@ -434,8 +434,8 @@
     <Content Include="Views\mainForm\grindProc.cshtml" />
     <Content Include="Views\mainForm\modal.cshtml" />
     <Content Include="Views\Home\register.cshtml" />
+    <None Include="files\chilungundao.prt" />
     <None Include="files\gundao.nc" />
-    <None Include="files\chilungundaozzx_xiu.prt" />
     <Content Include="Views\Machine\machineType.cshtml" />
     <Content Include="Views\Machine\machineSet.cshtml" />
     <Content Include="Views\Tool\toolType.cshtml" />

@@ -1395,6 +1395,78 @@ namespace Model
         private global::System.Int32 _isDelete;
         partial void OnisDeleteChanging(global::System.Int32 value);
         partial void OnisDeleteChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> qianjiao
+        {
+            get
+            {
+                return _qianjiao;
+            }
+            set
+            {
+                OnqianjiaoChanging(value);
+                ReportPropertyChanging("qianjiao");
+                _qianjiao = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("qianjiao");
+                OnqianjiaoChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _qianjiao;
+        partial void OnqianjiaoChanging(Nullable<global::System.Decimal> value);
+        partial void OnqianjiaoChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> dingrenAngle
+        {
+            get
+            {
+                return _dingrenAngle;
+            }
+            set
+            {
+                OndingrenAngleChanging(value);
+                ReportPropertyChanging("dingrenAngle");
+                _dingrenAngle = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dingrenAngle");
+                OndingrenAngleChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _dingrenAngle;
+        partial void OndingrenAngleChanging(Nullable<global::System.Decimal> value);
+        partial void OndingrenAngleChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> cerenAngle
+        {
+            get
+            {
+                return _cerenAngle;
+            }
+            set
+            {
+                OncerenAngleChanging(value);
+                ReportPropertyChanging("cerenAngle");
+                _cerenAngle = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("cerenAngle");
+                OncerenAngleChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _cerenAngle;
+        partial void OncerenAngleChanging(Nullable<global::System.Decimal> value);
+        partial void OncerenAngleChanged();
 
         #endregion
 

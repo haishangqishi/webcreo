@@ -21,9 +21,9 @@ namespace SqlServerDAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into parameters(");
-            strSql.Append("mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,kongdaoL,celeng,jiancaoR,isStandard,serail,type,isDelete)");
+            strSql.Append("mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,kongdaoL,celeng,jiancaoR,isStandard,serail,type,qianjiao,dingrenAngle,cerenAngle,isDelete)");
             strSql.Append(" values (");
-            strSql.Append("@mem_id,@moshu,@deg,@kongjing,@L,@rongxieNum,@zhoutaiD,@zhoutaiL,@jiancaoW,@jiancaoH,@kongdaoD,@kongdaoL,@celeng,@jiancaoR,@isStandard,@serail,@type,@isDelete)");
+            strSql.Append("@mem_id,@moshu,@deg,@kongjing,@L,@rongxieNum,@zhoutaiD,@zhoutaiL,@jiancaoW,@jiancaoH,@kongdaoD,@kongdaoL,@celeng,@jiancaoR,@isStandard,@serail,@type,@qianjiao,@dingrenAngle,@cerenAngle,@isDelete)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
 					new SqlParameter("@mem_id", SqlDbType.Int,4),
@@ -37,12 +37,15 @@ namespace SqlServerDAL
 					new SqlParameter("@jiancaoW", SqlDbType.Decimal,5),
 					new SqlParameter("@jiancaoH", SqlDbType.Decimal,5),
 					new SqlParameter("@kongdaoD", SqlDbType.Decimal,5),
-					new SqlParameter("@kongdaoL", SqlDbType.Decimal,5),
 					new SqlParameter("@celeng", SqlDbType.Decimal,5),
 					new SqlParameter("@jiancaoR", SqlDbType.Decimal,5),
 					new SqlParameter("@isStandard", SqlDbType.Int,4),
 					new SqlParameter("@serail", SqlDbType.Int,4),
 					new SqlParameter("@type", SqlDbType.Int,4),
+					new SqlParameter("@kongdaoL", SqlDbType.Decimal,5),
+					new SqlParameter("@qianjiao", SqlDbType.Decimal,5),
+					new SqlParameter("@dingrenAngle", SqlDbType.Decimal,5),
+					new SqlParameter("@cerenAngle", SqlDbType.Decimal,5),
 					new SqlParameter("@isDelete", SqlDbType.Int,4)};
             parameters[0].Value = model.mem_id;
             parameters[1].Value = model.moshu;
@@ -55,13 +58,16 @@ namespace SqlServerDAL
             parameters[8].Value = model.jiancaoW;
             parameters[9].Value = model.jiancaoH;
             parameters[10].Value = model.kongdaoD;
-            parameters[11].Value = model.kongdaoL;
-            parameters[12].Value = model.celeng;
-            parameters[13].Value = model.jiancaoR;
-            parameters[14].Value = model.isStandard;
-            parameters[15].Value = model.serail;
-            parameters[16].Value = model.type;
-            parameters[17].Value = model.isDelete;
+            parameters[11].Value = model.celeng;
+            parameters[12].Value = model.jiancaoR;
+            parameters[13].Value = model.isStandard;
+            parameters[14].Value = model.serail;
+            parameters[15].Value = model.type;
+            parameters[16].Value = model.kongdaoL;
+            parameters[17].Value = model.qianjiao;
+            parameters[18].Value = model.dingrenAngle;
+            parameters[19].Value = model.cerenAngle;
+            parameters[20].Value = model.isDelete;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -91,12 +97,15 @@ namespace SqlServerDAL
             strSql.Append("jiancaoW=@jiancaoW,");
             strSql.Append("jiancaoH=@jiancaoH,");
             strSql.Append("kongdaoD=@kongdaoD,");
-            strSql.Append("kongdaoL=@kongdaoL,");
             strSql.Append("celeng=@celeng,");
             strSql.Append("jiancaoR=@jiancaoR,");
             strSql.Append("isStandard=@isStandard,");
             strSql.Append("serail=@serail,");
             strSql.Append("type=@type,");
+            strSql.Append("kongdaoL=@kongdaoL,");
+            strSql.Append("qianjiao=@qianjiao,");
+            strSql.Append("dingrenAngle=@dingrenAngle,");
+            strSql.Append("cerenAngle=@cerenAngle,");
             strSql.Append("isDelete=@isDelete");
             strSql.Append(" where parm_id=@parm_id");
             SqlParameter[] parameters = {
@@ -111,12 +120,15 @@ namespace SqlServerDAL
 					new SqlParameter("@jiancaoW", SqlDbType.Decimal,5),
 					new SqlParameter("@jiancaoH", SqlDbType.Decimal,5),
 					new SqlParameter("@kongdaoD", SqlDbType.Decimal,5),
-					new SqlParameter("@kongdaoL", SqlDbType.Decimal,5),
 					new SqlParameter("@celeng", SqlDbType.Decimal,5),
 					new SqlParameter("@jiancaoR", SqlDbType.Decimal,5),
 					new SqlParameter("@isStandard", SqlDbType.Int,4),
 					new SqlParameter("@serail", SqlDbType.Int,4),
 					new SqlParameter("@type", SqlDbType.Int,4),
+					new SqlParameter("@kongdaoL", SqlDbType.Decimal,5),
+					new SqlParameter("@qianjiao", SqlDbType.Decimal,5),
+					new SqlParameter("@dingrenAngle", SqlDbType.Decimal,5),
+					new SqlParameter("@cerenAngle", SqlDbType.Decimal,5),
 					new SqlParameter("@isDelete", SqlDbType.Int,4),
 					new SqlParameter("@parm_id", SqlDbType.Int,4)};
             parameters[0].Value = model.mem_id;
@@ -130,14 +142,17 @@ namespace SqlServerDAL
             parameters[8].Value = model.jiancaoW;
             parameters[9].Value = model.jiancaoH;
             parameters[10].Value = model.kongdaoD;
-            parameters[11].Value = model.kongdaoL;
-            parameters[12].Value = model.celeng;
-            parameters[13].Value = model.jiancaoR;
-            parameters[14].Value = model.isStandard;
-            parameters[15].Value = model.serail;
-            parameters[16].Value = model.type;
-            parameters[17].Value = model.isDelete;
-            parameters[18].Value = model.parm_id;
+            parameters[11].Value = model.celeng;
+            parameters[12].Value = model.jiancaoR;
+            parameters[13].Value = model.isStandard;
+            parameters[14].Value = model.serail;
+            parameters[15].Value = model.type;
+            parameters[16].Value = model.kongdaoL;
+            parameters[17].Value = model.qianjiao;
+            parameters[18].Value = model.dingrenAngle;
+            parameters[19].Value = model.cerenAngle;
+            parameters[20].Value = model.isDelete;
+            parameters[21].Value = model.parm_id;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -180,7 +195,7 @@ namespace SqlServerDAL
         public Model.parameters GetModel(int parm_id)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select top 1 parm_id,mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,kongdaoL,celeng,jiancaoR,isStandard,serail,type,isDelete from parameters ");
+            strSql.Append("select top 1 parm_id,mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,kongdaoL,celeng,jiancaoR,isStandard,serail,type,qianjiao,dingrenAngle,cerenAngle,isDelete from parameters ");
             strSql.Append(" where parm_id=@parm_id and isDelete=0");
             SqlParameter[] parameters = {
 					new SqlParameter("@parm_id", SqlDbType.Int,4)
@@ -222,7 +237,7 @@ namespace SqlServerDAL
             string sqlLimit = getSql(map);
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select top " + pageSize + " parm_id,mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,kongdaoL,celeng,jiancaoR,isStandard,serail,type,isDelete from ");
+            strSql.Append("select top " + pageSize + " parm_id,mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,kongdaoL,celeng,jiancaoR,isStandard,serail,type,qianjiao,dingrenAngle,cerenAngle,isDelete from ");
             strSql.Append(" (select ROW_NUMBER() OVER (ORDER BY parm_id ASC) AS RowNumber,* FROM parameters where isDelete=0 and (mem_id=1 or mem_id=" + mem_id + ") " + sqlLimit + " ) as tmp ");
             strSql.Append(" WHERE RowNumber > " + pageSize * (pageIndex - 1) + sqlLimit);
             sqlList.Add(strSql.ToString());
@@ -291,10 +306,6 @@ namespace SqlServerDAL
                 {
                     model.kongdaoD = decimal.Parse(row["kongdaoD"].ToString());
                 }
-                if (row["kongdaoL"] != null && row["kongdaoL"].ToString() != "")
-                {
-                    model.kongdaoL = decimal.Parse(row["kongdaoL"].ToString());
-                }
                 if (row["celeng"] != null && row["celeng"].ToString() != "")
                 {
                     model.celeng = decimal.Parse(row["celeng"].ToString());
@@ -314,6 +325,22 @@ namespace SqlServerDAL
                 if (row["type"] != null && row["type"].ToString() != "")
                 {
                     model.type = int.Parse(row["type"].ToString());
+                }
+                if (row["kongdaoL"] != null && row["kongdaoL"].ToString() != "")
+                {
+                    model.kongdaoL = decimal.Parse(row["kongdaoL"].ToString());
+                }
+                if (row["qianjiao"] != null && row["qianjiao"].ToString() != "")
+                {
+                    model.qianjiao = decimal.Parse(row["qianjiao"].ToString());
+                }
+                if (row["dingrenAngle"] != null && row["dingrenAngle"].ToString() != "")
+                {
+                    model.dingrenAngle = decimal.Parse(row["dingrenAngle"].ToString());
+                }
+                if (row["cerenAngle"] != null && row["cerenAngle"].ToString() != "")
+                {
+                    model.cerenAngle = decimal.Parse(row["cerenAngle"].ToString());
                 }
                 if (row["isDelete"] != null && row["isDelete"].ToString() != "")
                 {
