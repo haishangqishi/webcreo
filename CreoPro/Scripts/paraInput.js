@@ -177,9 +177,9 @@
         var tbody = "";
 
         if (isStand) {
-            thead += "<tr><th>选型</th><th>模数</th><th>容屑槽数</th><th>外径</th><th>全长</th><th>内孔直径</th><th>系列</th><th>类型</th></tr>";
+            thead += "<tr><th>选型</th><th>模数</th><th>容屑槽数</th><th>外径</th><th>全长</th><th>内孔直径</th><th>前角</th><th>顶刃后角</th><th>侧刃后角</th><th>系列</th><th>类型</th></tr>";
         } else {
-            thead += "<tr><th>选型</th><th>模数</th><th>容屑槽数</th><th>外径</th><th>全长</th><th>内孔直径</th><th>操作</th></tr>";
+            thead += "<tr><th>选型</th><th>模数</th><th>容屑槽数</th><th>外径</th><th>全长</th><th>内孔直径</th><th>前角</th><th>顶刃后角</th><th>侧刃后角</th><th>操作</th></tr>";
         }
         var len = data.length;
         for (var i = 0; i < len; i++) {
@@ -192,6 +192,9 @@
                 + "<td class='dyn'>" + data[i].deg + "</td>"
                 + "<td class='dyn'>" + data[i].L + "</td>"
                 + "<td class='dyn'>" + data[i].kongjing + "</td>"
+                + "<td class='dyn'>" + data[i].qianjiao + "</td>"
+                + "<td class='dyn'>" + data[i].dingrenAngle + "</td>"
+                + "<td class='dyn'>" + data[i].cerenAngle + "</td>"
                 + "<td class='dyn'>" + data[i].serail + "</td>"
                 + "<td class='dyn'>" + data[i].type + "</td>"
                 + "</tr>";
@@ -204,6 +207,9 @@
                 + "<td class='dyn'>" + data[i].deg + "</td>"
                 + "<td class='dyn'>" + data[i].L + "</td>"
                 + "<td class='dyn'>" + data[i].kongjing + "</td>"
+                + "<td class='dyn'>" + data[i].qianjiao + "</td>"
+                + "<td class='dyn'>" + data[i].dingrenAngle + "</td>"
+                + "<td class='dyn'>" + data[i].cerenAngle + "</td>"
                 + "<td><a class='btn btn-danger btn-mid btn-del' href='#'><i class='glyphicon glyphicon-trash icon-white i-padd'></i>删除</a></td>"
                 + "</tr>";
             }
@@ -237,7 +243,7 @@
         $('#rongxieNum').val(jsonObj['rongxieNum']); //容屑槽数
         $('#waijing').val(jsonObj['deg']); //外径
         $('#quanchang').val(jsonObj['L']); //全长
-        $('#qianjiao').val(jsonObj['GAMA0']); //前角
+        $('#qianjiao').val(jsonObj['qianjiao']); //前角
         $('#zhoutaiD').val(jsonObj['zhoutaiD']); //轴台直径
         $('#zhoutaiL').val(jsonObj['zhoutaiL']); //轴台长度
         $('#neikongD').val(jsonObj['kongjing']); //内孔直径
@@ -246,8 +252,8 @@
         $('#jiancaoW').val(jsonObj['jiancaoW']); //键槽宽度
         $('#jiancaoH').val(jsonObj['jiancaoH']); //键槽高度
         $('#daojiaoL').val(jsonObj['celeng']); //倒角边长
-        $('#dingrenAngle').val(jsonObj['AE']); //顶刃后角
-        $('#cerenAngle').val(jsonObj['AC']); //侧刃后角
+        $('#dingrenAngle').val(jsonObj['dingrenAngle']); //顶刃后角
+        $('#cerenAngle').val(jsonObj['cerenAngle']); //侧刃后角
     }
 
     //清空输入框值

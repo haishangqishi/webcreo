@@ -173,6 +173,14 @@ namespace CreoPro.Controllers
                 }
 
                 model.Display();//模型显示
+
+                //Dictionary<string, double> map_fa = selectFamTab(paOwner);//获取最新族表数据
+
+                IpfcBaseParameter para = (IpfcBaseParameter)paOwner.GetParam("AC");//获取重生后的侧刃后角
+                double paraValue = para.Value.DoubleValue;
+                paraValue = Math.Round(paraValue, 2);//保留两位小数
+                mapGoal.Add("AC", paraValue);//覆盖AC
+
                 UserInfo userInfo = getUserInfo();
                 if (userInfo.UserName != "admin")//admin管理员只负责维护标准模型
                 {

@@ -201,3 +201,8 @@ tr.ta-tr
     padding: 0px 1px 0px 1px;
     margin-left: 100px;
 }
+
+.style-hid
+{
+    display: none;
+}
