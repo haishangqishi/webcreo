@@ -1,0 +1,175 @@
+﻿/* 工具条 starts */
+/* 工具条颜色 */
+.navbar-default
+{
+    background-color: #2fa4e7;
+    border-color: #1995dc;
+}
+
+.navbar-default .navbar-brand
+{
+    color: #ffffff;
+}
+
+.navbar-inner
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 30px;
+    height: 60px;
+}
+
+.navbar-inner .btn-group
+{
+    margin: 7px 5px 0 5px;
+}
+
+.navbar-brand
+{
+    font-family: 'Shojumaru' , cursive, Arial, serif;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    width: 183px;
+    font-size: 17px;
+}
+
+.navbar-brand img
+{
+    float: left; /*height: 20px;     width: 20px;*/
+    margin-right: 5px;
+}
+
+/* 用户显示下拉菜单 */
+.btn-group.open .dropdown-toggle
+{
+    -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+}
+
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle)
+{
+    border-radius: 0;
+}
+
+.btn-group > .btn:first-child
+{
+    margin-left: 0;
+}
+/* 工具条 ends */
+
+/* 主显示区 starts */
+@media only screen and (min-width: 980px)
+{
+    a, button, input[type=submit], input[type=button], .product-img
+    {
+        -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -ms-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s;
+    }
+
+    .ch-container
+    {
+        padding: 0 20px;
+    }
+}
+
+/* 左菜单 starts */
+.sidebar-nav
+{
+    min-height: 0;
+    box-shadow: 0 0 10px #BDBDBD;
+    border-radius: 5px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    max-height: none;
+}
+
+.sidebar-nav .nav-header
+{
+    display: block;
+    padding: 3px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #999999;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}
+
+/* li向右轻微移动 */
+.main-menu > li > a
+{
+    border: 1px solid rgba(221, 221, 221, 0.46);
+}
+
+.main-menu > li
+{
+    margin-top: 0 !important;
+}
+
+ul.main-menu li:hover
+{
+    margin-left: 8px;
+}
+
+ul.main-menu li.active
+{
+    margin-left: 8px;
+}
+
+ul.main-menu li.nav-header:hover
+{
+    margin-left: 0;
+}
+
+ul.main-menu li:not(.nav-header)
+{
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+
+
+
+/* 折叠菜单 */
+.accordion > ul
+{
+    display: none;
+    margin-left: 10px;
+}
+
+/* 选中后颜色改变 
+.selected
+{
+    background-color: #2fa4e7;
+    border-color: #1995dc;
+}
+*/
+
+/* 左菜单 ends */
+
+/* 导航栏 */
+.mybreadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 10px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+.mybreadcrumb > li {
+  display: inline-block;
+}
+.mybreadcrumb > li + li:before {
+  padding: 0 5px;
+  color: #ccc;
+  content: "/\00a0";
+}
+.mybreadcrumb > .active {
+  color: #777;
+}
+
+/* 主显示区 ends */
