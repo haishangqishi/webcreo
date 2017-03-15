@@ -244,7 +244,7 @@ namespace SqlServerDAL
 
             StringBuilder strSql1 = new StringBuilder();
             strSql1.Append("select count(*) ");
-            strSql1.Append(" FROM parameters where isDelete=0 and mem_id=" + mem_id + sqlLimit);
+            strSql1.Append(" FROM parameters where isDelete=0 and (mem_id=1 or mem_id=" + mem_id + ") " + sqlLimit);
             sqlList.Add(strSql1.ToString());
 
             return DbHelperSQL.ExecuteSqlTran_page(sqlList, out total);
