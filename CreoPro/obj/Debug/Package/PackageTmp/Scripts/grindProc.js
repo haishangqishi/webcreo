@@ -54,4 +54,11 @@
     //        $('#prtAlbum').html(link);
     //    });
 
+
+    $('#selPrt_grind').click(function () {
+        $('#divGrind1').removeClass("div-show");
+        $('#divGrind1').addClass("div-hid");
+        $('#divGrind2').removeClass("div-hid");
+        $('#divGrind2').addClass("div-show");
+    });
 });

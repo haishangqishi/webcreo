@@ -5,6 +5,8 @@
 <html>
 <head>
     <title>铲磨工艺优化</title>
+    <script src="../../Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/grindProc.js" type="text/javascript"></script>
 </head>
 <body>
     <!-- 工具条 starts -->
@@ -67,10 +69,14 @@
                                         </form>
                                     </div>
                                     <div class="div-center">
-                                        <div class="div-img img">
+                                        <div class="div-img img div-show" id="divGrind1">
                                             <img alt="原始模型" src="../../Content/images/grind/z=67.6比较过程.png">
                                             <img alt="优化模型" src="../../Content/images/grind/z=67.6下刀点比较结果.png">
                                             @*<img alt="铲磨优化" src="@ViewBag.picPath">*@
+                                        </div>
+                                        <div class="div-img img div-hid" id="divGrind2">
+                                            <img alt="原始模型" src="../../Content/images/grind/z=69比较过程.png">
+                                            <img alt="优化模型" src="../../Content/images/grind/z=69下刀点比较结果.png">
                                         </div>
                                     </div>
                                 </div>
