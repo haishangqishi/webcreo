@@ -363,6 +363,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\grindProc.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\login.js" />
     <Content Include="Scripts\machineSet.js" />
@@ -417,10 +418,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-    <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
-    <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
-    <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
-    <None Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Member\memDetial.cshtml" />
     <Content Include="Views\Home\login.cshtml" />
     <Content Include="Views\mainForm\index.cshtml" />
@@ -434,6 +431,10 @@
     <Content Include="Views\mainForm\grindProc.cshtml" />
     <Content Include="Views\mainForm\modal.cshtml" />
     <Content Include="Views\Home\register.cshtml" />
+    <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="files\chilungundao.prt" />
     <None Include="files\gundao.nc" />
     <Content Include="Views\Machine\machineType.cshtml" />
@@ -479,7 +480,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1992</DevelopmentServerPort>
+          <DevelopmentServerPort>2962</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
