@@ -98,3 +98,17 @@ D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\bin\Debug\Model.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.csprojResolveAssemblyReference.cache
 D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.dll
 D:\VSsave\VS2010save\webcreo\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.pdb
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\bin\Debug\SqlServerDAL.dll
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\bin\Debug\SqlServerDAL.pdb
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\bin\Debug\Common.dll
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\bin\Debug\DBUtility.dll
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\bin\Debug\IDAL.dll
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\bin\Debug\Model.dll
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\bin\Debug\Newtonsoft.Json.dll
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\bin\Debug\Common.pdb
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\bin\Debug\DBUtility.pdb
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\bin\Debug\IDAL.pdb
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\bin\Debug\Model.pdb
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.csprojResolveAssemblyReference.cache
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.dll
+F:\毕业论文\终期报告\webcreo0415\creoPro\SqlServerDAL\obj\Debug\SqlServerDAL.pdb

@@ -41,3 +41,8 @@ D:\VSsave\VS2010save\webcreo\creoPro\Model\bin\Debug\Model.dll
 D:\VSsave\VS2010save\webcreo\creoPro\Model\bin\Debug\Model.pdb
 D:\VSsave\VS2010save\webcreo\creoPro\Model\obj\Debug\Model.dll
 D:\VSsave\VS2010save\webcreo\creoPro\Model\obj\Debug\Model.pdb
+F:\毕业论文\终期报告\webcreo0415\creoPro\Model\bin\Debug\Model.dll.config
+F:\毕业论文\终期报告\webcreo0415\creoPro\Model\bin\Debug\Model.dll
+F:\毕业论文\终期报告\webcreo0415\creoPro\Model\bin\Debug\Model.pdb
+F:\毕业论文\终期报告\webcreo0415\creoPro\Model\obj\Debug\Model.dll
+F:\毕业论文\终期报告\webcreo0415\creoPro\Model\obj\Debug\Model.pdb

@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Json;
 using System.IO;
 using System.Text;
 using pfcls;
+using log4net;
 
 namespace CreoPro.Controllers
 {
@@ -16,6 +17,7 @@ namespace CreoPro.Controllers
         IpfcAsyncConnection asyncConnection = null;
         private BLL.parameters bll_parm = null;
         private Model.parameters model_parm = null;
+        private ILog log = LogManager.GetLogger(typeof(mainFormController));
 
         #region 页面跳转
         /// <summary>
@@ -97,6 +99,7 @@ namespace CreoPro.Controllers
             {
                 string creoSetup = userInfo.CreoSetup;//安装路径
                 string creoWorkSpace = Server.MapPath("/") + "files";//工作目录
+                log.Info("获取安装路径：" + creoSetup);
                 if (creoSetup != "" && creoSetup != "")
                 {
                     //runProE("D:\\creo2.0\\Creo 2.0\\Parametric\\bin\\parametric.exe", "D:\\creo2.0Save");
@@ -131,14 +134,19 @@ namespace CreoPro.Controllers
             try
             {
                 setConfig(exePath);//设置配置文件
+                log.Info("设置配置文件");
                 cAC = new CCpfcAsyncConnection();
                 if (flag)
                 {
+                    log.Info("新开Creo进程-start");
                     asyncConnection = cAC.Start(exePath, ".");
+                    log.Info("新开Creo进程-end");
                 }
                 else
                 {
+                    log.Info("获取当前进程-start");
                     asyncConnection = cAC.Connect(DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value);
+                    log.Info("获取当前进程-end");
                 }
                 session = asyncConnection.Session as IpfcBaseSession;//获取session(会话)
                 session.ChangeDirectory(workDir);// 设置工作目录
@@ -189,6 +197,7 @@ namespace CreoPro.Controllers
             catch (Exception ex)
             {
                 ex.ToString();
+                log.Info("异常：" + ex.ToString());
                 if (asyncConnection != null)
                 {
                     if (asyncConnection.IsRunning())
