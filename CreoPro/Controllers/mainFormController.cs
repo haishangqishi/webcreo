@@ -149,12 +149,17 @@ namespace CreoPro.Controllers
                     log.Info("获取当前进程-end");
                 }
                 session = asyncConnection.Session as IpfcBaseSession;//获取session(会话)
+                log.Info("工作目录start：" + workDir);
                 session.ChangeDirectory(workDir);// 设置工作目录
+                log.Info("工作目录end");
                 descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundao.prt", null);//获取工作目录下的零件模型描述
+                log.Info("模型恢复start:" + descModel);
                 model = session.RetrieveModel(descModel);//零件模型
+                log.Info("模型恢复end");
                 paOwner = (IpfcParameterOwner)model;
                 //map = selectFamTab1();//测试数据
 
+                log.Info("模型更新start:"+map.ToString());
                 //模型更新
                 Dictionary<string, double> mapGoal = null;
                 if (map != null)
@@ -171,15 +176,19 @@ namespace CreoPro.Controllers
                     }
                     updateFamTab(paOwner, mapGoal);
                 }
+                log.Info("赋值mapGoal：" + mapGoal.ToString());
 
                 if (model.Type == (int)EpfcModelType.EpfcMDL_PART)
                 {
+                    log.Info("准备重生模型");
                     solid = (IpfcSolid)model;
                     ins = (new CCpfcRegenInstructions()).Create(true, null, null);
                     ins.UpdateInstances = true;
                     solid.Regenerate(ins);
+                    log.Info("重生模型完毕");
                 }
 
+                log.Info("模型显示");
                 model.Display();//模型显示
 
                 //Dictionary<string, double> map_fa = selectFamTab(paOwner);//获取最新族表数据
