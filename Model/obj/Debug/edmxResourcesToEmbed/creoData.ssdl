@@ -53,6 +53,7 @@
     <Property Name="sex" Type="int" />
     <Property Name="creoSetup" Type="varchar" MaxLength="200" />
     <Property Name="creoWorkSpace" Type="varchar" MaxLength="200" />
+    <Property Name="gundaoSetup" Type="varchar" MaxLength="200" />
     <Property Name="isWork" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="parameters">

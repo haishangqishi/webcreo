@@ -18,6 +18,7 @@ namespace Common
         private string phone = "";
         private string creoSetup = "";
         private string creoWorkSpace = "";
+        private string gundaoSetup = "";
 
         public int mem_id
         {
@@ -65,6 +66,12 @@ namespace Common
         {
             get { return creoWorkSpace; }
             set { creoWorkSpace = value; }
+        }
+
+        public string GundaoSetup
+        {
+            get { return gundaoSetup; }
+            set { gundaoSetup = value; }
         }
 
     }

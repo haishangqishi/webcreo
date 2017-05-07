@@ -41,6 +41,7 @@ namespace CreoPro.Controllers
             string phone = map["txtphone"].ToString();
             string email = map["txtemail"].ToString();
             string creoSetup = map["txtcreoSetup"].ToString();
+            string gundaoSetup = map["txtgundaoSetup"].ToString();
 
             UserInfo userInfo = null;
             if (Session["userEntity"] != null)
@@ -76,6 +77,11 @@ namespace CreoPro.Controllers
                 model_mem.creoSetup = creoSetup;
                 userInfo.CreoSetup = creoSetup;
             }
+            if (StrUtils.strNotNUll(gundaoSetup))
+            {
+                model_mem.gundaoSetup = gundaoSetup;
+                userInfo.GundaoSetup = gundaoSetup;
+            }
             bool flag = bll_mem.Update(model_mem);
 
             //保存后重置session
@@ -106,6 +112,7 @@ namespace CreoPro.Controllers
             string phone = map["txtphone"].ToString();
             string email = map["txtemail"].ToString();
             string creoSetup = map["txtcreoSetup"].ToString();
+            string gundaoSetup = map["txtgundaoSetup"].ToString();
 
             model_mem = new member();//重新实例化
             if (StrUtils.strNotNUll(username))
@@ -127,6 +134,10 @@ namespace CreoPro.Controllers
             if (StrUtils.strNotNUll(creoSetup))
             {
                 model_mem.creoSetup = creoSetup;
+            }
+            if (StrUtils.strNotNUll(gundaoSetup))
+            {
+                model_mem.gundaoSetup = gundaoSetup;
             }
             model_mem.isWork = 1;
             bll_mem.Add(model_mem);
@@ -181,6 +192,31 @@ namespace CreoPro.Controllers
                 }
             }
             return Json("False");
+        }
+
+        /// <summary>
+        /// 验证是否填写滚刀系统安装路径
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult hasGundaoSetup()
+        {
+            UserInfo userInfo = null;
+            if (Session["userEntity"] != null)
+            {
+                userInfo = Session["userEntity"] as UserInfo;
+            }
+            
+            string gundaoSetup = "";
+            if (userInfo != null)
+            {
+                gundaoSetup = userInfo.GundaoSetup;//安装路径
+                if (gundaoSetup == "")
+                {
+                    return Json("滚刀系统安装路径为空！"); 
+                }
+            }
+            return Json("true");
         }
 
     }

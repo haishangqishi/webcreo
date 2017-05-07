@@ -70,6 +70,14 @@ namespace CreoPro.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// 系统助手
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult sysHelp()
+        {
+            return View();
+        }
         #endregion
 
         /// <summary>
@@ -240,7 +248,7 @@ namespace CreoPro.Controllers
             {
                 string creoSetup = userInfo.CreoSetup;//安装路径
                 string creoWorkSpace = Server.MapPath("/") + "files";//工作目录
-                if (creoSetup != "" && creoSetup != "")
+                if (creoSetup != "" && creoWorkSpace != "")
                 {
                     runProE(creoSetup, creoWorkSpace, map, regeflag);
                     return Json("success");
@@ -799,6 +807,74 @@ namespace CreoPro.Controllers
             string path = Server.MapPath("/") + "files\\gundao.nc";
             string fileName = "gundao.nc";
             return File(new FileStream(path, FileMode.Open), "text/plain", fileName);
+        }
+        #endregion
+
+        #region 应用程序相关下载
+        /// <summary>
+        /// 下载应用程序
+        /// </summary>
+        /// <returns></returns>
+        public FileStreamResult downloadExe()
+        {
+            string path = Server.MapPath("/") + "files\\Setup.msi";
+            string fileName = "gundao.msi";
+            return File(new FileStream(path, FileMode.Open), "text/plain", fileName);
+        }
+
+        /// <summary>
+        /// 下载注册表
+        /// </summary>
+        /// <returns></returns>
+        public FileStreamResult downloadReg()
+        {
+            setSysConfig();
+            string path = Server.MapPath("/") + "files\\gundao.reg";
+            string fileName = "gundao.reg";
+            return File(new FileStream(path, FileMode.Open), "text/plain", fileName);
+        }
+
+        /// <summary>
+        /// 设置滚刀窗体系统路径及修改配置文件
+        /// </summary>
+        private void setSysConfig()
+        {
+            UserInfo userInfo = getUserInfo();
+            string gundaoSetup = "";
+            if (userInfo != null)
+            {
+                gundaoSetup = userInfo.GundaoSetup;//安装路径
+                if (gundaoSetup == "")
+                {
+                    //return Json("Creo安装路径或者Creo工作目录为空！"); 
+                }
+            }
+
+            try
+            {
+                string path = Server.MapPath("/") + "files\\gundao.reg";
+                gundaoSetup = gundaoSetup.Replace(@"\", @"\\");
+                StreamReader reader = new StreamReader(path, Encoding.Default);
+                String text = reader.ReadToEnd();
+
+                text = "Windows Registry Editor Version 5.00" + "\r\n \r\n"
+                    + @"[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\gundao]" + "\r\n" + "@='gundao'" + "\r\n"
+                    + "'URL Protocol'='" + gundaoSetup + @"\\LispForm.exe %l'" + "\r\n \r\n"
+                    + @"[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\gundao\DefaultIcon]" + "\r\n"
+                    + "@='%SystemRoot%\\system32\\url.dll,0'" + "\r\n \r\n"
+                    + @"[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\gundao\Shell]" + "\r\n \r\n"
+                    + @"[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\gundao\Shell\open]" + "\r\n \r\n"
+                    + @"[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\gundao\Shell\open\command]" + "\r\n"
+                    + "@='" + gundaoSetup + @"\\LispForm.exe %l'";
+
+                text = text.Replace("\'", "\"");
+                reader.Close();
+                System.IO.File.WriteAllText(path, text, Encoding.Default);
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
         }
         #endregion
 

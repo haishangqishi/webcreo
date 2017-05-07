@@ -134,6 +134,7 @@ namespace CreoPro.Controllers
             userInfo.Phone = model_mem.phone;
             userInfo.CreoSetup = model_mem.creoSetup;
             userInfo.CreoWorkSpace = model_mem.creoWorkSpace;
+            userInfo.GundaoSetup = model_mem.gundaoSetup;
 
             return userInfo;
         }

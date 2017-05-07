@@ -29,6 +29,7 @@
             $("#txtphone").val(jsonObj.phone);
             $("#txtcreoSetup").val(jsonObj.creoSetup);
             $("#txtcreoWorkSpace").val(jsonObj.creoWorkSpace);
+            $("#txtgundaoSetup").val(jsonObj.gundaoSetup);
         }
     });
 

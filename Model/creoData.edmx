@@ -58,6 +58,7 @@
           <Property Name="sex" Type="int" />
           <Property Name="creoSetup" Type="varchar" MaxLength="200" />
           <Property Name="creoWorkSpace" Type="varchar" MaxLength="200" />
+          <Property Name="gundaoSetup" Type="varchar" MaxLength="200" />
           <Property Name="isWork" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="parameters">
@@ -268,6 +269,7 @@
           <Property Type="String" Name="creoWorkSpace" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="isWork" Nullable="false" />
           <NavigationProperty Name="parameters" Relationship="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" FromRole="member" ToRole="parameters" />
+          <Property Type="String" Name="gundaoSetup" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="parameters">
           <Key>
@@ -371,6 +373,7 @@
           <EntitySetMapping Name="member">
             <EntityTypeMapping TypeName="creo_dataModel.member">
               <MappingFragment StoreEntitySet="member">
+                <ScalarProperty Name="gundaoSetup" ColumnName="gundaoSetup" />
                 <ScalarProperty Name="isWork" ColumnName="isWork" />
                 <ScalarProperty Name="creoWorkSpace" ColumnName="creoWorkSpace" />
                 <ScalarProperty Name="creoSetup" ColumnName="creoSetup" />

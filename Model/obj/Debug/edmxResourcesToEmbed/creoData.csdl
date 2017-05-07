@@ -112,6 +112,7 @@
     <Property Type="String" Name="creoWorkSpace" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Type="Int32" Name="isWork" Nullable="false" />
     <NavigationProperty Name="parameters" Relationship="creo_dataModel.FK_PARAMETE_REFERENCE_MEMBER" FromRole="member" ToRole="parameters" />
+    <Property Type="String" Name="gundaoSetup" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="parameters">
     <Key>

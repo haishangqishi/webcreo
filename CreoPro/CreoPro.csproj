@@ -383,6 +383,7 @@
     <Content Include="Scripts\paraInput.js" />
     <Content Include="Scripts\register.js" />
     <Content Include="Scripts\simuProc.js" />
+    <Content Include="Scripts\sysHelp.js" />
     <Content Include="Scripts\toolSet.js" />
     <Content Include="Scripts\toolType.js" />
     <Content Include="Web.config">
@@ -447,6 +448,9 @@
     <Content Include="Views\Machine\machineSet.cshtml" />
     <Content Include="Views\Tool\toolType.cshtml" />
     <Content Include="Views\Tool\toolSet.cshtml" />
+    <Content Include="Views\mainForm\sysHelp.cshtml" />
+    <None Include="files\gundao.reg" />
+    <None Include="files\Setup.msi" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

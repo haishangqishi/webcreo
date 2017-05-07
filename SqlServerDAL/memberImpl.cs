@@ -21,9 +21,9 @@ namespace SqlServerDAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into member(");
-            strSql.Append("userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,isWork)");
+            strSql.Append("userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,gundaoSetup,isWork)");
             strSql.Append(" values (");
-            strSql.Append("@userName,@userPwd,@userRole,@email,@phone,@sex,@creoSetup,@creoWorkSpace,@isWork)");
+            strSql.Append("@userName,@userPwd,@userRole,@email,@phone,@sex,@creoSetup,@creoWorkSpace,@gundaoSetup,@isWork)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
                     new SqlParameter("@userName", SqlDbType.VarChar,100),
@@ -34,6 +34,7 @@ namespace SqlServerDAL
                     new SqlParameter("@sex", SqlDbType.Int,4),
                     new SqlParameter("@creoSetup", SqlDbType.VarChar,200),
                     new SqlParameter("@creoWorkSpace", SqlDbType.VarChar,200),
+                    new SqlParameter("@gundaoSetup", SqlDbType.VarChar,200),
                     new SqlParameter("@isWork", SqlDbType.Int,4)};
             parameters[0].Value = model.userName;
             parameters[1].Value = model.userPwd;
@@ -43,7 +44,8 @@ namespace SqlServerDAL
             parameters[5].Value = model.sex;
             parameters[6].Value = model.creoSetup;
             parameters[7].Value = model.creoWorkSpace;
-            parameters[8].Value = model.isWork;
+            parameters[8].Value = model.gundaoSetup;
+            parameters[9].Value = model.isWork;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -71,6 +73,7 @@ namespace SqlServerDAL
             strSql.Append("sex=@sex,");
             strSql.Append("creoSetup=@creoSetup,");
             strSql.Append("creoWorkSpace=@creoWorkSpace,");
+            strSql.Append("gundaoSetup=@gundaoSetup,");
             strSql.Append("isWork=@isWork");
             strSql.Append(" where mem_id=@mem_id");
             SqlParameter[] parameters = {
@@ -82,6 +85,7 @@ namespace SqlServerDAL
                     new SqlParameter("@sex", SqlDbType.Int,4),
                     new SqlParameter("@creoSetup", SqlDbType.VarChar,200),
                     new SqlParameter("@creoWorkSpace", SqlDbType.VarChar,200),
+                    new SqlParameter("@gundaoSetup", SqlDbType.VarChar,200),
                     new SqlParameter("@isWork", SqlDbType.Int,4),
                     new SqlParameter("@mem_id", SqlDbType.Int,4)};
             parameters[0].Value = model.userName;
@@ -92,8 +96,9 @@ namespace SqlServerDAL
             parameters[5].Value = model.sex;
             parameters[6].Value = model.creoSetup;
             parameters[7].Value = model.creoWorkSpace;
-            parameters[8].Value = model.isWork;
-            parameters[9].Value = model.mem_id;
+            parameters[8].Value = model.gundaoSetup;
+            parameters[9].Value = model.isWork;
+            parameters[10].Value = model.mem_id;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -136,7 +141,7 @@ namespace SqlServerDAL
         public Model.member GetModel(int mem_id)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select top 1 mem_id,userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,isWork from member ");
+            strSql.Append("select top 1 mem_id,userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,gundaoSetup,isWork from member ");
             strSql.Append(" where mem_id=@mem_id and isWork=1");
             SqlParameter[] parameters = {
                     new SqlParameter("@mem_id", SqlDbType.Int,4)
@@ -161,7 +166,7 @@ namespace SqlServerDAL
         public DataSet GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select mem_id,userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,isWork ");
+            strSql.Append("select mem_id,userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,gundaoSetup,isWork ");
             strSql.Append(" FROM member where isWork=1");
             if (strWhere.Trim() != "")
             {
@@ -214,6 +219,10 @@ namespace SqlServerDAL
                 {
                     model.creoWorkSpace = row["creoWorkSpace"].ToString();
                 }
+                if (row["gundaoSetup"] != null)
+                {
+                    model.gundaoSetup = row["gundaoSetup"].ToString();
+                }
                 if (row["isWork"] != null && row["isWork"].ToString() != "")
                 {
                     model.isWork = int.Parse(row["isWork"].ToString());
@@ -230,7 +239,7 @@ namespace SqlServerDAL
         public Model.member GetMemberByName(string username)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 mem_id,userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,isWork from member ");
+            strSql.Append("select  top 1 mem_id,userName,userPwd,userRole,email,phone,sex,creoSetup,creoWorkSpace,gundaoSetup,isWork from member ");
             strSql.Append(" where userName=@username and isWork=1");
             SqlParameter[] parameters = {
                     new SqlParameter("@username", SqlDbType.VarChar,100)

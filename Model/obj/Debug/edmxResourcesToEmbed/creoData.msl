@@ -57,6 +57,7 @@
     <EntitySetMapping Name="member">
       <EntityTypeMapping TypeName="creo_dataModel.member">
         <MappingFragment StoreEntitySet="member">
+          <ScalarProperty Name="gundaoSetup" ColumnName="gundaoSetup" />
           <ScalarProperty Name="isWork" ColumnName="isWork" />
           <ScalarProperty Name="creoWorkSpace" ColumnName="creoWorkSpace" />
           <ScalarProperty Name="creoSetup" ColumnName="creoSetup" />

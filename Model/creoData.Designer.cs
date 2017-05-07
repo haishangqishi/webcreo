@@ -876,6 +876,30 @@ namespace Model
         private global::System.Int32 _isWork;
         partial void OnisWorkChanging(global::System.Int32 value);
         partial void OnisWorkChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String gundaoSetup
+        {
+            get
+            {
+                return _gundaoSetup;
+            }
+            set
+            {
+                OngundaoSetupChanging(value);
+                ReportPropertyChanging("gundaoSetup");
+                _gundaoSetup = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("gundaoSetup");
+                OngundaoSetupChanged();
+            }
+        }
+        private global::System.String _gundaoSetup;
+        partial void OngundaoSetupChanging(global::System.String value);
+        partial void OngundaoSetupChanged();
 
         #endregion
 
