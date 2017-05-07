@@ -9,9 +9,11 @@ using System.IO;
 using System.Text;
 using pfcls;
 using log4net;
+using CreoPro.Filters;
 
 namespace CreoPro.Controllers
 {
+    [CustomFilter]
     public class mainFormController : Controller
     {
         IpfcAsyncConnection asyncConnection = null;
@@ -134,7 +136,7 @@ namespace CreoPro.Controllers
             try
             {
                 setConfig(exePath);//设置配置文件
-                log.Info("设置配置文件");
+                log.Info("设置配置文件,安装路径：" + exePath);
                 cAC = new CCpfcAsyncConnection();
                 if (flag)
                 {
@@ -159,7 +161,7 @@ namespace CreoPro.Controllers
                 paOwner = (IpfcParameterOwner)model;
                 //map = selectFamTab1();//测试数据
 
-                log.Info("模型更新start:"+map.ToString());
+                log.Info("模型更新start:" + StrUtils.mapToStr(map));
                 //模型更新
                 Dictionary<string, double> mapGoal = null;
                 if (map != null)
@@ -176,7 +178,7 @@ namespace CreoPro.Controllers
                     }
                     updateFamTab(paOwner, mapGoal);
                 }
-                log.Info("赋值mapGoal：" + mapGoal.ToString());
+                log.Info("赋值mapGoal：" + StrUtils.mapToStr(mapGoal));
 
                 if (model.Type == (int)EpfcModelType.EpfcMDL_PART)
                 {
@@ -196,10 +198,12 @@ namespace CreoPro.Controllers
                 double paraValue = para.Value.DoubleValue;
                 paraValue = Math.Round(paraValue, 3);//保留两位小数
                 mapGoal.Add("AC", paraValue);//覆盖AC
+                log.Info("侧刃后角：" + paraValue);
 
                 UserInfo userInfo = getUserInfo();
                 if (userInfo.UserName != "admin")//admin管理员只负责维护标准模型
                 {
+                    log.Info("写入数据库");
                     addData(mapGoal);//写入数据库
                 }
             }

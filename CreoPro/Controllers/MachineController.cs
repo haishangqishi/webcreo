@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Common;
+using CreoPro.Filters;
 
 namespace CreoPro.Controllers
 {
+    [CustomFilter]
     public class MachineController : Controller
     {
         private BLL.process bll_proc = null;

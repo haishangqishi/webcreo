@@ -42,5 +42,24 @@ namespace Common
             return flag;
         }
 
+        /// <summary>
+        /// map转换成String
+        /// </summary>
+        /// <param name="map"></param>
+        /// <returns></returns>
+        public static string mapToStr<T>(Dictionary<string, T> map)
+        {
+            StringBuilder strb = new StringBuilder();
+            string key;
+            string value;
+            foreach (KeyValuePair<string, T> kvp in map)
+            {
+                key = kvp.Key.ToString();
+                value = kvp.Value.ToString();
+                strb.Append(key + ":" + value + ",");
+            }
+            return strb.ToString().Substring(0, strb.Length - 1);
+        }
+
     }
 }

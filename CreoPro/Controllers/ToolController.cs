@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Common;
+using CreoPro.Filters;
 
 namespace CreoPro.Controllers
 {
+    [CustomFilter]
     public class ToolController : Controller
     {
         private BLL.process bll_proc = null;
@@ -23,7 +25,7 @@ namespace CreoPro.Controllers
         }
         #endregion
 
-         /// <summary>
+        /// <summary>
         /// 刀具类型
         /// </summary>
         /// <returns></returns>
@@ -35,7 +37,7 @@ namespace CreoPro.Controllers
             return View();
         }
 
-         /// <summary>
+        /// <summary>
         /// 刀具参数设置
         /// </summary>
         /// <returns></returns>
