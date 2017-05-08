@@ -13,7 +13,7 @@ using CreoPro.Filters;
 
 namespace CreoPro.Controllers
 {
-    [CustomFilter]
+    [CustomFilter, Exception]
     public class mainFormController : Controller
     {
         IpfcAsyncConnection asyncConnection = null;
@@ -75,6 +75,14 @@ namespace CreoPro.Controllers
         /// </summary>
         /// <returns></returns>
         public ActionResult sysHelp()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 错误页面
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult error()
         {
             return View();
         }

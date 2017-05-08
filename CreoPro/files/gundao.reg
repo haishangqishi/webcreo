@@ -1,0 +1,15 @@
+Windows Registry Editor Version 5.00
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\gundao]
+@="gundao"
+"URL Protocol"="D:\\Program Files (x86)\\XGY\\Setup\\LispForm.exe %l"
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\gundao\DefaultIcon]
+@="%SystemRoot%\system32\url.dll,0"
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\gundao\Shell]
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\gundao\Shell\open]
+ 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\gundao\Shell\open\command]
+@="D:\\Program Files (x86)\\XGY\\Setup\\LispForm.exe %l"

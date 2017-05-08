@@ -77,6 +77,7 @@
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ToolController.cs" />
     <Compile Include="Filters\CustomFilterAttribute.cs" />
+    <Compile Include="Filters\ExceptionAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -451,6 +452,7 @@
     <Content Include="Views\mainForm\sysHelp.cshtml" />
     <None Include="files\gundao.reg" />
     <None Include="files\Setup.msi" />
+    <Content Include="Views\mainForm\error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
