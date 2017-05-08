@@ -831,7 +831,7 @@ namespace CreoPro.Controllers
         }
 
         /// <summary>
-        /// 下载注册表
+        /// 下载注册表（暂不用）
         /// </summary>
         /// <returns></returns>
         public FileStreamResult downloadReg()

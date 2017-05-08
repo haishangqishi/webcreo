@@ -14,30 +14,31 @@
         }
     });
 
-    $("#regForm").bind("submit", function () {
-        var flag = false;
-        $.ajax({
-            type: "post",
-            url: "/Member/hasGundaoSetup",
-            data: {},
-            cache: false,
-            dataType: "json",
-            async: false, //同步模式
-            success: function (data) {
-                console.log(data);
-                if (data != "true") {
-                    $("#msg").text(data);
-                    $("#myModal").modal();
-                    flag = false;
-                } else {
-                    flag = true;
-                }
-            }
-        });
+    //表单提交前验证
+    //    $("#regForm").bind("submit", function () {
+    //        var flag = false;
+    //        $.ajax({
+    //            type: "post",
+    //            url: "/Member/hasGundaoSetup",
+    //            data: {},
+    //            cache: false,
+    //            dataType: "json",
+    //            async: false, //同步模式
+    //            success: function (data) {
+    //                console.log(data);
+    //                if (data != "true") {
+    //                    $("#msg").text(data);
+    //                    $("#myModal").modal();
+    //                    flag = false;
+    //                } else {
+    //                    flag = true;
+    //                }
+    //            }
+    //        });
 
-        if (!flag) {//不能在ajax返回中return，否则不能阻止下载
-            return false;
-        }
-    });
+    //        if (!flag) {//不能在ajax返回中return，否则不能阻止下载
+    //            return false;
+    //        }
+    //    });
 
 });

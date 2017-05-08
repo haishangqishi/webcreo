@@ -451,9 +451,8 @@
     <Content Include="Views\Tool\toolType.cshtml" />
     <Content Include="Views\Tool\toolSet.cshtml" />
     <Content Include="Views\mainForm\sysHelp.cshtml" />
-    <None Include="files\gundao.reg" />
-    <None Include="files\Setup.msi" />
     <Content Include="Views\mainForm\error.cshtml" />
+    <None Include="files\Setup.msi" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
