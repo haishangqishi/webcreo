@@ -43,19 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="creoData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>creoData.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="machineDetail.cs" />
+    <Compile Include="machines.cs" />
+    <Compile Include="member.cs" />
+    <Compile Include="parameters.cs" />
+    <Compile Include="process.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="toolDetail.cs" />
+    <Compile Include="tools.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="creoData.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>creoData.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

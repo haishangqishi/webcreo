@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Model;
 using Common;
 using System.IO;
+using Model;
 
 namespace CreoPro.Controllers
 {
     public class HomeController : Controller
     {
-        creo_dataEntities db;
         private BLL.member bll_mem = null;
-        private Model.member model_mem = null;
+        private member model_mem = null;
 
         public HomeController()
         {
-            db = new creo_dataEntities();
+
         }
 
         /// <summary>
@@ -123,7 +122,7 @@ namespace CreoPro.Controllers
         private UserInfo setUserInfo(Model.member model_mem)
         {
             UserInfo userInfo = new UserInfo();
-            userInfo.mem_id = model_mem.mem_id;
+            userInfo.mem_id = model_mem.memId;
             userInfo.UserName = model_mem.userName;
             userInfo.UserPwd = model_mem.userPwd;
             if (model_mem.userRole != null)
@@ -133,12 +132,10 @@ namespace CreoPro.Controllers
             userInfo.Email = model_mem.email;
             userInfo.Phone = model_mem.phone;
             userInfo.CreoSetup = model_mem.creoSetup;
-            userInfo.CreoWorkSpace = model_mem.creoWorkSpace;
             userInfo.GundaoSetup = model_mem.gundaoSetup;
 
             return userInfo;
         }
-
-
+        
     }
 }

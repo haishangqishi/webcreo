@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Common;
 using CreoPro.Filters;
+using Model;
 
 namespace CreoPro.Controllers
 {
@@ -12,7 +13,7 @@ namespace CreoPro.Controllers
     public class ToolController : Controller
     {
         private BLL.process bll_proc = null;
-        private Model.process model_proc = null;
+        private process model_proc = null;
 
         #region 页面跳转
         /// <summary>

@@ -417,9 +417,9 @@
       <Project>{4AB3DF4D-F3E6-436A-A3AB-06D1D6CD6B7F}</Project>
       <Name>Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SqlServerDAL\SqlServerDAL.csproj">
-      <Project>{438F10BC-817C-495D-BAB9-8B6BCE04D3E5}</Project>
-      <Name>SqlServerDAL</Name>
+    <ProjectReference Include="..\MysqlDAL\MysqlDAL.csproj">
+      <Project>{04FFAEFD-5854-4ABD-B022-0028A12339C3}</Project>
+      <Name>MysqlDAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -492,7 +492,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2962</DevelopmentServerPort>
+          <DevelopmentServerPort>3388</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

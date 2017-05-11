@@ -10,6 +10,7 @@ using System.Text;
 using pfcls;
 using log4net;
 using CreoPro.Filters;
+using Model;
 
 namespace CreoPro.Controllers
 {
@@ -18,7 +19,7 @@ namespace CreoPro.Controllers
     {
         IpfcAsyncConnection asyncConnection = null;
         private BLL.parameters bll_parm = null;
-        private Model.parameters model_parm = null;
+        private parameters model_parm = null;
         private ILog log = LogManager.GetLogger(typeof(mainFormController));
 
         #region 页面跳转
@@ -330,8 +331,8 @@ namespace CreoPro.Controllers
             }
 
             bll_parm = new BLL.parameters();
-            model_parm = new Model.parameters();
-            model_parm.mem_id = mem_id;
+            model_parm = new parameters();
+            model_parm.memId = mem_id;
             if (map != null)
             {
                 string key;
@@ -349,40 +350,40 @@ namespace CreoPro.Controllers
                             model_parm.rongxieNum = Convert.ToInt32(value);
                             break;
                         case "DEG":
-                            model_parm.deg = Convert.ToDecimal(value);
+                            model_parm.waijing = Convert.ToDecimal(value);
                             break;
                         case "L":
-                            model_parm.L = Convert.ToDecimal(value);
+                            model_parm.quanchang = Convert.ToDecimal(value);
                             break;
                         case "GAMA0":
-                            model_parm.qianjiao = Convert.ToDecimal(value);
+                            model_parm.chiqianAngle = Convert.ToDecimal(value);
                             break;
                         case "DL":
-                            model_parm.zhoutaiD = Convert.ToDecimal(value);
+                            model_parm.ZTDiameter = Convert.ToDecimal(value);
                             break;
                         case "D":
                             model_parm.kongjing = Convert.ToDecimal(value);
                             break;
                         case "DLO":
-                            model_parm.kongdaoD = Convert.ToDecimal(value);
+                            model_parm.NKDiameter = Convert.ToDecimal(value);
                             break;
                         case "L1":
-                            model_parm.kongdaoL = Convert.ToDecimal(value);
+                            model_parm.NKlength = Convert.ToDecimal(value);
                             break;
                         case "T1":
-                            model_parm.jiancaoH = Convert.ToDecimal(value);
+                            model_parm.jiancaoHeight = Convert.ToDecimal(value);
                             break;
                         case "A":
-                            model_parm.zhoutaiL = Convert.ToDecimal(value);
+                            model_parm.ZTlength = Convert.ToDecimal(value);
                             break;
                         case "B":
-                            model_parm.jiancaoW = Convert.ToDecimal(value);
+                            model_parm.jiancaoWidth = Convert.ToDecimal(value);
                             break;
                         case "C":
-                            model_parm.celeng = Convert.ToDecimal(value);
+                            model_parm.ZTdaoleng = Convert.ToDecimal(value);
                             break;
                         case "AE":
-                            model_parm.dingrenAngle = Convert.ToDecimal(value);
+                            model_parm.dingreHouAngle = Convert.ToDecimal(value);
                             break;
                         case "AC":
                             model_parm.cerenAngle = Convert.ToDecimal(value);
@@ -782,7 +783,7 @@ namespace CreoPro.Controllers
             }
 
             bll_parm = new BLL.parameters();
-            List<Model.parameters> list_parm = bll_parm.GetModelList(map, pageIndex, out totalRow);
+            List<parameters> list_parm = bll_parm.GetModelList(map, pageIndex, out totalRow);
             string strJson = JsonUtils.ObjectToJson(list_parm);
 
             Pager pager = new Pager();

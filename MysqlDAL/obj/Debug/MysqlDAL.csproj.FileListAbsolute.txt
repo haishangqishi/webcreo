@@ -1,0 +1,14 @@
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\bin\Debug\MysqlDAL.dll
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\bin\Debug\MysqlDAL.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\bin\Debug\Common.dll
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\bin\Debug\DBUtility.dll
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\bin\Debug\IDAL.dll
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\bin\Debug\Model.dll
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\bin\Debug\Newtonsoft.Json.dll
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\bin\Debug\Common.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\bin\Debug\DBUtility.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\bin\Debug\IDAL.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\bin\Debug\Model.pdb
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\obj\Debug\MysqlDAL.csprojResolveAssemblyReference.cache
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\obj\Debug\MysqlDAL.dll
+D:\VSsave\VS2010save\webcreo\creoPro\MysqlDAL\obj\Debug\MysqlDAL.pdb

@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Model;
 using Common;
 using System.IO;
 using Newtonsoft.Json;
+using Model;
 
 namespace CreoPro.Controllers
 {
     public class MemberController : Controller
     {
         private BLL.member bll_mem = null;
-        private Model.member model_mem = null;
+        private member model_mem = null;
 
         #region 页面跳转
         /// <summary>
@@ -139,7 +139,7 @@ namespace CreoPro.Controllers
             {
                 model_mem.gundaoSetup = gundaoSetup;
             }
-            model_mem.isWork = 1;
+            model_mem.isDelete = 0;
             bll_mem.Add(model_mem);
 
             return Json("True");
@@ -206,14 +206,14 @@ namespace CreoPro.Controllers
             {
                 userInfo = Session["userEntity"] as UserInfo;
             }
-            
+
             string gundaoSetup = "";
             if (userInfo != null)
             {
                 gundaoSetup = userInfo.GundaoSetup;//安装路径
                 if (gundaoSetup == "")
                 {
-                    return Json("滚刀系统安装路径为空！"); 
+                    return Json("滚刀系统安装路径为空！");
                 }
             }
             return Json("true");
