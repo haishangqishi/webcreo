@@ -1,0 +1,92 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>齿轮滚刀系统</title>
+    <script src="../../Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/simuProc.js" type="text/javascript"></script>
+</head>
+<body>
+    <!-- 工具条 starts -->
+    @RenderPage("../mainForm/top.cshtml")
+    <!-- 工具条 ends -->
+    <div class="ch-container">
+        <div class="row">
+            <!-- 左菜单 starts -->
+            @RenderPage("../mainForm/left.cshtml")
+            <!-- 左菜单 ends -->
+            <!-- 内容页 starts-->
+            <div id="content" class="col-lg-10 col-sm-10">
+                <div>
+                    <ul class="mybreadcrumb">
+                        <li><a href="#">系统组成</a></li>
+                        <li><a href="/mainForm/simuProc">仿真加工</a></li>
+                    </ul>
+                </div>
+                <!-- 零件相册 starts-->
+                <div class="row">
+                    <div class="box col-md-12">
+                        <div class="box-inner">
+                            <div class="box-header well" data-original-title="">
+                                <h2 class="h-blue">
+                                    <i class="glyphicon glyphicon-edit"></i>虚拟空间</h2>
+                                <div class="box-icon">
+                                    <a href="#" id="simu_aMin" class="btn btn-minimize btn-round btn-default"><i id="simu_iMin"
+                                        class="glyphicon glyphicon-chevron-up"></i></a>
+                                </div>
+                            </div>
+                            <div id="simuDiv" style="display: block">
+                                <div class="box-content">
+                                    <div class="box-north">
+                                        <form id="simuForm" action="" method="post">
+                                        <label class="blue-label-se">
+                                            系列</label><select class="sel-sm" name="serail" id="sel_serail_simu">
+                                                <option value="1" selected="selected">1</option>
+                                                <option value="2">2</option>
+                                            </select>
+                                        <label class="blue-label-se">
+                                            类型</label><select class="sel-sm" name="type" id="sel_type_simu">
+                                                <option value="1" selected="selected">I 型</option>
+                                                <option value="2">Ⅱ型</option>
+                                            </select>
+                                        <label class="blue-label-se">
+                                            模数</label><select class="sel-sm-moshu" name="moshu" id="sel_moshu_simu">
+                                                <option value="1" selected="selected">1</option>
+                                                <option value="1.25">1.25</option>
+                                                <option value="1.5">1.5</option>
+                                                <option value="2">2</option>
+                                                <option value="2.5">2.5</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="8">8</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        <input id="selPrt_simu" type="button" class="button-sm-se btn-primary" value="仿真" />
+                                        </form>
+                                    </div>
+                                    <div class="div-center-simu">
+                                        <div class="div-img-simu img">
+                                            <img alt="仿真加工" style="height: 420px; width: 334px;" src="../../Content/images/simu/下刀点z=67.6.png">
+                                            @*<img alt="仿真加工" src="@ViewBag.picPath">*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 零件相册 ends-->
+            </div>
+            <!-- 内容页 ends -->
+        </div>
+        <!-- 模态框 starts -->
+        @RenderPage("../mainForm/modal.cshtml")
+        <!-- 模态框 ends -->
+    </div>
+    <hr>
+</body>
+</html>

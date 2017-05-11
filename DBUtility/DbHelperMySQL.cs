@@ -892,7 +892,7 @@ namespace DBUtility
                     if (strsql.Trim().Length > 1)
                     {
                         cmd.CommandText = strsql;
-                        count = (int)cmd.ExecuteScalar();
+                        count = Convert.ToInt32(cmd.ExecuteScalar());
                     }
                     total = count;
                     tx.Commit();

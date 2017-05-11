@@ -184,7 +184,7 @@ namespace MysqlDAL
             {
                 strSql.Append(" and " + strWhere);
             }
-            return DbHelperSQL.Query(strSql.ToString());
+            return DbHelperMySQL.Query(strSql.ToString());
         }
 
         /// <summary>
@@ -229,7 +229,7 @@ namespace MysqlDAL
             {
                 strSql.Append(" and " + strWhere);
             }
-            return DbHelperSQL.Query(strSql.ToString());
+            return DbHelperMySQL.Query(strSql.ToString());
         }
 
         /// <summary>

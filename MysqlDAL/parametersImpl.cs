@@ -23,9 +23,9 @@ namespace MysqlDAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into parameters(");
-            strSql.Append("moshu,chigaoXishu,xuanxiang,faxiangYaLiJiao,jingxiangXiShu,jingduClass,waijing,kongjing,quanchang,caoxingAngle,rongxieCaoXing,rongxieNum,dingreHouAngle,chiqianAngle,ZTDiameter,ZTlength,ZTdaoleng,jiancaoWidth,jiancaoHeight,jiancaoYuanHu,NKDiameter,NKlength,aqz,aqy,hegq,sfzg,hgq,tz,r1,r2,dfg,H,lamtaf,R0,k,cerenAngle,isStandard,serail,type,memId,dimNum,isDelete)");
+            strSql.Append("moshu,chigaoXishu,xuanxiang,faxiangYaLiJiao,jingxiangXiShu,jingduClass,waijing,kongjing,quanchang,caoxingAngle,rongxieCaoXing,rongxieNum,dingrenAngle,chiqianAngle,ZTDiameter,ZTlength,ZTdaoleng,jiancaoWidth,jiancaoHeight,jiancaoYuanHu,NKDiameter,NKlength,aqz,aqy,hegq,sfzg,hgq,tz,r1,r2,dfg,H,lamtaf,R0,k,cerenAngle,isStandard,serail,type,memId,dimNum,isDelete)");
             strSql.Append(" values (");
-            strSql.Append("@moshu,@chigaoXishu,@xuanxiang,@faxiangYaLiJiao,@jingxiangXiShu,@jingduClass,@waijing,@kongjing,@quanchang,@caoxingAngle,@rongxieCaoXing,@rongxieNum,@dingreHouAngle,@chiqianAngle,@ZTDiameter,@ZTlength,@ZTdaoleng,@jiancaoWidth,@jiancaoHeight,@jiancaoYuanHu,@NKDiameter,@NKlength,@aqz,@aqy,@hegq,@sfzg,@hgq,@tz,@r1,@r2,@dfg,@H,@lamtaf,@R0,@k,@cerenAngle,@isStandard,@serail,@type,@memId,@dimNum,@isDelete)");
+            strSql.Append("@moshu,@chigaoXishu,@xuanxiang,@faxiangYaLiJiao,@jingxiangXiShu,@jingduClass,@waijing,@kongjing,@quanchang,@caoxingAngle,@rongxieCaoXing,@rongxieNum,@dingrenAngle,@chiqianAngle,@ZTDiameter,@ZTlength,@ZTdaoleng,@jiancaoWidth,@jiancaoHeight,@jiancaoYuanHu,@NKDiameter,@NKlength,@aqz,@aqy,@hegq,@sfzg,@hgq,@tz,@r1,@r2,@dfg,@H,@lamtaf,@R0,@k,@cerenAngle,@isStandard,@serail,@type,@memId,@dimNum,@isDelete)");
             MySqlParameter[] parameters = {
 					new MySqlParameter("@moshu", MySqlDbType.Float,6),
 					new MySqlParameter("@chigaoXishu", MySqlDbType.Float,6),
@@ -39,7 +39,7 @@ namespace MysqlDAL
 					new MySqlParameter("@caoxingAngle", MySqlDbType.Float,6),
 					new MySqlParameter("@rongxieCaoXing", MySqlDbType.VarChar,50),
 					new MySqlParameter("@rongxieNum", MySqlDbType.Int32,11),
-					new MySqlParameter("@dingreHouAngle", MySqlDbType.Float,6),
+					new MySqlParameter("@dingrenAngle", MySqlDbType.Float,6),
 					new MySqlParameter("@chiqianAngle", MySqlDbType.Float,6),
 					new MySqlParameter("@ZTDiameter", MySqlDbType.Float,6),
 					new MySqlParameter("@ZTlength", MySqlDbType.Float,6),
@@ -81,7 +81,7 @@ namespace MysqlDAL
             parameters[9].Value = model.caoxingAngle;
             parameters[10].Value = model.rongxieCaoXing;
             parameters[11].Value = model.rongxieNum;
-            parameters[12].Value = model.dingreHouAngle;
+            parameters[12].Value = model.dingrenAngle;
             parameters[13].Value = model.chiqianAngle;
             parameters[14].Value = model.ZTDiameter;
             parameters[15].Value = model.ZTlength;
@@ -135,7 +135,7 @@ namespace MysqlDAL
             strSql.Append("caoxingAngle=@caoxingAngle,");
             strSql.Append("rongxieCaoXing=@rongxieCaoXing,");
             strSql.Append("rongxieNum=@rongxieNum,");
-            strSql.Append("dingreHouAngle=@dingreHouAngle,");
+            strSql.Append("dingrenAngle=@dingrenAngle,");
             strSql.Append("chiqianAngle=@chiqianAngle,");
             strSql.Append("ZTDiameter=@ZTDiameter,");
             strSql.Append("ZTlength=@ZTlength,");
@@ -179,7 +179,7 @@ namespace MysqlDAL
 					new MySqlParameter("@caoxingAngle", MySqlDbType.Float,6),
 					new MySqlParameter("@rongxieCaoXing", MySqlDbType.VarChar,50),
 					new MySqlParameter("@rongxieNum", MySqlDbType.Int32,11),
-					new MySqlParameter("@dingreHouAngle", MySqlDbType.Float,6),
+					new MySqlParameter("@dingrenAngle", MySqlDbType.Float,6),
 					new MySqlParameter("@chiqianAngle", MySqlDbType.Float,6),
 					new MySqlParameter("@ZTDiameter", MySqlDbType.Float,6),
 					new MySqlParameter("@ZTlength", MySqlDbType.Float,6),
@@ -222,7 +222,7 @@ namespace MysqlDAL
             parameters[9].Value = model.caoxingAngle;
             parameters[10].Value = model.rongxieCaoXing;
             parameters[11].Value = model.rongxieNum;
-            parameters[12].Value = model.dingreHouAngle;
+            parameters[12].Value = model.dingrenAngle;
             parameters[13].Value = model.chiqianAngle;
             parameters[14].Value = model.ZTDiameter;
             parameters[15].Value = model.ZTlength;
@@ -295,7 +295,7 @@ namespace MysqlDAL
         public Model.parameters GetModel(int parmId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select parmId,moshu,chigaoXishu,xuanxiang,faxiangYaLiJiao,jingxiangXiShu,jingduClass,waijing,kongjing,quanchang,caoxingAngle,rongxieCaoXing,rongxieNum,dingreHouAngle,chiqianAngle,ZTDiameter,ZTlength,ZTdaoleng,jiancaoWidth,jiancaoHeight,jiancaoYuanHu,NKDiameter,NKlength,aqz,aqy,hegq,sfzg,hgq,tz,r1,r2,dfg,H,lamtaf,R0,k,cerenAngle,isStandard,serail,type,memId,dimNum,isDelete from parameters ");
+            strSql.Append("select parmId,moshu,chigaoXishu,xuanxiang,faxiangYaLiJiao,jingxiangXiShu,jingduClass,waijing,kongjing,quanchang,caoxingAngle,rongxieCaoXing,rongxieNum,dingrenAngle,chiqianAngle,ZTDiameter,ZTlength,ZTdaoleng,jiancaoWidth,jiancaoHeight,jiancaoYuanHu,NKDiameter,NKlength,aqz,aqy,hegq,sfzg,hgq,tz,r1,r2,dfg,H,lamtaf,R0,k,cerenAngle,isStandard,serail,type,memId,dimNum,isDelete from parameters ");
             strSql.Append(" where parmId=@parmId and isDelete=0");
             MySqlParameter[] parameters = {
 					new MySqlParameter("@parmId", MySqlDbType.Int32)
@@ -337,14 +337,14 @@ namespace MysqlDAL
             string sqlLimit = getSql(map);
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select top " + pageSize + " parm_id,mem_id,moshu,deg,kongjing,L,rongxieNum,zhoutaiD,zhoutaiL,jiancaoW,jiancaoH,kongdaoD,kongdaoL,celeng,jiancaoR,isStandard,serail,type,qianjiao,dingrenAngle,cerenAngle,isDelete from ");
-            strSql.Append(" (select ROW_NUMBER() OVER (ORDER BY parm_id ASC) AS RowNumber,* FROM parameters where isDelete=0 and (mem_id=1 or mem_id=" + mem_id + ") " + sqlLimit + " ) as tmp ");
-            strSql.Append(" WHERE RowNumber > " + pageSize * (pageIndex - 1) + sqlLimit);
+            strSql.Append("select * from parameters where parmId >= ");
+            strSql.Append(" (select parmId from parameters where isDelete=0 and memId=" + mem_id + sqlLimit + " limit " + pageSize * (pageIndex - 1) + ",1)");
+            strSql.Append(" limit " + pageSize);
             sqlList.Add(strSql.ToString());
 
             StringBuilder strSql1 = new StringBuilder();
             strSql1.Append("select count(*) ");
-            strSql1.Append(" FROM parameters where isDelete=0 and (mem_id=1 or mem_id=" + mem_id + ") " + sqlLimit);
+            strSql1.Append(" FROM parameters where isDelete=0 and memId=" + mem_id + sqlLimit);
             sqlList.Add(strSql1.ToString());
 
             return DbHelperMySQL.ExecuteSqlTran_page(sqlList, out total);
@@ -410,9 +410,9 @@ namespace MysqlDAL
                 {
                     model.rongxieNum = int.Parse(row["rongxieNum"].ToString());
                 }
-                if (row["dingreHouAngle"] != null && row["dingreHouAngle"].ToString() != "")
+                if (row["dingrenAngle"] != null && row["dingrenAngle"].ToString() != "")
                 {
-                    model.dingreHouAngle = decimal.Parse(row["dingreHouAngle"].ToString());
+                    model.dingrenAngle = decimal.Parse(row["dingrenAngle"].ToString());
                 }
                 if (row["chiqianAngle"] != null && row["chiqianAngle"].ToString() != "")
                 {
@@ -555,7 +555,7 @@ namespace MysqlDAL
                 }
                 if (map.ContainsKey("deg") && map["deg"].ToString() != "")
                 {
-                    strSql.Append(" and deg=" + Convert.ToDecimal(map["deg"].ToString()));
+                    strSql.Append(" and waijing=" + Convert.ToDecimal(map["deg"].ToString()));
                 }
                 if (!map.ContainsKey("isStandard"))
                 {
@@ -595,32 +595,6 @@ namespace MysqlDAL
             }
             return strSql.ToString();
         }
-
-        /// <summary>
-        /// 分页获取数据列表
-        /// </summary>
-        //public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
-        //{
-        //    StringBuilder strSql = new StringBuilder();
-        //    strSql.Append("SELECT * FROM ( ");
-        //    strSql.Append(" SELECT ROW_NUMBER() OVER (");
-        //    if (!string.IsNullOrEmpty(orderby.Trim()))
-        //    {
-        //        strSql.Append("order by T." + orderby);
-        //    }
-        //    else
-        //    {
-        //        strSql.Append("order by T.parmId desc");
-        //    }
-        //    strSql.Append(")AS Row, T.*  from parameters T ");
-        //    if (!string.IsNullOrEmpty(strWhere.Trim()))
-        //    {
-        //        strSql.Append(" WHERE " + strWhere);
-        //    }
-        //    strSql.Append(" ) TT");
-        //    strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
-        //    return DbHelperMySQL.Query(strSql.ToString());
-        //}
 
     }
 }

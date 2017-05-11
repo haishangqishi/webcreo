@@ -153,32 +153,22 @@ namespace CreoPro.Controllers
             try
             {
                 setConfig(exePath);//设置配置文件
-                log.Info("设置配置文件,安装路径：" + exePath);
                 cAC = new CCpfcAsyncConnection();
                 if (flag)
                 {
-                    log.Info("新开Creo进程-start");
                     asyncConnection = cAC.Start(exePath, ".");
-                    log.Info("新开Creo进程-end");
                 }
                 else
                 {
-                    log.Info("获取当前进程-start");
                     asyncConnection = cAC.Connect(DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value);
-                    log.Info("获取当前进程-end");
                 }
                 session = asyncConnection.Session as IpfcBaseSession;//获取session(会话)
-                log.Info("工作目录start：" + workDir);
                 session.ChangeDirectory(workDir);// 设置工作目录
-                log.Info("工作目录end");
                 descModel = (new CCpfcModelDescriptor()).Create((int)EpfcModelType.EpfcMDL_PART, "chilungundao.prt", null);//获取工作目录下的零件模型描述
-                log.Info("模型恢复start:" + descModel);
                 model = session.RetrieveModel(descModel);//零件模型
-                log.Info("模型恢复end");
                 paOwner = (IpfcParameterOwner)model;
                 //map = selectFamTab1();//测试数据
 
-                log.Info("模型更新start:" + StrUtils.mapToStr(map));
                 //模型更新
                 Dictionary<string, double> mapGoal = null;
                 if (map != null)
@@ -195,19 +185,15 @@ namespace CreoPro.Controllers
                     }
                     updateFamTab(paOwner, mapGoal);
                 }
-                log.Info("赋值mapGoal：" + StrUtils.mapToStr(mapGoal));
 
                 if (model.Type == (int)EpfcModelType.EpfcMDL_PART)
                 {
-                    log.Info("准备重生模型");
                     solid = (IpfcSolid)model;
                     ins = (new CCpfcRegenInstructions()).Create(true, null, null);
                     ins.UpdateInstances = true;
                     solid.Regenerate(ins);
-                    log.Info("重生模型完毕");
                 }
 
-                log.Info("模型显示");
                 model.Display();//模型显示
 
                 //Dictionary<string, double> map_fa = selectFamTab(paOwner);//获取最新族表数据
@@ -220,7 +206,6 @@ namespace CreoPro.Controllers
                 UserInfo userInfo = getUserInfo();
                 if (userInfo.UserName != "admin")//admin管理员只负责维护标准模型
                 {
-                    log.Info("写入数据库");
                     addData(mapGoal);//写入数据库
                 }
             }
@@ -383,7 +368,7 @@ namespace CreoPro.Controllers
                             model_parm.ZTdaoleng = Convert.ToDecimal(value);
                             break;
                         case "AE":
-                            model_parm.dingreHouAngle = Convert.ToDecimal(value);
+                            model_parm.dingrenAngle = Convert.ToDecimal(value);
                             break;
                         case "AC":
                             model_parm.cerenAngle = Convert.ToDecimal(value);

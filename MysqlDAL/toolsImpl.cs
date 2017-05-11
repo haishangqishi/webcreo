@@ -168,12 +168,12 @@ namespace MysqlDAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select td.todeId,t.toolName,t.picName,td.toolPara,td.toolParaValue from tools t");
-            strSql.Append(" left join toolDetail td on td.toolId=t.toolId where t.isDelete=0 and td.isDelete=0");
+            strSql.Append(" left join toolDetail td on td.toolId=t.toolId where t.isDelete=0 and (td.isDelete=0 or td.isDelete is null) ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" and " + strWhere);
             }
-            return DbHelperSQL.Query(strSql.ToString());
+            return DbHelperMySQL.Query(strSql.ToString());
         }
 
         /// <summary>

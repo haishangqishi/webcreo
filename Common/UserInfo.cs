@@ -16,8 +16,8 @@ namespace Common
         private int userRole = 0;
         private string email = "";
         private string phone = "";
+        private string cadPath = "";
         private string creoSetup = "";
-        private string creoWorkSpace = "";
         private string gundaoSetup = "";
 
         public int mem_id
@@ -62,10 +62,10 @@ namespace Common
             set { creoSetup = value; }
         }
 
-        public string CreoWorkSpace
+        public string CadPath
         {
-            get { return creoWorkSpace; }
-            set { creoWorkSpace = value; }
+            get { return cadPath; }
+            set { cadPath = value; }
         }
 
         public string GundaoSetup

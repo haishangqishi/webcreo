@@ -131,11 +131,11 @@ namespace CreoPro.Controllers
             }
             userInfo.Email = model_mem.email;
             userInfo.Phone = model_mem.phone;
+            userInfo.CadPath = model_mem.cadPath;
             userInfo.CreoSetup = model_mem.creoSetup;
-            userInfo.GundaoSetup = model_mem.gundaoSetup;
 
             return userInfo;
         }
-        
+
     }
 }

@@ -40,8 +40,8 @@ namespace CreoPro.Controllers
             string password = map["txtpwd"].ToString();
             string phone = map["txtphone"].ToString();
             string email = map["txtemail"].ToString();
+            string cadPath = map["txtcadPath"].ToString();
             string creoSetup = map["txtcreoSetup"].ToString();
-            string gundaoSetup = map["txtgundaoSetup"].ToString();
 
             UserInfo userInfo = null;
             if (Session["userEntity"] != null)
@@ -77,10 +77,10 @@ namespace CreoPro.Controllers
                 model_mem.creoSetup = creoSetup;
                 userInfo.CreoSetup = creoSetup;
             }
-            if (StrUtils.strNotNUll(gundaoSetup))
+            if (StrUtils.strNotNUll(cadPath))
             {
-                model_mem.gundaoSetup = gundaoSetup;
-                userInfo.GundaoSetup = gundaoSetup;
+                model_mem.cadPath = cadPath;
+                userInfo.CadPath = cadPath;
             }
             bool flag = bll_mem.Update(model_mem);
 
@@ -111,8 +111,8 @@ namespace CreoPro.Controllers
             string password = map["txtpwd"].ToString();
             string phone = map["txtphone"].ToString();
             string email = map["txtemail"].ToString();
+            string cadPath = map["txtcadPath"].ToString();
             string creoSetup = map["txtcreoSetup"].ToString();
-            string gundaoSetup = map["txtgundaoSetup"].ToString();
 
             model_mem = new member();//重新实例化
             if (StrUtils.strNotNUll(username))
@@ -135,9 +135,9 @@ namespace CreoPro.Controllers
             {
                 model_mem.creoSetup = creoSetup;
             }
-            if (StrUtils.strNotNUll(gundaoSetup))
+            if (StrUtils.strNotNUll(cadPath))
             {
-                model_mem.gundaoSetup = gundaoSetup;
+                model_mem.cadPath = cadPath;
             }
             model_mem.isDelete = 0;
             bll_mem.Add(model_mem);
@@ -195,7 +195,7 @@ namespace CreoPro.Controllers
         }
 
         /// <summary>
-        /// 验证是否填写滚刀系统安装路径
+        /// 验证是否填写滚刀系统安装路径（暂不用）
         /// </summary>
         /// <returns></returns>
         [HttpPost]
